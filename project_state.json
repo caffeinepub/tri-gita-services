@@ -1,16 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Web project with a bank finance section and an inquiry form connected to WhatsApp. User is iterating on UI enhancements.",
+  "summary": "Project for TRI-GITA SERVICES — a finance/subsidy presentation or website. Features bank finance section with animations, subsidy structure section, office address, and service area information.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-add-entrance-and-interactive-animations-to-the-bankfinancebanner-component-include-a-fade-in-slide-up-animation-when-the-section-scrolls-into-view-a-pulsing-or-glowing-effect-on-the-90-loan-figure-to-draw-attention-a-subtle-shimmer-or-shine-sweep-animation-across-the-banner-background-and-a-hover-animation-scale-glow-on-the-whatsapp-cta-button-use-css-keyframe-animations-or-tailwind-animation-utilities-no-external-animation-libraries",
-      "title": "Add entrance and interactive animations to the BankFinanceBanner component. Include: a fade-in + slide-up animation when the section scrolls into view, a pulsing or glowing effect on the '90%' loan figure to draw attention, a subtle shimmer or shine sweep animation across the banner background, and a hover animation (scale + glow) on the WhatsApp CTA button. Use CSS keyframe animations or Tailwind animation utilities — no external animation libraries.",
+      "id": "feature-add-scroll-triggered-entrance-animations-to-the-subsidy-structure-section-in-odishaguide-tsx-the-subsidy-tier-table-rows-and-related-elements-should-animate-in-with-fade-in-and-slide-up-effects-using-intersectionobserver-consistent-with-the-bankfinancebanner-animation-pattern-include-prefers-reduced-motion-support",
+      "title": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx. The subsidy tier table rows and related elements should animate in with fade-in and slide-up effects using IntersectionObserver (consistent with the BankFinanceBanner animation pattern). Include prefers-reduced-motion support.",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-tri-gita-services-office-address-to-the-footer-component-the-address-is-shri-hari-niwas-dengimacha-near-dengimacha-ministadium-sambalpur-odisha-768006-display-it-alongside-the-existing-contact-details",
+      "title": "Add TRI-GITA SERVICES office address to the Footer component. The address is: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006. Display it alongside the existing contact details.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-service-area-odisha-entry-to-the-footer-component-and-or-a-relevant-section-such-as-whychooseus-or-a-dedicated-info-block-display-it-clearly-so-users-know-the-geographic-coverage-of-tri-gita-services",
+      "title": "Add a 'Service Area: Odisha' entry to the Footer component and/or a relevant section (such as WhyChooseUs or a dedicated info block). Display it clearly so users know the geographic coverage of TRI-GITA SERVICES.",
+      "reqIds": [
+        "REQ-3"
       ],
       "version": 1
     }
@@ -18,7 +34,19 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add animation to the bank finance section",
+      "summary": "Add animation to the subsidy structure section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add TRI-GITA SERVICES office address: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add Service Area: Odisha",
       "reqIds": [],
       "status": "pending"
     }

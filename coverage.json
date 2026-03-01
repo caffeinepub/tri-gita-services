@@ -1,26 +1,48 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T22:24:18.379Z",
+  "generatedAt": "2026-03-01T22:35:29.469Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Add entrance and interactive animations to the BankFinanceBanner component. Include: a fade-in + slide-up animation when the section scrolls into view, a pulsing or glowing effect on the '90%' loan figure to draw attention, a subtle shimmer or shine sweep animation across the banner background, and a hover animation (scale + glow) on the WhatsApp CTA button. Use CSS keyframe animations or Tailwind animation utilities — no external animation libraries.",
+        "summary": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx. The subsidy tier table rows and related elements should animate in with fade-in and slide-up effects using IntersectionObserver (consistent with the BankFinanceBanner animation pattern). Include prefers-reduced-motion support.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/BankFinanceBanner.tsx",
+          "frontend/src/components/OdishaGuide.tsx",
           "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/src/components/BankFinanceBanner.tsx",
+          "frontend/src/components/OdishaGuide.tsx",
           "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add TRI-GITA SERVICES office address to the Footer component. The address is: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006. Display it alongside the existing contact details.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add a 'Service Area: Odisha' entry to the Footer component and/or a relevant section (such as WhyChooseUs or a dedicated info block). Display it clearly so users know the geographic coverage of TRI-GITA SERVICES.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Footer.tsx"
         ]
       }
     ]
@@ -30,7 +52,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/BankFinanceBanner.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/OdishaGuide.tsx",
     "frontend/src/index.css",
     "project_state.json",
     "scratch/component-selection.json",

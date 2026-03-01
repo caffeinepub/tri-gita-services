@@ -1,29 +1,59 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add animations to BankFinanceBanner component",
+  "title": "Add animations to subsidy structure, add office address, and add service area",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add entrance and interactive animations to BankFinanceBanner using CSS keyframes or Tailwind utilities",
+      "summary": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx using IntersectionObserver with fade-in and slide-up effects, consistent with BankFinanceBanner animation pattern",
       "acceptanceCriteria": [
-        "The BankFinanceBanner section animates in (fade + slide-up) when it enters the viewport on scroll",
-        "The '90%' loan highlight text or badge has a continuous pulse or glow animation to attract attention",
-        "The banner background has a periodic shimmer or shine sweep effect",
-        "The WhatsApp CTA button scales up and glows on hover with a smooth transition",
-        "Animations do not block interactivity or cause layout shifts",
-        "All animations respect prefers-reduced-motion media query (animations are disabled or minimized for accessibility)"
+        "Subsidy structure table rows animate in with fade-in and slide-up on scroll into view",
+        "Animation uses IntersectionObserver and CSS keyframes consistent with BankFinanceBanner approach",
+        "Animation respects prefers-reduced-motion media query",
+        "Animation does not affect layout or readability of the subsidy data"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/BankFinanceBanner.tsx",
+          "path": "frontend/src/components/OdishaGuide.tsx",
           "operation": "modify",
-          "description": "Add scroll-triggered fade-in and slide-up entrance animation using Intersection Observer API. Add a continuous pulse/glow animation to the '90%' loan figure using CSS keyframes or Tailwind animate-pulse. Add a periodic shimmer/shine sweep animation to the banner background using CSS keyframes with a linear gradient animation. Add hover scale and glow effects to the WhatsApp CTA button using Tailwind hover utilities and transition classes. Wrap all animations in a prefers-reduced-motion media query to disable or minimize them for accessibility. Preserve all existing content, copy, and the WhatsApp link (wa.me/917838867880)."
+          "description": "Add IntersectionObserver-based scroll animation to subsidy structure section. Import and use useState, useEffect, and useRef hooks to track visibility state. Add isVisible state and ref for the subsidy container. In useEffect, create IntersectionObserver with threshold 0.1 to observe the subsidy section, setting isVisible to true when intersecting. Apply conditional className that adds opacity and transform transitions matching the BankFinanceBanner pattern (opacity-0 translate-y-4 to opacity-100 translate-y-0). Wrap subsidy tier tables and related elements in animated container divs. Add transition-all duration-700 ease-out classes and prefers-reduced-motion support using motion-reduce:transition-none and motion-reduce:transform-none utilities."
         },
         {
           "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Add custom CSS keyframe animations for the shimmer/shine sweep effect on the banner background and the pulse/glow effect on the loan figure. Define animations using @keyframes and include prefers-reduced-motion media query overrides to disable or reduce motion for users who prefer reduced motion. Use existing Tailwind layer structure."
+          "description": "Add CSS keyframe animations and utility classes for subsidy structure entrance animation if needed beyond Tailwind utilities. Ensure consistency with existing banner-shimmer and other animation patterns. If BankFinanceBanner uses custom keyframes, replicate the same fade-slide-up pattern for subsidy animations. Include @media (prefers-reduced-motion: reduce) rules to disable animations when users prefer reduced motion."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add TRI-GITA SERVICES office address to the Footer component alongside existing contact details",
+      "acceptanceCriteria": [
+        "Footer displays the full office address: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006",
+        "Address is styled consistently with the existing footer contact details",
+        "Address is visible on both mobile and desktop layouts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add office address entry to the contact details column in the Footer component. Insert a new contact block showing 'Office Address:' label followed by the full address 'Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006'. Position it after the existing phone and email entries. Use the same typography classes (text-sm, text-gray-300 or equivalent) and layout structure as existing contact items. Ensure the address wraps properly on mobile screens and maintains consistent spacing with other footer elements. Use MapPin or similar icon from lucide-react if other contact items use icons."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add 'Service Area: Odisha' entry to the Footer component to clearly communicate geographic coverage",
+      "acceptanceCriteria": [
+        "Service area 'Odisha' is displayed in a prominent, readable location (Footer or relevant section)",
+        "Label reads 'Service Area: Odisha' or equivalent clear phrasing",
+        "Styling is consistent with surrounding elements"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add 'Service Area: Odisha' entry to the Footer component. Insert it in the contact details column, either as a separate line item below the office address or as part of the company information section. Use label 'Service Area:' followed by 'Odisha' in the same text styling as other footer contact details. Apply consistent text-sm and color classes (text-gray-300 or equivalent amber/charcoal tokens). Consider adding a MapPin or Globe icon from lucide-react for visual consistency if other items use icons. Ensure the entry is clearly visible on both mobile and desktop layouts."
         }
       ]
     }

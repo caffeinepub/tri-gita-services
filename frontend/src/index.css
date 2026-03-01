@@ -185,6 +185,30 @@
     animation: stat-pulse-glow 2.2s ease-in-out infinite;
 }
 
+/* ─── Subsidy Structure Animations ─────────────────────────────────────────── */
+
+/* Animated shimmer bar under the subsidy heading */
+@keyframes subsidy-bar-shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.subsidy-shimmer-bar {
+    background: linear-gradient(
+        90deg,
+        oklch(0.74 0.17 68) 0%,
+        oklch(0.90 0.20 68) 40%,
+        oklch(0.68 0.20 48) 60%,
+        oklch(0.74 0.17 68) 100%
+    );
+    background-size: 200% auto;
+    animation: subsidy-bar-shimmer 2.5s linear infinite;
+}
+
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
     .banner-shimmer::after {
@@ -192,6 +216,10 @@
     }
 
     .stat-glow {
+        animation: none;
+    }
+
+    .subsidy-shimmer-bar {
         animation: none;
     }
 }

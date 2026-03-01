@@ -1,4 +1,4 @@
-import { Sun, Heart, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Sun, Heart, Phone, Mail, MapPin, Clock, Globe } from 'lucide-react';
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -97,14 +97,29 @@ export default function Footer() {
                                 </div>
                             </li>
 
-                            {/* Location */}
+                            {/* Office Address */}
                             <li className="flex items-start gap-3">
                                 <div className="w-7 h-7 rounded-full bg-amber-700 flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <MapPin className="w-3.5 h-3.5 text-charcoal-900" />
                                 </div>
                                 <div>
+                                    <p className="text-charcoal-400 text-xs mb-0.5">Office Address</p>
+                                    <address className="text-charcoal-200 font-medium not-italic text-sm leading-snug">
+                                        Shri Hari Niwas, Dengimacha,<br />
+                                        Near Dengimacha Ministadium,<br />
+                                        Sambalpur, Odisha 768006
+                                    </address>
+                                </div>
+                            </li>
+
+                            {/* Service Area */}
+                            <li className="flex items-start gap-3">
+                                <div className="w-7 h-7 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <Globe className="w-3.5 h-3.5 text-charcoal-900" />
+                                </div>
+                                <div>
                                     <p className="text-charcoal-400 text-xs mb-0.5">Service Area</p>
-                                    <span className="text-charcoal-200 font-medium">Pan India (Odisha Focus)</span>
+                                    <span className="text-charcoal-200 font-medium">Odisha</span>
                                 </div>
                             </li>
                         </ul>
@@ -124,7 +139,7 @@ export default function Footer() {
                             href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appId}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-amber-400 hover:text-amber-300 transition-colors"
+                            className="text-amber-400 hover:text-amber-300 transition-colors underline underline-offset-2"
                         >
                             caffeine.ai
                         </a>

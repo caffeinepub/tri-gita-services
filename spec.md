@@ -1,14 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Add CSS-only animations to the `BankFinanceBanner` component to improve visual engagement.
+**Goal:** Add scroll-triggered animations to the subsidy structure section, add the office address to the footer, and display the service area for TRI-GITA SERVICES.
 
 **Planned changes:**
-- Add a fade-in + slide-up entrance animation to the BankFinanceBanner section when it scrolls into the viewport
-- Add a continuous pulse or glow animation on the "90%" loan figure to draw attention
-- Add a periodic shimmer/shine sweep effect across the banner background
-- Add a scale + glow hover animation on the WhatsApp CTA button
-- Ensure all animations respect the `prefers-reduced-motion` media query for accessibility
-- Use only Tailwind CSS utilities or native CSS keyframes (no external animation libraries)
+- Add scroll-triggered fade-in and slide-up animations to the subsidy structure table rows in `OdishaGuide.tsx` using IntersectionObserver and CSS keyframes, consistent with the BankFinanceBanner animation pattern, with `prefers-reduced-motion` support
+- Add the office address (Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006) to the Footer component alongside existing contact details
+- Add "Service Area: Odisha" to the Footer component in a clear, consistently styled manner
 
-**User-visible outcome:** The BankFinanceBanner section comes to life with smooth entrance and ambient animations, making the loan offer and call-to-action more visually prominent without changing any content or links.
+**User-visible outcome:** The subsidy structure section now animates into view on scroll, the footer displays the full office address, and users can clearly see that TRI-GITA SERVICES covers Odisha as its service area.

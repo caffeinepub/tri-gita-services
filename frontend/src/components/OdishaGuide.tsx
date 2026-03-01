@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { CheckCircle, FileText, MapPin, Phone, Globe, Zap, ClipboardList, Wrench, Banknote } from 'lucide-react';
 
 const phases = [
@@ -91,6 +92,27 @@ const documents = [
 const discoms = ['TPCODL', 'TPSODL', 'TPNODL', 'TPWODL'];
 
 export default function OdishaGuide() {
+  const subsidyRef = useRef<HTMLDivElement>(null);
+  const [subsidyVisible, setSubsidyVisible] = useState(false);
+
+  useEffect(() => {
+    const el = subsidyRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSubsidyVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="odisha-guide" className="section-padding bg-forest-900">
       <div className="max-w-6xl mx-auto">
@@ -130,16 +152,44 @@ export default function OdishaGuide() {
           </div>
         </div>
 
-        {/* Subsidy Breakdown */}
-        <div className="mb-12">
-          <h3 className="font-heading text-2xl font-bold text-solar-300 mb-6 text-center">
+        {/* Subsidy Breakdown — animated */}
+        <div ref={subsidyRef} className="mb-12">
+          {/* Section heading animates in */}
+          <h3
+            className={[
+              'font-heading text-2xl font-bold text-solar-300 mb-6 text-center',
+              'transition-all duration-700 ease-out motion-reduce:transition-none motion-reduce:transform-none',
+              subsidyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
+            ].join(' ')}
+          >
             Odisha Subsidy Structure
           </h3>
+
+          {/* Shimmer bar under heading */}
+          <div
+            className={[
+              'mx-auto mb-6 h-1 rounded-full subsidy-shimmer-bar',
+              'transition-all duration-700 delay-100 ease-out motion-reduce:transition-none',
+              subsidyVisible ? 'opacity-100 w-24' : 'opacity-0 w-0',
+            ].join(' ')}
+            aria-hidden="true"
+          />
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {subsidyTiers.map((tier) => (
+            {subsidyTiers.map((tier, index) => (
               <div
                 key={tier.capacity}
-                className="relative bg-forest-800 border border-forest-600 rounded-2xl p-6 text-center hover:border-solar-400 transition-colors duration-200"
+                className={[
+                  'relative bg-forest-800 border border-forest-600 rounded-2xl p-6 text-center hover:border-solar-400 transition-colors duration-200',
+                  'transition-all ease-out motion-reduce:transition-none motion-reduce:transform-none',
+                  subsidyVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8',
+                ].join(' ')}
+                style={{
+                  transitionDuration: subsidyVisible ? '600ms' : '0ms',
+                  transitionDelay: subsidyVisible ? `${200 + index * 120}ms` : '0ms',
+                }}
               >
                 {tier.note && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-solar-400 text-forest-900 text-xs font-bold px-3 py-0.5 rounded-full">
@@ -164,6 +214,18 @@ export default function OdishaGuide() {
               </div>
             ))}
           </div>
+
+          {/* Animated total note */}
+          <p
+            className={[
+              'text-center text-solar-300 text-sm mt-5 font-medium',
+              'transition-all duration-700 ease-out motion-reduce:transition-none motion-reduce:transform-none',
+              subsidyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+            ].join(' ')}
+            style={{ transitionDelay: subsidyVisible ? '560ms' : '0ms' }}
+          >
+            ✦ Maximum combined subsidy up to <span className="text-solar-400 font-bold">₹1,38,000</span> for 3 kW and above
+          </p>
         </div>
 
         {/* Four Phases */}

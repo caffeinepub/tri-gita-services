@@ -1,40 +1,73 @@
 {
   "kind": "build_request",
-  "title": "Add animations to BankFinanceBanner component",
+  "title": "Add animations to subsidy structure, add office address, and add service area",
   "projectName": "TRI-GITA SERVICES",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add entrance and interactive animations to the BankFinanceBanner component. Include: a fade-in + slide-up animation when the section scrolls into view, a pulsing or glowing effect on the '90%' loan figure to draw attention, a subtle shimmer or shine sweep animation across the banner background, and a hover animation (scale + glow) on the WhatsApp CTA button. Use CSS keyframe animations or Tailwind animation utilities — no external animation libraries.",
+      "text": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx. The subsidy tier table rows and related elements should animate in with fade-in and slide-up effects using IntersectionObserver (consistent with the BankFinanceBanner animation pattern). Include prefers-reduced-motion support.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Modify the bank finance part with some animation"
+          "Modify the subsidy structure part with animation"
         ]
       },
       "acceptanceCriteria": [
-        "The BankFinanceBanner section animates in (fade + slide-up) when it enters the viewport on scroll",
-        "The '90%' loan highlight text or badge has a continuous pulse or glow animation to attract attention",
-        "The banner background has a periodic shimmer or shine sweep effect",
-        "The WhatsApp CTA button scales up and glows on hover with a smooth transition",
-        "Animations do not block interactivity or cause layout shifts",
-        "All animations respect prefers-reduced-motion media query (animations are disabled or minimized for accessibility)"
+        "Subsidy structure table rows animate in with fade-in and slide-up on scroll into view",
+        "Animation uses IntersectionObserver and CSS keyframes consistent with BankFinanceBanner approach",
+        "Animation respects prefers-reduced-motion media query",
+        "Animation does not affect layout or readability of the subsidy data"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add TRI-GITA SERVICES office address to the Footer component. The address is: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006. Display it alongside the existing contact details.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add TRI-GITA SERVICES office address- Shri Hari Niwas, Dengimacha ,Near Dengimacha Ministadium, Sambalpur,Odisha 768006"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer displays the full office address: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006",
+        "Address is styled consistently with the existing footer contact details",
+        "Address is visible on both mobile and desktop layouts"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a 'Service Area: Odisha' entry to the Footer component and/or a relevant section (such as WhyChooseUs or a dedicated info block). Display it clearly so users know the geographic coverage of TRI-GITA SERVICES.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add service Area Odisha"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Service area 'Odisha' is displayed in a prominent, readable location (Footer or relevant section)",
+        "Label reads 'Service Area: Odisha' or equivalent clear phrasing",
+        "Styling is consistent with surrounding elements"
       ]
     }
   ],
   "constraints": [
-    "Do not change the BankFinanceBanner content, copy, or WhatsApp link (wa.me/917838867880)",
-    "Do not use external animation libraries (e.g., Framer Motion, GSAP) — use Tailwind CSS utilities or native CSS keyframes only",
-    "Do not modify any immutable frontend paths"
+    "Do not alter the immutable frontend paths (hooks, main.tsx, ui components)",
+    "Animation style must be consistent with the existing BankFinanceBanner animation approach"
   ],
   "nonGoals": [
-    "Modifying any other sections or components beyond BankFinanceBanner",
-    "Changing the backend or data layer",
-    "Adding animations site-wide"
+    "Adding new backend functionality",
+    "Changing the overall page layout or color scheme",
+    "Animating sections other than the subsidy structure"
   ],
   "imageRequirements": {
     "required": [],
