@@ -5,6 +5,7 @@ import OdishaGuide from './components/OdishaGuide';
 import WhyChooseUs from './components/WhyChooseUs';
 import WarrantyGuarantee from './components/WarrantyGuarantee';
 import Services from './components/Services';
+import InquiryForm from './components/InquiryForm';
 import BankFinanceBanner from './components/BankFinanceBanner';
 import WhatsAppSection from './components/WhatsAppSection';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ export default function App() {
                 <WhyChooseUs />
                 <WarrantyGuarantee />
                 <Services />
+                <InquiryForm />
                 <BankFinanceBanner />
                 <WhatsAppSection />
             </main>

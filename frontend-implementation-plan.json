@@ -1,84 +1,44 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove quick links & contact section, update background/colors, add warranty info",
+  "title": "Add Inquiry Form with WhatsApp Integration",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove the Quick Links section from the Footer component while keeping brand info, contact details, and operating hours",
+      "summary": "Build out the InquiryForm component with all required fields and WhatsApp submission functionality",
       "acceptanceCriteria": [
-        "The footer no longer contains a 'Quick Links' or navigation links column",
-        "Brand info, phone, email, address, and hours remain visible in the footer",
-        "No broken layout or empty columns appear where quick links used to be"
+        "Form renders with all specified fields including the system size dropdown.",
+        "Submitting the form opens a new tab with a pre-filled WhatsApp message to +917838867880.",
+        "The WhatsApp message includes all filled-in form field values in a readable format.",
+        "Form has basic client-side validation (Full Name and Phone Number are required).",
+        "Form styling matches the solar amber/charcoal theme used across the site."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Remove the entire Quick Links section (the navigation links column with smooth-scroll anchors). Restructure the footer grid layout to a two-column or single-column layout that preserves the brand info and contact details (phone, email, address, operating hours). Ensure no empty grid cells or broken spacing remains after removal."
+          "path": "frontend/src/components/InquiryForm.tsx",
+          "operation": "create",
+          "description": "Implement the InquiryForm component with form fields (Full Name, Phone Number, Email optional, City/Location, System Size dropdown with options: 1-3 kW, 3-5 kW, 5-10 kW, 10+ kW, and Message/Query). Add client-side validation requiring Full Name and Phone Number. On submit, construct a WhatsApp URL (https://wa.me/917838867880?text=...) with URL-encoded form data and open it in a new tab using window.open. Style the form using Tailwind CSS classes consistent with the solar amber/charcoal palette defined in frontend/tailwind.config.js. Use a section wrapper with id='inquiry' for smooth scroll anchor support."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Remove the Contact section component from the page entirely",
+      "summary": "Wire the InquiryForm section into App.tsx and add navigation link in Header",
       "acceptanceCriteria": [
-        "The Contact section with phone cards and email link no longer appears on the page",
-        "No visual gap or blank area remains where the Contact section was",
-        "App.tsx no longer imports or renders the Contact component"
+        "InquiryForm is rendered in App.tsx between Services and BankFinanceBanner.",
+        "The section has an id anchor so it can be scrolled to from the header nav.",
+        "The Header nav contains a link that smoothly scrolls to the inquiry form."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Remove the import statement for the Contact component and remove its usage from the component render tree. Verify that no spacing or layout issues remain after the component is removed from the page composition."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Update the website's background and color scheme to use a warm golden-amber and deep charcoal palette with solar energy accents",
-      "acceptanceCriteria": [
-        "The primary color tokens are updated to warm amber/golden tones",
-        "The background uses a deep charcoal or dark slate color instead of the previous theme",
-        "Accent and CTA buttons use a bright orange-yellow tone",
-        "All sections visually reflect the new color palette consistently",
-        "Text remains legible against new backgrounds with sufficient contrast"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Replace the existing OKLCH color tokens for both light and dark themes to reflect the new warm golden-amber and deep charcoal palette. Update --background to use deep charcoal/slate tones (e.g., oklch(0.15 0.02 260)), --primary to warm amber/golden tones (e.g., oklch(0.70 0.15 70)), and --accent to bright orange-yellow (e.g., oklch(0.75 0.20 50)). Update foreground, muted, card, border, and other semantic tokens to maintain sufficient contrast and legibility against the new backgrounds. Preserve existing utility classes for gradients and animations."
+          "description": "Import and render the InquiryForm component between the Services section and the BankFinanceBanner section. The InquiryForm component already provides the id='inquiry' anchor for smooth scrolling."
         },
         {
-          "path": "frontend/tailwind.config.js",
+          "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Update the custom color palette extensions (solar, forest, and semantic UI colors) to align with the new warm amber/golden and charcoal theme. Replace solar color values with warm amber/golden oklch tones for primary shades, update background colors to deep charcoal/slate, and set accent colors to bright orange-yellow. Ensure all extended colors use oklch format and maintain sufficient contrast ratios for accessibility."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add a Warranty & Guarantee section displaying 25-Year Solar Panel Warranty, 10-Year Inverter Warranty, and 5-Year Free Service Guarantee",
-      "acceptanceCriteria": [
-        "A new Warranty & Guarantee section is visible on the page",
-        "25-Year Warranty on Solar Panels is displayed with an icon",
-        "10-Year Warranty on Inverter is displayed with an icon",
-        "5-Year Free Service Guarantee by Vendor is displayed with an icon",
-        "The section is styled consistently with the updated site color theme",
-        "The section is responsive and displays correctly on mobile and desktop"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/WarrantyGuarantee.tsx",
-          "operation": "create",
-          "description": "Create a new Warranty & Guarantee section component that displays three warranty/guarantee items in a responsive grid: (1) 25-Year Warranty on Solar Panels, (2) 10-Year Warranty on Inverter, (3) 5-Year Free Service Guarantee by Vendor. Use shield or badge icons (from lucide-react) for each item. Style the section consistently with the new warm amber/charcoal color theme defined in index.css and tailwind.config.js, using card backgrounds, hover effects, and responsive layouts (single column on mobile, three columns on desktop). Include a section heading and descriptive text for each warranty item."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Import the new WarrantyGuarantee component and insert it into the page composition after the WhyChooseUs section and before the Services section. Ensure the component is rendered in the correct order within the main App component's return statement."
+          "description": "Add a new navigation link labeled 'Get Quote' or 'Inquiry' to the nav links array in the Header component. This link should point to '#inquiry' to enable smooth scrolling to the InquiryForm section. Ensure the link is added to both the desktop nav and the mobile menu."
         }
       ]
     }

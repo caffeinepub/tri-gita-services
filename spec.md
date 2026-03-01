@@ -1,12 +1,14 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the Quick Links and Contact sections, update the site's color scheme to a warm golden-amber and deep charcoal palette, and add a Warranty & Guarantee section.
+**Goal:** Add an inquiry form with WhatsApp integration to the TRI-GITA SERVICES solar website.
 
 **Planned changes:**
-- Remove the Quick Links column from the Footer while keeping brand info, contact details, and operating hours
-- Remove the Contact section (Contact.tsx) from the page entirely and from App.tsx
-- Update the color scheme across the entire site to use warm amber/golden tones as primary, deep charcoal as background, and bright orange-yellow as accent
-- Add a new Warranty & Guarantee section displaying: 25-Year Warranty on Solar Panels, 10-Year Warranty on Inverter, and 5-Year Free Service Guarantee by Vendor — each with a shield/badge icon, styled consistently with the new color theme
+- Create an `InquiryForm` component with fields: Full Name (required), Phone Number (required), Email (optional), City/Location, System Size of Interest (dropdown: 1-3 kW, 3-5 kW, 5-10 kW, 10+ kW), and Message/Query
+- On form submit, format all field values into a pre-filled WhatsApp message URL targeting `+917838867880` and open it in a new tab
+- Add basic client-side validation (Full Name and Phone Number required)
+- Style the form using the existing solar amber/charcoal Tailwind theme
+- Insert the `InquiryForm` section into `App.tsx` between the Services section and the BankFinanceBanner section, with an `id` anchor for smooth scrolling
+- Add a nav link ("Get Quote" or "Inquiry") in the Header that smooth-scrolls to the inquiry form section
 
-**User-visible outcome:** The website now has a cleaner footer without Quick Links, no standalone Contact section, a cohesive warm golden-amber and dark charcoal color theme throughout, and a new Warranty & Guarantee section highlighting the three key product/service guarantees.
+**User-visible outcome:** Visitors can fill out an inquiry form on the site and, upon submission, are redirected to WhatsApp with a pre-filled message sent directly to the business number.

@@ -1,61 +1,37 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T22:04:30.288Z",
+  "generatedAt": "2026-03-01T22:13:05.959Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 4,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Remove the Quick Links section from the Footer component. Strip out the navigation links column entirely while keeping the brand info, contact details (phone, email, address), and operating hours in the footer.",
+        "summary": "Build out the InquiryForm component (frontend/src/components/InquiryForm.tsx) with fields for: Full Name, Phone Number, Email (optional), City/Location, System Size of Interest (dropdown: 1-3 kW, 3-5 kW, 5-10 kW, 10+ kW), and Message/Query. On submit, format the collected field values into a WhatsApp message URL targeting number 7838867880 (format: https://wa.me/917838867880?text=...) and open it in a new tab. Style the form consistently with the existing site theme (solar amber/charcoal palette from tailwind.config.js).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/InquiryForm.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/InquiryForm.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Remove the Contact section (Contact.tsx) from the page entirely. Delete its usage from App.tsx so it no longer renders anywhere on the page.",
+        "summary": "Add the InquiryForm section to App.tsx, placing it between the Services section and the BankFinanceBanner section. Add a corresponding smooth-scroll nav link labeled 'Inquiry' or 'Get Quote' in the Header component pointing to the inquiry section anchor.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/App.tsx"
+          "frontend/src/App.tsx",
+          "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Update the website's background and color scheme to use a warm golden-amber and deep charcoal palette with solar energy accents. Replace the existing OKLCH color tokens in frontend/src/index.css and tailwind.config.js to reflect this new theme — warm amber/golden tones as primary, deep charcoal/slate as background, and bright orange-yellow as accent. Apply consistently across all sections including Hero, Header, Footer, WhyChooseUs, Services, SchemeInfo, OdishaGuide, and BankFinanceBanner.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Add a Warranty & Guarantee section to the page (between WhyChooseUs and Services, or after Services) that prominently displays three warranty/guarantee items: (1) 25-Year Warranty on Solar Panels, (2) 10-Year Warranty on Inverter, (3) 5-Year Free Service Guarantee by Vendor. Use shield/badge icons for each item and style consistently with the site's updated color scheme.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/WarrantyGuarantee.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/WarrantyGuarantee.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/App.tsx",
+          "frontend/src/components/Header.tsx"
         ]
       }
     ]
@@ -66,11 +42,8 @@
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
-    "frontend/src/components/Contact.tsx",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/WarrantyGuarantee.tsx",
-    "frontend/src/index.css",
-    "frontend/tailwind.config.js",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/InquiryForm.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

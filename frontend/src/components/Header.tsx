@@ -12,6 +12,7 @@ export default function Header() {
         { label: 'Home', href: '#home' },
         { label: 'Scheme', href: '#scheme' },
         { label: 'Services', href: '#services' },
+        { label: 'Get Quote', href: '#inquiry' },
         { label: 'Contact', href: '#contact' },
     ];
 
@@ -46,7 +47,11 @@ export default function Header() {
                             <button
                                 key={link.href}
                                 onClick={() => scrollTo(link.href)}
-                                className="px-4 py-2 text-sm font-body font-medium text-foreground/80 hover:text-primary transition-colors rounded-lg hover:bg-solar-50"
+                                className={`px-4 py-2 text-sm font-body font-medium transition-colors rounded-lg ${
+                                    link.href === '#inquiry'
+                                        ? 'text-primary font-semibold hover:bg-primary/10'
+                                        : 'text-foreground/80 hover:text-primary hover:bg-solar-50'
+                                }`}
                             >
                                 {link.label}
                             </button>
@@ -89,7 +94,11 @@ export default function Header() {
                             <button
                                 key={link.href}
                                 onClick={() => scrollTo(link.href)}
-                                className="w-full text-left px-4 py-3 text-sm font-body font-medium text-foreground/80 hover:text-primary hover:bg-solar-50 rounded-lg transition-colors"
+                                className={`w-full text-left px-4 py-3 text-sm font-body font-medium rounded-lg transition-colors ${
+                                    link.href === '#inquiry'
+                                        ? 'text-primary font-semibold hover:bg-primary/10'
+                                        : 'text-foreground/80 hover:text-primary hover:bg-solar-50'
+                                }`}
                             >
                                 {link.label}
                             </button>
