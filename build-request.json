@@ -1,73 +1,98 @@
 {
   "kind": "build_request",
-  "title": "Add animations to subsidy structure, add office address, and add service area",
+  "title": "Add multilingual support: English, Hindi, and Odia",
   "projectName": "TRI-GITA SERVICES",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx. The subsidy tier table rows and related elements should animate in with fade-in and slide-up effects using IntersectionObserver (consistent with the BankFinanceBanner animation pattern). Include prefers-reduced-motion support.",
+      "text": "Create a language context provider that manages the currently selected language (English, Hindi, Odia) with default set to English, and persists the selection to localStorage so the choice survives page reloads.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-7"
         ],
         "quotes": [
-          "Modify the subsidy structure part with animation"
+          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
         ]
       },
       "acceptanceCriteria": [
-        "Subsidy structure table rows animate in with fade-in and slide-up on scroll into view",
-        "Animation uses IntersectionObserver and CSS keyframes consistent with BankFinanceBanner approach",
-        "Animation respects prefers-reduced-motion media query",
-        "Animation does not affect layout or readability of the subsidy data"
+        "A React context exposes the active language and a setter function.",
+        "Default language is English on first visit.",
+        "Selected language is saved to localStorage and restored on reload.",
+        "All three languages (English, Hindi, Odia) are supported as valid values."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add TRI-GITA SERVICES office address to the Footer component. The address is: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006. Display it alongside the existing contact details.",
+      "text": "Add a language switcher UI element in the Header component, displaying three options: 'English', 'हिन्दी' (Hindi), and 'ଓଡ଼ିଆ' (Odia). The switcher should be visible on both desktop and mobile (hamburger menu) layouts and highlight the currently active language.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-7"
         ],
         "quotes": [
-          "Add TRI-GITA SERVICES office address- Shri Hari Niwas, Dengimacha ,Near Dengimacha Ministadium, Sambalpur,Odisha 768006"
+          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
         ]
       },
       "acceptanceCriteria": [
-        "Footer displays the full office address: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006",
-        "Address is styled consistently with the existing footer contact details",
-        "Address is visible on both mobile and desktop layouts"
+        "Language switcher appears in the sticky Header on desktop and inside the mobile hamburger menu.",
+        "Clicking a language option immediately switches all page content to that language.",
+        "The active language option is visually distinguished (e.g., underline, bold, or highlighted color).",
+        "Switcher is accessible and keyboard-navigable."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Add a 'Service Area: Odisha' entry to the Footer component and/or a relevant section (such as WhyChooseUs or a dedicated info block). Display it clearly so users know the geographic coverage of TRI-GITA SERVICES.",
+      "text": "Create a centralized translations file (e.g., frontend/src/i18n/translations.ts) containing all user-facing strings for every component in all three languages: English, Hindi, and Odia. Cover all text content in Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, and Footer.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-7"
         ],
         "quotes": [
-          "Add service Area Odisha"
+          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
         ]
       },
       "acceptanceCriteria": [
-        "Service area 'Odisha' is displayed in a prominent, readable location (Footer or relevant section)",
-        "Label reads 'Service Area: Odisha' or equivalent clear phrasing",
-        "Styling is consistent with surrounding elements"
+        "A single translations object maps language codes (en, hi, od) to all UI strings.",
+        "No hard-coded English strings remain in any page component (all text is sourced from the translations object).",
+        "Hindi translations use Devanagari script.",
+        "Odia translations use Odia script.",
+        "Translations cover headings, body text, button labels, form placeholders and labels, footer details, and section descriptions."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update all page-section components (Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer, Header) to consume translated strings from the language context instead of rendering hard-coded text, so the entire page re-renders in the selected language when the user switches.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Switching to Hindi renders all visible text in Hindi across every section.",
+        "Switching to Odia renders all visible text in Odia across every section.",
+        "Switching back to English renders all visible text in English.",
+        "The language switch is instant (no page reload required).",
+        "Form validation messages and placeholder text also update with the selected language."
       ]
     }
   ],
   "constraints": [
-    "Do not alter the immutable frontend paths (hooks, main.tsx, ui components)",
-    "Animation style must be consistent with the existing BankFinanceBanner animation approach"
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Backend (backend/main.mo) must not be changed — language switching is purely a frontend concern.",
+    "The existing visual design, animations, and layout must remain intact."
   ],
   "nonGoals": [
-    "Adding new backend functionality",
-    "Changing the overall page layout or color scheme",
-    "Animating sections other than the subsidy structure"
+    "Server-side rendering or URL-based locale routing.",
+    "Adding any language other than English, Hindi, and Odia.",
+    "Translating dynamically fetched backend data (lead submissions, etc.).",
+    "Right-to-left (RTL) layout changes."
   ],
   "imageRequirements": {
     "required": [],

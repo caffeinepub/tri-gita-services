@@ -1,322 +1,182 @@
 import { useState } from 'react';
-import { MessageCircle, User, Phone, Mail, MapPin, Zap, Send } from 'lucide-react';
-import { SiWhatsapp } from 'react-icons/si';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from '@/components/ui/select';
+import { MessageCircle, Send } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
 
 interface FormData {
-    fullName: string;
-    phoneNumber: string;
-    email: string;
-    city: string;
-    systemSize: string;
-    message: string;
+  name: string;
+  phone: string;
+  email: string;
+  city: string;
+  systemSize: string;
+  message: string;
 }
 
-const SYSTEM_SIZE_OPTIONS = [
-    { value: '1-3 kW', label: '1–3 kW (Small Home)' },
-    { value: '3-5 kW', label: '3–5 kW (Medium Home)' },
-    { value: '5-10 kW', label: '5–10 kW (Large Home / Small Business)' },
-    { value: '10+ kW', label: '10+ kW (Commercial / Industrial)' },
-];
+interface FormErrors {
+  name?: string;
+  phone?: string;
+}
 
 export default function InquiryForm() {
-    const [form, setForm] = useState<FormData>({
-        fullName: '',
-        phoneNumber: '',
-        email: '',
-        city: '',
-        systemSize: '',
-        message: '',
-    });
-    const [errors, setErrors] = useState<Partial<FormData>>({});
+  const t = useTranslation();
+  const f = t.inquiryForm;
 
-    const handleChange = (field: keyof FormData, value: string) => {
-        setForm((prev) => ({ ...prev, [field]: value }));
-        if (errors[field]) {
-            setErrors((prev) => ({ ...prev, [field]: '' }));
-        }
-    };
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    systemSize: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [submitting, setSubmitting] = useState(false);
 
-    const validate = (): boolean => {
-        const newErrors: Partial<FormData> = {};
-        if (!form.fullName.trim()) newErrors.fullName = 'Full name is required.';
-        if (!form.phoneNumber.trim()) {
-            newErrors.phoneNumber = 'Phone number is required.';
-        } else if (!/^[6-9]\d{9}$/.test(form.phoneNumber.trim())) {
-            newErrors.phoneNumber = 'Enter a valid 10-digit Indian mobile number.';
-        }
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
+  const validate = (): boolean => {
+    const newErrors: FormErrors = {};
+    if (!formData.name.trim()) newErrors.name = f.validation.nameRequired;
+    if (!formData.phone.trim()) {
+      newErrors.phone = f.validation.phoneRequired;
+    } else if (!/^\d{10}$/.test(formData.phone.trim())) {
+      newErrors.phone = f.validation.phoneInvalid;
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!validate()) return;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
 
-        const lines = [
-            `🌞 *New Solar Inquiry — TRI-GITA SERVICES*`,
-            ``,
-            `👤 *Name:* ${form.fullName}`,
-            `📞 *Phone:* ${form.phoneNumber}`,
-            form.email ? `📧 *Email:* ${form.email}` : null,
-            form.city ? `📍 *City/Location:* ${form.city}` : null,
-            form.systemSize ? `⚡ *System Size:* ${form.systemSize}` : null,
-            form.message ? `💬 *Message:* ${form.message}` : null,
-        ]
-            .filter(Boolean)
-            .join('\n');
+    setSubmitting(true);
+    const msg = `Hello TRI-GITA SERVICES,\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'N/A'}\nCity: ${formData.city || 'N/A'}\nSystem Size: ${formData.systemSize || 'N/A'}\nMessage: ${formData.message || 'N/A'}`;
+    const url = `https://wa.me/917838867880?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    setSubmitting(false);
+    setFormData({ name: '', phone: '', email: '', city: '', systemSize: '', message: '' });
+    setErrors({});
+  };
 
-        const encoded = encodeURIComponent(lines);
-        window.open(`https://wa.me/917838867880?text=${encoded}`, '_blank', 'noopener,noreferrer');
-    };
+  return (
+    <section id="inquiry" className="py-20 bg-muted/30">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{f.title}</h2>
+          <p className="text-lg text-muted-foreground">{f.subtitle}</p>
+        </div>
 
-    return (
-        <section id="inquiry" className="py-16 md:py-24 bg-background">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-body font-semibold mb-4">
-                        <MessageCircle className="w-4 h-4" />
-                        Get a Free Quote
-                    </div>
-                    <h2 className="font-heading text-3xl md:text-4xl font-800 text-foreground mb-4">
-                        Send Us Your Inquiry
-                    </h2>
-                    <p className="text-muted-foreground font-body text-base md:text-lg max-w-2xl mx-auto">
-                        Fill in the form below and we'll get back to you instantly on WhatsApp with a
-                        personalised solar solution for your home or business.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
-                    {/* Left Info Panel */}
-                    <div className="lg:col-span-2 space-y-6">
-                        <div className="rounded-2xl solar-gradient p-6 text-primary-foreground shadow-solar">
-                            <div className="flex items-center gap-3 mb-4">
-                                <SiWhatsapp className="w-8 h-8" />
-                                <div>
-                                    <p className="font-heading font-700 text-lg leading-tight">
-                                        Instant WhatsApp Reply
-                                    </p>
-                                    <p className="text-sm opacity-80 font-body">
-                                        We respond within minutes
-                                    </p>
-                                </div>
-                            </div>
-                            <p className="font-body text-sm opacity-90 leading-relaxed">
-                                Your inquiry goes directly to our solar experts on WhatsApp. No waiting,
-                                no spam — just a quick, helpful conversation.
-                            </p>
-                        </div>
-
-                        <div className="rounded-2xl bg-card border border-border p-6 space-y-4">
-                            {[
-                                {
-                                    icon: <Zap className="w-5 h-5 text-primary" />,
-                                    title: 'Free Site Assessment',
-                                    desc: 'Our team visits your site at no cost.',
-                                },
-                                {
-                                    icon: <Send className="w-5 h-5 text-primary" />,
-                                    title: 'Custom Proposal',
-                                    desc: 'Tailored system size and savings estimate.',
-                                },
-                                {
-                                    icon: <Phone className="w-5 h-5 text-primary" />,
-                                    title: 'End-to-End Support',
-                                    desc: 'From subsidy paperwork to installation.',
-                                },
-                            ].map((item) => (
-                                <div key={item.title} className="flex items-start gap-3">
-                                    <div className="mt-0.5 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                                        {item.icon}
-                                    </div>
-                                    <div>
-                                        <p className="font-heading font-700 text-sm text-foreground">
-                                            {item.title}
-                                        </p>
-                                        <p className="text-xs text-muted-foreground font-body">
-                                            {item.desc}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Form */}
-                    <div className="lg:col-span-3">
-                        <form
-                            onSubmit={handleSubmit}
-                            noValidate
-                            className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-5"
-                        >
-                            {/* Full Name */}
-                            <div className="space-y-1.5">
-                                <Label
-                                    htmlFor="fullName"
-                                    className="font-body font-semibold text-foreground flex items-center gap-1.5"
-                                >
-                                    <User className="w-3.5 h-3.5 text-primary" />
-                                    Full Name <span className="text-destructive">*</span>
-                                </Label>
-                                <Input
-                                    id="fullName"
-                                    placeholder="e.g. Ramesh Kumar"
-                                    value={form.fullName}
-                                    onChange={(e) => handleChange('fullName', e.target.value)}
-                                    className={errors.fullName ? 'border-destructive' : ''}
-                                />
-                                {errors.fullName && (
-                                    <p className="text-xs text-destructive font-body">{errors.fullName}</p>
-                                )}
-                            </div>
-
-                            {/* Phone + Email row */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div className="space-y-1.5">
-                                    <Label
-                                        htmlFor="phoneNumber"
-                                        className="font-body font-semibold text-foreground flex items-center gap-1.5"
-                                    >
-                                        <Phone className="w-3.5 h-3.5 text-primary" />
-                                        Phone Number <span className="text-destructive">*</span>
-                                    </Label>
-                                    <Input
-                                        id="phoneNumber"
-                                        type="tel"
-                                        placeholder="10-digit mobile number"
-                                        value={form.phoneNumber}
-                                        onChange={(e) => handleChange('phoneNumber', e.target.value)}
-                                        className={errors.phoneNumber ? 'border-destructive' : ''}
-                                    />
-                                    {errors.phoneNumber && (
-                                        <p className="text-xs text-destructive font-body">
-                                            {errors.phoneNumber}
-                                        </p>
-                                    )}
-                                </div>
-
-                                <div className="space-y-1.5">
-                                    <Label
-                                        htmlFor="email"
-                                        className="font-body font-semibold text-foreground flex items-center gap-1.5"
-                                    >
-                                        <Mail className="w-3.5 h-3.5 text-primary" />
-                                        Email{' '}
-                                        <span className="text-muted-foreground font-normal text-xs">
-                                            (optional)
-                                        </span>
-                                    </Label>
-                                    <Input
-                                        id="email"
-                                        type="email"
-                                        placeholder="your@email.com"
-                                        value={form.email}
-                                        onChange={(e) => handleChange('email', e.target.value)}
-                                    />
-                                </div>
-                            </div>
-
-                            {/* City + System Size row */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div className="space-y-1.5">
-                                    <Label
-                                        htmlFor="city"
-                                        className="font-body font-semibold text-foreground flex items-center gap-1.5"
-                                    >
-                                        <MapPin className="w-3.5 h-3.5 text-primary" />
-                                        City / Location{' '}
-                                        <span className="text-muted-foreground font-normal text-xs">
-                                            (optional)
-                                        </span>
-                                    </Label>
-                                    <Input
-                                        id="city"
-                                        placeholder="e.g. Bhubaneswar, Odisha"
-                                        value={form.city}
-                                        onChange={(e) => handleChange('city', e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="space-y-1.5">
-                                    <Label
-                                        htmlFor="systemSize"
-                                        className="font-body font-semibold text-foreground flex items-center gap-1.5"
-                                    >
-                                        <Zap className="w-3.5 h-3.5 text-primary" />
-                                        System Size{' '}
-                                        <span className="text-muted-foreground font-normal text-xs">
-                                            (optional)
-                                        </span>
-                                    </Label>
-                                    <Select
-                                        value={form.systemSize}
-                                        onValueChange={(val) => handleChange('systemSize', val)}
-                                    >
-                                        <SelectTrigger id="systemSize">
-                                            <SelectValue placeholder="Select capacity" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            {SYSTEM_SIZE_OPTIONS.map((opt) => (
-                                                <SelectItem key={opt.value} value={opt.value}>
-                                                    {opt.label}
-                                                </SelectItem>
-                                            ))}
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                            </div>
-
-                            {/* Message */}
-                            <div className="space-y-1.5">
-                                <Label
-                                    htmlFor="message"
-                                    className="font-body font-semibold text-foreground flex items-center gap-1.5"
-                                >
-                                    <MessageCircle className="w-3.5 h-3.5 text-primary" />
-                                    Message / Query{' '}
-                                    <span className="text-muted-foreground font-normal text-xs">
-                                        (optional)
-                                    </span>
-                                </Label>
-                                <Textarea
-                                    id="message"
-                                    placeholder="Tell us about your requirements, current electricity bill, roof type, etc."
-                                    rows={4}
-                                    value={form.message}
-                                    onChange={(e) => handleChange('message', e.target.value)}
-                                    className="resize-none"
-                                />
-                            </div>
-
-                            {/* Submit */}
-                            <Button
-                                type="submit"
-                                size="lg"
-                                className="w-full bg-forest-600 hover:bg-forest-700 text-white font-heading font-700 text-base flex items-center gap-2 shadow-green transition-all"
-                            >
-                                <SiWhatsapp className="w-5 h-5" />
-                                Send Inquiry on WhatsApp
-                            </Button>
-
-                            <p className="text-center text-xs text-muted-foreground font-body">
-                                By submitting, you agree to be contacted on WhatsApp. No spam, ever.
-                            </p>
-                        </form>
-                    </div>
-                </div>
+        <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+          <form onSubmit={handleSubmit} noValidate className="space-y-5">
+            {/* Name & Phone */}
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  {f.fields.name} <span className="text-destructive">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder={f.fields.namePlaceholder}
+                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                />
+                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  {f.fields.phone} <span className="text-destructive">*</span>
+                </label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  placeholder={f.fields.phonePlaceholder}
+                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                />
+                {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
+              </div>
             </div>
-        </section>
-    );
+
+            {/* Email & City */}
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  {f.fields.email}
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder={f.fields.emailPlaceholder}
+                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  {f.fields.city}
+                </label>
+                <input
+                  type="text"
+                  value={formData.city}
+                  onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                  placeholder={f.fields.cityPlaceholder}
+                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                />
+              </div>
+            </div>
+
+            {/* System Size */}
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">
+                {f.fields.systemSize}
+              </label>
+              <select
+                value={formData.systemSize}
+                onChange={(e) => setFormData({ ...formData, systemSize: e.target.value })}
+                className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+              >
+                <option value="">{f.fields.systemSizePlaceholder}</option>
+                {f.systemSizes.map((size) => (
+                  <option key={size.value} value={size.value}>
+                    {size.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">
+                {f.fields.message}
+              </label>
+              <textarea
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder={f.fields.messagePlaceholder}
+                rows={4}
+                className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-green-500 hover:bg-green-600 disabled:opacity-60 text-white font-semibold rounded-lg transition-colors shadow-md"
+            >
+              {submitting ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  {f.submitting}
+                </>
+              ) : (
+                <>
+                  <MessageCircle className="w-5 h-5" />
+                  {f.submit}
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
 }

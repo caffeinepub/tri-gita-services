@@ -1,0 +1,708 @@
+export const translations = {
+  en: {
+    header: {
+      brand: 'TRI-GITA SERVICES',
+      tagline: 'Solar Energy Solutions',
+      nav: {
+        home: 'Home',
+        services: 'Services',
+        scheme: 'PM Scheme',
+        guide: 'Odisha Guide',
+        whyUs: 'Why Us',
+        contact: 'Contact',
+        getQuote: 'Get Quote',
+      },
+    },
+    hero: {
+      headline: 'Power Your Home with Solar Energy',
+      subheadline: 'Authorized Solar Installer in Odisha',
+      tagline: 'Get up to ₹78,000 subsidy under PM Surya Ghar Muft Bijli Yojana',
+      cta: 'Chat on WhatsApp',
+      ctaSecondary: 'Learn More',
+    },
+    schemeInfo: {
+      title: 'PM Surya Ghar Muft Bijli Yojana',
+      subtitle: 'Government of India\'s flagship solar rooftop scheme',
+      description: 'Get free electricity and earn money by selling surplus power back to the grid. The Government of India provides substantial subsidies to make solar energy affordable for every household.',
+      benefits: {
+        title: 'Key Benefits',
+        items: [
+          'Up to 300 units of free electricity per month',
+          'Subsidy up to ₹78,000 for 3 kW system',
+          'Earn by selling surplus electricity',
+          'Reduce electricity bills to near zero',
+          'Increase property value',
+          '25-year panel lifespan',
+        ],
+      },
+      eligibility: {
+        title: 'Eligibility',
+        items: [
+          'Indian residential household',
+          'Valid electricity connection',
+          'Suitable rooftop space',
+          'No prior solar installation',
+        ],
+      },
+      process: {
+        title: 'How We Help You',
+        steps: [
+          { title: 'Free Consultation', desc: 'We assess your roof and electricity needs' },
+          { title: 'Application', desc: 'We handle all paperwork and portal registration' },
+          { title: 'Installation', desc: 'Professional installation by certified technicians' },
+          { title: 'Subsidy Disbursement', desc: 'We follow up until subsidy is credited to your account' },
+        ],
+      },
+    },
+    odishaGuide: {
+      title: 'PM Surya Ghar Guide for Odisha',
+      subtitle: 'Everything you need to know about solar installation in Odisha',
+      phases: {
+        title: 'Installation Phases',
+        items: [
+          { phase: 'Phase 1', title: 'Site Survey & Assessment', desc: 'Technical team visits your home to assess roof area, orientation, shading, and electrical load.' },
+          { phase: 'Phase 2', title: 'Portal Registration', desc: 'Register on the National Portal for Rooftop Solar (solarrooftop.gov.in) with your electricity bill details.' },
+          { phase: 'Phase 3', title: 'DISCOM Approval', desc: 'Submit application to your local DISCOM (TPCODL, TPNODL, TPSODL, TPWODL, CESU) for technical feasibility.' },
+          { phase: 'Phase 4', title: 'Installation', desc: 'Certified installers complete the solar panel and inverter installation within 7-10 working days.' },
+          { phase: 'Phase 5', title: 'Net Metering', desc: 'DISCOM installs net meter and issues commissioning certificate.' },
+          { phase: 'Phase 6', title: 'Subsidy Credit', desc: 'Subsidy amount is directly credited to your bank account within 30 days of commissioning.' },
+        ],
+      },
+      subsidy: {
+        title: 'Subsidy Structure',
+        tiers: [
+          { capacity: '1 kW', subsidy: '₹30,000', note: 'Ideal for small households' },
+          { capacity: '2 kW', subsidy: '₹60,000', note: 'Suitable for medium households' },
+          { capacity: '3 kW', subsidy: '₹78,000', note: 'Maximum subsidy — best value' },
+        ],
+        note: '* Subsidy is applicable for systems up to 3 kW. For systems above 3 kW, subsidy is capped at ₹78,000.',
+      },
+      eligibility: {
+        title: 'Eligibility Criteria',
+        items: [
+          'Residential consumer with valid electricity connection',
+          'Roof area of at least 10 sq. meters per kW',
+          'No existing solar installation on the property',
+          'Bank account linked with Aadhaar',
+          'Property ownership or landlord consent',
+        ],
+      },
+      documents: {
+        title: 'Required Documents',
+        items: [
+          'Aadhaar Card',
+          'Electricity Bill (latest)',
+          'Bank Passbook / Cancelled Cheque',
+          'Passport Size Photo',
+          'Property Documents / Ownership Proof',
+          'Mobile Number linked with Aadhaar',
+        ],
+      },
+      discoms: {
+        title: 'DISCOMs in Odisha',
+        items: ['TPCODL', 'TPNODL', 'TPSODL', 'TPWODL', 'CESU'],
+      },
+    },
+    whyChooseUs: {
+      title: 'Why Choose TRI-GITA SERVICES?',
+      subtitle: 'Your trusted solar partner in Odisha',
+      cards: [
+        {
+          title: 'Registered Vendor',
+          desc: 'Officially registered and empanelled vendor for PM Surya Ghar Muft Bijli Yojana. We ensure your subsidy application is processed smoothly.',
+        },
+        {
+          title: 'Technical Expertise',
+          desc: 'Our certified technicians have installed solar systems across Odisha. We use only Tier-1 panels and inverters for maximum efficiency.',
+        },
+        {
+          title: 'Hassle-Free Process',
+          desc: 'From site survey to subsidy disbursement, we handle everything. You just sit back and enjoy free electricity.',
+        },
+      ],
+    },
+    warrantyGuarantee: {
+      title: 'Warranty & Guarantee',
+      subtitle: 'We stand behind every installation',
+      cards: [
+        {
+          title: '25-Year Solar Panel Warranty',
+          desc: 'Our Tier-1 solar panels come with a 25-year performance warranty, ensuring consistent power generation for decades.',
+        },
+        {
+          title: '10-Year Inverter Warranty',
+          desc: 'Premium inverters backed by a 10-year manufacturer warranty for reliable and efficient power conversion.',
+        },
+        {
+          title: '5-Year Free Service Guarantee',
+          desc: 'We provide 5 years of free maintenance and service visits to keep your solar system performing at its best.',
+        },
+      ],
+    },
+    services: {
+      title: 'Our Services',
+      subtitle: 'Comprehensive solar solutions for every need',
+      domestic: {
+        title: 'Domestic Solar Installation',
+        features: [
+          'Systems from 1 kW to 10 kW',
+          'Subsidy assistance included',
+          'Net metering support',
+          'Annual maintenance contract',
+        ],
+        cta: 'Get Quote',
+      },
+      commercial: {
+        title: 'Commercial Solar Installation',
+        features: [
+          'Systems from 10 kW to 500 kW',
+          'ROI analysis provided',
+          'Grid-tie and off-grid options',
+          'Dedicated project manager',
+        ],
+        cta: 'Get Quote',
+      },
+    },
+    inquiryForm: {
+      title: 'Get a Free Quote',
+      subtitle: 'Fill in your details and we\'ll get back to you within 24 hours',
+      fields: {
+        name: 'Full Name',
+        namePlaceholder: 'Enter your full name',
+        phone: 'Phone Number',
+        phonePlaceholder: 'Enter your 10-digit phone number',
+        email: 'Email Address',
+        emailPlaceholder: 'Enter your email (optional)',
+        city: 'City / Location',
+        cityPlaceholder: 'Enter your city or location',
+        systemSize: 'System Size',
+        systemSizePlaceholder: 'Select system size',
+        message: 'Message',
+        messagePlaceholder: 'Any specific requirements or questions?',
+      },
+      systemSizes: [
+        { value: '1-3kw', label: '1–3 kW (Small Home)' },
+        { value: '3-5kw', label: '3–5 kW (Medium Home)' },
+        { value: '5-10kw', label: '5–10 kW (Large Home)' },
+        { value: '10+kw', label: '10+ kW (Commercial)' },
+      ],
+      submit: 'Send via WhatsApp',
+      submitting: 'Sending...',
+      validation: {
+        nameRequired: 'Full name is required',
+        phoneRequired: 'Phone number is required',
+        phoneInvalid: 'Please enter a valid 10-digit phone number',
+      },
+      success: 'Your inquiry has been sent successfully!',
+      error: 'Something went wrong. Please try again.',
+    },
+    bankFinanceBanner: {
+      title: 'Easy Bank Finance Available',
+      subtitle: 'Make solar affordable with flexible EMI options from leading banks',
+      stats: [
+        { value: '0%', label: 'Interest (select banks)' },
+        { value: '90%', label: 'Loan-to-Value ratio' },
+        { value: '7 yrs', label: 'Repayment tenure' },
+      ],
+      cta: 'Enquire on WhatsApp',
+    },
+    whatsAppSection: {
+      title: 'Connect With Us on WhatsApp',
+      description: 'Get instant answers to your solar queries. Our experts are available to help you choose the right solar system and guide you through the subsidy process.',
+      phone: '+91 78388 67880',
+      cta: 'Start Chat Now',
+    },
+    footer: {
+      brand: 'TRI-GITA SERVICES',
+      tagline: 'Your trusted solar energy partner in Odisha. Empowering homes and businesses with clean, affordable solar power.',
+      contactTitle: 'Contact Us',
+      phone1Label: 'Ashok',
+      phone1: '7838867880',
+      phone2Label: 'Deepak',
+      phone2: '8249286318',
+      email: 'trigitaservices@gmail.com',
+      addressLabel: 'Office Address',
+      address: 'Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006',
+      serviceAreaLabel: 'Service Area',
+      serviceArea: 'Odisha',
+      hoursLabel: 'Operating Hours',
+      hours: 'Mon–Sat: 9:00 AM – 6:00 PM',
+      copyright: 'TRI-GITA SERVICES. All rights reserved.',
+    },
+    floatingWhatsApp: {
+      tooltip: 'Chat with us on WhatsApp',
+    },
+  },
+
+  hi: {
+    header: {
+      brand: 'TRI-GITA SERVICES',
+      tagline: 'सौर ऊर्जा समाधान',
+      nav: {
+        home: 'होम',
+        services: 'सेवाएं',
+        scheme: 'PM योजना',
+        guide: 'ओडिशा गाइड',
+        whyUs: 'हमें क्यों चुनें',
+        contact: 'संपर्क',
+        getQuote: 'कोटेशन लें',
+      },
+    },
+    hero: {
+      headline: 'सौर ऊर्जा से अपने घर को बिजली दें',
+      subheadline: 'ओडिशा में अधिकृत सौर इंस्टॉलर',
+      tagline: 'PM सूर्य घर मुफ्त बिजली योजना के तहत ₹78,000 तक की सब्सिडी पाएं',
+      cta: 'WhatsApp पर चैट करें',
+      ctaSecondary: 'और जानें',
+    },
+    schemeInfo: {
+      title: 'PM सूर्य घर मुफ्त बिजली योजना',
+      subtitle: 'भारत सरकार की प्रमुख सौर रूफटॉप योजना',
+      description: 'मुफ्त बिजली पाएं और अतिरिक्त बिजली ग्रिड को बेचकर पैसे कमाएं। भारत सरकार हर घर के लिए सौर ऊर्जा को किफायती बनाने के लिए पर्याप्त सब्सिडी प्रदान करती है।',
+      benefits: {
+        title: 'मुख्य लाभ',
+        items: [
+          'प्रति माह 300 यूनिट तक मुफ्त बिजली',
+          '3 kW सिस्टम के लिए ₹78,000 तक की सब्सिडी',
+          'अतिरिक्त बिजली बेचकर कमाई करें',
+          'बिजली बिल लगभग शून्य करें',
+          'संपत्ति का मूल्य बढ़ाएं',
+          '25 साल का पैनल जीवनकाल',
+        ],
+      },
+      eligibility: {
+        title: 'पात्रता',
+        items: [
+          'भारतीय आवासीय परिवार',
+          'वैध बिजली कनेक्शन',
+          'उपयुक्त छत की जगह',
+          'पहले से कोई सौर इंस्टॉलेशन नहीं',
+        ],
+      },
+      process: {
+        title: 'हम आपकी कैसे मदद करते हैं',
+        steps: [
+          { title: 'मुफ्त परामर्श', desc: 'हम आपकी छत और बिजली की जरूरतों का आकलन करते हैं' },
+          { title: 'आवेदन', desc: 'हम सभी कागजी कार्रवाई और पोर्टल पंजीकरण संभालते हैं' },
+          { title: 'इंस्टॉलेशन', desc: 'प्रमाणित तकनीशियनों द्वारा पेशेवर इंस्टॉलेशन' },
+          { title: 'सब्सिडी वितरण', desc: 'हम तब तक फॉलो अप करते हैं जब तक सब्सिडी आपके खाते में जमा न हो जाए' },
+        ],
+      },
+    },
+    odishaGuide: {
+      title: 'ओडिशा के लिए PM सूर्य घर गाइड',
+      subtitle: 'ओडिशा में सौर इंस्टॉलेशन के बारे में सब कुछ जानें',
+      phases: {
+        title: 'इंस्टॉलेशन चरण',
+        items: [
+          { phase: 'चरण 1', title: 'साइट सर्वे और आकलन', desc: 'तकनीकी टीम छत के क्षेत्र, दिशा, छाया और विद्युत भार का आकलन करने के लिए आपके घर आती है।' },
+          { phase: 'चरण 2', title: 'पोर्टल पंजीकरण', desc: 'अपने बिजली बिल विवरण के साथ राष्ट्रीय रूफटॉप सोलर पोर्टल (solarrooftop.gov.in) पर पंजीकरण करें।' },
+          { phase: 'चरण 3', title: 'DISCOM अनुमोदन', desc: 'तकनीकी व्यवहार्यता के लिए अपने स्थानीय DISCOM (TPCODL, TPNODL, TPSODL, TPWODL, CESU) को आवेदन जमा करें।' },
+          { phase: 'चरण 4', title: 'इंस्टॉलेशन', desc: 'प्रमाणित इंस्टॉलर 7-10 कार्य दिवसों के भीतर सौर पैनल और इन्वर्टर इंस्टॉलेशन पूरा करते हैं।' },
+          { phase: 'चरण 5', title: 'नेट मीटरिंग', desc: 'DISCOM नेट मीटर लगाता है और कमीशनिंग प्रमाणपत्र जारी करता है।' },
+          { phase: 'चरण 6', title: 'सब्सिडी क्रेडिट', desc: 'कमीशनिंग के 30 दिनों के भीतर सब्सिडी राशि सीधे आपके बैंक खाते में जमा की जाती है।' },
+        ],
+      },
+      subsidy: {
+        title: 'सब्सिडी संरचना',
+        tiers: [
+          { capacity: '1 kW', subsidy: '₹30,000', note: 'छोटे घरों के लिए आदर्श' },
+          { capacity: '2 kW', subsidy: '₹60,000', note: 'मध्यम घरों के लिए उपयुक्त' },
+          { capacity: '3 kW', subsidy: '₹78,000', note: 'अधिकतम सब्सिडी — सर्वोत्तम मूल्य' },
+        ],
+        note: '* सब्सिडी 3 kW तक के सिस्टम के लिए लागू है। 3 kW से अधिक के सिस्टम के लिए, सब्सिडी ₹78,000 पर सीमित है।',
+      },
+      eligibility: {
+        title: 'पात्रता मानदंड',
+        items: [
+          'वैध बिजली कनेक्शन वाले आवासीय उपभोक्ता',
+          'प्रति kW कम से कम 10 वर्ग मीटर छत क्षेत्र',
+          'संपत्ति पर कोई मौजूदा सौर इंस्टॉलेशन नहीं',
+          'आधार से जुड़ा बैंक खाता',
+          'संपत्ति का स्वामित्व या मकान मालिक की सहमति',
+        ],
+      },
+      documents: {
+        title: 'आवश्यक दस्तावेज',
+        items: [
+          'आधार कार्ड',
+          'बिजली बिल (नवीनतम)',
+          'बैंक पासबुक / रद्द चेक',
+          'पासपोर्ट साइज फोटो',
+          'संपत्ति दस्तावेज / स्वामित्व प्रमाण',
+          'आधार से जुड़ा मोबाइल नंबर',
+        ],
+      },
+      discoms: {
+        title: 'ओडिशा में DISCOM',
+        items: ['TPCODL', 'TPNODL', 'TPSODL', 'TPWODL', 'CESU'],
+      },
+    },
+    whyChooseUs: {
+      title: 'TRI-GITA SERVICES को क्यों चुनें?',
+      subtitle: 'ओडिशा में आपका विश्वसनीय सौर भागीदार',
+      cards: [
+        {
+          title: 'पंजीकृत विक्रेता',
+          desc: 'PM सूर्य घर मुफ्त बिजली योजना के लिए आधिकारिक रूप से पंजीकृत और सूचीबद्ध विक्रेता। हम सुनिश्चित करते हैं कि आपका सब्सिडी आवेदन सुचारू रूप से संसाधित हो।',
+        },
+        {
+          title: 'तकनीकी विशेषज्ञता',
+          desc: 'हमारे प्रमाणित तकनीशियनों ने पूरे ओडिशा में सौर सिस्टम स्थापित किए हैं। हम अधिकतम दक्षता के लिए केवल Tier-1 पैनल और इन्वर्टर का उपयोग करते हैं।',
+        },
+        {
+          title: 'परेशानी मुक्त प्रक्रिया',
+          desc: 'साइट सर्वे से लेकर सब्सिडी वितरण तक, हम सब कुछ संभालते हैं। आप बस बैठें और मुफ्त बिजली का आनंद लें।',
+        },
+      ],
+    },
+    warrantyGuarantee: {
+      title: 'वारंटी और गारंटी',
+      subtitle: 'हम हर इंस्टॉलेशन के पीछे खड़े हैं',
+      cards: [
+        {
+          title: '25 साल की सौर पैनल वारंटी',
+          desc: 'हमारे Tier-1 सौर पैनल 25 साल की प्रदर्शन वारंटी के साथ आते हैं, जो दशकों तक लगातार बिजली उत्पादन सुनिश्चित करते हैं।',
+        },
+        {
+          title: '10 साल की इन्वर्टर वारंटी',
+          desc: 'विश्वसनीय और कुशल बिजली रूपांतरण के लिए 10 साल की निर्माता वारंटी द्वारा समर्थित प्रीमियम इन्वर्टर।',
+        },
+        {
+          title: '5 साल की मुफ्त सेवा गारंटी',
+          desc: 'हम आपके सौर सिस्टम को सर्वोत्तम प्रदर्शन पर रखने के लिए 5 साल की मुफ्त रखरखाव और सेवा विजिट प्रदान करते हैं।',
+        },
+      ],
+    },
+    services: {
+      title: 'हमारी सेवाएं',
+      subtitle: 'हर जरूरत के लिए व्यापक सौर समाधान',
+      domestic: {
+        title: 'घरेलू सौर इंस्टॉलेशन',
+        features: [
+          '1 kW से 10 kW तक के सिस्टम',
+          'सब्सिडी सहायता शामिल',
+          'नेट मीटरिंग सपोर्ट',
+          'वार्षिक रखरखाव अनुबंध',
+        ],
+        cta: 'कोटेशन लें',
+      },
+      commercial: {
+        title: 'व्यावसायिक सौर इंस्टॉलेशन',
+        features: [
+          '10 kW से 500 kW तक के सिस्टम',
+          'ROI विश्लेषण प्रदान किया गया',
+          'ग्रिड-टाई और ऑफ-ग्रिड विकल्प',
+          'समर्पित प्रोजेक्ट मैनेजर',
+        ],
+        cta: 'कोटेशन लें',
+      },
+    },
+    inquiryForm: {
+      title: 'मुफ्त कोटेशन पाएं',
+      subtitle: 'अपना विवरण भरें और हम 24 घंटे के भीतर आपसे संपर्क करेंगे',
+      fields: {
+        name: 'पूरा नाम',
+        namePlaceholder: 'अपना पूरा नाम दर्ज करें',
+        phone: 'फोन नंबर',
+        phonePlaceholder: 'अपना 10 अंकों का फोन नंबर दर्ज करें',
+        email: 'ईमेल पता',
+        emailPlaceholder: 'अपना ईमेल दर्ज करें (वैकल्पिक)',
+        city: 'शहर / स्थान',
+        cityPlaceholder: 'अपना शहर या स्थान दर्ज करें',
+        systemSize: 'सिस्टम साइज',
+        systemSizePlaceholder: 'सिस्टम साइज चुनें',
+        message: 'संदेश',
+        messagePlaceholder: 'कोई विशेष आवश्यकता या प्रश्न?',
+      },
+      systemSizes: [
+        { value: '1-3kw', label: '1–3 kW (छोटा घर)' },
+        { value: '3-5kw', label: '3–5 kW (मध्यम घर)' },
+        { value: '5-10kw', label: '5–10 kW (बड़ा घर)' },
+        { value: '10+kw', label: '10+ kW (व्यावसायिक)' },
+      ],
+      submit: 'WhatsApp पर भेजें',
+      submitting: 'भेज रहे हैं...',
+      validation: {
+        nameRequired: 'पूरा नाम आवश्यक है',
+        phoneRequired: 'फोन नंबर आवश्यक है',
+        phoneInvalid: 'कृपया एक वैध 10 अंकों का फोन नंबर दर्ज करें',
+      },
+      success: 'आपकी पूछताछ सफलतापूर्वक भेज दी गई है!',
+      error: 'कुछ गलत हो गया। कृपया पुनः प्रयास करें।',
+    },
+    bankFinanceBanner: {
+      title: 'आसान बैंक वित्त उपलब्ध',
+      subtitle: 'प्रमुख बैंकों से लचीले EMI विकल्पों के साथ सौर को किफायती बनाएं',
+      stats: [
+        { value: '0%', label: 'ब्याज (चुनिंदा बैंक)' },
+        { value: '90%', label: 'ऋण-से-मूल्य अनुपात' },
+        { value: '7 वर्ष', label: 'पुनर्भुगतान अवधि' },
+      ],
+      cta: 'WhatsApp पर पूछताछ करें',
+    },
+    whatsAppSection: {
+      title: 'WhatsApp पर हमसे जुड़ें',
+      description: 'अपने सौर प्रश्नों के तुरंत उत्तर पाएं। हमारे विशेषज्ञ आपको सही सौर सिस्टम चुनने और सब्सिडी प्रक्रिया में मार्गदर्शन करने के लिए उपलब्ध हैं।',
+      phone: '+91 78388 67880',
+      cta: 'अभी चैट शुरू करें',
+    },
+    footer: {
+      brand: 'TRI-GITA SERVICES',
+      tagline: 'ओडिशा में आपका विश्वसनीय सौर ऊर्जा भागीदार। स्वच्छ, किफायती सौर ऊर्जा से घरों और व्यवसायों को सशक्त बनाना।',
+      contactTitle: 'संपर्क करें',
+      phone1Label: 'अशोक',
+      phone1: '7838867880',
+      phone2Label: 'दीपक',
+      phone2: '8249286318',
+      email: 'trigitaservices@gmail.com',
+      addressLabel: 'कार्यालय पता',
+      address: 'श्री हरि निवास, डेंगीमाचा, डेंगीमाचा मिनीस्टेडियम के पास, संबलपुर, ओडिशा 768006',
+      serviceAreaLabel: 'सेवा क्षेत्र',
+      serviceArea: 'ओडिशा',
+      hoursLabel: 'कार्य समय',
+      hours: 'सोम–शनि: सुबह 9:00 – शाम 6:00',
+      copyright: 'TRI-GITA SERVICES. सर्वाधिकार सुरक्षित।',
+    },
+    floatingWhatsApp: {
+      tooltip: 'WhatsApp पर हमसे चैट करें',
+    },
+  },
+
+  od: {
+    header: {
+      brand: 'TRI-GITA SERVICES',
+      tagline: 'ସୌର ଶକ୍ତି ସମାଧାନ',
+      nav: {
+        home: 'ହୋମ',
+        services: 'ସେବା',
+        scheme: 'PM ଯୋଜନା',
+        guide: 'ଓଡ଼ିଶା ଗାଇଡ',
+        whyUs: 'ଆମକୁ କାହିଁକି',
+        contact: 'ଯୋଗାଯୋଗ',
+        getQuote: 'କୋଟେସନ ନିଅ',
+      },
+    },
+    hero: {
+      headline: 'ସୌର ଶକ୍ତିରେ ଆପଣଙ୍କ ଘରକୁ ବିଦ୍ୟୁତ ଦିଅ',
+      subheadline: 'ଓଡ଼ିଶାରେ ଅଧିକୃତ ସୌର ଇନ୍‌ସ୍ଟଲର',
+      tagline: 'PM ସୂର୍ଯ୍ୟ ଘର ମୁଫ୍ତ ବିଜଲି ଯୋଜନା ଅଧୀନରେ ₹78,000 ପର୍ଯ୍ୟନ୍ତ ସବ୍‌ସିଡି ପାଆନ୍ତୁ',
+      cta: 'WhatsApp ରେ ଚ୍ୟାଟ କରନ୍ତୁ',
+      ctaSecondary: 'ଅଧିକ ଜାଣନ୍ତୁ',
+    },
+    schemeInfo: {
+      title: 'PM ସୂର୍ଯ୍ୟ ଘର ମୁଫ୍ତ ବିଜଲି ଯୋଜନା',
+      subtitle: 'ଭାରତ ସରକାରଙ୍କ ପ୍ରମୁଖ ସୌର ରୁଫ୍‌ଟପ ଯୋଜନା',
+      description: 'ମୁଫ୍ତ ବିଦ୍ୟୁତ ପାଆନ୍ତୁ ଏବଂ ଅତିରିକ୍ତ ବିଦ୍ୟୁତ ଗ୍ରିଡ୍‌କୁ ବିକ୍ରି କରି ଅର୍ଥ ଉପାର୍ଜନ କରନ୍ତୁ। ଭାରତ ସରକାର ପ୍ରତ୍ୟେକ ଘର ପାଇଁ ସୌର ଶକ୍ତିକୁ ସୁଲଭ କରିବା ପାଇଁ ଯଥେଷ୍ଟ ସବ୍‌ସିଡି ପ୍ରଦାନ କରନ୍ତି।',
+      benefits: {
+        title: 'ମୁଖ୍ୟ ସୁବିଧା',
+        items: [
+          'ପ୍ରତି ମାସ 300 ୟୁନିଟ ପର୍ଯ୍ୟନ୍ତ ମୁଫ୍ତ ବିଦ୍ୟୁତ',
+          '3 kW ସିଷ୍ଟମ ପାଇଁ ₹78,000 ପର୍ଯ୍ୟନ୍ତ ସବ୍‌ସିଡି',
+          'ଅତିରିକ୍ତ ବିଦ୍ୟୁତ ବିକ୍ରି କରି ଉପାର୍ଜନ କରନ୍ତୁ',
+          'ବିଦ୍ୟୁତ ବିଲ ପ୍ରାୟ ଶୂନ୍ୟ କରନ୍ତୁ',
+          'ସମ୍ପତ୍ତିର ମୂଲ୍ୟ ବଢ଼ାନ୍ତୁ',
+          '25 ବର୍ଷ ପ୍ୟାନେଲ ଜୀବନକାଳ',
+        ],
+      },
+      eligibility: {
+        title: 'ଯୋଗ୍ୟତା',
+        items: [
+          'ଭାରତୀୟ ଆବାସିକ ପରିବାର',
+          'ବୈଧ ବିଦ୍ୟୁତ ସଂଯୋଗ',
+          'ଉପଯୁକ୍ତ ଛାଦ ସ୍ଥାନ',
+          'ପୂର୍ବରୁ କୌଣସି ସୌର ଇନ୍‌ସ୍ଟଲେସନ ନାହିଁ',
+        ],
+      },
+      process: {
+        title: 'ଆମେ ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରୁ',
+        steps: [
+          { title: 'ମୁଫ୍ତ ପରାମର୍ଶ', desc: 'ଆମେ ଆପଣଙ୍କ ଛାଦ ଏବଂ ବିଦ୍ୟୁତ ଆବଶ୍ୟକତା ମୂଲ୍ୟାଙ୍କନ କରୁ' },
+          { title: 'ଆବେଦନ', desc: 'ଆମେ ସମସ୍ତ କାଗଜ ଏବଂ ପୋର୍ଟାଲ ପଞ୍ଜୀକରଣ ସମ୍ଭାଳୁ' },
+          { title: 'ଇନ୍‌ସ୍ଟଲେସନ', desc: 'ପ୍ରମାଣିତ ଟେକ୍ନିସିଆନ ଦ୍ୱାରା ବୃତ୍ତିଗତ ଇନ୍‌ସ୍ଟଲେସନ' },
+          { title: 'ସବ୍‌ସିଡି ବিତରଣ', desc: 'ଆମେ ଅନୁସରଣ କରୁ ଯେ ପର୍ଯ୍ୟନ୍ତ ସବ୍‌ସିଡି ଆପଣଙ୍କ ଖାତାରେ ଜମା ନ ହୁଏ' },
+        ],
+      },
+    },
+    odishaGuide: {
+      title: 'ଓଡ଼ିଶା ପାଇଁ PM ସୂର୍ଯ୍ୟ ଘର ଗାଇଡ',
+      subtitle: 'ଓଡ଼ିଶାରେ ସୌର ଇନ୍‌ସ୍ଟଲେସନ ବିଷୟରେ ସବୁ ଜାଣନ୍ତୁ',
+      phases: {
+        title: 'ଇନ୍‌ସ୍ଟଲେସନ ପର୍ଯ୍ୟାୟ',
+        items: [
+          { phase: 'ପର୍ଯ୍ୟାୟ 1', title: 'ସାଇଟ ସର୍ଭେ ଏବଂ ମୂଲ୍ୟାଙ୍କନ', desc: 'ଟେକ୍ନିକାଲ ଟିମ ଛାଦ ଏଲାକା, ଦିଗ, ଛାୟା ଏବଂ ବୈଦ୍ୟୁତିକ ଭାର ମୂଲ୍ୟାଙ୍କନ ପାଇଁ ଆପଣଙ୍କ ଘରକୁ ଆସେ।' },
+          { phase: 'ପର୍ଯ୍ୟାୟ 2', title: 'ପୋର୍ଟାଲ ପଞ୍ଜୀକରଣ', desc: 'ଆପଣଙ୍କ ବିଦ୍ୟୁତ ବିଲ ବିବରଣୀ ସହ ଜାତୀୟ ରୁଫ୍‌ଟପ ସୋଲାର ପୋର୍ଟାଲ (solarrooftop.gov.in) ରେ ପଞ୍ଜୀକରଣ କରନ୍ତୁ।' },
+          { phase: 'ପର୍ଯ୍ୟାୟ 3', title: 'DISCOM ଅନୁମୋଦନ', desc: 'ଟେକ୍ନିକାଲ ସମ୍ଭାବ୍ୟତା ପାଇଁ ଆପଣଙ୍କ ସ୍ଥାନୀୟ DISCOM (TPCODL, TPNODL, TPSODL, TPWODL, CESU) କୁ ଆବେଦନ ଦାଖଲ କରନ୍ତୁ।' },
+          { phase: 'ପର୍ଯ୍ୟାୟ 4', title: 'ଇନ୍‌ସ୍ଟଲେସନ', desc: 'ପ୍ରମାଣିତ ଇନ୍‌ସ୍ଟଲର 7-10 କାର୍ଯ୍ୟ ଦିନ ମଧ୍ୟରେ ସୌର ପ୍ୟାନେଲ ଏବଂ ଇନ୍‌ଭର୍ଟର ଇନ୍‌ସ୍ଟଲେସନ ସମ୍ପୂର୍ଣ୍ଣ କରନ୍ତି।' },
+          { phase: 'ପର୍ଯ୍ୟାୟ 5', title: 'ନେଟ ମିଟରିଂ', desc: 'DISCOM ନେଟ ମିଟର ଲଗାଏ ଏବଂ କମିଶନିଂ ସାର୍ଟିଫିକେଟ ଜାରି କରେ।' },
+          { phase: 'ପର୍ଯ୍ୟାୟ 6', title: 'ସବ୍‌ସିଡି କ୍ରେଡିଟ', desc: 'କମିଶନିଂର 30 ଦିନ ମଧ୍ୟରେ ସବ୍‌ସିଡି ରାଶି ସିଧାସଳଖ ଆପଣଙ୍କ ବ୍ୟାଙ୍କ ଖାତାରେ ଜମା ହୁଏ।' },
+        ],
+      },
+      subsidy: {
+        title: 'ସବ୍‌ସିଡି ଗଠନ',
+        tiers: [
+          { capacity: '1 kW', subsidy: '₹30,000', note: 'ଛୋଟ ଘର ପାଇଁ ଆଦର୍ଶ' },
+          { capacity: '2 kW', subsidy: '₹60,000', note: 'ମଧ୍ୟମ ଘର ପାଇଁ ଉପଯୁକ୍ତ' },
+          { capacity: '3 kW', subsidy: '₹78,000', note: 'ସର୍ବାଧିକ ସବ୍‌ସିଡି — ସର୍ବୋତ୍ତମ ମୂଲ୍ୟ' },
+        ],
+        note: '* ସବ୍‌ସିଡି 3 kW ପର୍ଯ୍ୟନ୍ତ ସିଷ୍ଟମ ପାଇଁ ପ୍ରଯୁଜ୍ୟ। 3 kW ରୁ ଅଧିକ ସିଷ୍ଟମ ପାଇଁ, ସବ୍‌ସିଡି ₹78,000 ରେ ସୀମିତ।',
+      },
+      eligibility: {
+        title: 'ଯୋଗ୍ୟତା ମାନଦଣ୍ଡ',
+        items: [
+          'ବୈଧ ବିଦ୍ୟୁତ ସଂଯୋଗ ସହ ଆବାସିକ ଉପଭୋକ୍ତା',
+          'ପ୍ରତି kW ପାଇଁ ଅନ୍ତତ 10 ବର୍ଗ ମିଟର ଛାଦ ଏଲାକା',
+          'ସମ୍ପତ୍ତିରେ ବିଦ୍ୟମାନ ସୌର ଇନ୍‌ସ୍ଟଲେସନ ନାହିଁ',
+          'ଆଧାର ସହ ଲିଙ୍କ ବ୍ୟାଙ୍କ ଖାତା',
+          'ସମ୍ପତ୍ତି ମାଲିକାନା ବା ଜମି ମାଲିକଙ୍କ ସମ୍ମତି',
+        ],
+      },
+      documents: {
+        title: 'ଆବଶ୍ୟକ ଦଲିଲ',
+        items: [
+          'ଆଧାର କାର୍ଡ',
+          'ବିଦ୍ୟୁତ ବିଲ (ସର୍ବଶେଷ)',
+          'ବ୍ୟାଙ୍କ ପାସ୍‌ବୁକ / ବାତିଲ ଚେକ',
+          'ପାସ୍‌ପୋର୍ଟ ସାଇଜ ଫୋଟୋ',
+          'ସମ୍ପତ୍ତି ଦଲିଲ / ମାଲିକାନା ପ୍ରମାଣ',
+          'ଆଧାର ସହ ଲିଙ୍କ ମୋବାଇଲ ନମ୍ବର',
+        ],
+      },
+      discoms: {
+        title: 'ଓଡ଼ିଶାରେ DISCOM',
+        items: ['TPCODL', 'TPNODL', 'TPSODL', 'TPWODL', 'CESU'],
+      },
+    },
+    whyChooseUs: {
+      title: 'TRI-GITA SERVICES କୁ କାହିଁକି ବାଛିବେ?',
+      subtitle: 'ଓଡ଼ିଶାରେ ଆପଣଙ୍କ ବିଶ୍ୱସ୍ତ ସୌର ଅଂଶୀଦାର',
+      cards: [
+        {
+          title: 'ପଞ୍ଜୀକୃତ ବିକ୍ରେତା',
+          desc: 'PM ସୂର୍ଯ୍ୟ ଘର ମୁଫ୍ତ ବିଜଲି ଯୋଜନା ପାଇଁ ଅଧିକୃତ ଭାବେ ପଞ୍ଜୀକୃତ ଏବଂ ତାଲିକାଭୁକ୍ତ ବିକ୍ରେତା। ଆମେ ନିଶ୍ଚିତ କରୁ ଯେ ଆପଣଙ୍କ ସବ୍‌ସିଡି ଆବେଦନ ସୁଗମ ଭାବେ ପ୍ରକ୍ରିୟା ହୁଏ।',
+        },
+        {
+          title: 'ଟେକ୍ନିକାଲ ଦକ୍ଷତା',
+          desc: 'ଆମର ପ୍ରମାଣିତ ଟେକ୍ନିସିଆନ ସମଗ୍ର ଓଡ଼ିଶାରେ ସୌର ସିଷ୍ଟମ ଇନ୍‌ସ୍ଟଲ କରିଛନ୍ତି। ଆମେ ସର୍ବାଧିକ ଦକ୍ଷତା ପାଇଁ କେବଳ Tier-1 ପ୍ୟାନେଲ ଏବଂ ଇନ୍‌ଭର୍ଟର ବ୍ୟବହାର କରୁ।',
+        },
+        {
+          title: 'ଝଞ୍ଝଟ ମୁକ୍ତ ପ୍ରକ୍ରିୟା',
+          desc: 'ସାଇଟ ସର୍ଭେ ଠାରୁ ସବ୍‌ସିଡି ବିତରଣ ପର୍ଯ୍ୟନ୍ତ, ଆମେ ସବୁ ସମ୍ଭାଳୁ। ଆପଣ ବସି ମୁଫ୍ତ ବିଦ୍ୟୁତ ଉପଭୋଗ କରନ୍ତୁ।',
+        },
+      ],
+    },
+    warrantyGuarantee: {
+      title: 'ୱାରେଣ୍ଟି ଏବଂ ଗ୍ୟାରେଣ୍ଟି',
+      subtitle: 'ଆମେ ପ୍ରତ୍ୟେକ ଇନ୍‌ସ୍ଟଲେସନ ପଛରେ ଛିଅ',
+      cards: [
+        {
+          title: '25 ବର୍ଷ ସୌର ପ୍ୟାନେଲ ୱାରେଣ୍ଟି',
+          desc: 'ଆମର Tier-1 ସୌର ପ୍ୟାନେଲ 25 ବର୍ଷ ପ୍ରଦର୍ଶନ ୱାରେଣ୍ଟି ସହ ଆସେ, ଦଶନ୍ଧି ଧରି ସ୍ଥିର ବିଦ୍ୟୁତ ଉତ୍ପାଦନ ନିଶ୍ଚିତ କରେ।',
+        },
+        {
+          title: '10 ବର୍ଷ ଇନ୍‌ଭର୍ଟର ୱାରେଣ୍ଟି',
+          desc: 'ନିର୍ଭରଯୋଗ୍ୟ ଏବଂ ଦକ୍ଷ ବିଦ୍ୟୁତ ରୂପାନ୍ତର ପାଇଁ 10 ବର୍ଷ ନିର୍ମାତା ୱାରେଣ୍ଟି ଦ୍ୱାରା ସମର୍ଥିତ ପ୍ରିମିୟମ ଇନ୍‌ଭର୍ଟର।',
+        },
+        {
+          title: '5 ବର୍ଷ ମୁଫ୍ତ ସେବା ଗ୍ୟାରେଣ୍ଟି',
+          desc: 'ଆପଣଙ୍କ ସୌର ସିଷ୍ଟମ ସର୍ବୋତ୍ତମ ପ୍ରଦର୍ଶନ ରଖିବା ପାଇଁ ଆମେ 5 ବର୍ଷ ମୁଫ୍ତ ରକ୍ଷଣାବେକ୍ଷଣ ଏବଂ ସେବା ଭ୍ରମଣ ପ୍ରଦାନ କରୁ।',
+        },
+      ],
+    },
+    services: {
+      title: 'ଆମର ସେବା',
+      subtitle: 'ପ୍ରତ୍ୟେକ ଆବଶ୍ୟକତା ପାଇଁ ବ୍ୟାପକ ସୌର ସମାଧାନ',
+      domestic: {
+        title: 'ଘରୋଇ ସୌର ଇନ୍‌ସ୍ଟଲେସନ',
+        features: [
+          '1 kW ରୁ 10 kW ପର୍ଯ୍ୟନ୍ତ ସିଷ୍ଟମ',
+          'ସବ୍‌ସିଡି ସହାୟତା ଅନ୍ତର୍ଭୁକ୍ତ',
+          'ନେଟ ମିଟରିଂ ସପୋର୍ଟ',
+          'ବାର୍ଷିକ ରକ୍ଷଣାବେକ୍ଷଣ ଚୁକ୍ତି',
+        ],
+        cta: 'କୋଟେସନ ନିଅ',
+      },
+      commercial: {
+        title: 'ବ୍ୟବସାୟିକ ସୌର ଇନ୍‌ସ୍ଟଲେସନ',
+        features: [
+          '10 kW ରୁ 500 kW ପର୍ଯ୍ୟନ୍ତ ସିଷ୍ଟମ',
+          'ROI ବିଶ୍ଳେଷଣ ପ୍ରଦାନ',
+          'ଗ୍ରିଡ-ଟାଇ ଏବଂ ଅଫ-ଗ୍ରିଡ ବିକଳ୍ପ',
+          'ଡେଡିକେଟେଡ ପ୍ରୋଜେକ୍ଟ ମ୍ୟାନେଜର',
+        ],
+        cta: 'କୋଟେସନ ନିଅ',
+      },
+    },
+    inquiryForm: {
+      title: 'ମୁଫ୍ତ କୋଟେସନ ପାଆନ୍ତୁ',
+      subtitle: 'ଆପଣଙ୍କ ବିବରଣୀ ପୂରଣ କରନ୍ତୁ ଏବଂ ଆମେ 24 ଘଣ୍ଟା ମଧ୍ୟରେ ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ କରିବୁ',
+      fields: {
+        name: 'ପୂରା ନାମ',
+        namePlaceholder: 'ଆପଣଙ୍କ ପୂରା ନାମ ଲିଖନ୍ତୁ',
+        phone: 'ଫୋନ ନମ୍ବର',
+        phonePlaceholder: 'ଆପଣଙ୍କ 10 ଅଙ୍କ ଫୋନ ନମ୍ବର ଲିଖନ୍ତୁ',
+        email: 'ଇମେଲ ଠିକଣା',
+        emailPlaceholder: 'ଆପଣଙ୍କ ଇମେଲ ଲିଖନ୍ତୁ (ଐଚ୍ଛିକ)',
+        city: 'ସହର / ସ୍ଥାନ',
+        cityPlaceholder: 'ଆପଣଙ୍କ ସହର ବା ସ୍ଥାନ ଲିଖନ୍ତୁ',
+        systemSize: 'ସିଷ୍ଟମ ଆକାର',
+        systemSizePlaceholder: 'ସିଷ୍ଟମ ଆକାର ବାଛନ୍ତୁ',
+        message: 'ବାର୍ତ୍ତା',
+        messagePlaceholder: 'କୌଣସି ବିଶେଷ ଆବଶ୍ୟକତା ବା ପ୍ରଶ୍ନ?',
+      },
+      systemSizes: [
+        { value: '1-3kw', label: '1–3 kW (ଛୋଟ ଘର)' },
+        { value: '3-5kw', label: '3–5 kW (ମଧ୍ୟମ ଘର)' },
+        { value: '5-10kw', label: '5–10 kW (ବଡ ଘର)' },
+        { value: '10+kw', label: '10+ kW (ବ୍ୟବସାୟିକ)' },
+      ],
+      submit: 'WhatsApp ରେ ପଠାନ୍ତୁ',
+      submitting: 'ପଠାଉଛୁ...',
+      validation: {
+        nameRequired: 'ପୂରା ନାମ ଆବଶ୍ୟକ',
+        phoneRequired: 'ଫୋନ ନମ୍ବର ଆବଶ୍ୟକ',
+        phoneInvalid: 'ଦୟାକରି ଏକ ବୈଧ 10 ଅଙ୍କ ଫୋନ ନମ୍ବର ଲିଖନ୍ତୁ',
+      },
+      success: 'ଆପଣଙ୍କ ଅନୁସନ୍ଧାନ ସଫଳତାର ସହ ପଠାଯାଇଛି!',
+      error: 'କିଛି ଭୁଲ ହୋଇଗଲା। ଦୟାକରି ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।',
+    },
+    bankFinanceBanner: {
+      title: 'ସହଜ ବ୍ୟାଙ୍କ ଋଣ ଉପଲବ୍ଧ',
+      subtitle: 'ଅଗ୍ରଣୀ ବ୍ୟାଙ୍କଗୁଡ଼ିକ ଠାରୁ ନମନୀୟ EMI ବିକଳ୍ପ ସହ ସୌରକୁ ସୁଲଭ କରନ୍ତୁ',
+      stats: [
+        { value: '0%', label: 'ସୁଧ (ଚୟନ ବ୍ୟାଙ୍କ)' },
+        { value: '90%', label: 'ଋଣ-ରୁ-ମୂଲ୍ୟ ଅନୁପାତ' },
+        { value: '7 ବର୍ଷ', label: 'ପୁନଃଭୁଗତାନ ଅବଧି' },
+      ],
+      cta: 'WhatsApp ରେ ଅନୁସନ୍ଧାନ କରନ୍ତୁ',
+    },
+    whatsAppSection: {
+      title: 'WhatsApp ରେ ଆମ ସହ ଯୋଗ ଦିଅ',
+      description: 'ଆପଣଙ୍କ ସୌର ପ୍ରଶ୍ନର ତୁରନ୍ତ ଉତ୍ତର ପାଆନ୍ତୁ। ଆମର ବିଶେଷଜ୍ଞ ଆପଣଙ୍କୁ ସଠିକ ସୌର ସିଷ୍ଟମ ବାଛିବାରେ ଏବଂ ସବ୍‌ସିଡି ପ୍ରକ୍ରିୟାରେ ମାର୍ଗଦର୍ଶନ ଦେବାକୁ ଉପଲବ୍ଧ।',
+      phone: '+91 78388 67880',
+      cta: 'ଏବେ ଚ୍ୟାଟ ଆରମ୍ଭ କରନ୍ତୁ',
+    },
+    footer: {
+      brand: 'TRI-GITA SERVICES',
+      tagline: 'ଓଡ଼ିଶାରେ ଆପଣଙ୍କ ବିଶ୍ୱସ୍ତ ସୌର ଶକ୍ତି ଅଂଶୀଦାର। ସ୍ୱଚ୍ଛ, ସୁଲଭ ସୌର ଶକ୍ତି ସହ ଘର ଏବଂ ବ୍ୟବସାୟ ସଶକ୍ତ କରୁ।',
+      contactTitle: 'ଯୋଗାଯୋଗ କରନ୍ତୁ',
+      phone1Label: 'ଅଶୋକ',
+      phone1: '7838867880',
+      phone2Label: 'ଦୀପକ',
+      phone2: '8249286318',
+      email: 'trigitaservices@gmail.com',
+      addressLabel: 'କାର୍ଯ୍ୟାଳୟ ଠିକଣା',
+      address: 'ଶ୍ରୀ ହରି ନିବାସ, ଡେଙ୍ଗୀମାଚା, ଡେଙ୍ଗୀମାଚା ମିନିଷ୍ଟାଡିୟମ ନିକଟ, ସମ୍ବଲପୁର, ଓଡ଼ିଶା 768006',
+      serviceAreaLabel: 'ସେବା ଏଲାକା',
+      serviceArea: 'ଓଡ଼ିଶା',
+      hoursLabel: 'କାର୍ଯ୍ୟ ସମୟ',
+      hours: 'ସୋମ–ଶନି: ସକାଳ 9:00 – ସନ୍ଧ୍ୟା 6:00',
+      copyright: 'TRI-GITA SERVICES. ସମସ୍ତ ଅଧିକାର ସଂରକ୍ଷିତ।',
+    },
+    floatingWhatsApp: {
+      tooltip: 'WhatsApp ରେ ଆମ ସହ ଚ୍ୟାଟ କରନ୍ତୁ',
+    },
+  },
+};
+
+export type Translations = typeof translations.en;

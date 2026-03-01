@@ -1,48 +1,81 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T22:35:29.469Z",
+  "generatedAt": "2026-03-01T23:18:37.811Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx. The subsidy tier table rows and related elements should animate in with fade-in and slide-up effects using IntersectionObserver (consistent with the BankFinanceBanner animation pattern). Include prefers-reduced-motion support.",
+        "summary": "Create a language context provider that manages the currently selected language (English, Hindi, Odia) with default set to English, and persists the selection to localStorage so the choice survives page reloads.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/OdishaGuide.tsx",
-          "frontend/src/index.css"
+          "frontend/src/contexts/LanguageContext.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/OdishaGuide.tsx",
-          "frontend/src/index.css"
+          "frontend/src/contexts/LanguageContext.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Add TRI-GITA SERVICES office address to the Footer component. The address is: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006. Display it alongside the existing contact details.",
+        "summary": "Add a language switcher UI element in the Header component, displaying three options: 'English', 'हिन्दी' (Hindi), and 'ଓଡ଼ିଆ' (Odia). The switcher should be visible on both desktop and mobile (hamburger menu) layouts and highlight the currently active language.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/Header.tsx"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Add a 'Service Area: Odisha' entry to the Footer component and/or a relevant section (such as WhyChooseUs or a dedicated info block). Display it clearly so users know the geographic coverage of TRI-GITA SERVICES.",
+        "summary": "Create a centralized translations file (e.g., frontend/src/i18n/translations.ts) containing all user-facing strings for every component in all three languages: English, Hindi, and Odia. Cover all text content in Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, and Footer.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/i18n/translations.ts",
+          "frontend/src/i18n/useTranslation.ts"
         ],
         "matchedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/i18n/translations.ts",
+          "frontend/src/i18n/useTranslation.ts"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Update all page-section components (Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer, Header) to consume translated strings from the language context instead of rendering hard-coded text, so the entire page re-renders in the selected language when the user switches.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Hero.tsx",
+          "frontend/src/components/SchemeInfo.tsx",
+          "frontend/src/components/OdishaGuide.tsx",
+          "frontend/src/components/WhyChooseUs.tsx",
+          "frontend/src/components/WarrantyGuarantee.tsx",
+          "frontend/src/components/Services.tsx",
+          "frontend/src/components/InquiryForm.tsx",
+          "frontend/src/components/BankFinanceBanner.tsx",
+          "frontend/src/components/WhatsAppSection.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/components/FloatingWhatsAppButton.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Hero.tsx",
+          "frontend/src/components/SchemeInfo.tsx",
+          "frontend/src/components/OdishaGuide.tsx",
+          "frontend/src/components/WhyChooseUs.tsx",
+          "frontend/src/components/WarrantyGuarantee.tsx",
+          "frontend/src/components/Services.tsx",
+          "frontend/src/components/InquiryForm.tsx",
+          "frontend/src/components/BankFinanceBanner.tsx",
+          "frontend/src/components/WhatsAppSection.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/components/FloatingWhatsAppButton.tsx",
+          "frontend/src/App.tsx"
         ]
       }
     ]
@@ -50,11 +83,23 @@
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/components/BankFinanceBanner.tsx",
+    "frontend/src/components/FloatingWhatsAppButton.tsx",
     "frontend/src/components/Footer.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/Hero.tsx",
+    "frontend/src/components/InquiryForm.tsx",
     "frontend/src/components/OdishaGuide.tsx",
-    "frontend/src/index.css",
+    "frontend/src/components/SchemeInfo.tsx",
+    "frontend/src/components/Services.tsx",
+    "frontend/src/components/WarrantyGuarantee.tsx",
+    "frontend/src/components/WhatsAppSection.tsx",
+    "frontend/src/components/WhyChooseUs.tsx",
+    "frontend/src/contexts/LanguageContext.tsx",
+    "frontend/src/i18n/translations.ts",
+    "frontend/src/i18n/useTranslation.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

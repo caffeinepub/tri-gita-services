@@ -1,122 +1,147 @@
-import { Sun, Menu, X, Phone } from 'lucide-react';
-import { SiWhatsapp } from 'react-icons/si';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Menu, X, Sun } from 'lucide-react';
+import { useLanguage, type Language } from '../contexts/LanguageContext';
+import { useTranslation } from '../i18n/useTranslation';
 
-const WHATSAPP_URL = 'https://wa.me/917838867880';
+const LANGUAGE_OPTIONS: { code: Language; label: string }[] = [
+  { code: 'en', label: 'English' },
+  { code: 'hi', label: 'हिन्दी' },
+  { code: 'od', label: 'ଓଡ଼ିଆ' },
+];
 
 export default function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const t = useTranslation();
 
-    const navLinks = [
-        { label: 'Home', href: '#home' },
-        { label: 'Scheme', href: '#scheme' },
-        { label: 'Services', href: '#services' },
-        { label: 'Get Quote', href: '#inquiry' },
-        { label: 'Contact', href: '#contact' },
-    ];
+  const navLinks = [
+    { label: t.header.nav.home, href: '#' },
+    { label: t.header.nav.services, href: '#services' },
+    { label: t.header.nav.scheme, href: '#scheme' },
+    { label: t.header.nav.guide, href: '#guide' },
+    { label: t.header.nav.whyUs, href: '#why-us' },
+    { label: t.header.nav.contact, href: '#contact' },
+  ];
 
-    const scrollTo = (href: string) => {
-        setMenuOpen(false);
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    return (
-        <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-xs">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="flex items-center justify-between h-16 md:h-20">
-                    {/* Logo */}
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full solar-gradient flex items-center justify-center shadow-solar animate-pulse-glow">
-                            <Sun className="w-5 h-5 text-primary-foreground" strokeWidth={2.5} />
-                        </div>
-                        <div>
-                            <div className="font-heading font-800 text-base md:text-lg leading-tight text-foreground tracking-tight">
-                                TRI-GITA SERVICES
-                            </div>
-                            <div className="text-xs text-muted-foreground font-body leading-none hidden sm:block">
-                                A Unit of BHAGYALAXMI CONSTRUCTION
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <button
-                                key={link.href}
-                                onClick={() => scrollTo(link.href)}
-                                className={`px-4 py-2 text-sm font-body font-medium transition-colors rounded-lg ${
-                                    link.href === '#inquiry'
-                                        ? 'text-primary font-semibold hover:bg-primary/10'
-                                        : 'text-foreground/80 hover:text-primary hover:bg-solar-50'
-                                }`}
-                            >
-                                {link.label}
-                            </button>
-                        ))}
-                    </nav>
-
-                    {/* CTA + Mobile Menu */}
-                    <div className="flex items-center gap-3">
-                        <a
-                            href="tel:7838867880"
-                            className="hidden lg:flex items-center gap-2 text-sm font-body font-medium text-forest-600 hover:text-forest-700 transition-colors"
-                        >
-                            <Phone className="w-4 h-4" />
-                            <span>Call Now</span>
-                        </a>
-                        <Button
-                            size="sm"
-                            className="hidden md:flex items-center gap-1.5 bg-forest-600 hover:bg-forest-700 text-white font-heading font-700 border-0 shadow-green transition-all"
-                            asChild
-                        >
-                            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                                <SiWhatsapp className="w-4 h-4" />
-                                WhatsApp Us
-                            </a>
-                        </Button>
-                        <button
-                            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-                            onClick={() => setMenuOpen(!menuOpen)}
-                            aria-label="Toggle menu"
-                        >
-                            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                        </button>
-                    </div>
-                </div>
-
-                {/* Mobile Menu */}
-                {menuOpen && (
-                    <div className="md:hidden border-t border-border py-4 space-y-1">
-                        {navLinks.map((link) => (
-                            <button
-                                key={link.href}
-                                onClick={() => scrollTo(link.href)}
-                                className={`w-full text-left px-4 py-3 text-sm font-body font-medium rounded-lg transition-colors ${
-                                    link.href === '#inquiry'
-                                        ? 'text-primary font-semibold hover:bg-primary/10'
-                                        : 'text-foreground/80 hover:text-primary hover:bg-solar-50'
-                                }`}
-                            >
-                                {link.label}
-                            </button>
-                        ))}
-                        <div className="pt-2 px-4">
-                            <Button
-                                className="w-full bg-forest-600 hover:bg-forest-700 text-white font-heading font-700 border-0 flex items-center gap-2"
-                                asChild
-                            >
-                                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                                    <SiWhatsapp className="w-4 h-4" />
-                                    Chat on WhatsApp
-                                </a>
-                            </Button>
-                        </div>
-                    </div>
-                )}
+  return (
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Brand */}
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+              <Sun className="w-5 h-5 text-primary-foreground" />
             </div>
-        </header>
-    );
+            <div>
+              <span className="font-bold text-lg text-foreground leading-tight block">
+                {t.header.brand}
+              </span>
+              <span className="text-xs text-muted-foreground leading-tight block">
+                {t.header.tagline}
+              </span>
+            </div>
+          </div>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#inquiry"
+              className="ml-2 px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            >
+              {t.header.nav.getQuote}
+            </a>
+          </nav>
+
+          {/* Desktop Language Switcher */}
+          <div className="hidden lg:flex items-center gap-1 ml-4 border border-border rounded-lg p-1">
+            {LANGUAGE_OPTIONS.map((opt) => (
+              <button
+                key={opt.code}
+                onClick={() => setLanguage(opt.code)}
+                className={`px-3 py-1 text-xs font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                  language === opt.code
+                    ? 'bg-primary text-primary-foreground font-semibold'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                }`}
+                aria-pressed={language === opt.code}
+                aria-label={`Switch to ${opt.label}`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="lg:hidden border-t border-border bg-background">
+          <div className="px-4 py-3 space-y-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="block px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#inquiry"
+              className="block px-3 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-center mt-2"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t.header.nav.getQuote}
+            </a>
+
+            {/* Mobile Language Switcher */}
+            <div className="pt-3 border-t border-border mt-3">
+              <p className="text-xs text-muted-foreground px-3 mb-2 font-medium uppercase tracking-wide">
+                Language
+              </p>
+              <div className="flex gap-2 px-3">
+                {LANGUAGE_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.code}
+                    onClick={() => {
+                      setLanguage(opt.code);
+                      setMobileOpen(false);
+                    }}
+                    className={`flex-1 py-2 text-xs font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                      language === opt.code
+                        ? 'bg-primary text-primary-foreground font-semibold'
+                        : 'border border-border text-muted-foreground hover:text-foreground hover:bg-muted'
+                    }`}
+                    aria-pressed={language === opt.code}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
 }

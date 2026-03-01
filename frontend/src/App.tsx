@@ -10,24 +10,29 @@ import BankFinanceBanner from './components/BankFinanceBanner';
 import WhatsAppSection from './components/WhatsAppSection';
 import Footer from './components/Footer';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
+import { LanguageProvider } from './contexts/LanguageContext';
 
-export default function App() {
-    return (
-        <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-1">
-                <Hero />
-                <SchemeInfo />
-                <OdishaGuide />
-                <WhyChooseUs />
-                <WarrantyGuarantee />
-                <Services />
-                <InquiryForm />
-                <BankFinanceBanner />
-                <WhatsAppSection />
-            </main>
-            <Footer />
-            <FloatingWhatsAppButton />
-        </div>
-    );
+function App() {
+  return (
+    <LanguageProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <main>
+          <Hero />
+          <SchemeInfo />
+          <OdishaGuide />
+          <WhyChooseUs />
+          <WarrantyGuarantee />
+          <Services />
+          <InquiryForm />
+          <BankFinanceBanner />
+          <WhatsAppSection />
+        </main>
+        <Footer />
+        <FloatingWhatsAppButton />
+      </div>
+    </LanguageProvider>
+  );
 }
+
+export default App;

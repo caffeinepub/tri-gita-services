@@ -1,11 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Add scroll-triggered animations to the subsidy structure section, add the office address to the footer, and display the service area for TRI-GITA SERVICES.
+**Goal:** Add multilingual support (English, Hindi, and Odia) to the TRI-GITA SERVICES frontend so visitors can view the entire page in their preferred language.
 
 **Planned changes:**
-- Add scroll-triggered fade-in and slide-up animations to the subsidy structure table rows in `OdishaGuide.tsx` using IntersectionObserver and CSS keyframes, consistent with the BankFinanceBanner animation pattern, with `prefers-reduced-motion` support
-- Add the office address (Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006) to the Footer component alongside existing contact details
-- Add "Service Area: Odisha" to the Footer component in a clear, consistently styled manner
+- Create a language context provider managing the selected language (English, Hindi, Odia), defaulting to English and persisting the choice in localStorage.
+- Add a language switcher UI in the Header component (desktop nav and mobile hamburger menu) displaying "English", "हिन्दी", and "ଓଡ଼ିଆ", with the active language visually highlighted.
+- Create a centralized translations file (`frontend/src/i18n/translations.ts`) containing all UI strings in all three languages for every section (Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer).
+- Update all page-section components to consume translated strings from the language context instead of hard-coded text, including form placeholders, labels, and validation messages.
 
-**User-visible outcome:** The subsidy structure section now animates into view on scroll, the footer displays the full office address, and users can clearly see that TRI-GITA SERVICES covers Odisha as its service area.
+**User-visible outcome:** Visitors can switch the entire page between English, Hindi, and Odia instantly using the language switcher in the header, with all text content — including forms and section descriptions — updating without a page reload.

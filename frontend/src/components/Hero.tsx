@@ -1,114 +1,62 @@
-import { SiWhatsapp } from 'react-icons/si';
-import { Shield, Zap, IndianRupee } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-const WHATSAPP_URL = 'https://wa.me/917838867880';
+import { MessageCircle, ChevronDown } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
 
 export default function Hero() {
-    const scrollTo = (href: string) => {
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-    };
+  const t = useTranslation();
 
-    return (
-        <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0">
-                <img
-                    src="/assets/generated/hero-solar.dim_1400x600.png"
-                    alt="Solar panels on rooftop"
-                    className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 hero-overlay" />
-            </div>
+  return (
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/assets/generated/hero-solar.dim_1400x600.png"
+          alt="Solar panels on rooftop"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900/85 via-charcoal-900/60 to-charcoal-900/30" />
+      </div>
 
-            {/* Decorative sun rays */}
-            <div className="absolute top-0 right-0 w-96 h-96 opacity-20 pointer-events-none">
-                <div className="w-full h-full rounded-full solar-gradient blur-3xl" />
-            </div>
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 rounded-full px-4 py-1.5 mb-6">
+            <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
+            <span className="text-amber-300 text-sm font-medium">{t.hero.subheadline}</span>
+          </div>
 
-            {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-20">
-                <div className="max-w-2xl">
-                    {/* Badge */}
-                    <div className="inline-flex items-center gap-2 bg-solar-400/20 border border-solar-400/40 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm">
-                        <img
-                            src="/assets/generated/sun-icon.dim_128x128.png"
-                            alt="Sun"
-                            className="w-5 h-5 animate-float"
-                        />
-                        <span className="text-solar-300 text-sm font-body font-medium">
-                            PM Surya Ghar Muft Bijli Yojana
-                        </span>
-                    </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            {t.hero.headline}
+          </h1>
 
-                    {/* Main Heading */}
-                    <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-3">
-                        TRI-GITA
-                        <span className="block text-solar-400">SERVICES</span>
-                    </h1>
+          <p className="text-lg sm:text-xl text-white/80 mb-8 leading-relaxed">
+            {t.hero.tagline}
+          </p>
 
-                    <p className="text-white/70 text-sm font-body font-medium mb-6 tracking-widest uppercase">
-                        A Unit of BHAGYALAXMI CONSTRUCTION
-                    </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://wa.me/917838867880"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              <MessageCircle className="w-5 h-5" />
+              {t.hero.cta}
+            </a>
+            <a
+              href="#scheme"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg border border-white/30 transition-all duration-200 backdrop-blur-sm"
+            >
+              {t.hero.ctaSecondary}
+              <ChevronDown className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
 
-                    {/* Tagline */}
-                    <p className="text-white/90 text-lg md:text-xl font-body leading-relaxed mb-8 max-w-xl">
-                        Empowering homes and businesses with clean solar energy. 
-                        Expert installation for <strong className="text-solar-300">domestic</strong> and{' '}
-                        <strong className="text-solar-300">commercial</strong> solar panels under the 
-                        Government's free electricity scheme.
-                    </p>
-
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                        <Button
-                            size="lg"
-                            className="solar-gradient text-primary-foreground font-heading font-700 border-0 shadow-solar-lg hover:shadow-solar-lg hover:scale-105 transition-all text-base px-8"
-                            asChild
-                        >
-                            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                                <SiWhatsapp className="w-5 h-5 mr-2" />
-                                Chat on WhatsApp
-                            </a>
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm font-heading font-600 text-base px-8"
-                            onClick={() => scrollTo('#scheme')}
-                        >
-                            Learn About the Scheme
-                        </Button>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="flex flex-wrap gap-6">
-                        {[
-                            { icon: Zap, label: 'Free Electricity', sub: 'Up to 300 units/month' },
-                            { icon: IndianRupee, label: 'Govt. Subsidy', sub: 'Up to ₹78,000' },
-                            { icon: Shield, label: 'Trusted Service', sub: 'Domestic & Commercial' },
-                        ].map(({ icon: Icon, label, sub }) => (
-                            <div key={label} className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-solar-400/20 border border-solar-400/30 flex items-center justify-center backdrop-blur-sm">
-                                    <Icon className="w-5 h-5 text-solar-300" />
-                                </div>
-                                <div>
-                                    <div className="text-white font-heading font-700 text-sm">{label}</div>
-                                    <div className="text-white/60 text-xs font-body">{sub}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Bottom wave */}
-            <div className="absolute bottom-0 left-0 right-0">
-                <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-                    <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="oklch(0.98 0.01 85)" />
-                </svg>
-            </div>
-        </section>
-    );
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <ChevronDown className="w-6 h-6 text-white/60" />
+      </div>
+    </section>
+  );
 }

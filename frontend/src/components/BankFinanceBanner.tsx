@@ -1,130 +1,84 @@
 import { useEffect, useRef, useState } from 'react';
-import { Landmark, TrendingUp, IndianRupee } from 'lucide-react';
-import { SiWhatsapp } from 'react-icons/si';
-
-const WHATSAPP_URL = 'https://wa.me/917838867880';
+import { Landmark, MessageCircle } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
 
 export default function BankFinanceBanner() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const t = useTranslation();
+  const b = t.bankFinanceBanner;
+
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      setVisible(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
-
-    observer.observe(el);
+    if (bannerRef.current) observer.observe(bannerRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="px-4 md:px-8 py-10 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section ref={bannerRef} className="py-20 bg-charcoal-900 relative overflow-hidden">
+      {/* Shimmer overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 animate-[banner-shimmer_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          ref={sectionRef}
-          className={[
-            'relative overflow-hidden rounded-3xl solar-gradient shadow-solar-lg',
-            'transition-all duration-700 ease-out motion-reduce:transition-none',
-            isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10',
-          ].join(' ')}
+          className={`text-center transition-all duration-700 ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
         >
-          {/* Shimmer sweep overlay */}
-          <div className="banner-shimmer absolute inset-0 pointer-events-none z-0" aria-hidden="true" />
-
-          {/* Decorative circles */}
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-white opacity-5" />
-          <div className="absolute -bottom-12 -left-12 w-64 h-64 rounded-full bg-white opacity-5" />
-          <div className="absolute top-1/2 right-1/4 w-24 h-24 rounded-full bg-white opacity-5" />
-
-          <div className="relative z-10 p-8 md:p-10">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              {/* Icon — floats gently */}
-              <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-forest-900 bg-opacity-20 flex items-center justify-center animate-float motion-reduce:animate-none">
-                <Landmark className="w-10 h-10 text-forest-900" />
-              </div>
-
-              {/* Main Content */}
-              <div
-                className={[
-                  'flex-1 text-center md:text-left',
-                  'transition-all duration-700 delay-150 ease-out motion-reduce:transition-none',
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6',
-                ].join(' ')}
-              >
-                <p className="text-forest-900 text-sm font-bold uppercase tracking-widest mb-1">
-                  Easy Bank Finance Available
-                </p>
-                <h3 className="font-heading text-3xl md:text-4xl font-black text-forest-900 mb-2 leading-tight">
-                  Go Solar with Just{' '}
-                  <span className="underline decoration-forest-700 decoration-2">10% Down Payment</span>
-                </h3>
-                <p className="text-forest-800 text-base">
-                  Get your rooftop solar system installed today — banks approve up to{' '}
-                  <strong>90% of the total cost</strong> as a loan. You only pay the remaining 10%.
-                </p>
-              </div>
-
-              {/* Stats */}
-              <div
-                className={[
-                  'flex flex-row md:flex-col gap-4 md:gap-3 flex-shrink-0',
-                  'transition-all duration-700 delay-300 ease-out motion-reduce:transition-none',
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6',
-                ].join(' ')}
-              >
-                {/* 90% stat — pulse glow */}
-                <div className="stat-glow bg-forest-900 bg-opacity-15 rounded-2xl px-6 py-4 text-center min-w-[120px] motion-reduce:animate-none">
-                  <div className="flex items-center justify-center gap-1 mb-1">
-                    <TrendingUp className="w-4 h-4 text-forest-900" />
-                    <span className="font-heading text-3xl font-black text-forest-900">90%</span>
-                  </div>
-                  <p className="text-forest-800 text-xs font-semibold uppercase tracking-wide">Loan Approved</p>
-                </div>
-
-                {/* 10% stat */}
-                <div className="bg-forest-900 bg-opacity-15 rounded-2xl px-6 py-4 text-center min-w-[120px]">
-                  <div className="flex items-center justify-center gap-1 mb-1">
-                    <IndianRupee className="w-4 h-4 text-forest-900" />
-                    <span className="font-heading text-3xl font-black text-forest-900">10%</span>
-                  </div>
-                  <p className="text-forest-800 text-xs font-semibold uppercase tracking-wide">You Pay</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom note */}
-            <div
-              className={[
-                'mt-6 pt-5 border-t border-forest-800 border-opacity-20 flex flex-col sm:flex-row items-center justify-between gap-3',
-                'transition-all duration-700 delay-500 ease-out motion-reduce:transition-none',
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
-              ].join(' ')}
-            >
-              <p className="text-forest-800 text-sm text-center sm:text-left">
-                💡 Combined with government subsidy up to <strong>₹1,38,000</strong>, your effective out-of-pocket cost is minimal.
-              </p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whatsapp-cta flex-shrink-0 inline-flex items-center gap-2 bg-forest-900 text-solar-400 font-heading font-bold text-sm px-6 py-2.5 rounded-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_0_20px_oklch(0.16_0.05_145/0.55)] active:scale-95 motion-reduce:hover:scale-100 motion-reduce:hover:shadow-none"
-              >
-                <SiWhatsapp className="w-4 h-4" />
-                Chat on WhatsApp
-              </a>
-            </div>
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-500/20 rounded-full mb-6">
+            <Landmark className="w-8 h-8 text-amber-400" />
           </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{b.title}</h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-12">{b.subtitle}</p>
+        </div>
+
+        {/* Stats */}
+        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+          {b.stats.map((stat, i) => (
+            <div
+              key={i}
+              className={`text-center bg-white/10 rounded-xl p-6 border border-white/10 transition-all duration-700 ${
+                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              } ${i === 1 ? 'animate-[stat-pulse-glow_3s_ease-in-out_infinite]' : ''}`}
+              style={{ transitionDelay: visible ? `${200 + i * 150}ms` : '0ms' }}
+            >
+              <div className="text-4xl font-black text-amber-400 mb-2">{stat.value}</div>
+              <div className="text-sm text-white/70">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div
+          className={`text-center transition-all duration-700 delay-700 ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <a
+            href="https://wa.me/917838867880"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+          >
+            <MessageCircle className="w-5 h-5" />
+            {b.cta}
+          </a>
         </div>
       </div>
     </section>

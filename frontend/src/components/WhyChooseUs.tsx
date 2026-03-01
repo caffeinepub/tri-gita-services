@@ -1,74 +1,39 @@
-import { BadgeCheck, Wrench, HeartHandshake } from 'lucide-react';
+import { Shield, Wrench, Smile } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
 
-const benefits = [
-  {
-    icon: <BadgeCheck className="w-8 h-8" />,
-    title: 'Registered Vendor',
-    description:
-      'Officially empaneled under PM Surya Ghar Muft Bijli Yojana in Odisha — ensuring your subsidy is processed without delays.',
-  },
-  {
-    icon: <Wrench className="w-8 h-8" />,
-    title: 'Technical Expertise',
-    description:
-      'Ensures high-quality mounting, wiring, and inverter installation per MNRE standards for maximum efficiency and longevity.',
-  },
-  {
-    icon: <HeartHandshake className="w-8 h-8" />,
-    title: 'Hassle-Free Process',
-    description:
-      'We assist with all technical uploads, portal documentation, and coordination with your DISCOM — so you don\'t have to.',
-  },
-];
+const ICONS = [Shield, Wrench, Smile];
 
 export default function WhyChooseUs() {
+  const t = useTranslation();
+  const w = t.whyChooseUs;
+
   return (
-    <section id="why-choose-us" className="section-padding bg-background">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block bg-forest-100 text-forest-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
-            Our Advantage
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-forest-700 mb-4">
-            Why Choose{' '}
-            <span className="text-solar-500">BHAGYALAXMI CONSTRUCTION</span>?
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Your trusted partner for a seamless solar journey — from application to subsidy credit.
-          </p>
+    <section id="why-us" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{w.title}</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{w.subtitle}</p>
         </div>
 
-        {/* Benefit Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="group relative bg-card border border-border rounded-2xl p-8 text-center hover:shadow-solar hover:border-solar-300 transition-all duration-300"
-            >
-              {/* Icon */}
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-solar-50 text-solar-500 group-hover:bg-solar-400 group-hover:text-forest-900 transition-colors duration-300 mb-5 mx-auto">
-                {benefit.icon}
+        <div className="grid md:grid-cols-3 gap-8">
+          {w.cards.map((card, i) => {
+            const Icon = ICONS[i];
+            return (
+              <div
+                key={i}
+                className="group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="absolute top-6 right-6 text-5xl font-black text-muted/20 select-none">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{card.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
               </div>
-
-              {/* Number badge */}
-              <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-forest-600 text-white text-xs font-bold flex items-center justify-center font-heading">
-                {index + 1}
-              </div>
-
-              <h3 className="font-heading text-xl font-bold text-forest-700 mb-3">{benefit.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom accent bar */}
-        <div className="mt-10 flex items-center justify-center gap-3">
-          <div className="h-px flex-1 max-w-xs bg-border" />
-          <span className="text-solar-500 font-heading font-bold text-sm uppercase tracking-widest">
-            Empaneled · Trusted · Experienced
-          </span>
-          <div className="h-px flex-1 max-w-xs bg-border" />
+            );
+          })}
         </div>
       </div>
     </section>

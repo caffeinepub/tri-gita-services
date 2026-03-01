@@ -1,32 +1,40 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Project for TRI-GITA SERVICES — a finance/subsidy presentation or website. Features bank finance section with animations, subsidy structure section, office address, and service area information.",
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-add-scroll-triggered-entrance-animations-to-the-subsidy-structure-section-in-odishaguide-tsx-the-subsidy-tier-table-rows-and-related-elements-should-animate-in-with-fade-in-and-slide-up-effects-using-intersectionobserver-consistent-with-the-bankfinancebanner-animation-pattern-include-prefers-reduced-motion-support",
-      "title": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx. The subsidy tier table rows and related elements should animate in with fade-in and slide-up effects using IntersectionObserver (consistent with the BankFinanceBanner animation pattern). Include prefers-reduced-motion support.",
+      "id": "feature-create-a-language-context-provider-that-manages-the-currently-selected-language-english-hindi-odia-with-default-set-to-english-and-persists-the-selection-to-localstorage-so-the-choice-survives-page-reloads",
+      "title": "Create a language context provider that manages the currently selected language (English, Hindi, Odia) with default set to English, and persists the selection to localStorage so the choice survives page reloads.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-tri-gita-services-office-address-to-the-footer-component-the-address-is-shri-hari-niwas-dengimacha-near-dengimacha-ministadium-sambalpur-odisha-768006-display-it-alongside-the-existing-contact-details",
-      "title": "Add TRI-GITA SERVICES office address to the Footer component. The address is: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006. Display it alongside the existing contact details.",
+      "id": "feature-add-a-language-switcher-ui-element-in-the-header-component-displaying-three-options-english-hindi-and-odia-the-switcher-should-be-visible-on-both-desktop-and-mobile-hamburger-menu-layouts-and-highlight-the-currently-active-language",
+      "title": "Add a language switcher UI element in the Header component, displaying three options: 'English', 'हिन्दी' (Hindi), and 'ଓଡ଼ିଆ' (Odia). The switcher should be visible on both desktop and mobile (hamburger menu) layouts and highlight the currently active language.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-a-service-area-odisha-entry-to-the-footer-component-and-or-a-relevant-section-such-as-whychooseus-or-a-dedicated-info-block-display-it-clearly-so-users-know-the-geographic-coverage-of-tri-gita-services",
-      "title": "Add a 'Service Area: Odisha' entry to the Footer component and/or a relevant section (such as WhyChooseUs or a dedicated info block). Display it clearly so users know the geographic coverage of TRI-GITA SERVICES.",
+      "id": "feature-create-a-centralized-translations-file-e-g-frontend-src-i18n-translations-ts-containing-all-user-facing-strings-for-every-component-in-all-three-languages-english-hindi-and-odia-cover-all-text-content-in-header-hero-schemeinfo-odishaguide-whychooseus-warrantyguarantee-services-inquiryform-bankfinancebanner-whatsappsection-and-footer",
+      "title": "Create a centralized translations file (e.g., frontend/src/i18n/translations.ts) containing all user-facing strings for every component in all three languages: English, Hindi, and Odia. Cover all text content in Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, and Footer.",
       "reqIds": [
         "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-page-section-components-hero-schemeinfo-odishaguide-whychooseus-warrantyguarantee-services-inquiryform-bankfinancebanner-whatsappsection-footer-header-to-consume-translated-strings-from-the-language-context-instead-of-rendering-hard-coded-text-so-the-entire-page-re-renders-in-the-selected-language-when-the-user-switches",
+      "title": "Update all page-section components (Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer, Header) to consume translated strings from the language context instead of rendering hard-coded text, so the entire page re-renders in the selected language when the user switches.",
+      "reqIds": [
+        "REQ-4"
       ],
       "version": 1
     }
@@ -34,19 +42,7 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add animation to the subsidy structure section",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add TRI-GITA SERVICES office address: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Add Service Area: Odisha",
+      "summary": "Add multilingual support with English, Hindi, and Odia language options for viewers",
       "reqIds": [],
       "status": "pending"
     }

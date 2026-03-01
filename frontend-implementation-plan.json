@@ -1,59 +1,135 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add animations to subsidy structure, add office address, and add service area",
+  "title": "Add multilingual support: English, Hindi, and Odia",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add scroll-triggered entrance animations to the subsidy structure section in OdishaGuide.tsx using IntersectionObserver with fade-in and slide-up effects, consistent with BankFinanceBanner animation pattern",
+      "summary": "Create a language context provider that manages the currently selected language (English, Hindi, Odia) with default set to English, and persists the selection to localStorage so the choice survives page reloads.",
       "acceptanceCriteria": [
-        "Subsidy structure table rows animate in with fade-in and slide-up on scroll into view",
-        "Animation uses IntersectionObserver and CSS keyframes consistent with BankFinanceBanner approach",
-        "Animation respects prefers-reduced-motion media query",
-        "Animation does not affect layout or readability of the subsidy data"
+        "A React context exposes the active language and a setter function.",
+        "Default language is English on first visit.",
+        "Selected language is saved to localStorage and restored on reload.",
+        "All three languages (English, Hindi, Odia) are supported as valid values."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/OdishaGuide.tsx",
-          "operation": "modify",
-          "description": "Add IntersectionObserver-based scroll animation to subsidy structure section. Import and use useState, useEffect, and useRef hooks to track visibility state. Add isVisible state and ref for the subsidy container. In useEffect, create IntersectionObserver with threshold 0.1 to observe the subsidy section, setting isVisible to true when intersecting. Apply conditional className that adds opacity and transform transitions matching the BankFinanceBanner pattern (opacity-0 translate-y-4 to opacity-100 translate-y-0). Wrap subsidy tier tables and related elements in animated container divs. Add transition-all duration-700 ease-out classes and prefers-reduced-motion support using motion-reduce:transition-none and motion-reduce:transform-none utilities."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add CSS keyframe animations and utility classes for subsidy structure entrance animation if needed beyond Tailwind utilities. Ensure consistency with existing banner-shimmer and other animation patterns. If BankFinanceBanner uses custom keyframes, replicate the same fade-slide-up pattern for subsidy animations. Include @media (prefers-reduced-motion: reduce) rules to disable animations when users prefer reduced motion."
+          "path": "frontend/src/contexts/LanguageContext.tsx",
+          "operation": "create",
+          "description": "Create a React Context and Provider that manages the active language state ('en', 'hi', 'od'), initializes from localStorage (key: 'app-language') with 'en' as default, exposes a `language` value and `setLanguage` function, and persists changes to localStorage whenever the language is updated."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add TRI-GITA SERVICES office address to the Footer component alongside existing contact details",
+      "summary": "Add a language switcher UI element in the Header component, displaying three options: 'English', 'हिन्दी' (Hindi), and 'ଓଡ଼ିଆ' (Odia). The switcher should be visible on both desktop and mobile (hamburger menu) layouts and highlight the currently active language.",
       "acceptanceCriteria": [
-        "Footer displays the full office address: Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006",
-        "Address is styled consistently with the existing footer contact details",
-        "Address is visible on both mobile and desktop layouts"
+        "Language switcher appears in the sticky Header on desktop and inside the mobile hamburger menu.",
+        "Clicking a language option immediately switches all page content to that language.",
+        "The active language option is visually distinguished (e.g., underline, bold, or highlighted color).",
+        "Switcher is accessible and keyboard-navigable."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Footer.tsx",
+          "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Add office address entry to the contact details column in the Footer component. Insert a new contact block showing 'Office Address:' label followed by the full address 'Shri Hari Niwas, Dengimacha, Near Dengimacha Ministadium, Sambalpur, Odisha 768006'. Position it after the existing phone and email entries. Use the same typography classes (text-sm, text-gray-300 or equivalent) and layout structure as existing contact items. Ensure the address wraps properly on mobile screens and maintains consistent spacing with other footer elements. Use MapPin or similar icon from lucide-react if other contact items use icons."
+          "description": "Add a language switcher UI (dropdown or button group) to the desktop navigation bar and inside the mobile hamburger menu. Display 'English', 'हिन्दी', and 'ଓଡ଼ିଆ' as clickable options. Consume the language context to get the current language and setLanguage function. Highlight the active language with distinct styling (e.g., font-semibold, text-solar-600, underline). Ensure keyboard accessibility with proper focus states."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Add 'Service Area: Odisha' entry to the Footer component to clearly communicate geographic coverage",
+      "summary": "Create a centralized translations file (e.g., frontend/src/i18n/translations.ts) containing all user-facing strings for every component in all three languages: English, Hindi, and Odia. Cover all text content in Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, and Footer.",
       "acceptanceCriteria": [
-        "Service area 'Odisha' is displayed in a prominent, readable location (Footer or relevant section)",
-        "Label reads 'Service Area: Odisha' or equivalent clear phrasing",
-        "Styling is consistent with surrounding elements"
+        "A single translations object maps language codes (en, hi, od) to all UI strings.",
+        "No hard-coded English strings remain in any page component (all text is sourced from the translations object).",
+        "Hindi translations use Devanagari script.",
+        "Odia translations use Odia script.",
+        "Translations cover headings, body text, button labels, form placeholders and labels, footer details, and section descriptions."
       ],
       "file_operations": [
         {
+          "path": "frontend/src/i18n/translations.ts",
+          "operation": "create",
+          "description": "Define and export a translations object structured as { en: { ... }, hi: { ... }, od: { ... } }. For each language, include nested objects for each component/section (header, hero, schemeInfo, odishaGuide, whyChooseUs, warrantyGuarantee, services, inquiryForm, bankFinanceBanner, whatsAppSection, footer). Cover all headings, body text, button labels, navigation links, form field labels and placeholders, validation messages, list items, stat labels, and footer contact details. Use Devanagari script for Hindi and Odia script for Odia translations."
+        },
+        {
+          "path": "frontend/src/i18n/useTranslation.ts",
+          "operation": "create",
+          "description": "Create a custom hook `useTranslation()` that consumes the LanguageContext to get the current language, imports the translations object, and returns the translations object for the active language (e.g., translations[language]). This hook provides a convenient way for components to access localized strings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Update all page-section components (Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer, Header) to consume translated strings from the language context instead of rendering hard-coded text, so the entire page re-renders in the selected language when the user switches.",
+      "acceptanceCriteria": [
+        "Switching to Hindi renders all visible text in Hindi across every section.",
+        "Switching to Odia renders all visible text in Odia across every section.",
+        "Switching back to English renders all visible text in English.",
+        "The language switch is instant (no page reload required).",
+        "Form validation messages and placeholder text also update with the selected language."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Hero.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (headline, tagline, CTA button labels) with translated strings from useTranslation().hero. Ensure the component re-renders when the language context changes."
+        },
+        {
+          "path": "frontend/src/components/SchemeInfo.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, description, benefits list, eligibility items, process steps) with translated strings from useTranslation().schemeInfo. Ensure dynamic rendering based on the active language."
+        },
+        {
+          "path": "frontend/src/components/OdishaGuide.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, installation phases, subsidy tiers, eligibility criteria, required documents, DISCOM list) with translated strings from useTranslation().odishaGuide. Maintain the existing animation logic."
+        },
+        {
+          "path": "frontend/src/components/WhyChooseUs.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, card headings, card descriptions) with translated strings from useTranslation().whyChooseUs."
+        },
+        {
+          "path": "frontend/src/components/WarrantyGuarantee.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, warranty card titles, warranty card descriptions) with translated strings from useTranslation().warrantyGuarantee."
+        },
+        {
+          "path": "frontend/src/components/Services.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, service card titles, feature lists, CTA button labels) with translated strings from useTranslation().services. Ensure the existing smooth-scroll behavior remains intact."
+        },
+        {
+          "path": "frontend/src/components/InquiryForm.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, form field labels, placeholder text, button labels, validation messages, success/error messages) with translated strings from useTranslation().inquiryForm. Ensure form validation messages update instantly when the language changes."
+        },
+        {
+          "path": "frontend/src/components/BankFinanceBanner.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (banner headline, subheadline, stat labels, CTA button label) with translated strings from useTranslation().bankFinanceBanner. Preserve the existing intersection-observer animation and shimmer effects."
+        },
+        {
+          "path": "frontend/src/components/WhatsAppSection.tsx",
+          "operation": "modify",
+          "description": "Replace all hard-coded English strings (section title, description, CTA button label) with translated strings from useTranslation().whatsAppSection."
+        },
+        {
           "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Add 'Service Area: Odisha' entry to the Footer component. Insert it in the contact details column, either as a separate line item below the office address or as part of the company information section. Use label 'Service Area:' followed by 'Odisha' in the same text styling as other footer contact details. Apply consistent text-sm and color classes (text-gray-300 or equivalent amber/charcoal tokens). Consider adding a MapPin or Globe icon from lucide-react for visual consistency if other items use icons. Ensure the entry is clearly visible on both mobile and desktop layouts."
+          "description": "Replace all hard-coded English strings (brand tagline, operating hours labels, contact section labels, phone/email/address details, service area label) with translated strings from useTranslation().footer. Maintain the existing two-column layout and icon styling."
+        },
+        {
+          "path": "frontend/src/components/FloatingWhatsAppButton.tsx",
+          "operation": "modify",
+          "description": "Replace any hard-coded English tooltip or label text with translated strings from useTranslation().floatingWhatsApp (if applicable). If the button is icon-only with no text, ensure the tooltip text (if present) is localized."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the entire app component tree with the LanguageProvider from LanguageContext so all child components can access the language context. Place LanguageProvider inside the existing QueryClientProvider and InternetIdentityProvider (refer to frontend/src/main.tsx for the provider structure). This ensures the language state is available throughout the component tree."
         }
       ]
     }
