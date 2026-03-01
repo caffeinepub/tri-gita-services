@@ -1,59 +1,40 @@
 {
   "kind": "build_request",
-  "title": "Add Inquiry Form with WhatsApp Integration",
+  "title": "Add animations to BankFinanceBanner component",
   "projectName": "TRI-GITA SERVICES",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Build out the InquiryForm component (frontend/src/components/InquiryForm.tsx) with fields for: Full Name, Phone Number, Email (optional), City/Location, System Size of Interest (dropdown: 1-3 kW, 3-5 kW, 5-10 kW, 10+ kW), and Message/Query. On submit, format the collected field values into a WhatsApp message URL targeting number 7838867880 (format: https://wa.me/917838867880?text=...) and open it in a new tab. Style the form consistently with the existing site theme (solar amber/charcoal palette from tailwind.config.js).",
+      "text": "Add entrance and interactive animations to the BankFinanceBanner component. Include: a fade-in + slide-up animation when the section scrolls into view, a pulsing or glowing effect on the '90%' loan figure to draw attention, a subtle shimmer or shine sweep animation across the banner background, and a hover animation (scale + glow) on the WhatsApp CTA button. Use CSS keyframe animations or Tailwind animation utilities — no external animation libraries.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Add a inquiry form. When any one inquires the inquiry should come to our WhatsApp 7838867880"
+          "Modify the bank finance part with some animation"
         ]
       },
       "acceptanceCriteria": [
-        "Form renders with all specified fields including the system size dropdown.",
-        "Submitting the form opens a new tab with a pre-filled WhatsApp message to +917838867880.",
-        "The WhatsApp message includes all filled-in form field values in a readable format.",
-        "Form has basic client-side validation (Full Name and Phone Number are required).",
-        "Form styling matches the solar amber/charcoal theme used across the site."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Add the InquiryForm section to App.tsx, placing it between the Services section and the BankFinanceBanner section. Add a corresponding smooth-scroll nav link labeled 'Inquiry' or 'Get Quote' in the Header component pointing to the inquiry section anchor.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Add a inquiry form"
-        ]
-      },
-      "acceptanceCriteria": [
-        "InquiryForm is rendered in App.tsx between Services and BankFinanceBanner.",
-        "The section has an id anchor so it can be scrolled to from the header nav.",
-        "The Header nav contains a link that smoothly scrolls to the inquiry form."
+        "The BankFinanceBanner section animates in (fade + slide-up) when it enters the viewport on scroll",
+        "The '90%' loan highlight text or badge has a continuous pulse or glow animation to attract attention",
+        "The banner background has a periodic shimmer or shine sweep effect",
+        "The WhatsApp CTA button scales up and glows on hover with a smooth transition",
+        "Animations do not block interactivity or cause layout shifts",
+        "All animations respect prefers-reduced-motion media query (animations are disabled or minimized for accessibility)"
       ]
     }
   ],
   "constraints": [
-    "WhatsApp number must be 7838867880 (Indian number, formatted as +917838867880 in the wa.me URL).",
-    "Do not add backend persistence for inquiries — all submissions go directly to WhatsApp via URL.",
-    "Do not modify any files in frontend/src/hooks/ or frontend/src/main.tsx.",
-    "Do not modify frontend/src/components/ui/ components."
+    "Do not change the BankFinanceBanner content, copy, or WhatsApp link (wa.me/917838867880)",
+    "Do not use external animation libraries (e.g., Framer Motion, GSAP) — use Tailwind CSS utilities or native CSS keyframes only",
+    "Do not modify any immutable frontend paths"
   ],
   "nonGoals": [
-    "Storing inquiry data in the backend canister.",
-    "Email notifications or any email integration.",
-    "SMS or third-party messaging integrations.",
-    "User authentication for the inquiry form."
+    "Modifying any other sections or components beyond BankFinanceBanner",
+    "Changing the backend or data layer",
+    "Adding animations site-wide"
   ],
   "imageRequirements": {
     "required": [],

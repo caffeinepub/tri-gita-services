@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-build-out-the-inquiryform-component-frontend-src-components-inquiryform-tsx-with-fields-for-full-name-phone-number-email-optional-city-location-system-size-of-interest-dropdown-1-3-kw-3-5-kw-5-10-kw-10-kw-and-message-query-on-submit-format-the-collected-field-values-into-a-whatsapp-message-url-targeting-number-7838867880-format-https-wa-me-917838867880-text-and-open-it-in-a-new-tab-style-the-form-consistently-with-the-existing-site-theme-solar-amber-charcoal-palette-from-tailwind-config-js",
-      "featureTitle": "Build out the InquiryForm component (frontend/src/components/InquiryForm.tsx) with fields for: Full Name, Phone Number, Email (optional), City/Location, System Size of Interest (dropdown: 1-3 kW, 3-5 kW, 5-10 kW, 10+ kW), and Message/Query. On submit, format the collected field values into a WhatsApp message URL targeting number 7838867880 (format: https://wa.me/917838867880?text=...) and open it in a new tab. Style the form consistently with the existing site theme (solar amber/charcoal palette from tailwind.config.js).",
+      "featureId": "feature-add-entrance-and-interactive-animations-to-the-bankfinancebanner-component-include-a-fade-in-slide-up-animation-when-the-section-scrolls-into-view-a-pulsing-or-glowing-effect-on-the-90-loan-figure-to-draw-attention-a-subtle-shimmer-or-shine-sweep-animation-across-the-banner-background-and-a-hover-animation-scale-glow-on-the-whatsapp-cta-button-use-css-keyframe-animations-or-tailwind-animation-utilities-no-external-animation-libraries",
+      "featureTitle": "Add entrance and interactive animations to the BankFinanceBanner component. Include: a fade-in + slide-up animation when the section scrolls into view, a pulsing or glowing effect on the '90%' loan figure to draw attention, a subtle shimmer or shine sweep animation across the banner background, and a hover animation (scale + glow) on the WhatsApp CTA button. Use CSS keyframe animations or Tailwind animation utilities — no external animation libraries.",
       "files": [
-        "frontend/src/components/InquiryForm.tsx"
+        "frontend/src/components/BankFinanceBanner.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -17,26 +18,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-the-inquiryform-section-to-app-tsx-placing-it-between-the-services-section-and-the-bankfinancebanner-section-add-a-corresponding-smooth-scroll-nav-link-labeled-inquiry-or-get-quote-in-the-header-component-pointing-to-the-inquiry-section-anchor",
-      "featureTitle": "Add the InquiryForm section to App.tsx, placing it between the Services section and the BankFinanceBanner section. Add a corresponding smooth-scroll nav link labeled 'Inquiry' or 'Get Quote' in the Header component pointing to the inquiry section anchor.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/Header.tsx"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }

@@ -134,3 +134,64 @@
         @apply py-16 px-4 md:px-8;
     }
 }
+
+/* ─── BankFinanceBanner Animations ─────────────────────────────────────────── */
+
+/* Shimmer sweep across the banner background */
+@keyframes banner-shimmer {
+    0% {
+        transform: translateX(-100%) skewX(-15deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200%) skewX(-15deg);
+        opacity: 0;
+    }
+}
+
+.banner-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 70%
+    );
+    animation: banner-shimmer 3.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Pulse glow on the 90% stat card */
+@keyframes stat-pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 oklch(0.16 0.05 145 / 0.35),
+                    0 0 12px 2px oklch(0.74 0.17 68 / 0.20);
+    }
+    50% {
+        box-shadow: 0 0 0 8px oklch(0.16 0.05 145 / 0),
+                    0 0 24px 6px oklch(0.74 0.17 68 / 0.35);
+    }
+}
+
+.stat-glow {
+    animation: stat-pulse-glow 2.2s ease-in-out infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .banner-shimmer::after {
+        animation: none;
+    }
+
+    .stat-glow {
+        animation: none;
+    }
+}
