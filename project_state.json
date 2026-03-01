@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Solar energy business website with warranty information, modified background/colors, and removed quick links and contact section.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-remove-the-quick-links-section-from-the-footer-component-strip-out-the-navigation-links-column-entirely-while-keeping-the-brand-info-contact-details-phone-email-address-and-operating-hours-in-the-footer",
+      "title": "Remove the Quick Links section from the Footer component. Strip out the navigation links column entirely while keeping the brand info, contact details (phone, email, address), and operating hours in the footer.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-contact-section-contact-tsx-from-the-page-entirely-delete-its-usage-from-app-tsx-so-it-no-longer-renders-anywhere-on-the-page",
+      "title": "Remove the Contact section (Contact.tsx) from the page entirely. Delete its usage from App.tsx so it no longer renders anywhere on the page.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-website-s-background-and-color-scheme-to-use-a-warm-golden-amber-and-deep-charcoal-palette-with-solar-energy-accents-replace-the-existing-oklch-color-tokens-in-frontend-src-index-css-and-tailwind-config-js-to-reflect-this-new-theme-warm-amber-golden-tones-as-primary-deep-charcoal-slate-as-background-and-bright-orange-yellow-as-accent-apply-consistently-across-all-sections-including-hero-header-footer-whychooseus-services-schemeinfo-odishaguide-and-bankfinancebanner",
+      "title": "Update the website's background and color scheme to use a warm golden-amber and deep charcoal palette with solar energy accents. Replace the existing OKLCH color tokens in frontend/src/index.css and tailwind.config.js to reflect this new theme — warm amber/golden tones as primary, deep charcoal/slate as background, and bright orange-yellow as accent. Apply consistently across all sections including Hero, Header, Footer, WhyChooseUs, Services, SchemeInfo, OdishaGuide, and BankFinanceBanner.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-warranty-guarantee-section-to-the-page-between-whychooseus-and-services-or-after-services-that-prominently-displays-three-warranty-guarantee-items-1-25-year-warranty-on-solar-panels-2-10-year-warranty-on-inverter-3-5-year-free-service-guarantee-by-vendor-use-shield-badge-icons-for-each-item-and-style-consistently-with-the-site-s-updated-color-scheme",
+      "title": "Add a Warranty & Guarantee section to the page (between WhyChooseUs and Services, or after Services) that prominently displays three warranty/guarantee items: (1) 25-Year Warranty on Solar Panels, (2) 10-Year Warranty on Inverter, (3) 5-Year Free Service Guarantee by Vendor. Use shield/badge icons for each item and style consistently with the site's updated color scheme.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Remove quick link section from page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Remove contact us section at end of page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Modify website background and color scheme",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add 25-year warranty on solar panel, 10-year warranty on inverter, and 5-year free service guarantee by vendor",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "TRI-GITA SERVICES",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,102 @@
+{
+  "kind": "build_request",
+  "title": "Remove quick links & contact section, update background/colors, add warranty info",
+  "projectName": "TRI-GITA SERVICES",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Remove the Quick Links section from the Footer component. Strip out the navigation links column entirely while keeping the brand info, contact details (phone, email, address), and operating hours in the footer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Remove the quick link section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The footer no longer contains a 'Quick Links' or navigation links column",
+        "Brand info, phone, email, address, and hours remain visible in the footer",
+        "No broken layout or empty columns appear where quick links used to be"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Remove the Contact section (Contact.tsx) from the page entirely. Delete its usage from App.tsx so it no longer renders anywhere on the page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "end part of page contact us"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Contact section with phone cards and email link no longer appears on the page",
+        "No visual gap or blank area remains where the Contact section was",
+        "App.tsx no longer imports or renders the Contact component"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the website's background and color scheme to use a warm golden-amber and deep charcoal palette with solar energy accents. Replace the existing OKLCH color tokens in frontend/src/index.css and tailwind.config.js to reflect this new theme — warm amber/golden tones as primary, deep charcoal/slate as background, and bright orange-yellow as accent. Apply consistently across all sections including Hero, Header, Footer, WhyChooseUs, Services, SchemeInfo, OdishaGuide, and BankFinanceBanner.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "modify background of the website and color"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The primary color tokens are updated to warm amber/golden tones",
+        "The background uses a deep charcoal or dark slate color instead of the previous theme",
+        "Accent and CTA buttons use a bright orange-yellow tone",
+        "All sections visually reflect the new color palette consistently",
+        "Text remains legible against new backgrounds with sufficient contrast"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a Warranty & Guarantee section to the page (between WhyChooseUs and Services, or after Services) that prominently displays three warranty/guarantee items: (1) 25-Year Warranty on Solar Panels, (2) 10-Year Warranty on Inverter, (3) 5-Year Free Service Guarantee by Vendor. Use shield/badge icons for each item and style consistently with the site's updated color scheme.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add 25years warranty on solar panel",
+          "10 years warranty on inverter",
+          "Guarantee free service for 5years by vendor"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new Warranty & Guarantee section is visible on the page",
+        "25-Year Warranty on Solar Panels is displayed with an icon",
+        "10-Year Warranty on Inverter is displayed with an icon",
+        "5-Year Free Service Guarantee by Vendor is displayed with an icon",
+        "The section is styled consistently with the updated site color theme",
+        "The section is responsive and displays correctly on mobile and desktop"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/hooks/ or frontend/src/main.tsx",
+    "Do not remove Footer entirely — only strip the Quick Links column from it",
+    "Preserve all WhatsApp CTA functionality and the FloatingWhatsAppButton"
+  ],
+  "nonGoals": [
+    "Changing backend data models or lead management logic",
+    "Adding new form inputs or backend integrations",
+    "Removing the Footer entirely",
+    "Changing the Header navigation links"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

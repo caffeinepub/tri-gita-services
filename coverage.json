@@ -1,0 +1,79 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-01T22:04:30.288Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Remove the Quick Links section from the Footer component. Strip out the navigation links column entirely while keeping the brand info, contact details (phone, email, address), and operating hours in the footer.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Remove the Contact section (Contact.tsx) from the page entirely. Delete its usage from App.tsx so it no longer renders anywhere on the page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Update the website's background and color scheme to use a warm golden-amber and deep charcoal palette with solar energy accents. Replace the existing OKLCH color tokens in frontend/src/index.css and tailwind.config.js to reflect this new theme — warm amber/golden tones as primary, deep charcoal/slate as background, and bright orange-yellow as accent. Apply consistently across all sections including Hero, Header, Footer, WhyChooseUs, Services, SchemeInfo, OdishaGuide, and BankFinanceBanner.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Add a Warranty & Guarantee section to the page (between WhyChooseUs and Services, or after Services) that prominently displays three warranty/guarantee items: (1) 25-Year Warranty on Solar Panels, (2) 10-Year Warranty on Inverter, (3) 5-Year Free Service Guarantee by Vendor. Use shield/badge icons for each item and style consistently with the site's updated color scheme.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/WarrantyGuarantee.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/WarrantyGuarantee.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Contact.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/WarrantyGuarantee.tsx",
+    "frontend/src/index.css",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
