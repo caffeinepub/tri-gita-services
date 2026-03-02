@@ -2,13 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-all-occurrences-of-the-company-name-throughout-the-application-with-tri-gita-services-a-unit-of-bhagyalaxmi-construction-this-includes-the-html-page-title-in-frontend-index-html-all-translation-strings-in-frontend-src-i18n-translations-ts-english-hindi-and-odia-entries-and-any-hardcoded-references-in-components-such-as-header-tsx-hero-tsx-footer-tsx-schemeinfo-tsx-and-whychooseus-tsx",
-      "featureTitle": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. This includes the HTML page title in frontend/index.html, all translation strings in frontend/src/i18n/translations.ts (English, Hindi, and Odia entries), and any hardcoded references in components such as Header.tsx, Hero.tsx, Footer.tsx, SchemeInfo.tsx, and WhyChooseUs.tsx.",
+      "featureId": "feature-remove-all-occurrences-of-a-unit-of-bhagyalaxmi-construction-and-its-hindi-odia-equivalents-from-every-user-facing-surface-across-the-application-including-the-page-title-in-index-html-the-footer-s-unit-designation-line-the-header-hero-section-and-any-other-component-or-translation-key-that-currently-displays-this-sub-branding-phrase-the-standalone-name-bhagyalaxmi-construction-or-bhagyalaxmi-construction-must-still-appear-wherever-the-business-name-is-shown",
+      "featureTitle": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application — including the page title in index.html, the Footer's unit designation line, the Header, Hero section, and any other component or translation key that currently displays this sub-branding phrase. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
       "files": [
         "frontend/index.html",
         "frontend/src/components/Footer.tsx",
-        "frontend/src/components/Header.tsx",
-        "frontend/src/components/SchemeInfo.tsx",
         "frontend/src/i18n/translations.ts"
       ],
       "components": [
@@ -26,10 +24,9 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-company-slogan-to-empowering-odisha-with-clean-energy-in-all-translation-entries-english-hindi-odia-within-frontend-src-i18n-translations-ts-and-wherever-the-slogan-tagline-is-rendered-in-components-such-as-hero-tsx-and-footer-tsx",
-      "featureTitle": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries (English, Hindi, Odia) within frontend/src/i18n/translations.ts, and wherever the slogan/tagline is rendered in components such as Hero.tsx and Footer.tsx.",
+      "featureId": "feature-in-the-schemeinfo-component-s-vendor-installer-selection-step-phase-2-of-the-application-process-update-the-text-in-all-three-languages-english-hindi-odia-so-that-it-explicitly-instructs-the-user-to-select-bhagyalaxmi-construction-as-the-vendor-empanelled-installer-no-other-vendor-names-should-be-mentioned-in-this-step",
+      "featureTitle": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. No other vendor names should be mentioned in this step.",
       "files": [
-        "frontend/src/components/Footer.tsx",
         "frontend/src/i18n/translations.ts"
       ],
       "components": [

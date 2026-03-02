@@ -1,79 +1,54 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update company name and slogan across all UI",
+  "title": "Remove 'A Unit of Bhagyalaxmi Construction' branding; mention only 'BHAGYALAXMI CONSTRUCTION' in vendor selection steps",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'",
+      "summary": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
       "acceptanceCriteria": [
-        "The browser tab title reads 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'",
-        "The header/nav bar displays the full company name",
-        "The footer displays the full company name",
-        "No old or partial company name variants remain visible in any language (EN/HI/OD)"
+        "The string 'A unit of' / 'A UNIT OF' no longer appears anywhere in the rendered UI in any language (en/hi/od).",
+        "The page title in index.html no longer contains 'A UNIT OF BHAGYALAXMI CONSTRUCTION'.",
+        "The Footer component does not render a unit designation line containing 'a unit of'.",
+        "All translation keys (en/hi/od) in translations.ts that contained 'a unit of bhagyalaxmi construction' are updated to remove that sub-phrase.",
+        "The business name 'Bhagyalaxmi Construction' continues to appear where it should."
       ],
       "file_operations": [
         {
           "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Update the <title> element to display 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' so the browser tab shows the full company name"
-        },
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Update all company name translation entries across English, Hindi, and Odia. Replace existing company name values in 'header.companyName', 'footer.companyName', 'hero.title', and any other keys that reference the company name with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. For Hindi and Odia translations, provide appropriate translations that convey the same full company name including the parenthetical unit designation"
-        },
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "modify",
-          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the header displays the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
-        },
-        {
-          "path": "frontend/src/components/Hero.tsx",
-          "operation": "modify",
-          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the hero section headline displays the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
+          "description": "Update the page title to remove 'A UNIT OF BHAGYALAXMI CONSTRUCTION' while keeping the business name. Change from 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' to a title that includes only 'BHAGYALAXMI CONSTRUCTION' or an appropriate variant without the 'a unit of' sub-phrase."
         },
         {
           "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the footer brand info section displays the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
+          "description": "Remove the unit designation line that currently displays 'A Unit of Bhagyalaxmi Construction' or its translation variants. Ensure the business name 'Bhagyalaxmi Construction' still appears in the footer where appropriate, but without the 'a unit of' qualifier. Update the component structure to no longer render the unit designation section."
         },
         {
-          "path": "frontend/src/components/SchemeInfo.tsx",
+          "path": "frontend/src/i18n/translations.ts",
           "operation": "modify",
-          "description": "Review and update any hardcoded company name references (including references to 'Bhagyalaxmi' in the 'Why Choose Bhagyalaxmi' section) to use the i18n translation key and display the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
-        },
-        {
-          "path": "frontend/src/components/WhyChooseUs.tsx",
-          "operation": "modify",
-          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the section title and card content display the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' where applicable via the translation system"
+          "description": "Remove all translation keys (en/hi/od) that contain 'a unit of bhagyalaxmi construction' or equivalent phrases. This includes updating the footer.unit key (if it exists), any header references, hero section references, and any other translation strings that include this sub-branding phrase. Ensure that standalone references to 'Bhagyalaxmi Construction' remain intact across all three languages."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries and components",
+      "summary": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer.",
       "acceptanceCriteria": [
-        "The hero section tagline reads 'Empowering Odisha with Clean Energy'",
-        "The footer tagline/slogan reads 'Empowering Odisha with Clean Energy'",
-        "The slogan is consistent across all supported languages (EN/HI/OD) — Hindi and Odia translations should convey the same meaning",
-        "No previous slogan text remains anywhere in the UI"
+        "Phase 2 vendor selection step in SchemeInfo displays 'BHAGYALAXMI CONSTRUCTION' (or localised equivalent) as the vendor to select.",
+        "No other vendor names appear in the Phase 2 vendor selection step in any language.",
+        "The instruction is present and correctly rendered in English, Hindi, and Odia."
       ],
       "file_operations": [
         {
           "path": "frontend/src/i18n/translations.ts",
           "operation": "modify",
-          "description": "Update all slogan/tagline translation entries across English, Hindi, and Odia. Replace existing slogan values in 'hero.subtitle', 'footer.tagline', and any other keys that reference the company slogan with 'Empowering Odisha with Clean Energy'. For Hindi and Odia translations, provide appropriate translations that convey the same empowerment and clean energy message specific to Odisha"
+          "description": "Update the Phase 2 vendor/installer selection step text in the scheme info section for all three languages (en/hi/od). Modify the translation keys under schemeInfo.applicationProcess.steps (step index 1, which is Phase 2) to explicitly instruct users to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. Remove or replace any generic vendor selection language with specific instructions mentioning only 'BHAGYALAXMI CONSTRUCTION'."
         },
         {
-          "path": "frontend/src/components/Hero.tsx",
+          "path": "frontend/src/components/SchemeInfo.tsx",
           "operation": "modify",
-          "description": "Review and update any hardcoded slogan/tagline references to use the i18n translation key. Ensure the hero section tagline displays 'Empowering Odisha with Clean Energy' via the translation system"
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Review and update any hardcoded slogan/tagline references to use the i18n translation key. Ensure the footer displays 'Empowering Odisha with Clean Energy' as the company tagline via the translation system"
+          "description": "Review the Phase 2 vendor selection step rendering to ensure it properly displays the updated translation text that explicitly mentions 'BHAGYALAXMI CONSTRUCTION'. Verify that the component correctly renders the updated translation keys without adding any additional vendor names or generic language that conflicts with the specific instruction to select 'BHAGYALAXMI CONSTRUCTION'."
         }
       ]
     }

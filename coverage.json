@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T01:39:46.969Z",
+  "generatedAt": "2026-03-02T02:11:34.821Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,37 +12,29 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. This includes the HTML page title in frontend/index.html, all translation strings in frontend/src/i18n/translations.ts (English, Hindi, and Odia entries), and any hardcoded references in components such as Header.tsx, Hero.tsx, Footer.tsx, SchemeInfo.tsx, and WhyChooseUs.tsx.",
+        "summary": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application — including the page title in index.html, the Footer's unit designation line, the Header, Hero section, and any other component or translation key that currently displays this sub-branding phrase. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/index.html",
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/Header.tsx",
-          "frontend/src/components/Hero.tsx",
           "frontend/src/components/Footer.tsx",
-          "frontend/src/components/SchemeInfo.tsx",
-          "frontend/src/components/WhyChooseUs.tsx"
+          "frontend/src/i18n/translations.ts"
         ],
         "matchedFiles": [
           "frontend/index.html",
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/Header.tsx",
           "frontend/src/components/Footer.tsx",
-          "frontend/src/components/SchemeInfo.tsx"
+          "frontend/src/i18n/translations.ts"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries (English, Hindi, Odia) within frontend/src/i18n/translations.ts, and wherever the slogan/tagline is rendered in components such as Hero.tsx and Footer.tsx.",
+        "summary": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. No other vendor names should be mentioned in this step.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/i18n/translations.ts",
-          "frontend/src/components/Hero.tsx",
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/SchemeInfo.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/i18n/translations.ts"
         ]
       }
     ]
@@ -55,7 +47,6 @@
     "frontend/index.html",
     "frontend/src/components/Footer.tsx",
     "frontend/src/components/Header.tsx",
-    "frontend/src/components/SchemeInfo.tsx",
     "frontend/src/i18n/translations.ts",
     "project_state.json",
     "scratch/component-selection.json",

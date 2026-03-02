@@ -60,7 +60,7 @@ export default function Header() {
                 TRI-GITA SERVICES
               </div>
               <div className="text-gold-400 text-xs font-outfit tracking-wider">
-                A UNIT OF BHAGYALAXMI CONSTRUCTION
+                BHAGYALAXMI CONSTRUCTION
               </div>
             </div>
           </div>

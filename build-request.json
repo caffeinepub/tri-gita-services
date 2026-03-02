@@ -1,56 +1,56 @@
 {
   "kind": "build_request",
-  "title": "Update company name and slogan across all UI",
-  "projectName": "TRI-GITA Services",
+  "title": "Remove 'A Unit of Bhagyalaxmi Construction' branding; mention only 'BHAGYALAXMI CONSTRUCTION' in vendor selection steps",
+  "projectName": "PM Surya Ghar Portal",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. This includes the HTML page title in frontend/index.html, all translation strings in frontend/src/i18n/translations.ts (English, Hindi, and Odia entries), and any hardcoded references in components such as Header.tsx, Hero.tsx, Footer.tsx, SchemeInfo.tsx, and WhyChooseUs.tsx.",
+      "text": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application — including the page title in index.html, the Footer's unit designation line, the Header, Hero section, and any other component or translation key that currently displays this sub-branding phrase. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-recent-1"
+          "msg-6"
         ],
         "quotes": [
-          "Change the name of the company TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)"
+          "Remove A unit of Bhagyalaxmi Construction."
         ]
       },
       "acceptanceCriteria": [
-        "The browser tab title reads 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'",
-        "The header/nav bar displays the full company name",
-        "The footer displays the full company name",
-        "No old or partial company name variants remain visible in any language (EN/HI/OD)"
+        "The string 'A unit of' / 'A UNIT OF' no longer appears anywhere in the rendered UI in any language (en/hi/od).",
+        "The page title in index.html no longer contains 'A UNIT OF BHAGYALAXMI CONSTRUCTION'.",
+        "The Footer component does not render a unit designation line containing 'a unit of'.",
+        "All translation keys (en/hi/od) in translations.ts that contained 'a unit of bhagyalaxmi construction' are updated to remove that sub-phrase.",
+        "The business name 'Bhagyalaxmi Construction' continues to appear where it should."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries (English, Hindi, Odia) within frontend/src/i18n/translations.ts, and wherever the slogan/tagline is rendered in components such as Hero.tsx and Footer.tsx.",
+      "text": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. No other vendor names should be mentioned in this step.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-recent-1"
+          "msg-6"
         ],
         "quotes": [
-          "Slogan - empowering Odisha with clean energy"
+          "only in vendor selection mention to select BHAGYALAXMI CONSTRUCTION"
         ]
       },
       "acceptanceCriteria": [
-        "The hero section tagline reads 'Empowering Odisha with Clean Energy'",
-        "The footer tagline/slogan reads 'Empowering Odisha with Clean Energy'",
-        "The slogan is consistent across all supported languages (EN/HI/OD) — Hindi and Odia translations should convey the same meaning",
-        "No previous slogan text remains anywhere in the UI"
+        "Phase 2 vendor selection step in SchemeInfo displays 'BHAGYALAXMI CONSTRUCTION' (or localised equivalent) as the vendor to select.",
+        "No other vendor names appear in the Phase 2 vendor selection step in any language.",
+        "The instruction is present and correctly rendered in English, Hindi, and Odia."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/ (immutable paths)",
-    "All text changes must be applied via the i18n translations file where translation keys are already used; hardcoded strings in components should also be updated"
+    "Do not alter any file under frontend/src/hooks/ or frontend/src/components/ui (immutable paths).",
+    "Backend logic and data schema must not be changed."
   ],
   "nonGoals": [
-    "Changing the visual design, color scheme, or layout",
-    "Adding new pages or sections",
-    "Modifying backend logic or data models"
+    "Adding or removing any features beyond the branding text changes described above.",
+    "Changing colours, layout, or typography.",
+    "Modifying any backend Motoko code."
   ],
   "imageRequirements": {
     "required": [],
