@@ -1,25 +1,65 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Project with logo and hero background image features being added.",
+  "summary": "Presentation/website for Bhagyalaxmi Construction solar vendor (Odisha) covering PM Surya Ghar registration process, vendor selection, installation, net-metering, subsidy disbursement, and contact details.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Edit Images\n- Crop to square and remove navy background, keeping only the gold sun and lightning bolt icon on a transparent background (Screenshot_20260228_060558_Chrome~2.jpg > logo.dim_200x200.png)\n- Darken overall exposure slightly to work better as a hero background behind white text (1772177297346.png > hero-bg.dim_1920x1080.png)",
+  "imageRequirements": "## Required Images\n- Gold and amber gradient lightning bolt diagonally crossing a cream-colored sun with stylized crescent rays, on a dark navy square background, bold illustrative style (bhagyalaxmi-logo.dim_400x400.png)",
   "existing_features": [
     {
-      "id": "feature-add-the-uploaded-logo-image-gold-sun-lightning-bolt-icon-on-navy-background-to-the-header-component-save-it-as-frontend-public-assets-generated-logo-png-and-display-it-in-the-top-left-of-the-navigation-bar-alongside-the-brand-name",
-      "title": "Add the uploaded logo image (gold sun + lightning bolt icon on navy background) to the Header component. Save it as frontend/public/assets/generated/logo.png and display it in the top-left of the navigation bar alongside the brand name.",
+      "id": "feature-regenerate-the-company-logo-image-to-exactly-match-the-uploaded-image-a-dark-navy-square-background-with-a-gold-amber-gradient-lightning-bolt-overlaid-on-a-stylized-sun-crescent-shape-rendered-in-a-bold-illustrative-style",
+      "title": "Regenerate the company logo image to exactly match the uploaded image: a dark navy square background with a gold/amber gradient lightning bolt overlaid on a stylized sun/crescent shape, rendered in a bold illustrative style.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-replace-the-current-hero-section-background-with-the-uploaded-photo-of-the-tri-gita-services-building-1772177297346-png-save-it-as-frontend-public-assets-generated-hero-bg-png-and-set-it-as-the-full-screen-background-image-of-the-hero-component-with-a-dark-overlay-to-ensure-text-remains-legible",
-      "title": "Replace the current Hero section background with the uploaded photo of the TRI-GITA SERVICES building (1772177297346.png). Save it as frontend/public/assets/generated/hero-bg.png and set it as the full-screen background image of the Hero component, with a dark overlay to ensure text remains legible.",
+      "id": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-1-registration-feasibility-with-the-following-content-1-visit-the-portal-at-pmsuryaghar-gov-in-2-register-by-selecting-odisha-as-state-and-specific-discom-e-g-tp-central-odisha-3-enter-electricity-consumer-number-and-mobile-number-4-submit-basic-technical-details-for-feasibility-approval-discom-reviews-transformer-load-and-approves-feasibility-within-7-15-days-if-this-section-is-missing-or-incomplete-add-or-update-it",
+      "title": "Verify that the website includes a dedicated section or slide for Phase 1 – Registration & Feasibility with the following content: (1) Visit the Portal at pmsuryaghar.gov.in, (2) Register by selecting Odisha as State and specific DISCOM (e.g., TP Central Odisha), (3) Enter Electricity Consumer Number and Mobile Number, (4) Submit basic technical details for Feasibility Approval — DISCOM reviews transformer load and approves Feasibility within 7–15 days. If this section is missing or incomplete, add or update it.",
       "reqIds": [
         "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-2-selecting-bhagyalaxmi-construction-with-the-following-content-1-login-using-consumer-number-2-navigate-to-select-registered-vendor-section-3-filter-by-state-odisha-and-district-4-search-for-and-select-bhagyalaxmi-construction-5-sign-the-online-agreement-model-draft-with-the-vendor-to-start-installation-if-this-section-is-missing-or-incomplete-add-or-update-it",
+      "title": "Verify that the website includes a dedicated section or slide for Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION with the following content: (1) Login using Consumer Number, (2) Navigate to 'Select Registered Vendor' section, (3) Filter by State (Odisha) and District, (4) Search for and select BHAGYALAXMI CONSTRUCTION, (5) Sign the online agreement (Model Draft) with the vendor to start installation. If this section is missing or incomplete, add or update it.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-3-installation-net-metering-with-the-following-content-1-bhagyalaxmi-construction-installs-solar-panels-inverter-and-wiring-per-mnre-standards-2-vendor-submits-completion-report-with-installation-details-and-photos-on-the-portal-3-apply-for-net-meter-via-the-portal-discom-will-visit-to-install-the-bi-directional-meter-if-this-section-is-missing-or-incomplete-add-or-update-it",
+      "title": "Verify that the website includes a dedicated section or slide for Phase 3 – Installation & Net-Metering with the following content: (1) Bhagyalaxmi Construction installs solar panels, inverter, and wiring per MNRE standards, (2) Vendor submits completion report with installation details and photos on the portal, (3) Apply for Net-Meter via the portal — DISCOM will visit to install the bi-directional meter. If this section is missing or incomplete, add or update it.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-4-subsidy-disbursement-with-the-following-content-1-commissioning-certificate-issued-by-discom-after-net-meter-is-functional-2-submit-bank-details-by-uploading-a-photo-of-cancelled-cheque-3-subsidy-of-up-to-1-38-000-is-credited-directly-to-bank-account-within-30-working-days-if-this-section-is-missing-or-incomplete-add-or-update-it",
+      "title": "Verify that the website includes a dedicated section or slide for Phase 4 – Subsidy Disbursement with the following content: (1) Commissioning Certificate issued by DISCOM after net-meter is functional, (2) Submit bank details by uploading a photo of cancelled cheque, (3) Subsidy of up to ₹1,38,000 is credited directly to bank account within 30 working days. If this section is missing or incomplete, add or update it.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-website-includes-a-why-choose-bhagyalaxmi-construction-section-with-these-three-points-1-registered-vendor-officially-empaneled-in-odisha-2-technical-expertise-ensures-high-quality-mounting-and-wiring-3-hassle-free-they-assist-with-technical-uploads-and-documentation-required-on-the-portal-if-this-section-is-missing-or-incomplete-add-or-update-it",
+      "title": "Verify that the website includes a 'Why Choose Bhagyalaxmi Construction?' section with these three points: (1) Registered Vendor – Officially empaneled in Odisha, (2) Technical Expertise – Ensures high-quality mounting and wiring, (3) Hassle-Free – They assist with technical uploads and documentation required on the portal. If this section is missing or incomplete, add or update it.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-website-includes-a-contact-next-steps-section-displaying-official-website-pmsuryaghar-gov-in-if-this-section-is-missing-add-it-ensure-the-official-portal-url-pmsuryaghar-gov-in-is-clearly-visible-and-clickable",
+      "title": "Verify that the website includes a Contact & Next Steps section displaying: Official Website: pmsuryaghar.gov.in. If this section is missing, add it. Ensure the official portal URL pmsuryaghar.gov.in is clearly visible and clickable.",
+      "reqIds": [
+        "REQ-7"
       ],
       "version": 1
     }
@@ -27,19 +67,13 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add logo to the project",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Use 2nd image as the hero background",
+      "summary": "Add logo (same as existing) and verify/add all 4 phases of PM Surya Ghar process: Phase 1 Registration & Feasibility, Phase 2 Vendor Selection (Bhagyalaxmi Construction), Phase 3 Installation & Net-Metering, Phase 4 Subsidy Disbursement, plus Why Choose Bhagyalaxmi and Contact slides",
       "reqIds": [],
       "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "TRI-GITA SERVICES",
+  "projectName": "Bhagyalaxmi Construction",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
