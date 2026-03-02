@@ -3,7 +3,7 @@
   "frontend/tailwind.config.js": "Extended Tailwind config with Outfit/Playfair Display fonts, navy/gold/teal color palettes, custom shadow utilities, and all keyframe animations for the new theme.",
   "frontend/src/hooks/useQueries.ts": "React Query mutation hook for submitting customer leads to the backend canister via the submitLead method, with query invalidation on success.",
   "frontend/src/components/Header.tsx": "Sticky navigation header using internal useTranslation and useLanguage hooks, with navy/gold theme, scroll-aware background, language switcher, and gold CTA button.",
-  "frontend/src/components/Hero.tsx": "Full-viewport hero section using the Samaleswari Temple Sambalpur image as background with a navy gradient overlay, gold badge, headline, CTA buttons (WhatsApp + scheme), and trust stats grid.",
+  "frontend/src/components/Hero.tsx": "Full-viewport hero section using the AI illustration image as background with a navy gradient overlay, gold badge, headline, CTA buttons (WhatsApp + scheme), and trust stats grid. The overlay opacity is slightly reduced to let the illustration show through more clearly while maintaining text readability.",
   "frontend/src/components/SchemeInfo.tsx": "PM Surya Ghar scheme section using useTranslation internally, with navy/gold/teal themed benefits, eligibility cards, and a 4-step process on a dark navy background.",
   "frontend/src/components/Services.tsx": "Two-card services grid using useTranslation internally, with navy/gold/teal theme, image cards, feature lists, and styled CTA buttons.",
   "frontend/src/components/InquiryForm.tsx": "Contact inquiry form using useTranslation internally, with navy/gold theme, WhatsApp submission, client-side validation, and styled input fields.",

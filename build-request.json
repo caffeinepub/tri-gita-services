@@ -1,62 +1,61 @@
 {
   "kind": "build_request",
-  "title": "Fix finance section stats and add Samaleswari Temple hero background",
+  "title": "Replace hero background with AI illustration image",
   "projectName": "TRI-GITA SERVICES",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the BankFinanceBanner component to clearly display the correct financing terms: 90% loan approved by bank and 10% paid by the customer. Update all related translation strings in English, Hindi, and Odia (translations.ts) to reflect '90% Bank Loan' and '10% Customer Payment' accurately. Ensure stat cards and any descriptive text in the banner reflect these exact figures.",
+      "text": "Generate an AI illustration image suitable for a solar energy services hero background — vibrant and modern, depicting solar panels, sunshine, and a clean energy landscape in an illustrated art style — and save it as the hero background asset.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "make correction the finance part -easy bank finance available 90% loan approved and 10% customer paid"
+          "Modify the hero back grount to Ai illustration image"
         ]
       },
       "acceptanceCriteria": [
-        "BankFinanceBanner displays '90%' as the bank loan/approval figure",
-        "BankFinanceBanner displays '10%' as the customer payment figure",
-        "Section heading or subheading reads 'Easy Bank Finance Available' (or translated equivalent)",
-        "Translation strings in all three languages (EN/HI/OD) are updated with the correct percentages",
-        "No other financing figures appear that contradict 90/10 split"
+        "A new AI-style illustrated image is generated and saved to frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png",
+        "The image visually represents solar energy themes (panels, sunlight, clean landscape) in an illustrated art style",
+        "The image is high-resolution and suitable for a full-screen hero background"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Replace the current hero background in the Hero component with the newly generated Samaleswari Temple Sambalpur image (samaleswari-temple-hero.dim_1920x1080.png) stored in frontend/public/assets/generated/. Ensure the image is set as the full-screen background with an appropriate dark overlay so that headline text and CTA buttons remain clearly legible.",
+      "text": "Update the Hero component to use the newly generated AI illustration image (hero-ai-illustration.png from frontend/public/assets/generated/) as the hero section background, replacing the current Samaleswari Temple background image.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Add samleswari temple sambalpur as hero background"
+          "Modify the hero back grount to Ai illustration image"
         ]
       },
       "acceptanceCriteria": [
-        "Hero section background shows the Samaleswari Temple Sambalpur image",
-        "Image covers the full viewport width and height (object-cover or equivalent)",
-        "Dark overlay ensures all hero text and buttons are readable",
-        "No broken image or fallback color visible on load"
+        "The Hero component's background references the new AI illustration image from the generated assets folder",
+        "The hero section displays the AI illustration as a full-screen background",
+        "Existing hero content (headline, CTA buttons, trust-stat cards) remains intact and readable over the new background",
+        "Any overlay or text contrast adjustments are applied to maintain readability"
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/",
-    "Preserve all existing i18n translation keys; only update values related to the finance section",
-    "Keep the WhatsApp CTA button and all other hero section content intact"
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Preserve all existing hero section content (headline, WhatsApp CTA, scheme CTA, trust-stat cards)",
+    "Do not alter BankFinanceBanner financing terms (90% loan / 10% customer)"
   ],
   "nonGoals": [
-    "Changing the backend schema or lead submission logic",
-    "Adding new form fields or sections beyond the finance correction",
-    "Redesigning the overall color theme or layout"
+    "Changing any other section backgrounds",
+    "Modifying backend logic or data models",
+    "Altering translations or i18n strings",
+    "Redesigning the hero layout or content structure"
   ],
   "imageRequirements": {
     "required": [
-      "Photorealistic wide-angle daytime view of Samaleswari Temple, Sambalpur, Odisha – ornate Hindu temple architecture with bright sky and lush surroundings (samaleswari-temple-hero.dim_1920x1080.png)"
+      "AI illustration of a solar energy landscape with solar panels, bright sunshine rays, green fields, and a clear sky in a vibrant modern illustrated art style (hero-ai-illustration.dim_1920x1080.png)"
     ],
     "edits": []
   }

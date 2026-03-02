@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T00:48:51.730Z",
+  "generatedAt": "2026-03-02T00:55:22.660Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,20 +12,18 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the BankFinanceBanner component to clearly display the correct financing terms: 90% loan approved by bank and 10% paid by the customer. Update all related translation strings in English, Hindi, and Odia (translations.ts) to reflect '90% Bank Loan' and '10% Customer Payment' accurately. Ensure stat cards and any descriptive text in the banner reflect these exact figures.",
+        "summary": "Generate an AI illustration image suitable for a solar energy services hero background — vibrant and modern, depicting solar panels, sunshine, and a clean energy landscape in an illustrated art style — and save it as the hero background asset.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/BankFinanceBanner.tsx",
-          "frontend/src/i18n/translations.ts"
+          "frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png"
         ],
         "matchedFiles": [
-          "frontend/src/components/BankFinanceBanner.tsx",
-          "frontend/src/i18n/translations.ts"
+          "frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Replace the current hero background in the Hero component with the newly generated Samaleswari Temple Sambalpur image (samaleswari-temple-hero.dim_1920x1080.png) stored in frontend/public/assets/generated/. Ensure the image is set as the full-screen background with an appropriate dark overlay so that headline text and CTA buttons remain clearly legible.",
+        "summary": "Update the Hero component to use the newly generated AI illustration image (hero-ai-illustration.png from frontend/public/assets/generated/) as the hero section background, replacing the current Samaleswari Temple background image.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/Hero.tsx"
@@ -41,10 +39,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/samaleswari-temple-hero.dim_1920x1080.png",
-    "frontend/src/components/BankFinanceBanner.tsx",
+    "frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png",
     "frontend/src/components/Hero.tsx",
-    "frontend/src/i18n/translations.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

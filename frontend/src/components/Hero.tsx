@@ -23,16 +23,16 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image - Samaleswari Temple Sambalpur */}
+      {/* Background Image - AI Illustration */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/assets/generated/samaleswari-temple-hero.dim_1920x1080.png')`,
+          backgroundImage: `url('/assets/generated/hero-ai-illustration.dim_1920x1080.png')`,
         }}
       />
 
       {/* Navy Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/90 via-navy-900/80 to-navy-800/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/85 via-navy-900/75 to-navy-800/60" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">

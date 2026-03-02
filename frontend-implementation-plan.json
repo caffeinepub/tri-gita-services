@@ -1,45 +1,38 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix finance section stats and add Samaleswari Temple hero background",
+  "title": "Replace hero background with AI illustration image",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update BankFinanceBanner component and translations to display correct financing terms: 90% bank loan and 10% customer payment",
+      "summary": "Generate an AI illustration image suitable for a solar energy services hero background and save it as a frontend asset",
       "acceptanceCriteria": [
-        "BankFinanceBanner displays '90%' as the bank loan/approval figure",
-        "BankFinanceBanner displays '10%' as the customer payment figure",
-        "Section heading or subheading reads 'Easy Bank Finance Available' (or translated equivalent)",
-        "Translation strings in all three languages (EN/HI/OD) are updated with the correct percentages",
-        "No other financing figures appear that contradict 90/10 split"
+        "A new AI-style illustrated image is generated and saved to frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png",
+        "The image visually represents solar energy themes (panels, sunlight, clean landscape) in an illustrated art style",
+        "The image is high-resolution and suitable for a full-screen hero background"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/BankFinanceBanner.tsx",
-          "operation": "modify",
-          "description": "Update the stat cards to display '90%' for bank loan approval and '10%' for customer payment. Ensure the section heading reflects 'Easy Bank Finance Available'. Update the translation keys used in this component to reference the corrected finance.stat1 and finance.stat2 values from translations.ts."
-        },
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Update the finance section translation strings in all three languages (en, hi, od). Change finance.stat1.value to '90%' and finance.stat1.label to 'Bank Loan' (or equivalent). Change finance.stat2.value to '10%' and finance.stat2.label to 'Customer Payment' (or equivalent). Update finance.heading to 'Easy Bank Finance Available' and ensure finance.description accurately reflects the 90/10 split. Preserve all existing translation keys."
+          "path": "frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Generate and save an AI illustration depicting a vibrant modern solar energy landscape with solar panels, bright sunshine rays, green fields, and a clear sky in an illustrated art style. This image will serve as the new hero section background, replacing the current Samaleswari Temple image. Dimensions: 1920x1080 pixels, optimized for full-screen hero display."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Replace hero background with Samaleswari Temple Sambalpur image and ensure text readability with dark overlay",
+      "summary": "Update the Hero component to use the newly generated AI illustration image as the background",
       "acceptanceCriteria": [
-        "Hero section background shows the Samaleswari Temple Sambalpur image",
-        "Image covers the full viewport width and height (object-cover or equivalent)",
-        "Dark overlay ensures all hero text and buttons are readable",
-        "No broken image or fallback color visible on load"
+        "The Hero component's background references the new AI illustration image from the generated assets folder",
+        "The hero section displays the AI illustration as a full-screen background",
+        "Existing hero content (headline, CTA buttons, trust-stat cards) remains intact and readable over the new background",
+        "Any overlay or text contrast adjustments are applied to maintain readability"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Hero.tsx",
           "operation": "modify",
-          "description": "Update the hero background to use the generated Samaleswari Temple image from frontend/public/assets/generated/samaleswari-temple-hero.dim_1920x1080.png. Ensure the background image covers the full viewport width and height using object-cover or equivalent CSS. Verify that the dark overlay (rgba or similar) provides sufficient contrast for all headline text, CTA buttons, and trust-stat cards to remain clearly legible. Keep all existing hero content including the WhatsApp CTA button intact."
+          "description": "Replace the current Samaleswari Temple background image reference with the newly generated AI illustration image from frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png. Ensure the background image covers the full hero section using appropriate CSS (background-size: cover, background-position: center). Preserve all existing hero content including the headline, WhatsApp CTA button, scheme CTA button, and the three trust-stat cards (speed, cost, shield). Verify that the text overlay remains readable over the new AI illustration background; adjust the overlay opacity or add text shadows if needed to maintain contrast and readability."
         }
       ]
     }

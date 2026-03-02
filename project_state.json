@@ -1,23 +1,23 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Real estate or property project featuring Samaleswari Temple Sambalpur as hero background, with easy bank finance option (90% loan approved, 10% customer payment).",
+  "summary": "Project with a hero section featuring an AI illustration background image, with finance details (90% loan / 10% customer) and Samaleswari Temple theme.",
   "architectural_notes": [],
   "known_issues": [],
-  "isFixRequest": true,
-  "imageRequirements": "## Required Images\n- Photorealistic wide-angle daytime view of Samaleswari Temple, Sambalpur, Odisha – ornate Hindu temple architecture with bright sky and lush surroundings (samaleswari-temple-hero.dim_1920x1080.png)",
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- AI illustration of a solar energy landscape with solar panels, bright sunshine rays, green fields, and a clear sky in a vibrant modern illustrated art style (hero-ai-illustration.dim_1920x1080.png)",
   "existing_features": [
     {
-      "id": "feature-update-the-bankfinancebanner-component-to-clearly-display-the-correct-financing-terms-90-loan-approved-by-bank-and-10-paid-by-the-customer-update-all-related-translation-strings-in-english-hindi-and-odia-translations-ts-to-reflect-90-bank-loan-and-10-customer-payment-accurately-ensure-stat-cards-and-any-descriptive-text-in-the-banner-reflect-these-exact-figures",
-      "title": "Update the BankFinanceBanner component to clearly display the correct financing terms: 90% loan approved by bank and 10% paid by the customer. Update all related translation strings in English, Hindi, and Odia (translations.ts) to reflect '90% Bank Loan' and '10% Customer Payment' accurately. Ensure stat cards and any descriptive text in the banner reflect these exact figures.",
+      "id": "feature-generate-an-ai-illustration-image-suitable-for-a-solar-energy-services-hero-background-vibrant-and-modern-depicting-solar-panels-sunshine-and-a-clean-energy-landscape-in-an-illustrated-art-style-and-save-it-as-the-hero-background-asset",
+      "title": "Generate an AI illustration image suitable for a solar energy services hero background — vibrant and modern, depicting solar panels, sunshine, and a clean energy landscape in an illustrated art style — and save it as the hero background asset.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-replace-the-current-hero-background-in-the-hero-component-with-the-newly-generated-samaleswari-temple-sambalpur-image-samaleswari-temple-hero-dim-1920x1080-png-stored-in-frontend-public-assets-generated-ensure-the-image-is-set-as-the-full-screen-background-with-an-appropriate-dark-overlay-so-that-headline-text-and-cta-buttons-remain-clearly-legible",
-      "title": "Replace the current hero background in the Hero component with the newly generated Samaleswari Temple Sambalpur image (samaleswari-temple-hero.dim_1920x1080.png) stored in frontend/public/assets/generated/. Ensure the image is set as the full-screen background with an appropriate dark overlay so that headline text and CTA buttons remain clearly legible.",
+      "id": "feature-update-the-hero-component-to-use-the-newly-generated-ai-illustration-image-hero-ai-illustration-png-from-frontend-public-assets-generated-as-the-hero-section-background-replacing-the-current-samaleswari-temple-background-image",
+      "title": "Update the Hero component to use the newly generated AI illustration image (hero-ai-illustration.png from frontend/public/assets/generated/) as the hero section background, replacing the current Samaleswari Temple background image.",
       "reqIds": [
         "REQ-2"
       ],
@@ -27,13 +27,7 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Finance section: Easy bank finance available – 90% loan approved, 10% customer paid",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add Samaleswari Temple Sambalpur as hero background image",
+      "summary": "Replace hero background with an AI illustration image",
       "reqIds": [],
       "status": "pending"
     }
