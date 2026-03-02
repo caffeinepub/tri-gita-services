@@ -1,152 +1,163 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Phone } from 'lucide-react';
-import { useLanguage, type Language } from '../contexts/LanguageContext';
+import React, { useState, useEffect } from 'react';
+import { Sun, Menu, X, MessageCircle } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
+import { useLanguage } from '../contexts/LanguageContext';
+import type { Language } from '../i18n/translations';
 
-const LANGUAGE_OPTIONS: { code: Language; label: string }[] = [
-  { code: 'en', label: 'EN' },
-  { code: 'hi', label: 'HI' },
-  { code: 'od', label: 'OD' },
-];
+const WHATSAPP_NUMBER = '917838867880';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { language, setLanguage } = useLanguage();
   const t = useTranslation();
+  const { language, setLanguage } = useLanguage();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { label: t.header.nav.home, href: '#home' },
-    { label: t.header.nav.services, href: '#services' },
-    { label: t.header.nav.scheme, href: '#scheme' },
-    { label: t.header.nav.guide, href: '#odisha-guide' },
-    { label: t.header.nav.whyUs, href: '#why-us' },
-    { label: t.header.nav.contact, href: '#contact' },
+    { label: t.header.home, href: '#home' },
+    { label: t.header.scheme, href: '#scheme' },
+    { label: t.header.services, href: '#services' },
+    { label: t.header.whyUs, href: '#why-us' },
+    { label: t.header.contact, href: '#inquiry' },
   ];
+
+  const languages: { code: Language; label: string }[] = [
+    { code: 'en', label: t.header.langEn },
+    { code: 'hi', label: t.header.langHi },
+    { code: 'od', label: t.header.langOd },
+  ];
+
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-navy-900/95 backdrop-blur-md shadow-navy-md border-b border-navy-700/50'
-          : 'bg-transparent'
+        scrolled
+          ? 'bg-navy-900 shadow-navy py-2'
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center shadow-gold-sm group-hover:bg-gold-400 transition-colors">
+          <div className="flex items-center gap-2">
+            <div className="w-9 h-9 bg-gold-500 rounded-full flex items-center justify-center">
               <Sun className="w-5 h-5 text-navy-900" />
             </div>
-            <div className="leading-tight">
-              <div className="text-white font-bold text-sm tracking-wide">{t.header.brand}</div>
-              <div className="text-gold-400 text-xs font-medium tracking-wider">{t.header.tagline}</div>
+            <div>
+              <div className="font-playfair font-bold text-white text-sm leading-tight">
+                TRI-GITA
+              </div>
+              <div className="text-gold-400 text-xs font-outfit tracking-wider">
+                SERVICES
+              </div>
             </div>
-          </a>
+          </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.href}
-                href={link.href}
-                className="text-navy-100/80 hover:text-gold-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5"
+                onClick={() => handleNavClick(link.href)}
+                className="text-white/80 hover:text-gold-400 text-sm font-medium transition-colors"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </nav>
 
-          {/* Right side */}
-          <div className="hidden lg:flex items-center gap-3">
-            {/* Language switcher */}
-            <div className="flex items-center bg-navy-800/60 border border-navy-600/50 rounded-lg overflow-hidden">
-              {LANGUAGE_OPTIONS.map((opt) => (
+          {/* Right Controls */}
+          <div className="flex items-center gap-3">
+            {/* Language Switcher */}
+            <div className="hidden sm:flex items-center gap-1 bg-white/10 rounded-full px-1 py-1">
+              {languages.map((lang) => (
                 <button
-                  key={opt.code}
-                  onClick={() => setLanguage(opt.code)}
-                  className={`px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                    language === opt.code
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all ${
+                    language === lang.code
                       ? 'bg-gold-500 text-navy-900'
-                      : 'text-navy-300 hover:text-white hover:bg-navy-700/50'
+                      : 'text-white/70 hover:text-white'
                   }`}
                 >
-                  {opt.label}
+                  {lang.label}
                 </button>
               ))}
             </div>
 
-            {/* CTA */}
+            {/* WhatsApp CTA */}
             <a
-              href="#inquiry"
-              className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-5 py-2.5 rounded-xl text-sm transition-all duration-200 shadow-gold-sm hover:shadow-gold-md hover:-translate-y-0.5"
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-semibold text-sm px-4 py-2 rounded-full transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              {t.header.nav.getQuote}
+              <MessageCircle className="w-4 h-4" />
+              {t.header.whatsappCta}
+            </a>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden text-white p-1"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-white/10">
+            <nav className="flex flex-col gap-2 mt-4">
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-white/80 hover:text-gold-400 text-sm font-medium py-2 text-left transition-colors"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </nav>
+            <div className="flex items-center gap-2 mt-4">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                    language === lang.code
+                      ? 'bg-gold-500 text-navy-900'
+                      : 'bg-white/10 text-white/70 hover:text-white'
+                  }`}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center justify-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-4 py-2.5 rounded-full"
+            >
+              <MessageCircle className="w-4 h-4" />
+              {t.header.whatsappCta}
             </a>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        )}
       </div>
-
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-navy-900/98 backdrop-blur-md border-t border-navy-700/50">
-          <div className="px-4 py-4 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-navy-100/80 hover:text-gold-400 hover:bg-white/5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-
-            {/* Mobile language switcher */}
-            <div className="flex items-center gap-2 pt-3 border-t border-navy-700/50 mt-3">
-              {LANGUAGE_OPTIONS.map((opt) => (
-                <button
-                  key={opt.code}
-                  onClick={() => { setLanguage(opt.code); setIsMenuOpen(false); }}
-                  className={`flex-1 py-2 text-xs font-bold uppercase rounded-lg transition-colors ${
-                    language === opt.code
-                      ? 'bg-gold-500 text-navy-900'
-                      : 'bg-navy-800 text-navy-300 hover:text-white'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-
-            <a
-              href="#inquiry"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-4 py-3 rounded-xl text-sm mt-2 transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              {t.header.nav.getQuote}
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

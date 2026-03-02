@@ -1,37 +1,249 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T23:59:12.998Z",
+  "generatedAt": "2026-03-02T00:32:56.676Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 18,
+    "implemented": 17,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the Odisha subsidy structure displayed in the OdishaGuide component to reflect the correct values: 1 kW = Central ₹30,000 + State ₹25,000 = Total ₹55,000; 2 kW = Central ₹60,000 + State ₹50,000 = Total ₹1,10,000; 3 kW+ = Central ₹78,000 + State ₹60,000 = Total ₹1,38,000 (Maximum cap). Ensure all three language variants (English, Hindi, Odia) in the translations file are updated consistently.",
+        "summary": "Recreate the backend Motoko actor that manages solar service leads stored in a stable map keyed by email, with methods to submit a lead (name, phone, email, city, systemSize, message), delete a lead by email, retrieve a lead by email, and list all leads sorted by name.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Recreate the WarrantyGuarantee section with three styled cards showing 25-year, 10-year, and 5-year guarantee durations using navy, gold, and teal accent themes with translated content.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
+          "frontend/src/components/WarrantyGuarantee.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/WarrantyGuarantee.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Recreate the InquiryForm with fields for name, phone, email, city, system size, and message. On submission, validate inputs and open a pre-filled WhatsApp link with the form data. Submit button also calls the backend submitLead mutation via useSubmitLead hook.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/InquiryForm.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/InquiryForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Recreate the WhatsAppSection with a branded card, translated title, description, and a direct WhatsApp contact button linking to the business WhatsApp number.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/WhatsAppSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/WhatsAppSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Recreate the Footer with two columns: brand identity on the left and contact details (phone, email, address, service area) on the right, with a WhatsApp link, on a navy-900 background with gold accents.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Recreate the LanguageContext providing 'en', 'hi', and 'od' language options with localStorage persistence, and the useTranslation hook that returns the translation object for the active language.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/contexts/LanguageContext.tsx",
+          "frontend/src/i18n/useTranslation.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/contexts/LanguageContext.tsx",
+          "frontend/src/i18n/useTranslation.ts"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Recreate the full i18n translations file with all English, Hindi, and Odia strings for all UI sections including hero, header, scheme info, Odisha guide, services, why choose us, bank finance banner, warranty, inquiry form, WhatsApp section, and footer.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/i18n/translations.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/i18n/translations.ts"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Recreate the global CSS (frontend/src/index.css) importing Google Fonts (Outfit, Playfair Display), Tailwind directives, deep navy/emerald gold theme with CSS custom properties, custom navy/gold/teal color palettes, and keyframe animations for banner shimmer effects.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Recreate the Tailwind configuration extending the default theme with custom fonts (Outfit, Playfair Display), OKLCH-based color palettes for navy, gold, and teal, custom border radii, box shadows, and accordion keyframe animations.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Recreate the useSubmitLead mutation hook in frontend/src/hooks/useQueries.ts that calls the backend actor's submitLead method and invalidates the 'leads' query on success.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Recreate the React/TypeScript frontend for the TRI-GITA SERVICES solar energy website with the following sections in order: Header, Hero, SchemeInfo, OdishaGuide, Services, WhyChooseUs, BankFinanceBanner, WarrantyGuarantee, InquiryForm, WhatsAppSection, Footer, and a FloatingWhatsAppButton. Wrap everything in a LanguageProvider context.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Recreate the fixed navigation Header with scroll-aware background transition, desktop and mobile navigation links, a language switcher supporting English (EN), Hindi (HI), and Odia (OD), and a WhatsApp CTA button. Use LanguageContext and i18n translations.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Header.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Header.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Recreate the full-screen Hero section with a background image (frontend/public/assets/generated/hero-bg.jpg), a deep navy gradient overlay, translated headline and tagline, WhatsApp CTA and scheme CTA buttons, and three trust-indicator stat tiles.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Hero.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Hero.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Recreate the SchemeInfo section explaining the PM Surya Ghar government scheme, including benefits list, eligibility criteria, and a four-step process (application, survey, installation, subsidy credit). All text must use i18n translations.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/SchemeInfo.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/SchemeInfo.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Recreate the OdishaGuide section with subsidy tier cards for 1kW, 2kW, and 3kW+ systems, rollout phase coverage info, and intersection-observer-driven fade-in animations.",
+        "status": "implemented",
+        "plannedFiles": [
           "frontend/src/components/OdishaGuide.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
           "frontend/src/components/OdishaGuide.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Recreate the Services section with two image cards for residential and commercial solar offerings, each including a feature checklist and a CTA button linking to the inquiry form.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Services.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Services.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Recreate the WhyChooseUs section with three feature cards using navy, gold, and teal accent themes, icons, and translated titles and descriptions.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/WhyChooseUs.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/WhyChooseUs.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Recreate the BankFinanceBanner as an animated dark navy banner with shimmer effects, gold stat cards highlighting bank financing statistics, and a WhatsApp CTA button.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/BankFinanceBanner.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/BankFinanceBanner.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "backend/migration.mo",
     "build-request.json",
+    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/hero-bg.dim_1920x1080.jpg",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/BankFinanceBanner.tsx",
+    "frontend/src/components/FloatingWhatsAppButton.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/Hero.tsx",
+    "frontend/src/components/InquiryForm.tsx",
     "frontend/src/components/OdishaGuide.tsx",
+    "frontend/src/components/SchemeInfo.tsx",
+    "frontend/src/components/Services.tsx",
+    "frontend/src/components/WarrantyGuarantee.tsx",
+    "frontend/src/components/WhatsAppSection.tsx",
+    "frontend/src/components/WhyChooseUs.tsx",
+    "frontend/src/contexts/LanguageContext.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useQueries.ts",
     "frontend/src/i18n/translations.ts",
+    "frontend/src/i18n/useTranslation.ts",
+    "frontend/src/index.css",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

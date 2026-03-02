@@ -1,154 +1,144 @@
-import { useEffect, useRef, useState } from 'react';
-import { MapPin, Info } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { MapPin } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
-
-const subsidyTiers = [
-  {
-    capacity: '1 kW',
-    central: '₹30,000',
-    state: '₹25,000',
-    total: '₹55,000',
-    highlight: false,
-    note: 'Ideal for small households',
-  },
-  {
-    capacity: '2 kW',
-    central: '₹60,000',
-    state: '₹50,000',
-    total: '₹1,10,000',
-    highlight: false,
-    note: 'Suitable for medium households',
-  },
-  {
-    capacity: '3 kW+',
-    central: '₹78,000',
-    state: '₹60,000',
-    total: '₹1,38,000',
-    highlight: true,
-    note: 'Maximum cap',
-  },
-];
-
-const phases = [
-  { phase: 'Phase 1', area: 'Sambalpur, Bargarh, Jharsuguda', status: 'Active', color: 'teal' },
-  { phase: 'Phase 2', area: 'Bhubaneswar, Cuttack, Puri', status: 'Active', color: 'teal' },
-  { phase: 'Phase 3', area: 'All remaining districts', status: 'Upcoming', color: 'gold' },
-];
 
 export default function OdishaGuide() {
   const t = useTranslation();
-  const g = t.odishaGuide;
-
+  const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) { setIsVisible(true); return; }
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
-      { threshold: 0.15 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const tiers = [
+    {
+      label: t.odishaGuide.tier1kw,
+      central: t.odishaGuide.tier1Central,
+      state: t.odishaGuide.tier1State,
+      total: t.odishaGuide.tier1Total,
+      note: null,
+      accent: 'teal',
+    },
+    {
+      label: t.odishaGuide.tier2kw,
+      central: t.odishaGuide.tier2Central,
+      state: t.odishaGuide.tier2State,
+      total: t.odishaGuide.tier2Total,
+      note: null,
+      accent: 'gold',
+    },
+    {
+      label: t.odishaGuide.tier3kw,
+      central: t.odishaGuide.tier3Central,
+      state: t.odishaGuide.tier3State,
+      total: t.odishaGuide.tier3Total,
+      note: t.odishaGuide.tier3Note,
+      accent: 'navy',
+    },
+  ];
+
+  const accentClasses: Record<string, { border: string; badge: string; total: string }> = {
+    teal: {
+      border: 'border-teal-400',
+      badge: 'bg-teal-400/20 text-teal-300',
+      total: 'text-teal-400',
+    },
+    gold: {
+      border: 'border-gold-400',
+      badge: 'bg-gold-400/20 text-gold-300',
+      total: 'text-gold-400',
+    },
+    navy: {
+      border: 'border-navy-400',
+      badge: 'bg-navy-400/20 text-navy-300',
+      total: 'text-white',
+    },
+  };
+
   return (
-    <section id="odisha-guide" className="py-20 lg:py-28 bg-navy-50" ref={sectionRef}>
+    <section className="bg-white py-20" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-navy-100 text-navy-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
-            <MapPin className="w-4 h-4" />
-            Odisha Specific
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 mb-4">
-            {g.title}
+        <div className="text-center mb-14">
+          <div className="inline-block bg-navy-100 text-navy-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+            Odisha Exclusive
+          </div>
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+            {t.odishaGuide.title}
           </h2>
-          <p className="text-navy-500 text-lg max-w-2xl mx-auto">
-            {g.subtitle}
-          </p>
+          <p className="text-navy-600 text-lg max-w-2xl mx-auto">{t.odishaGuide.subtitle}</p>
         </div>
 
-        {/* Subsidy structure */}
-        <div
-          className={`mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        >
-          <h3 className="font-display text-2xl font-bold text-navy-800 mb-2">{g.subsidy.title}</h3>
-          <div className="h-1 w-24 rounded-full subsidy-shimmer-bar mb-8" />
-
-          <div className="grid sm:grid-cols-3 gap-4">
-            {subsidyTiers.map((tier, i) => (
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {tiers.map((tier, i) => {
+            const ac = accentClasses[tier.accent];
+            return (
               <div
-                key={tier.capacity}
-                style={{ transitionDelay: `${i * 120}ms` }}
-                className={`rounded-2xl p-6 border-2 transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                } ${
-                  tier.highlight
-                    ? 'bg-navy-800 border-gold-500 shadow-gold-md'
-                    : 'bg-white border-navy-100 shadow-navy-sm'
+                key={i}
+                className={`bg-navy-900 border-2 ${ac.border} rounded-2xl p-8 transition-all duration-700 ${
+                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
+                style={{ transitionDelay: `${i * 150}ms` }}
               >
-                {tier.highlight && (
-                  <div className="text-xs text-gold-400 font-bold uppercase tracking-widest mb-3">Maximum Cap</div>
+                <div className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 ${ac.badge}`}>
+                  {tier.label}
+                </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between items-center">
+                    <span className="text-white/60 text-sm">{t.odishaGuide.central}</span>
+                    <span className="text-white font-semibold">{tier.central}</span>
+                  </div>
+                  <div className="h-px bg-white/10" />
+                  <div className="flex justify-between items-center">
+                    <span className="text-white/60 text-sm">{t.odishaGuide.state}</span>
+                    <span className="text-white font-semibold">{tier.state}</span>
+                  </div>
+                  <div className="h-px bg-white/10" />
+                  <div className="flex justify-between items-center">
+                    <span className="text-white/80 text-sm font-semibold">{t.odishaGuide.total}</span>
+                    <span className={`font-bold text-xl font-playfair ${ac.total}`}>{tier.total}</span>
+                  </div>
+                </div>
+                {tier.note && (
+                  <div className="text-center">
+                    <span className="text-xs bg-gold-500/20 text-gold-400 px-3 py-1 rounded-full">
+                      {tier.note}
+                    </span>
+                  </div>
                 )}
-                <div className={`font-display text-lg font-bold mb-1 ${tier.highlight ? 'text-white' : 'text-navy-800'}`}>
-                  {tier.capacity}
-                </div>
-                <div className={`text-xs mb-4 ${tier.highlight ? 'text-navy-300' : 'text-navy-400'}`}>
-                  {tier.note}
-                </div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className={tier.highlight ? 'text-navy-300' : 'text-navy-500'}>Central Subsidy</span>
-                    <span className={`font-semibold ${tier.highlight ? 'text-gold-400' : 'text-navy-700'}`}>{tier.central}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className={tier.highlight ? 'text-navy-300' : 'text-navy-500'}>State Subsidy</span>
-                    <span className={`font-semibold ${tier.highlight ? 'text-gold-400' : 'text-navy-700'}`}>{tier.state}</span>
-                  </div>
-                  <div className={`flex justify-between pt-2 border-t ${tier.highlight ? 'border-navy-600' : 'border-navy-100'}`}>
-                    <span className={`font-bold ${tier.highlight ? 'text-white' : 'text-navy-800'}`}>Total Subsidy</span>
-                    <span className={`font-bold text-lg ${tier.highlight ? 'text-gold-400' : 'text-teal-600'}`}>{tier.total}</span>
-                  </div>
+                {/* Shimmer bar */}
+                <div className="mt-4 h-1.5 bg-white/10 rounded-full subsidy-shimmer-bar overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${
+                      tier.accent === 'teal' ? 'bg-teal-400' :
+                      tier.accent === 'gold' ? 'bg-gold-400' : 'bg-navy-400'
+                    }`}
+                    style={{ width: tier.accent === 'navy' ? '100%' : tier.accent === 'gold' ? '80%' : '40%' }}
+                  />
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Implementation phases */}
-        <div
-          className={`bg-white rounded-2xl p-8 border border-navy-100 shadow-navy-sm transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <h3 className="font-display text-2xl font-bold text-navy-800 mb-6">{g.phases.title}</h3>
-          <div className="space-y-4">
-            {phases.map((p) => (
-              <div key={p.phase} className="flex items-center gap-4 p-4 rounded-xl bg-navy-50 border border-navy-100">
-                <div className={`w-2 h-12 rounded-full flex-shrink-0 ${p.color === 'teal' ? 'bg-teal-500' : 'bg-gold-500'}`} />
-                <div className="flex-1">
-                  <div className="font-bold text-navy-800">{p.phase}</div>
-                  <div className="text-navy-500 text-sm">{p.area}</div>
-                </div>
-                <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                  p.color === 'teal'
-                    ? 'bg-teal-100 text-teal-700'
-                    : 'bg-gold-100 text-gold-700'
-                }`}>
-                  {p.status}
-                </span>
-              </div>
-            ))}
+        {/* Rollout Info */}
+        <div className="bg-navy-50 border border-navy-200 rounded-2xl p-6 flex items-start gap-4">
+          <div className="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center flex-shrink-0">
+            <MapPin className="w-5 h-5 text-gold-400" />
           </div>
-
-          <div className="mt-6 flex items-start gap-3 p-4 bg-gold-50 rounded-xl border border-gold-200">
-            <Info className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-navy-600">
-              <strong className="text-navy-800">Note:</strong> Subsidy amounts and phases are subject to government updates. Contact TRI-GITA SERVICES for the latest information specific to your district.
-            </p>
+          <div>
+            <h4 className="font-semibold text-navy-900 mb-1">{t.odishaGuide.rolloutTitle}</h4>
+            <p className="text-navy-600 text-sm">{t.odishaGuide.rolloutDesc}</p>
           </div>
         </div>
       </div>

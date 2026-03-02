@@ -1,6 +1,9 @@
-import { useState } from 'react';
-import { Send, User, Phone, Mail, MapPin, Zap, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { MessageCircle, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
+import { useSubmitLead } from '../hooks/useQueries';
+
+const WHATSAPP_NUMBER = '917838867880';
 
 interface FormData {
   name: string;
@@ -11,195 +14,211 @@ interface FormData {
   message: string;
 }
 
-const initialForm: FormData = {
-  name: '',
-  phone: '',
-  email: '',
-  city: '',
-  systemSize: '',
-  message: '',
-};
+interface FormErrors {
+  name?: string;
+  phone?: string;
+  email?: string;
+  city?: string;
+  systemSize?: string;
+}
 
 export default function InquiryForm() {
   const t = useTranslation();
-  const f = t.inquiryForm;
+  const submitLead = useSubmitLead();
 
-  const [form, setForm] = useState<FormData>(initialForm);
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    systemSize: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [submitted, setSubmitted] = useState(false);
 
   const validate = (): boolean => {
-    const newErrors: Partial<FormData> = {};
-    if (!form.name.trim()) newErrors.name = f.validation.nameRequired;
-    if (!form.phone.trim()) {
-      newErrors.phone = f.validation.phoneRequired;
-    } else if (!/^\d{10}$/.test(form.phone.trim())) {
-      newErrors.phone = f.validation.phoneInvalid;
+    const newErrors: FormErrors = {};
+    if (!formData.name.trim()) newErrors.name = t.inquiryForm.nameRequired;
+    if (!formData.phone.trim()) {
+      newErrors.phone = t.inquiryForm.phoneRequired;
+    } else if (!/^\d{10}$/.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = t.inquiryForm.phoneInvalid;
     }
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = t.inquiryForm.emailInvalid;
+    }
+    if (!formData.city.trim()) newErrors.city = t.inquiryForm.cityRequired;
+    if (!formData.systemSize) newErrors.systemSize = t.inquiryForm.systemSizeRequired;
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    const msg = [
-      `*New Solar Inquiry*`,
-      `Name: ${form.name}`,
-      `Phone: ${form.phone}`,
-      form.email ? `Email: ${form.email}` : null,
-      form.city ? `City: ${form.city}` : null,
-      form.systemSize ? `System Size: ${form.systemSize}` : null,
-      form.message ? `Message: ${form.message}` : null,
-    ]
-      .filter(Boolean)
-      .join('%0A');
+    try {
+      await submitLead.mutateAsync({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email || 'noemail@trigita.com',
+        city: formData.city,
+        systemSize: formData.systemSize,
+        message: formData.message,
+      });
 
-    window.open(`https://wa.me/917838867880?text=${msg}`, '_blank');
-    setForm(initialForm);
-    setErrors({});
+      // Open WhatsApp with pre-filled message
+      const msg = encodeURIComponent(
+        `Hi TRI-GITA SERVICES,\n\nName: ${formData.name}\nPhone: ${formData.phone}\nCity: ${formData.city}\nSystem Size: ${formData.systemSize}\n${formData.message ? `Message: ${formData.message}` : ''}\n\nPlease share a free solar quote.`
+      );
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+
+      setSubmitted(true);
+      setFormData({ name: '', phone: '', email: '', city: '', systemSize: '', message: '' });
+    } catch {
+      // error handled by mutation state
+    }
   };
 
   const handleChange = (field: keyof FormData, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (errors[field as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
   };
 
-  const inputClass = (field: keyof FormData) =>
-    `w-full bg-white border rounded-xl px-4 py-3 text-navy-800 placeholder-navy-400 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-gold-400 ${
-      errors[field] ? 'border-red-400 bg-red-50' : 'border-navy-200 hover:border-navy-300'
-    }`;
+  const systemSizes = [
+    { value: '1kW', label: t.inquiryForm.size1kw },
+    { value: '2kW', label: t.inquiryForm.size2kw },
+    { value: '3kW', label: t.inquiryForm.size3kw },
+    { value: '5kW', label: t.inquiryForm.size5kw },
+    { value: '10kW+', label: t.inquiryForm.size10kw },
+  ];
+
+  const inputClass = (error?: string) =>
+    `w-full bg-navy-800 border ${error ? 'border-red-400' : 'border-navy-700'} text-white placeholder-white/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold-400 transition-colors`;
 
   return (
-    <section id="inquiry" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block bg-gold-100 text-gold-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
-            Free Consultation
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-4">
-            {f.title}
+    <section id="inquiry" className="bg-navy-900 py-20">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <div className="inline-block bg-gold-500/20 text-gold-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+            Free Quote
+          </div>
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-white mb-4">
+            {t.inquiryForm.title}
           </h2>
-          <p className="text-navy-500 text-lg">
-            {f.subtitle}
-          </p>
+          <p className="text-white/60 text-lg">{t.inquiryForm.subtitle}</p>
         </div>
 
-        {/* Form card */}
-        <div className="bg-navy-50 border border-navy-100 rounded-3xl p-8 lg:p-10 shadow-navy-sm">
-          <form onSubmit={handleSubmit} noValidate className="space-y-5">
-            {/* Name + Phone */}
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
-                  <User className="w-4 h-4 text-gold-500" />
-                  {f.fields.name} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder={f.fields.namePlaceholder}
-                  value={form.name}
-                  onChange={(e) => handleChange('name', e.target.value)}
-                  className={inputClass('name')}
-                />
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-              </div>
-              <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
-                  <Phone className="w-4 h-4 text-gold-500" />
-                  {f.fields.phone} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder={f.fields.phonePlaceholder}
-                  value={form.phone}
-                  onChange={(e) => handleChange('phone', e.target.value)}
-                  className={inputClass('phone')}
-                />
-                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
-              </div>
-            </div>
+        {submitted && (
+          <div className="flex items-center gap-3 bg-teal-500/20 border border-teal-400/40 text-teal-300 rounded-xl px-4 py-3 mb-6">
+            <CheckCircle className="w-5 h-5 flex-shrink-0" />
+            <span className="text-sm">{t.inquiryForm.successMsg}</span>
+          </div>
+        )}
 
-            {/* Email + City */}
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
-                  <Mail className="w-4 h-4 text-teal-500" />
-                  {f.fields.email}
-                </label>
-                <input
-                  type="email"
-                  placeholder={f.fields.emailPlaceholder}
-                  value={form.email}
-                  onChange={(e) => handleChange('email', e.target.value)}
-                  className={inputClass('email')}
-                />
-              </div>
-              <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
-                  <MapPin className="w-4 h-4 text-teal-500" />
-                  {f.fields.city}
-                </label>
-                <input
-                  type="text"
-                  placeholder={f.fields.cityPlaceholder}
-                  value={form.city}
-                  onChange={(e) => handleChange('city', e.target.value)}
-                  className={inputClass('city')}
-                />
-              </div>
-            </div>
+        {submitLead.isError && (
+          <div className="flex items-center gap-3 bg-red-500/20 border border-red-400/40 text-red-300 rounded-xl px-4 py-3 mb-6">
+            <AlertCircle className="w-5 h-5 flex-shrink-0" />
+            <span className="text-sm">{t.inquiryForm.errorMsg}</span>
+          </div>
+        )}
 
-            {/* System size */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
-                <Zap className="w-4 h-4 text-gold-500" />
-                {f.fields.systemSize}
-              </label>
-              <select
-                value={form.systemSize}
-                onChange={(e) => handleChange('systemSize', e.target.value)}
-                className={`${inputClass('systemSize')} cursor-pointer`}
-              >
-                <option value="">{f.fields.systemSizePlaceholder}</option>
-                {f.systemSizes.map((size) => (
-                  <option key={size.value} value={size.value}>
-                    {size.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
-                <MessageSquare className="w-4 h-4 text-navy-400" />
-                {f.fields.message}
-              </label>
-              <textarea
-                rows={4}
-                placeholder={f.fields.messagePlaceholder}
-                value={form.message}
-                onChange={(e) => handleChange('message', e.target.value)}
-                className={`${inputClass('message')} resize-none`}
+              <input
+                type="text"
+                placeholder={t.inquiryForm.namePlaceholder}
+                value={formData.name}
+                onChange={(e) => handleChange('name', e.target.value)}
+                className={inputClass(errors.name)}
               />
+              {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
             </div>
+            <div>
+              <input
+                type="tel"
+                placeholder={t.inquiryForm.phonePlaceholder}
+                value={formData.phone}
+                onChange={(e) => handleChange('phone', e.target.value)}
+                className={inputClass(errors.phone)}
+              />
+              {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
+            </div>
+          </div>
 
-            {/* Submit */}
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-3 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold py-4 rounded-xl text-base transition-all duration-200 shadow-gold-sm hover:shadow-gold-md hover:-translate-y-0.5"
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <input
+                type="email"
+                placeholder={t.inquiryForm.emailPlaceholder}
+                value={formData.email}
+                onChange={(e) => handleChange('email', e.target.value)}
+                className={inputClass(errors.email)}
+              />
+              {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder={t.inquiryForm.cityPlaceholder}
+                value={formData.city}
+                onChange={(e) => handleChange('city', e.target.value)}
+                className={inputClass(errors.city)}
+              />
+              {errors.city && <p className="text-red-400 text-xs mt-1">{errors.city}</p>}
+            </div>
+          </div>
+
+          <div>
+            <select
+              value={formData.systemSize}
+              onChange={(e) => handleChange('systemSize', e.target.value)}
+              className={`${inputClass(errors.systemSize)} appearance-none cursor-pointer`}
             >
-              <Send className="w-5 h-5" />
-              {f.submit}
-            </button>
+              <option value="" disabled>
+                {t.inquiryForm.systemSizeDefault}
+              </option>
+              {systemSizes.map((s) => (
+                <option key={s.value} value={s.value} className="bg-navy-800">
+                  {s.label}
+                </option>
+              ))}
+            </select>
+            {errors.systemSize && <p className="text-red-400 text-xs mt-1">{errors.systemSize}</p>}
+          </div>
 
-            <p className="text-center text-xs text-navy-400">
-              Your details will be sent securely via WhatsApp. We respond within 2 hours.
-            </p>
-          </form>
-        </div>
+          <div>
+            <textarea
+              placeholder={t.inquiryForm.messagePlaceholder}
+              value={formData.message}
+              onChange={(e) => handleChange('message', e.target.value)}
+              rows={4}
+              className={`${inputClass()} resize-none`}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={submitLead.isPending}
+            className="w-full flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 disabled:opacity-60 text-navy-900 font-bold text-base py-4 rounded-xl transition-colors shadow-gold"
+          >
+            {submitLead.isPending ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                {t.inquiryForm.submitting}
+              </>
+            ) : (
+              <>
+                <MessageCircle className="w-5 h-5" />
+                {t.inquiryForm.submitBtn}
+              </>
+            )}
+          </button>
+        </form>
       </div>
     </section>
   );

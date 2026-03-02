@@ -1,28 +1,277 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Correct Odisha Subsidy Structure Values",
+  "title": "Recreate TRI-GITA SERVICES Solar Website Frontend",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Update Odisha subsidy structure values to correct amounts across all language variants",
+      "id": "REQ-2",
+      "summary": "Recreate the main App component with all sections in the correct order wrapped in LanguageProvider",
       "acceptanceCriteria": [
-        "OdishaGuide subsidy tier card for 1 kW shows Central ₹30,000 + State ₹25,000 = ₹55,000 total",
-        "OdishaGuide subsidy tier card for 2 kW shows Central ₹60,000 + State ₹50,000 = ₹1,10,000 total",
-        "OdishaGuide subsidy tier card for 3 kW+ shows Central ₹78,000 + State ₹60,000 = ₹1,38,000 total with 'Maximum cap' label",
-        "All subsidy values are consistent across English, Hindi, and Odia translations in translations.ts",
-        "No other subsidy figures or layout changes are made"
+        "All sections render in the correct order on the page",
+        "LanguageProvider wraps the full component tree",
+        "FloatingWhatsAppButton appears fixed at bottom-right"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Verify that App.tsx renders all required sections (Header, Hero, SchemeInfo, OdishaGuide, Services, WhyChooseUs, BankFinanceBanner, WarrantyGuarantee, InquiryForm, WhatsAppSection, Footer) in the specified order, wraps everything in LanguageProvider, and includes FloatingWhatsAppButton as a fixed overlay component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Recreate the Header component with scroll-aware background, navigation, language switcher, and WhatsApp CTA",
+      "acceptanceCriteria": [
+        "Header background changes on scroll",
+        "Language switcher toggles between EN, HI, and OD",
+        "Mobile nav menu is functional",
+        "WhatsApp CTA button is present and links correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Ensure the Header component implements scroll-aware background transition (using scroll event listener or IntersectionObserver), includes desktop and mobile navigation links with smooth scroll anchors, a language switcher dropdown supporting EN/HI/OD using LanguageContext, and a WhatsApp CTA button with the correct business number link. Verify mobile hamburger menu toggle functionality."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Recreate the Hero section with background image, gradient overlay, translated content, CTAs, and trust stats",
+      "acceptanceCriteria": [
+        "Hero takes full viewport height",
+        "Background image is displayed with a navy gradient overlay",
+        "Headline, tagline, and stat tiles use translated strings",
+        "Both CTA buttons are present and functional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Hero.tsx",
+          "operation": "modify",
+          "description": "Ensure Hero renders with full viewport height (min-h-screen), displays the background image from frontend/public/assets/generated/hero-bg.dim_1920x1080.jpg with a deep navy gradient overlay, shows translated headline and tagline from useTranslation hook, includes WhatsApp CTA and scheme CTA buttons with proper links, and renders three trust-indicator stat tiles with icons and translated text."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Recreate the SchemeInfo section explaining PM Surya Ghar scheme with benefits, eligibility, and process steps",
+      "acceptanceCriteria": [
+        "Benefits, eligibility, and four-step process are all displayed",
+        "Content renders correctly in all three languages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SchemeInfo.tsx",
+          "operation": "modify",
+          "description": "Verify SchemeInfo displays PM Surya Ghar government scheme information including a benefits list, eligibility criteria section, and a four-step process visualization (application, survey, installation, subsidy credit). All text must use i18n translations via useTranslation hook for EN/HI/OD language support."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Recreate the OdishaGuide section with subsidy tier cards and fade-in animations",
+      "acceptanceCriteria": [
+        "Three subsidy tier cards are displayed",
+        "Cards animate in on scroll via IntersectionObserver",
+        "Rollout phase info is visible"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/OdishaGuide.tsx",
+          "operation": "modify",
+          "description": "Ensure OdishaGuide renders three subsidy tier cards for 1kW, 2kW, and 3kW+ systems with corresponding subsidy amounts, implements IntersectionObserver-driven fade-in animations on scroll, and displays rollout phase coverage information. All content should use translated strings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Recreate the Services section with residential and commercial solar service cards",
+      "acceptanceCriteria": [
+        "Two service cards are displayed",
+        "Each card has a feature list and a CTA linking to #inquiry or the form section"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Services.tsx",
+          "operation": "modify",
+          "description": "Verify Services section displays two image cards for residential and commercial solar offerings. Each card should include a background image (use generated assets frontend/public/assets/generated/domestic-solar.dim_400x300.png and frontend/public/assets/generated/commercial-solar.dim_400x300.png), a feature checklist with translated items, and a CTA button that links to the inquiry form section (#inquiry or smooth scroll to InquiryForm)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Recreate the WhyChooseUs section with three feature cards using themed accent colors",
+      "acceptanceCriteria": [
+        "Three cards render with correct accent colors",
+        "Icons and translated text are displayed"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhyChooseUs.tsx",
+          "operation": "modify",
+          "description": "Ensure WhyChooseUs renders three feature cards with navy, gold, and teal accent themes respectively. Each card should display an icon (using Lucide React icons or similar), a translated title, and a translated description. Use Tailwind utility classes for the accent color theming (navy-600, gold-500, teal-500 or custom OKLCH palette colors)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Recreate the BankFinanceBanner with shimmer effects, stat cards, and WhatsApp CTA",
+      "acceptanceCriteria": [
+        "Banner has a dark navy background with shimmer animation",
+        "Gold stat cards are visible",
+        "WhatsApp CTA button is present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BankFinanceBanner.tsx",
+          "operation": "modify",
+          "description": "Verify BankFinanceBanner renders as an animated dark navy banner (bg-navy-900 or similar) with shimmer effects (using CSS keyframe animation defined in index.css), displays gold-themed stat cards highlighting bank financing statistics with translated content, and includes a WhatsApp CTA button linking to the business WhatsApp number."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Recreate the WarrantyGuarantee section with three styled warranty cards",
+      "acceptanceCriteria": [
+        "Three warranty cards are displayed with correct year values",
+        "Accent colors match navy, gold, teal respectively",
+        "Content is translated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WarrantyGuarantee.tsx",
+          "operation": "modify",
+          "description": "Ensure WarrantyGuarantee displays three warranty cards showing 25-year, 10-year, and 5-year guarantee durations. Apply navy, gold, and teal accent theme colors to the respective cards. All titles, descriptions, and year values should use translated strings from the i18n translations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Recreate the InquiryForm with validation, WhatsApp link generation, and backend submission",
+      "acceptanceCriteria": [
+        "All six fields are present with validation",
+        "Successful submission opens a WhatsApp deep link with form data",
+        "submitLead backend mutation is called on valid submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/InquiryForm.tsx",
+          "operation": "modify",
+          "description": "Verify InquiryForm includes fields for name, phone, email, city, system size (dropdown or select), and message with proper validation (required fields, email format, phone format). On valid submission, the form should: (1) call the useSubmitLead mutation hook from frontend/src/hooks/useQueries.ts to submit data to the backend, and (2) open a pre-filled WhatsApp deep link (wa.me format) with the form data. Include loading state during submission and success/error feedback messages using translated strings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Recreate the WhatsAppSection with branded card and direct contact button",
+      "acceptanceCriteria": [
+        "Section renders with translated text",
+        "WhatsApp button links to the correct number"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhatsAppSection.tsx",
+          "operation": "modify",
+          "description": "Ensure WhatsAppSection displays a branded card with a translated title and description, and includes a direct WhatsApp contact button linking to the business WhatsApp number using the wa.me URL format. Use green/WhatsApp brand colors for the button styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Recreate the Footer with two-column layout, contact details, and navy-gold theme",
+      "acceptanceCriteria": [
+        "Footer has two-column layout",
+        "Phone, email, address, and service area are displayed",
+        "WhatsApp link is present",
+        "Background is deep navy with gold accent elements"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Verify Footer implements a two-column layout with brand identity (company name, tagline, logo if applicable) on the left and contact details (phone, email, address, service area) on the right. Include a WhatsApp link in the contact section. Apply a navy-900 background with gold accent colors for text highlights and decorative elements. All text should use translated strings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Recreate the LanguageContext with localStorage persistence and useTranslation hook",
+      "acceptanceCriteria": [
+        "Active language persists across page reloads via localStorage",
+        "useTranslation returns correct strings for all three languages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/contexts/LanguageContext.tsx",
+          "operation": "modify",
+          "description": "Ensure LanguageContext provides language state management for 'en', 'hi', and 'od' options with localStorage persistence (key: 'language' or similar). The context should expose the current language and a setter function. Verify that the language preference is read from localStorage on mount and saved on change."
+        },
+        {
+          "path": "frontend/src/i18n/useTranslation.ts",
+          "operation": "modify",
+          "description": "Verify useTranslation hook reads the active language from LanguageContext and returns the corresponding translation object from the translations map. Ensure type safety for the returned translation keys."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Recreate the full i18n translations file with all UI section strings in EN, HI, and OD",
+      "acceptanceCriteria": [
+        "All UI sections have translation keys for en, hi, and od",
+        "No missing translation keys when switching languages"
       ],
       "file_operations": [
         {
           "path": "frontend/src/i18n/translations.ts",
           "operation": "modify",
-          "description": "Update the Odisha subsidy structure values in all three language variants (English, Hindi, Odia) under the odishaGuide translation keys. For 1 kW tier: set central to ₹30,000, state to ₹25,000, total to ₹55,000. For 2 kW tier: set central to ₹60,000, state to ₹50,000, total to ₹1,10,000. For 3 kW+ tier: set central to ₹78,000, state to ₹60,000, total to ₹1,38,000 with Maximum cap label. Ensure consistent numeric formatting and currency symbols across all three language objects. Do not modify any other translation strings outside the Odisha subsidy tiers."
-        },
+          "description": "Ensure translations.ts exports a complete translations object with 'en', 'hi', and 'od' keys, each containing nested translation objects for all UI sections: hero (headline, tagline, stats), header (nav items, language labels), schemeInfo (title, benefits, eligibility, process steps), odishaGuide (subsidy tiers, rollout info), services (titles, features), whyChooseUs (feature titles and descriptions), bankFinanceBanner (stats, CTA), warrantyGuarantee (warranty durations and descriptions), inquiryForm (field labels, placeholders, button text, validation messages), whatsAppSection (title, description, button), and footer (brand text, contact labels). Verify no missing keys across all three languages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Recreate the global CSS with Google Fonts, Tailwind directives, theme variables, and animations",
+      "acceptanceCriteria": [
+        "Outfit and Playfair Display fonts load correctly",
+        "Custom navy, gold, and teal color tokens are available",
+        "Shimmer keyframe animation is defined"
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/components/OdishaGuide.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Review the component to ensure it correctly displays the updated subsidy values from translations.ts. Verify that the subsidy tier cards render the central, state, and total amounts for each tier (1 kW, 2 kW, 3 kW+) without hardcoded values. Confirm the component uses translation keys for all subsidy amounts and labels. Do not change the visual layout, card styling, animations, or any logic beyond verifying correct data binding to the updated translation values."
+          "description": "Verify index.css imports Google Fonts (Outfit and Playfair Display via @import or <link> in HTML), includes Tailwind directives (@tailwind base, components, utilities), defines CSS custom properties for the deep navy/emerald gold theme using :root and [data-theme] selectors, declares custom color palettes for navy (navy-50 through navy-950), gold (gold-50 through gold-600), and teal (teal-50 through teal-600) using OKLCH color space, and includes @keyframes definitions for banner shimmer effects and any other animations used in the design."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Recreate the Tailwind configuration with custom fonts, OKLCH color palettes, and animations",
+      "acceptanceCriteria": [
+        "Custom font families are available as Tailwind utilities",
+        "Navy, gold, and teal palette shades are available as Tailwind color utilities"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Ensure tailwind.config.js extends the default theme with custom fontFamily entries for 'outfit' (Outfit) and 'playfair' (Playfair Display), adds OKLCH-based color palette definitions for navy (50-950 shades), gold (50-600 shades), and teal (50-600 shades) in the colors object, defines custom borderRadius values if needed, adds custom boxShadow definitions for the design system, and includes keyframes and animation definitions for accordion animations and any other custom animations used in components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Recreate the useSubmitLead mutation hook for form submission with cache invalidation",
+      "acceptanceCriteria": [
+        "Hook calls actor.submitLead with the lead data",
+        "On success, the 'leads' query cache is invalidated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Verify useSubmitLead is implemented as a React Query useMutation hook that calls the backend actor's submitLead method with parameters (name, phone, email, city, systemSize, message). On successful mutation, the hook should invalidate the 'leads' query key using queryClient.invalidateQueries to refresh any cached lead data. Include proper error handling and loading state management."
         }
       ]
     }

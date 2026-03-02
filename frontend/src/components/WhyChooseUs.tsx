@@ -1,81 +1,89 @@
-import { Shield, Wrench, Smile, Award } from 'lucide-react';
+import React from 'react';
+import { Award, Tag, HeadphonesIcon } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
 
 type AccentKey = 'navy' | 'gold' | 'teal';
 
-const colorMap: Record<AccentKey, {
-  bg: string;
-  border: string;
-  iconBg: string;
-  iconColor: string;
-  badge: string;
-}> = {
+const accentMap: Record<AccentKey, { bg: string; icon: string; border: string; title: string }> = {
   navy: {
-    bg: 'bg-navy-50',
-    border: 'border-navy-200',
-    iconBg: 'bg-navy-700',
-    iconColor: 'text-white',
-    badge: 'text-navy-400',
+    bg: 'bg-navy-900',
+    icon: 'text-gold-400',
+    border: 'border-navy-700',
+    title: 'text-gold-400',
   },
   gold: {
-    bg: 'bg-gold-50',
-    border: 'border-gold-200',
-    iconBg: 'bg-gold-500',
-    iconColor: 'text-navy-900',
-    badge: 'text-gold-500',
+    bg: 'bg-gold-500',
+    icon: 'text-navy-900',
+    border: 'border-gold-400',
+    title: 'text-navy-900',
   },
   teal: {
-    bg: 'bg-teal-50',
-    border: 'border-teal-200',
-    iconBg: 'bg-teal-500',
-    iconColor: 'text-white',
-    badge: 'text-teal-500',
+    bg: 'bg-teal-500',
+    icon: 'text-white',
+    border: 'border-teal-400',
+    title: 'text-white',
   },
 };
 
-const ICONS = [Shield, Wrench, Smile];
-const ACCENTS: AccentKey[] = ['navy', 'gold', 'teal'];
-
 export default function WhyChooseUs() {
   const t = useTranslation();
-  const w = t.whyChooseUs;
+
+  const cards = [
+    {
+      icon: Award,
+      title: t.whyChooseUs.card1Title,
+      desc: t.whyChooseUs.card1Desc,
+      accent: 'navy' as AccentKey,
+    },
+    {
+      icon: Tag,
+      title: t.whyChooseUs.card2Title,
+      desc: t.whyChooseUs.card2Desc,
+      accent: 'gold' as AccentKey,
+    },
+    {
+      icon: HeadphonesIcon,
+      title: t.whyChooseUs.card3Title,
+      desc: t.whyChooseUs.card3Desc,
+      accent: 'teal' as AccentKey,
+    },
+  ];
 
   return (
-    <section id="why-us" className="py-20 lg:py-28 bg-white">
+    <section id="why-us" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-gold-100 text-gold-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
-            <Award className="w-4 h-4" />
-            Why Choose Us
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 mb-4">
-            {w.title}
+        <div className="text-center mb-14">
+          <div className="inline-block bg-navy-100 text-navy-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+            Our Advantage
+          </div>
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+            {t.whyChooseUs.title}
           </h2>
-          <p className="text-navy-500 text-lg max-w-2xl mx-auto">
-            {w.subtitle}
-          </p>
+          <p className="text-navy-600 text-lg max-w-2xl mx-auto">{t.whyChooseUs.subtitle}</p>
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {w.cards.map((card, i) => {
-            const Icon = ICONS[i];
-            const accent = ACCENTS[i];
-            const c = colorMap[accent];
+        <div className="grid md:grid-cols-3 gap-6">
+          {cards.map((card, i) => {
+            const ac = accentMap[card.accent];
             return (
               <div
                 key={i}
-                className={`group relative ${c.bg} border-2 ${c.border} rounded-2xl p-8 hover:shadow-navy-md transition-all duration-300 hover:-translate-y-1`}
+                className={`${ac.bg} border ${ac.border} rounded-2xl p-8 text-center`}
               >
-                <div className={`text-5xl font-bold ${c.badge} font-display opacity-30 absolute top-6 right-6`}>
-                  {String(i + 1).padStart(2, '0')}
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <card.icon className={`w-8 h-8 ${ac.icon}`} />
                 </div>
-                <div className={`w-14 h-14 ${c.iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-navy-sm group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className={`w-7 h-7 ${c.iconColor}`} />
-                </div>
-                <h3 className="font-display text-xl font-bold text-navy-800 mb-3">{card.title}</h3>
-                <p className="text-navy-500 leading-relaxed text-sm">{card.desc}</p>
+                <h3 className={`font-playfair text-xl font-bold mb-3 ${ac.title}`}>
+                  {card.title}
+                </h3>
+                <p
+                  className={`text-sm leading-relaxed ${
+                    card.accent === 'navy' ? 'text-white/70' :
+                    card.accent === 'gold' ? 'text-navy-800' : 'text-white/80'
+                  }`}
+                >
+                  {card.desc}
+                </p>
               </div>
             );
           })}

@@ -7,17 +7,31 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
+export interface UserProfile {
+    name: string;
+}
 export interface Lead {
-    installationType: string;
+    city: string;
     name: string;
     email: string;
     message: string;
-    address: string;
-    phoneNumber: string;
+    phone: string;
+    systemSize: string;
+}
+export enum UserRole {
+    admin = "admin",
+    user = "user",
+    guest = "guest"
 }
 export interface backendInterface {
+    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     deleteLead(email: string): Promise<void>;
     getAllLeadsSortedByName(): Promise<Array<Lead>>;
+    getCallerUserProfile(): Promise<UserProfile | null>;
+    getCallerUserRole(): Promise<UserRole>;
     getLead(email: string): Promise<Lead>;
-    submitLead(name: string, phoneNumber: string, email: string, address: string, installationType: string, message: string): Promise<void>;
+    getUserProfile(user: Principal): Promise<UserProfile | null>;
+    isCallerAdmin(): Promise<boolean>;
+    saveCallerUserProfile(profile: UserProfile): Promise<void>;
+    submitLead(name: string, phone: string, email: string, city: string, systemSize: string, message: string): Promise<void>;
 }

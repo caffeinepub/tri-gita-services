@@ -1,15 +1,94 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T23:59:12.995Z",
-  "summary": "The diff correctly implements REQ-1 by updating the Odisha subsidy structure in OdishaGuide.tsx (hardcoded data) and in translations.ts for all three language variants (English, Hindi, Odia). All three tiers show the correct Central + State + Total values, and the 3 kW+ tier includes the 'Maximum cap' label. No layout, styling, animation, or backend changes are detected.",
-  "missing_requirements": [],
-  "hallucinated_features": [],
-  "confidence": 0.97,
+  "generatedAt": "2026-03-02T00:32:56.673Z",
+  "summary": "The diff implements the vast majority of the requested requirements. All major frontend components, the backend Motoko actor, i18n translations, LanguageContext, useSubmitLead hook, global CSS, and Tailwind configuration are present. A few minor gaps and one notable deviation were identified.",
+  "missing_requirements": [
+    {
+      "requirement": "The Hero background image should reference 'hero-bg.jpg' as specified in REQ-4, but the Hero component uses '/assets/generated/hero-bg.dim_1920x1080.png' with a PNG extension instead of JPG.",
+      "reason": "REQ-4 specifies the background image path as frontend/public/assets/generated/hero-bg.jpg and the image spec calls for hero-bg.dim_1920x1080.jpg, but the implementation uses a .png extension.",
+      "evidence": [
+        "frontend/src/components/Hero.tsx"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "listLeads method returns all leads sorted alphabetically by name",
+      "reason": "REQ-1 acceptance criteria explicitly states a method named 'listLeads', but the backend actor exposes this functionality as 'getAllLeadsSortedByName', which does not match the specified method name.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "requirement": "Recreate the Tailwind configuration extending the default theme with custom fonts, OKLCH-based color palettes for navy, gold, and teal, custom border radii, box shadows, and accordion keyframe animations.",
+      "reason": "The Tailwind config file is listed among omitted/truncated files and cannot be verified from the diff summary.",
+      "evidence": []
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "A migration module (backend/migration.mo) was added mapping an old lead schema to the new one.",
+      "reason": "The build request does not mention any migration from a previous schema. It only requests recreating the backend actor with the new lead structure.",
+      "evidence": [
+        "backend/migration.mo"
+      ]
+    },
+    {
+      "description": "The backend actor includes user profile management methods (getCallerUserProfile, saveCallerUserProfile, getUserProfile) and a userProfiles stable map.",
+      "reason": "The build request only specifies lead management methods. User profile CRUD functionality was not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "The backend actor integrates AccessControl and BlobStorage mixins, restricting deleteLead, getLead, and getAllLeadsSortedByName to admins only.",
+      "reason": "The build request specifies these methods with no mention of access control or admin-only restrictions.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "A URL parameter utility module (frontend/src/utils/urlParams.ts) was added with session storage persistence helpers.",
+      "reason": "The build request makes no mention of URL parameter utilities or session storage helpers.",
+      "evidence": [
+        "frontend/src/utils/urlParams.ts"
+      ]
+    },
+    {
+      "description": "The useActor hook was modified to call actor._initializeAccessControlWithSecret with an admin token extracted from URL parameters.",
+      "reason": "The build request explicitly states not to modify frontend/src/hooks/useActor.ts, yet the diff shows a modified version of this file with admin token initialization logic.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.82,
   "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
     "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
+    "frontend/src/components/BankFinanceBanner.tsx",
+    "frontend/src/components/FloatingWhatsAppButton.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/Hero.tsx",
+    "frontend/src/components/InquiryForm.tsx",
     "frontend/src/components/OdishaGuide.tsx",
+    "frontend/src/components/SchemeInfo.tsx",
+    "frontend/src/components/Services.tsx",
+    "frontend/src/components/WarrantyGuarantee.tsx",
+    "frontend/src/components/WhatsAppSection.tsx",
+    "frontend/src/components/WhyChooseUs.tsx",
+    "frontend/src/contexts/LanguageContext.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useQueries.ts",
     "frontend/src/i18n/translations.ts",
+    "frontend/src/i18n/useTranslation.ts",
+    "frontend/src/index.css",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

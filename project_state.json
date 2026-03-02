@@ -1,24 +1,159 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Solar energy project with subsidy information for Odisha state, including updated subsidy structure for 1kW, 2kW, and 3kW+ installations.",
-  "architectural_notes": [
-    "Subsidy Structure (Odisha): 1kW=₹55,000 (Central ₹30,000 + State ₹25,000), 2kW=₹1,10,000 (Central ₹60,000 + State ₹50,000), 3kW+=₹1,38,000 max cap (Central ₹78,000 + State ₹60,000)"
-  ],
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
-  "isFixRequest": true,
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Photorealistic aerial view of solar panels installed on rooftops under bright Indian sunlight with a clear sky, warm golden-hour lighting (hero-bg.dim_1920x1080.jpg)",
   "existing_features": [
     {
-      "id": "feature-update-the-odisha-subsidy-structure-displayed-in-the-odishaguide-component-to-reflect-the-correct-values-1-kw-central-30-000-state-25-000-total-55-000-2-kw-central-60-000-state-50-000-total-1-10-000-3-kw-central-78-000-state-60-000-total-1-38-000-maximum-cap-ensure-all-three-language-variants-english-hindi-odia-in-the-translations-file-are-updated-consistently",
-      "title": "Update the Odisha subsidy structure displayed in the OdishaGuide component to reflect the correct values: 1 kW = Central ₹30,000 + State ₹25,000 = Total ₹55,000; 2 kW = Central ₹60,000 + State ₹50,000 = Total ₹1,10,000; 3 kW+ = Central ₹78,000 + State ₹60,000 = Total ₹1,38,000 (Maximum cap). Ensure all three language variants (English, Hindi, Odia) in the translations file are updated consistently.",
+      "id": "feature-recreate-the-react-typescript-frontend-for-the-tri-gita-services-solar-energy-website-with-the-following-sections-in-order-header-hero-schemeinfo-odishaguide-services-whychooseus-bankfinancebanner-warrantyguarantee-inquiryform-whatsappsection-footer-and-a-floatingwhatsappbutton-wrap-everything-in-a-languageprovider-context",
+      "title": "Recreate the React/TypeScript frontend for the TRI-GITA SERVICES solar energy website with the following sections in order: Header, Hero, SchemeInfo, OdishaGuide, Services, WhyChooseUs, BankFinanceBanner, WarrantyGuarantee, InquiryForm, WhatsAppSection, Footer, and a FloatingWhatsAppButton. Wrap everything in a LanguageProvider context.",
       "reqIds": [
-        "REQ-1"
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-fixed-navigation-header-with-scroll-aware-background-transition-desktop-and-mobile-navigation-links-a-language-switcher-supporting-english-en-hindi-hi-and-odia-od-and-a-whatsapp-cta-button-use-languagecontext-and-i18n-translations",
+      "title": "Recreate the fixed navigation Header with scroll-aware background transition, desktop and mobile navigation links, a language switcher supporting English (EN), Hindi (HI), and Odia (OD), and a WhatsApp CTA button. Use LanguageContext and i18n translations.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-full-screen-hero-section-with-a-background-image-frontend-public-assets-generated-hero-bg-jpg-a-deep-navy-gradient-overlay-translated-headline-and-tagline-whatsapp-cta-and-scheme-cta-buttons-and-three-trust-indicator-stat-tiles",
+      "title": "Recreate the full-screen Hero section with a background image (frontend/public/assets/generated/hero-bg.jpg), a deep navy gradient overlay, translated headline and tagline, WhatsApp CTA and scheme CTA buttons, and three trust-indicator stat tiles.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-schemeinfo-section-explaining-the-pm-surya-ghar-government-scheme-including-benefits-list-eligibility-criteria-and-a-four-step-process-application-survey-installation-subsidy-credit-all-text-must-use-i18n-translations",
+      "title": "Recreate the SchemeInfo section explaining the PM Surya Ghar government scheme, including benefits list, eligibility criteria, and a four-step process (application, survey, installation, subsidy credit). All text must use i18n translations.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-odishaguide-section-with-subsidy-tier-cards-for-1kw-2kw-and-3kw-systems-rollout-phase-coverage-info-and-intersection-observer-driven-fade-in-animations",
+      "title": "Recreate the OdishaGuide section with subsidy tier cards for 1kW, 2kW, and 3kW+ systems, rollout phase coverage info, and intersection-observer-driven fade-in animations.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-services-section-with-two-image-cards-for-residential-and-commercial-solar-offerings-each-including-a-feature-checklist-and-a-cta-button-linking-to-the-inquiry-form",
+      "title": "Recreate the Services section with two image cards for residential and commercial solar offerings, each including a feature checklist and a CTA button linking to the inquiry form.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-whychooseus-section-with-three-feature-cards-using-navy-gold-and-teal-accent-themes-icons-and-translated-titles-and-descriptions",
+      "title": "Recreate the WhyChooseUs section with three feature cards using navy, gold, and teal accent themes, icons, and translated titles and descriptions.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-bankfinancebanner-as-an-animated-dark-navy-banner-with-shimmer-effects-gold-stat-cards-highlighting-bank-financing-statistics-and-a-whatsapp-cta-button",
+      "title": "Recreate the BankFinanceBanner as an animated dark navy banner with shimmer effects, gold stat cards highlighting bank financing statistics, and a WhatsApp CTA button.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-warrantyguarantee-section-with-three-styled-cards-showing-25-year-10-year-and-5-year-guarantee-durations-using-navy-gold-and-teal-accent-themes-with-translated-content",
+      "title": "Recreate the WarrantyGuarantee section with three styled cards showing 25-year, 10-year, and 5-year guarantee durations using navy, gold, and teal accent themes with translated content.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-inquiryform-with-fields-for-name-phone-email-city-system-size-and-message-on-submission-validate-inputs-and-open-a-pre-filled-whatsapp-link-with-the-form-data-submit-button-also-calls-the-backend-submitlead-mutation-via-usesubmitlead-hook",
+      "title": "Recreate the InquiryForm with fields for name, phone, email, city, system size, and message. On submission, validate inputs and open a pre-filled WhatsApp link with the form data. Submit button also calls the backend submitLead mutation via useSubmitLead hook.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-whatsappsection-with-a-branded-card-translated-title-description-and-a-direct-whatsapp-contact-button-linking-to-the-business-whatsapp-number",
+      "title": "Recreate the WhatsAppSection with a branded card, translated title, description, and a direct WhatsApp contact button linking to the business WhatsApp number.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-footer-with-two-columns-brand-identity-on-the-left-and-contact-details-phone-email-address-service-area-on-the-right-with-a-whatsapp-link-on-a-navy-900-background-with-gold-accents",
+      "title": "Recreate the Footer with two columns: brand identity on the left and contact details (phone, email, address, service area) on the right, with a WhatsApp link, on a navy-900 background with gold accents.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-languagecontext-providing-en-hi-and-od-language-options-with-localstorage-persistence-and-the-usetranslation-hook-that-returns-the-translation-object-for-the-active-language",
+      "title": "Recreate the LanguageContext providing 'en', 'hi', and 'od' language options with localStorage persistence, and the useTranslation hook that returns the translation object for the active language.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-full-i18n-translations-file-with-all-english-hindi-and-odia-strings-for-all-ui-sections-including-hero-header-scheme-info-odisha-guide-services-why-choose-us-bank-finance-banner-warranty-inquiry-form-whatsapp-section-and-footer",
+      "title": "Recreate the full i18n translations file with all English, Hindi, and Odia strings for all UI sections including hero, header, scheme info, Odisha guide, services, why choose us, bank finance banner, warranty, inquiry form, WhatsApp section, and footer.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-global-css-frontend-src-index-css-importing-google-fonts-outfit-playfair-display-tailwind-directives-deep-navy-emerald-gold-theme-with-css-custom-properties-custom-navy-gold-teal-color-palettes-and-keyframe-animations-for-banner-shimmer-effects",
+      "title": "Recreate the global CSS (frontend/src/index.css) importing Google Fonts (Outfit, Playfair Display), Tailwind directives, deep navy/emerald gold theme with CSS custom properties, custom navy/gold/teal color palettes, and keyframe animations for banner shimmer effects.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-tailwind-configuration-extending-the-default-theme-with-custom-fonts-outfit-playfair-display-oklch-based-color-palettes-for-navy-gold-and-teal-custom-border-radii-box-shadows-and-accordion-keyframe-animations",
+      "title": "Recreate the Tailwind configuration extending the default theme with custom fonts (Outfit, Playfair Display), OKLCH-based color palettes for navy, gold, and teal, custom border radii, box shadows, and accordion keyframe animations.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-usesubmitlead-mutation-hook-in-frontend-src-hooks-usequeries-ts-that-calls-the-backend-actor-s-submitlead-method-and-invalidates-the-leads-query-on-success",
+      "title": "Recreate the useSubmitLead mutation hook in frontend/src/hooks/useQueries.ts that calls the backend actor's submitLead method and invalidates the 'leads' query on success.",
+      "reqIds": [
+        "REQ-18"
       ],
       "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "gameProjectType": "none",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Recreate the backend Motoko actor that manages solar service leads stored in a stable map keyed by email, with methods to submit a lead (name, phone, email, city, systemSize, message), delete a lead by email, retrieve a lead by email, and list all leads sorted by name.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
   "projectName": "TRI-GITA SERVICES",
   "clarification_mode": "instant",
   "clarification_rounds": 0
