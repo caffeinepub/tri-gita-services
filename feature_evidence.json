@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-generate-an-ai-illustration-image-suitable-for-a-solar-energy-services-hero-background-vibrant-and-modern-depicting-solar-panels-sunshine-and-a-clean-energy-landscape-in-an-illustrated-art-style-and-save-it-as-the-hero-background-asset",
-      "featureTitle": "Generate an AI illustration image suitable for a solar energy services hero background — vibrant and modern, depicting solar panels, sunshine, and a clean energy landscape in an illustrated art style — and save it as the hero background asset.",
-      "files": [],
+      "featureId": "feature-add-the-uploaded-logo-image-gold-sun-lightning-bolt-icon-on-navy-background-to-the-header-component-save-it-as-frontend-public-assets-generated-logo-png-and-display-it-in-the-top-left-of-the-navigation-bar-alongside-the-brand-name",
+      "featureTitle": "Add the uploaded logo image (gold sun + lightning bolt icon on navy background) to the Header component. Save it as frontend/public/assets/generated/logo.png and display it in the top-left of the navigation bar alongside the brand name.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
       "components": [
         "blob-storage@4.0.0",
         "core-infrastructure@1.0.2",
@@ -20,8 +22,8 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-hero-component-to-use-the-newly-generated-ai-illustration-image-hero-ai-illustration-png-from-frontend-public-assets-generated-as-the-hero-section-background-replacing-the-current-samaleswari-temple-background-image",
-      "featureTitle": "Update the Hero component to use the newly generated AI illustration image (hero-ai-illustration.png from frontend/public/assets/generated/) as the hero section background, replacing the current Samaleswari Temple background image.",
+      "featureId": "feature-replace-the-current-hero-section-background-with-the-uploaded-photo-of-the-tri-gita-services-building-1772177297346-png-save-it-as-frontend-public-assets-generated-hero-bg-png-and-set-it-as-the-full-screen-background-image-of-the-hero-component-with-a-dark-overlay-to-ensure-text-remains-legible",
+      "featureTitle": "Replace the current Hero section background with the uploaded photo of the TRI-GITA SERVICES building (1772177297346.png). Save it as frontend/public/assets/generated/hero-bg.png and set it as the full-screen background image of the Hero component, with a dark overlay to ensure text remains legible.",
       "files": [
         "frontend/src/components/Hero.tsx"
       ],

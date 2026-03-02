@@ -23,16 +23,16 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image - AI Illustration */}
+      {/* Background Image - TRI-GITA SERVICES Building */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/assets/generated/hero-ai-illustration.dim_1920x1080.png')`,
+          backgroundImage: `url('/assets/generated/hero-bg.dim_1920x1080.png')`,
         }}
       />
 
-      {/* Navy Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/85 via-navy-900/75 to-navy-800/60" />
+      {/* Dark Overlay for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/80 via-navy-900/70 to-navy-800/65" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
@@ -49,7 +49,7 @@ export default function Hero() {
         </h1>
 
         {/* Tagline */}
-        <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           {t.hero.tagline}
         </p>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
 import type { Language } from '../i18n/translations';
@@ -49,10 +49,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-gold-500 rounded-full flex items-center justify-center">
-              <Sun className="w-5 h-5 text-navy-900" />
-            </div>
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/assets/generated/logo.dim_200x200.png"
+              alt="TRI-GITA Services Logo"
+              className="h-11 w-11 object-contain rounded-full"
+            />
             <div>
               <div className="font-playfair font-bold text-white text-sm leading-tight">
                 TRI-GITA

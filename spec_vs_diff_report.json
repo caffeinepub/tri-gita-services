@@ -1,22 +1,31 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T00:55:22.657Z",
-  "summary": "REQ-2 is fully implemented in the Hero component diff — the background now references the AI illustration image with a navy gradient overlay, and all existing hero content is preserved. REQ-1 (generating and saving the actual image file) is not evidenced in the diff, as no new image file was added to frontend/public/assets/generated/.",
+  "generatedAt": "2026-03-02T01:08:30.335Z",
+  "summary": "The diff implements logo and hero background image features. The Header component uses 'logo.dim_200x200.png' and the Hero component uses 'hero-bg.dim_1920x1080.png' as specified by the image edit instructions. However, REQ-1 and REQ-2 explicitly require saving the files as 'logo.png' and 'hero-bg.png' respectively (without dimension suffixes), while the implementation uses the dimension-suffixed filenames from the image edit instructions. No static asset files are added in the diff. There is a discrepancy between the requirement file paths and the implemented file paths.",
   "missing_requirements": [
     {
       "id": "REQ-1",
-      "requirement": "Generate an AI illustration image and save it to frontend/public/assets/generated/hero-ai-illustration.dim_1920x1080.png",
-      "reason": "The diff shows 0 added files and no binary/image assets were added. The image file referenced by the Hero component does not appear to have been created in the repository.",
+      "requirement": "Save logo as frontend/public/assets/generated/logo.png",
+      "reason": "REQ-1 specifies saving the file as 'frontend/public/assets/generated/logo.png', but the Header component references '/assets/generated/logo.dim_200x200.png'. No static asset file was added under the required path.",
+      "evidence": [
+        "frontend/src/components/Header.tsx"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Save hero background as frontend/public/assets/generated/hero-bg.png",
+      "reason": "REQ-2 specifies saving the file as 'frontend/public/assets/generated/hero-bg.png', but the Hero component references '/assets/generated/hero-bg.dim_1920x1080.png'. No static asset file was added under the required path.",
       "evidence": [
         "frontend/src/components/Hero.tsx"
       ]
     }
   ],
   "hallucinated_features": [],
-  "confidence": 0.88,
+  "confidence": 0.8,
   "changed_files": [
     "frontend-file-summaries.txt",
+    "frontend/src/components/Header.tsx",
     "frontend/src/components/Hero.tsx",
     "project_state.json"
   ]
