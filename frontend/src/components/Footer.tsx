@@ -24,7 +24,8 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-playfair font-bold text-white text-lg">{f.brand}</div>
-                <div className="text-gold-400 text-xs tracking-wider">{f.tagline}</div>
+                <div className="text-gold-400 text-xs tracking-wider">{f.brandSub}</div>
+                <div className="text-white/50 text-xs mt-0.5 italic">{f.tagline}</div>
               </div>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm">{f.desc}</p>

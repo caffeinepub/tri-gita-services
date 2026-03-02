@@ -1,150 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Add logo and verify/add all PM Surya Ghar process phases content",
-  "projectName": "Bhagyalaxmi Solar",
+  "title": "Update company name and slogan across all UI",
+  "projectName": "TRI-GITA Services",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Regenerate the company logo image to exactly match the uploaded image: a dark navy square background with a gold/amber gradient lightning bolt overlaid on a stylized sun/crescent shape, rendered in a bold illustrative style.",
+      "text": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. This includes the HTML page title in frontend/index.html, all translation strings in frontend/src/i18n/translations.ts (English, Hindi, and Odia entries), and any hardcoded references in components such as Header.tsx, Hero.tsx, Footer.tsx, SchemeInfo.tsx, and WhyChooseUs.tsx.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-recent-1"
         ],
         "quotes": [
-          "Add exactly same logo"
+          "Change the name of the company TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)"
         ]
       },
       "acceptanceCriteria": [
-        "Logo image matches the uploaded screenshot: dark navy background, gold gradient lightning bolt through a sun/crescent symbol",
-        "Logo is displayed in the Header component in the same position as the existing logo",
-        "Logo image is saved as a static asset in frontend/public/assets/generated/"
+        "The browser tab title reads 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'",
+        "The header/nav bar displays the full company name",
+        "The footer displays the full company name",
+        "No old or partial company name variants remain visible in any language (EN/HI/OD)"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Verify that the website includes a dedicated section or slide for Phase 1 – Registration & Feasibility with the following content: (1) Visit the Portal at pmsuryaghar.gov.in, (2) Register by selecting Odisha as State and specific DISCOM (e.g., TP Central Odisha), (3) Enter Electricity Consumer Number and Mobile Number, (4) Submit basic technical details for Feasibility Approval — DISCOM reviews transformer load and approves Feasibility within 7–15 days. If this section is missing or incomplete, add or update it.",
+      "text": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries (English, Hindi, Odia) within frontend/src/i18n/translations.ts, and wherever the slogan/tagline is rendered in components such as Hero.tsx and Footer.tsx.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-recent-1"
         ],
         "quotes": [
-          "Phase 1 – Registration & Feasibility"
+          "Slogan - empowering Odisha with clean energy"
         ]
       },
       "acceptanceCriteria": [
-        "A clearly labelled 'Phase 1 – Registration & Feasibility' section exists on the page",
-        "All four sub-steps (Visit Portal, Register, Enter Details, Feasibility Approval with 7–15 day timeline) are displayed",
-        "pmsuryaghar.gov.in is referenced as the official portal URL"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Verify that the website includes a dedicated section or slide for Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION with the following content: (1) Login using Consumer Number, (2) Navigate to 'Select Registered Vendor' section, (3) Filter by State (Odisha) and District, (4) Search for and select BHAGYALAXMI CONSTRUCTION, (5) Sign the online agreement (Model Draft) with the vendor to start installation. If this section is missing or incomplete, add or update it.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A clearly labelled 'Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION' section exists on the page",
-        "All five steps (Login, Vendor List, Filter, Selection, Agreement) are present and accurate",
-        "BHAGYALAXMI CONSTRUCTION is highlighted as the vendor to select"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Verify that the website includes a dedicated section or slide for Phase 3 – Installation & Net-Metering with the following content: (1) Bhagyalaxmi Construction installs solar panels, inverter, and wiring per MNRE standards, (2) Vendor submits completion report with installation details and photos on the portal, (3) Apply for Net-Meter via the portal — DISCOM will visit to install the bi-directional meter. If this section is missing or incomplete, add or update it.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Phase 3 – Installation & Net-Metering"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A clearly labelled 'Phase 3 – Installation & Net-Metering' section exists on the page",
-        "All three steps (Installation, Completion Report, Net-Metering application) are displayed",
-        "MNRE standards and bi-directional meter are mentioned"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Verify that the website includes a dedicated section or slide for Phase 4 – Subsidy Disbursement with the following content: (1) Commissioning Certificate issued by DISCOM after net-meter is functional, (2) Submit bank details by uploading a photo of cancelled cheque, (3) Subsidy of up to ₹1,38,000 is credited directly to bank account within 30 working days. If this section is missing or incomplete, add or update it.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Phase 4 – Subsidy Disbursement"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A clearly labelled 'Phase 4 – Subsidy Disbursement' section exists on the page",
-        "All three steps (Commissioning Certificate, Bank Details upload, Payment) are present",
-        "Subsidy amount ₹1,38,000 and 30 working days timeline are explicitly mentioned"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Verify that the website includes a 'Why Choose Bhagyalaxmi Construction?' section with these three points: (1) Registered Vendor – Officially empaneled in Odisha, (2) Technical Expertise – Ensures high-quality mounting and wiring, (3) Hassle-Free – They assist with technical uploads and documentation required on the portal. If this section is missing or incomplete, add or update it.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Why Choose Bhagyalaxmi Construction?"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A 'Why Choose Bhagyalaxmi Construction?' section is present on the page",
-        "All three differentiators (Registered Vendor, Technical Expertise, Hassle-Free) are listed with their descriptions"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Verify that the website includes a Contact & Next Steps section displaying: Official Website: pmsuryaghar.gov.in. If this section is missing, add it. Ensure the official portal URL pmsuryaghar.gov.in is clearly visible and clickable.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Contact & Next Steps",
-          "Official Website: pmsuryaghar.gov.in"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A 'Contact & Next Steps' section exists on the page",
-        "pmsuryaghar.gov.in is displayed as a clickable link",
-        "Section encourages users to take next steps"
+        "The hero section tagline reads 'Empowering Odisha with Clean Energy'",
+        "The footer tagline/slogan reads 'Empowering Odisha with Clean Energy'",
+        "The slogan is consistent across all supported languages (EN/HI/OD) — Hindi and Odia translations should convey the same meaning",
+        "No previous slogan text remains anywhere in the UI"
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/",
-    "The logo image must visually match the uploaded screenshot exactly: dark navy background, gold/amber gradient lightning bolt through a sun/crescent symbol",
-    "All portal references must use pmsuryaghar.gov.in as the official URL"
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/ (immutable paths)",
+    "All text changes must be applied via the i18n translations file where translation keys are already used; hardcoded strings in components should also be updated"
   ],
   "nonGoals": [
-    "Linking to any external portal or third-party registration system",
-    "Adding backend data models or persistence for process phase content",
-    "Changing the overall site design or color scheme"
+    "Changing the visual design, color scheme, or layout",
+    "Adding new pages or sections",
+    "Modifying backend logic or data models"
   ],
   "imageRequirements": {
-    "required": [
-      "Gold and amber gradient lightning bolt diagonally crossing a cream-colored sun with stylized crescent rays, on a dark navy square background, bold illustrative style (bhagyalaxmi-logo.dim_400x400.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

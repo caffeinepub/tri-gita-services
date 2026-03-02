@@ -1,146 +1,79 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add logo and verify/add all PM Surya Ghar process phases content",
+  "title": "Update company name and slogan across all UI",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Replace company logo with regenerated image matching uploaded screenshot",
+      "summary": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'",
       "acceptanceCriteria": [
-        "Logo image matches the uploaded screenshot: dark navy background, gold gradient lightning bolt through a sun/crescent symbol",
-        "Logo is displayed in the Header component in the same position as the existing logo",
-        "Logo image is saved as a static asset in frontend/public/assets/generated/"
+        "The browser tab title reads 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'",
+        "The header/nav bar displays the full company name",
+        "The footer displays the full company name",
+        "No old or partial company name variants remain visible in any language (EN/HI/OD)"
       ],
       "file_operations": [
         {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the <title> element to display 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' so the browser tab shows the full company name"
+        },
+        {
+          "path": "frontend/src/i18n/translations.ts",
+          "operation": "modify",
+          "description": "Update all company name translation entries across English, Hindi, and Odia. Replace existing company name values in 'header.companyName', 'footer.companyName', 'hero.title', and any other keys that reference the company name with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. For Hindi and Odia translations, provide appropriate translations that convey the same full company name including the parenthetical unit designation"
+        },
+        {
           "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Update the logo image src to reference the generated logo at frontend/public/assets/generated/bhagyalaxmi-logo.dim_400x400.png. Verify the image renders correctly in the header with appropriate alt text."
+          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the header displays the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
+        },
+        {
+          "path": "frontend/src/components/Hero.tsx",
+          "operation": "modify",
+          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the hero section headline displays the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the footer brand info section displays the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
+        },
+        {
+          "path": "frontend/src/components/SchemeInfo.tsx",
+          "operation": "modify",
+          "description": "Review and update any hardcoded company name references (including references to 'Bhagyalaxmi' in the 'Why Choose Bhagyalaxmi' section) to use the i18n translation key and display the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' via the translation system"
+        },
+        {
+          "path": "frontend/src/components/WhyChooseUs.tsx",
+          "operation": "modify",
+          "description": "Review and update any hardcoded company name references to use the i18n translation key. Ensure the section title and card content display the full company name 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)' where applicable via the translation system"
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Verify or add Phase 1 – Registration & Feasibility section with all four registration steps",
+      "summary": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries and components",
       "acceptanceCriteria": [
-        "A clearly labelled 'Phase 1 – Registration & Feasibility' section exists on the page",
-        "All four sub-steps (Visit Portal, Register, Enter Details, Feasibility Approval with 7–15 day timeline) are displayed",
-        "pmsuryaghar.gov.in is referenced as the official portal URL"
+        "The hero section tagline reads 'Empowering Odisha with Clean Energy'",
+        "The footer tagline/slogan reads 'Empowering Odisha with Clean Energy'",
+        "The slogan is consistent across all supported languages (EN/HI/OD) — Hindi and Odia translations should convey the same meaning",
+        "No previous slogan text remains anywhere in the UI"
       ],
       "file_operations": [
         {
           "path": "frontend/src/i18n/translations.ts",
           "operation": "modify",
-          "description": "Add or verify translation keys for Phase 1 content including: phase1Title ('Phase 1 – Registration & Feasibility'), phase1Steps array containing (1) Visit Portal at pmsuryaghar.gov.in, (2) Register with Odisha/DISCOM selection, (3) Enter Consumer Number and Mobile, (4) Submit technical details for Feasibility Approval within 7–15 days. Include translations for English, Hindi, and Odia."
+          "description": "Update all slogan/tagline translation entries across English, Hindi, and Odia. Replace existing slogan values in 'hero.subtitle', 'footer.tagline', and any other keys that reference the company slogan with 'Empowering Odisha with Clean Energy'. For Hindi and Odia translations, provide appropriate translations that convey the same empowerment and clean energy message specific to Odisha"
         },
         {
-          "path": "frontend/src/components/SchemeInfo.tsx",
+          "path": "frontend/src/components/Hero.tsx",
           "operation": "modify",
-          "description": "Verify that Phase 1 content is rendered from translation keys. If missing, add a dedicated Phase 1 section displaying all four steps with the portal URL pmsuryaghar.gov.in as a clickable link. Use consistent styling with existing scheme sections and animate into view."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Verify or add Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION section with vendor selection steps",
-      "acceptanceCriteria": [
-        "A clearly labelled 'Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION' section exists on the page",
-        "All five steps (Login, Vendor List, Filter, Selection, Agreement) are present and accurate",
-        "BHAGYALAXMI CONSTRUCTION is highlighted as the vendor to select"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Add or verify translation keys for Phase 2 content including: phase2Title ('Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION'), phase2Steps array containing (1) Login using Consumer Number, (2) Navigate to 'Select Registered Vendor', (3) Filter by State (Odisha) and District, (4) Search and select BHAGYALAXMI CONSTRUCTION, (5) Sign online agreement (Model Draft). Include translations for all three languages with emphasis on vendor name."
+          "description": "Review and update any hardcoded slogan/tagline references to use the i18n translation key. Ensure the hero section tagline displays 'Empowering Odisha with Clean Energy' via the translation system"
         },
         {
-          "path": "frontend/src/components/SchemeInfo.tsx",
+          "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Verify that Phase 2 content is rendered from translation keys. If missing, add a dedicated Phase 2 section displaying all five vendor selection steps with visual emphasis on BHAGYALAXMI CONSTRUCTION. Use consistent styling and animation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Verify or add Phase 3 – Installation & Net-Metering section with installation and meter application steps",
-      "acceptanceCriteria": [
-        "A clearly labelled 'Phase 3 – Installation & Net-Metering' section exists on the page",
-        "All three steps (Installation, Completion Report, Net-Metering application) are displayed",
-        "MNRE standards and bi-directional meter are mentioned"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Add or verify translation keys for Phase 3 content including: phase3Title ('Phase 3 – Installation & Net-Metering'), phase3Steps array containing (1) Bhagyalaxmi Construction installs per MNRE standards, (2) Vendor submits completion report with photos, (3) Apply for Net-Meter via portal for bi-directional meter installation by DISCOM. Include translations for all three languages."
-        },
-        {
-          "path": "frontend/src/components/SchemeInfo.tsx",
-          "operation": "modify",
-          "description": "Verify that Phase 3 content is rendered from translation keys. If missing, add a dedicated Phase 3 section displaying all three installation steps with MNRE standards and bi-directional meter terminology. Use consistent styling and animation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Verify or add Phase 4 – Subsidy Disbursement section with payment timeline and amount",
-      "acceptanceCriteria": [
-        "A clearly labelled 'Phase 4 – Subsidy Disbursement' section exists on the page",
-        "All three steps (Commissioning Certificate, Bank Details upload, Payment) are present",
-        "Subsidy amount ₹1,38,000 and 30 working days timeline are explicitly mentioned"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Add or verify translation keys for Phase 4 content including: phase4Title ('Phase 4 – Subsidy Disbursement'), phase4Steps array containing (1) Commissioning Certificate issued by DISCOM after net-meter functional, (2) Submit bank details via cancelled cheque photo, (3) Subsidy of ₹1,38,000 credited within 30 working days. Include exact rupee amount and timeline in all three languages."
-        },
-        {
-          "path": "frontend/src/components/SchemeInfo.tsx",
-          "operation": "modify",
-          "description": "Verify that Phase 4 content is rendered from translation keys. If missing, add a dedicated Phase 4 section displaying all three disbursement steps with prominent display of ₹1,38,000 subsidy amount and 30 working days timeline. Use consistent styling and animation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Verify or add 'Why Choose Bhagyalaxmi Construction?' section with three differentiators",
-      "acceptanceCriteria": [
-        "A 'Why Choose Bhagyalaxmi Construction?' section is present on the page",
-        "All three differentiators (Registered Vendor, Technical Expertise, Hassle-Free) are listed with their descriptions"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Add or verify translation keys for Why Choose section including: whyChooseTitle ('Why Choose Bhagyalaxmi Construction?'), whyChoosePoints array containing (1) Registered Vendor – Officially empaneled in Odisha, (2) Technical Expertise – High-quality mounting and wiring, (3) Hassle-Free – Assistance with portal uploads and documentation. Include translations for all three languages."
-        },
-        {
-          "path": "frontend/src/components/SchemeInfo.tsx",
-          "operation": "modify",
-          "description": "Verify that Why Choose Bhagyalaxmi Construction content is rendered. If missing or incomplete, add a dedicated section with all three differentiator points displayed as cards or list items with icons. Use navy/gold/teal accent colors consistent with existing design and animate into view."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Verify or add Contact & Next Steps section with official portal URL",
-      "acceptanceCriteria": [
-        "A 'Contact & Next Steps' section exists on the page",
-        "pmsuryaghar.gov.in is displayed as a clickable link",
-        "Section encourages users to take next steps"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/i18n/translations.ts",
-          "operation": "modify",
-          "description": "Add or verify translation keys for Contact & Next Steps section including: contactNextStepsTitle ('Contact & Next Steps'), officialWebsiteLabel ('Official Website'), portalUrl ('pmsuryaghar.gov.in'), and a call-to-action message encouraging users to proceed. Include translations for all three languages."
-        },
-        {
-          "path": "frontend/src/components/SchemeInfo.tsx",
-          "operation": "modify",
-          "description": "Verify that Contact & Next Steps section exists with pmsuryaghar.gov.in as a clickable external link. If missing, add the section at the end of SchemeInfo with the official portal URL prominently displayed and a CTA encouraging users to begin registration. Use consistent styling with navy background and gold accents."
+          "description": "Review and update any hardcoded slogan/tagline references to use the i18n translation key. Ensure the footer displays 'Empowering Odisha with Clean Energy' as the company tagline via the translation system"
         }
       ]
     }

@@ -24,6 +24,9 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
 
+const COMPANY_NAME = 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)';
+const VENDOR_SEARCH_NAME = 'BHAGYALAXMI CONSTRUCTION';
+
 export default function SchemeInfo() {
   const t = useTranslation();
 
@@ -53,23 +56,23 @@ export default function SchemeInfo() {
   const phase1Steps = [
     {
       icon: Globe,
-      title: 'Visit the Portal',
-      desc: 'Go to pmsuryaghar.gov.in — the official PM Surya Ghar registration portal.',
+      title: t.schemeInfo.phase1Step1Title,
+      desc: t.schemeInfo.phase1Step1Desc,
     },
     {
       icon: UserCheck,
-      title: 'Register',
-      desc: 'Select Odisha as State and your specific DISCOM (e.g., TP Central Odisha).',
+      title: t.schemeInfo.phase1Step2Title,
+      desc: t.schemeInfo.phase1Step2Desc,
     },
     {
       icon: ClipboardList,
-      title: 'Enter Details',
-      desc: 'Use your Electricity Consumer Number and Mobile Number to register.',
+      title: t.schemeInfo.phase1Step3Title,
+      desc: t.schemeInfo.phase1Step3Desc,
     },
     {
       icon: CheckCircle,
-      title: 'Feasibility Approval',
-      desc: 'Submit your basic technical details. The DISCOM will review your transformer load and approve "Feasibility" (usually within 7–15 days).',
+      title: t.schemeInfo.phase1Step4Title,
+      desc: t.schemeInfo.phase1Step4Desc,
     },
   ];
 
@@ -77,28 +80,28 @@ export default function SchemeInfo() {
   const phase2Steps = [
     {
       icon: LogIn,
-      title: 'Login',
-      desc: 'Log back into the portal using your Consumer Number.',
+      title: t.schemeInfo.phase2Step1Title,
+      desc: t.schemeInfo.phase2Step1Desc,
     },
     {
       icon: List,
-      title: 'Vendor List',
-      desc: 'Navigate to the "Select Registered Vendor" section.',
+      title: t.schemeInfo.phase2Step2Title,
+      desc: t.schemeInfo.phase2Step2Desc,
     },
     {
       icon: Filter,
-      title: 'Filter',
-      desc: 'Filter by State (Odisha) and District to narrow down vendors.',
+      title: t.schemeInfo.phase2Step3Title,
+      desc: t.schemeInfo.phase2Step3Desc,
     },
     {
       icon: BadgeCheck,
-      title: 'Selection',
-      desc: 'Search for and select BHAGYALAXMI CONSTRUCTION from the vendor list.',
+      title: t.schemeInfo.phase2Step4Title,
+      desc: t.schemeInfo.phase2Step4Desc,
     },
     {
       icon: FileSignature,
-      title: 'Agreement',
-      desc: 'Sign the online agreement (Model Draft) with the vendor to start the installation.',
+      title: t.schemeInfo.phase2Step5Title,
+      desc: t.schemeInfo.phase2Step5Desc,
     },
   ];
 
@@ -106,18 +109,18 @@ export default function SchemeInfo() {
   const phase3Steps = [
     {
       icon: HardHat,
-      title: 'Installation',
-      desc: 'Bhagyalaxmi Construction will install the solar panels, inverter, and wiring as per MNRE standards.',
+      title: t.schemeInfo.phase3Step1Title,
+      desc: t.schemeInfo.phase3Step1Desc,
     },
     {
       icon: FileCheck,
-      title: 'Completion Report',
-      desc: 'Once installed, the vendor (Bhagyalaxmi Construction) submits the installation details and photos on the portal.',
+      title: t.schemeInfo.phase3Step2Title,
+      desc: t.schemeInfo.phase3Step2Desc,
     },
     {
       icon: Gauge,
-      title: 'Net-Metering',
-      desc: 'Apply for a Net-Meter via the portal. Your DISCOM will visit to install the bi-directional meter.',
+      title: t.schemeInfo.phase3Step3Title,
+      desc: t.schemeInfo.phase3Step3Desc,
     },
   ];
 
@@ -125,41 +128,41 @@ export default function SchemeInfo() {
   const phase4Steps = [
     {
       icon: Award,
-      title: 'Commissioning Certificate',
-      desc: 'Issued by the DISCOM after the net-meter is functional.',
+      title: t.schemeInfo.phase4Step1Title,
+      desc: t.schemeInfo.phase4Step1Desc,
     },
     {
       icon: Banknote,
-      title: 'Submit Bank Details',
-      desc: 'Upload a clear photo of your cancelled cheque to the portal.',
+      title: t.schemeInfo.phase4Step2Title,
+      desc: t.schemeInfo.phase4Step2Desc,
     },
     {
       icon: CreditCard,
-      title: 'Payment',
-      desc: 'The subsidy (up to ₹1,38,000) is credited directly to your bank account within 30 working days.',
+      title: t.schemeInfo.phase4Step3Title,
+      desc: t.schemeInfo.phase4Step3Desc,
     },
   ];
 
-  // Why Choose Bhagyalaxmi
+  // Why Choose
   const whyChoosePoints = [
     {
       icon: BadgeCheck,
-      title: 'Registered Vendor',
-      desc: 'Officially empaneled in Odisha under the PM Surya Ghar scheme.',
+      title: t.schemeInfo.whyChoose1Title,
+      desc: t.schemeInfo.whyChoose1Desc,
       color: 'text-gold-400',
       bg: 'bg-gold-500/20',
     },
     {
       icon: Zap,
-      title: 'Technical Expertise',
-      desc: 'Ensures high-quality mounting and wiring as per MNRE standards.',
+      title: t.schemeInfo.whyChoose2Title,
+      desc: t.schemeInfo.whyChoose2Desc,
       color: 'text-teal-400',
       bg: 'bg-teal-400/20',
     },
     {
       icon: HeartHandshake,
-      title: 'Hassle-Free',
-      desc: 'They assist with the technical uploads and documentation required on the portal.',
+      title: t.schemeInfo.whyChoose3Title,
+      desc: t.schemeInfo.whyChoose3Desc,
       color: 'text-gold-400',
       bg: 'bg-gold-500/20',
     },
@@ -275,7 +278,9 @@ export default function SchemeInfo() {
           <div className="flex items-center gap-3 mb-8">
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-navy-900 font-bold text-lg">2</div>
             <h3 className="font-playfair text-2xl font-bold text-white">
-              Phase 2 – Selecting <span className="text-gold-400">BHAGYALAXMI CONSTRUCTION</span>
+              Phase 2 – Selecting{' '}
+              <span className="text-gold-400">TRI-GITA SERVICES</span>
+              <span className="text-white/70 text-lg font-normal"> (A UNIT OF BHAGYALAXMI CONSTRUCTION)</span>
             </h3>
           </div>
           <p className="text-white/60 text-sm mb-6">
@@ -298,7 +303,7 @@ export default function SchemeInfo() {
           <div className="mt-5 bg-gold-500/10 border border-gold-500/40 rounded-xl px-5 py-4 flex items-start gap-3">
             <BadgeCheck className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" />
             <p className="text-white/80 text-sm">
-              <span className="text-gold-400 font-bold">BHAGYALAXMI CONSTRUCTION</span> is officially registered and empaneled on the PM Surya Ghar portal for Odisha. Search by name to find and select us quickly.
+              <span className="text-gold-400 font-bold">TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)</span> is officially registered and empaneled on the PM Surya Ghar portal for Odisha. Search by <span className="text-gold-400 font-semibold">{VENDOR_SEARCH_NAME}</span> to find and select us quickly.
             </p>
           </div>
         </div>
@@ -371,14 +376,14 @@ export default function SchemeInfo() {
           </div>
         </div>
 
-        {/* ── WHY CHOOSE BHAGYALAXMI CONSTRUCTION ── */}
+        {/* ── WHY CHOOSE TRI-GITA SERVICES ── */}
         <div className="mb-16">
           <div className="text-center mb-10">
             <div className="inline-block bg-gold-500/20 text-gold-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Your Trusted Vendor
             </div>
             <h3 className="font-playfair text-2xl sm:text-3xl font-bold text-white">
-              Why Choose <span className="text-gold-400">Bhagyalaxmi Construction?</span>
+              {t.schemeInfo.whyChooseTitle}
             </h3>
           </div>
           <div className="grid sm:grid-cols-3 gap-6">
@@ -403,7 +408,8 @@ export default function SchemeInfo() {
             Ready to Go Solar?
           </h3>
           <p className="text-white/60 text-base max-w-xl mx-auto mb-6">
-            Visit the official PM Surya Ghar portal to begin your registration, then select <span className="text-gold-400 font-semibold">BHAGYALAXMI CONSTRUCTION</span> as your vendor for a seamless, hassle-free experience.
+            Visit the official PM Surya Ghar portal to begin your registration, then select{' '}
+            <span className="text-gold-400 font-semibold">{COMPANY_NAME}</span> as your vendor for a seamless, hassle-free experience.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -422,22 +428,10 @@ export default function SchemeInfo() {
                 e.preventDefault();
                 document.querySelector('#inquiry')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm border border-white/20"
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm"
             >
-              Get Free Consultation
+              Get Free Quote
               <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-2 text-white/40 text-xs">
-            <Globe className="w-3.5 h-3.5" />
-            <span>Official Website: </span>
-            <a
-              href="https://pmsuryaghar.gov.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold-400/70 hover:text-gold-400 transition-colors"
-            >
-              pmsuryaghar.gov.in
             </a>
           </div>
         </div>

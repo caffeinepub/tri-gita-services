@@ -2,10 +2,14 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-regenerate-the-company-logo-image-to-exactly-match-the-uploaded-image-a-dark-navy-square-background-with-a-gold-amber-gradient-lightning-bolt-overlaid-on-a-stylized-sun-crescent-shape-rendered-in-a-bold-illustrative-style",
-      "featureTitle": "Regenerate the company logo image to exactly match the uploaded image: a dark navy square background with a gold/amber gradient lightning bolt overlaid on a stylized sun/crescent shape, rendered in a bold illustrative style.",
+      "featureId": "feature-replace-all-occurrences-of-the-company-name-throughout-the-application-with-tri-gita-services-a-unit-of-bhagyalaxmi-construction-this-includes-the-html-page-title-in-frontend-index-html-all-translation-strings-in-frontend-src-i18n-translations-ts-english-hindi-and-odia-entries-and-any-hardcoded-references-in-components-such-as-header-tsx-hero-tsx-footer-tsx-schemeinfo-tsx-and-whychooseus-tsx",
+      "featureTitle": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. This includes the HTML page title in frontend/index.html, all translation strings in frontend/src/i18n/translations.ts (English, Hindi, and Odia entries), and any hardcoded references in components such as Header.tsx, Hero.tsx, Footer.tsx, SchemeInfo.tsx, and WhyChooseUs.tsx.",
       "files": [
-        "frontend/src/components/Header.tsx"
+        "frontend/index.html",
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/SchemeInfo.tsx",
+        "frontend/src/i18n/translations.ts"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -22,10 +26,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-1-registration-feasibility-with-the-following-content-1-visit-the-portal-at-pmsuryaghar-gov-in-2-register-by-selecting-odisha-as-state-and-specific-discom-e-g-tp-central-odisha-3-enter-electricity-consumer-number-and-mobile-number-4-submit-basic-technical-details-for-feasibility-approval-discom-reviews-transformer-load-and-approves-feasibility-within-7-15-days-if-this-section-is-missing-or-incomplete-add-or-update-it",
-      "featureTitle": "Verify that the website includes a dedicated section or slide for Phase 1 – Registration & Feasibility with the following content: (1) Visit the Portal at pmsuryaghar.gov.in, (2) Register by selecting Odisha as State and specific DISCOM (e.g., TP Central Odisha), (3) Enter Electricity Consumer Number and Mobile Number, (4) Submit basic technical details for Feasibility Approval — DISCOM reviews transformer load and approves Feasibility within 7–15 days. If this section is missing or incomplete, add or update it.",
+      "featureId": "feature-update-the-company-slogan-to-empowering-odisha-with-clean-energy-in-all-translation-entries-english-hindi-odia-within-frontend-src-i18n-translations-ts-and-wherever-the-slogan-tagline-is-rendered-in-components-such-as-hero-tsx-and-footer-tsx",
+      "featureTitle": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries (English, Hindi, Odia) within frontend/src/i18n/translations.ts, and wherever the slogan/tagline is rendered in components such as Hero.tsx and Footer.tsx.",
       "files": [
-        "frontend/src/components/SchemeInfo.tsx",
+        "frontend/src/components/Footer.tsx",
         "frontend/src/i18n/translations.ts"
       ],
       "components": [
@@ -39,111 +43,6 @@
       ],
       "testIds": [
         "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-2-selecting-bhagyalaxmi-construction-with-the-following-content-1-login-using-consumer-number-2-navigate-to-select-registered-vendor-section-3-filter-by-state-odisha-and-district-4-search-for-and-select-bhagyalaxmi-construction-5-sign-the-online-agreement-model-draft-with-the-vendor-to-start-installation-if-this-section-is-missing-or-incomplete-add-or-update-it",
-      "featureTitle": "Verify that the website includes a dedicated section or slide for Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION with the following content: (1) Login using Consumer Number, (2) Navigate to 'Select Registered Vendor' section, (3) Filter by State (Odisha) and District, (4) Search for and select BHAGYALAXMI CONSTRUCTION, (5) Sign the online agreement (Model Draft) with the vendor to start installation. If this section is missing or incomplete, add or update it.",
-      "files": [
-        "frontend/src/components/SchemeInfo.tsx",
-        "frontend/src/i18n/translations.ts"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-3-installation-net-metering-with-the-following-content-1-bhagyalaxmi-construction-installs-solar-panels-inverter-and-wiring-per-mnre-standards-2-vendor-submits-completion-report-with-installation-details-and-photos-on-the-portal-3-apply-for-net-meter-via-the-portal-discom-will-visit-to-install-the-bi-directional-meter-if-this-section-is-missing-or-incomplete-add-or-update-it",
-      "featureTitle": "Verify that the website includes a dedicated section or slide for Phase 3 – Installation & Net-Metering with the following content: (1) Bhagyalaxmi Construction installs solar panels, inverter, and wiring per MNRE standards, (2) Vendor submits completion report with installation details and photos on the portal, (3) Apply for Net-Meter via the portal — DISCOM will visit to install the bi-directional meter. If this section is missing or incomplete, add or update it.",
-      "files": [
-        "frontend/src/components/SchemeInfo.tsx",
-        "frontend/src/i18n/translations.ts"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-the-website-includes-a-dedicated-section-or-slide-for-phase-4-subsidy-disbursement-with-the-following-content-1-commissioning-certificate-issued-by-discom-after-net-meter-is-functional-2-submit-bank-details-by-uploading-a-photo-of-cancelled-cheque-3-subsidy-of-up-to-1-38-000-is-credited-directly-to-bank-account-within-30-working-days-if-this-section-is-missing-or-incomplete-add-or-update-it",
-      "featureTitle": "Verify that the website includes a dedicated section or slide for Phase 4 – Subsidy Disbursement with the following content: (1) Commissioning Certificate issued by DISCOM after net-meter is functional, (2) Submit bank details by uploading a photo of cancelled cheque, (3) Subsidy of up to ₹1,38,000 is credited directly to bank account within 30 working days. If this section is missing or incomplete, add or update it.",
-      "files": [
-        "frontend/src/components/SchemeInfo.tsx",
-        "frontend/src/i18n/translations.ts"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-the-website-includes-a-why-choose-bhagyalaxmi-construction-section-with-these-three-points-1-registered-vendor-officially-empaneled-in-odisha-2-technical-expertise-ensures-high-quality-mounting-and-wiring-3-hassle-free-they-assist-with-technical-uploads-and-documentation-required-on-the-portal-if-this-section-is-missing-or-incomplete-add-or-update-it",
-      "featureTitle": "Verify that the website includes a 'Why Choose Bhagyalaxmi Construction?' section with these three points: (1) Registered Vendor – Officially empaneled in Odisha, (2) Technical Expertise – Ensures high-quality mounting and wiring, (3) Hassle-Free – They assist with technical uploads and documentation required on the portal. If this section is missing or incomplete, add or update it.",
-      "files": [
-        "frontend/src/components/SchemeInfo.tsx",
-        "frontend/src/i18n/translations.ts"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-the-website-includes-a-contact-next-steps-section-displaying-official-website-pmsuryaghar-gov-in-if-this-section-is-missing-add-it-ensure-the-official-portal-url-pmsuryaghar-gov-in-is-clearly-visible-and-clickable",
-      "featureTitle": "Verify that the website includes a Contact & Next Steps section displaying: Official Website: pmsuryaghar.gov.in. If this section is missing, add it. Ensure the official portal URL pmsuryaghar.gov.in is clearly visible and clickable.",
-      "files": [
-        "frontend/src/components/SchemeInfo.tsx",
-        "frontend/src/i18n/translations.ts"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
       ],
       "confidence": "high"
     }

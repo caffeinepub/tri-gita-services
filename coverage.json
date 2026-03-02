@@ -1,102 +1,48 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T01:23:28.264Z",
+  "generatedAt": "2026-03-02T01:39:46.969Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 7,
-    "implemented": 7,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Regenerate the company logo image to exactly match the uploaded image: a dark navy square background with a gold/amber gradient lightning bolt overlaid on a stylized sun/crescent shape, rendered in a bold illustrative style.",
+        "summary": "Replace all occurrences of the company name throughout the application with 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)'. This includes the HTML page title in frontend/index.html, all translation strings in frontend/src/i18n/translations.ts (English, Hindi, and Odia entries), and any hardcoded references in components such as Header.tsx, Hero.tsx, Footer.tsx, SchemeInfo.tsx, and WhyChooseUs.tsx.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Header.tsx"
+          "frontend/index.html",
+          "frontend/src/i18n/translations.ts",
+          "frontend/src/components/Header.tsx",
+          "frontend/src/components/Hero.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/components/SchemeInfo.tsx",
+          "frontend/src/components/WhyChooseUs.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/Header.tsx"
+          "frontend/index.html",
+          "frontend/src/i18n/translations.ts",
+          "frontend/src/components/Header.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/components/SchemeInfo.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Verify that the website includes a dedicated section or slide for Phase 1 – Registration & Feasibility with the following content: (1) Visit the Portal at pmsuryaghar.gov.in, (2) Register by selecting Odisha as State and specific DISCOM (e.g., TP Central Odisha), (3) Enter Electricity Consumer Number and Mobile Number, (4) Submit basic technical details for Feasibility Approval — DISCOM reviews transformer load and approves Feasibility within 7–15 days. If this section is missing or incomplete, add or update it.",
+        "summary": "Update the company slogan to 'Empowering Odisha with Clean Energy' in all translation entries (English, Hindi, Odia) within frontend/src/i18n/translations.ts, and wherever the slogan/tagline is rendered in components such as Hero.tsx and Footer.tsx.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
+          "frontend/src/components/Hero.tsx",
+          "frontend/src/components/Footer.tsx"
         ],
         "matchedFiles": [
           "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Verify that the website includes a dedicated section or slide for Phase 2 – Selecting BHAGYALAXMI CONSTRUCTION with the following content: (1) Login using Consumer Number, (2) Navigate to 'Select Registered Vendor' section, (3) Filter by State (Odisha) and District, (4) Search for and select BHAGYALAXMI CONSTRUCTION, (5) Sign the online agreement (Model Draft) with the vendor to start installation. If this section is missing or incomplete, add or update it.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Verify that the website includes a dedicated section or slide for Phase 3 – Installation & Net-Metering with the following content: (1) Bhagyalaxmi Construction installs solar panels, inverter, and wiring per MNRE standards, (2) Vendor submits completion report with installation details and photos on the portal, (3) Apply for Net-Meter via the portal — DISCOM will visit to install the bi-directional meter. If this section is missing or incomplete, add or update it.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Verify that the website includes a dedicated section or slide for Phase 4 – Subsidy Disbursement with the following content: (1) Commissioning Certificate issued by DISCOM after net-meter is functional, (2) Submit bank details by uploading a photo of cancelled cheque, (3) Subsidy of up to ₹1,38,000 is credited directly to bank account within 30 working days. If this section is missing or incomplete, add or update it.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Verify that the website includes a 'Why Choose Bhagyalaxmi Construction?' section with these three points: (1) Registered Vendor – Officially empaneled in Odisha, (2) Technical Expertise – Ensures high-quality mounting and wiring, (3) Hassle-Free – They assist with technical uploads and documentation required on the portal. If this section is missing or incomplete, add or update it.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ]
-      },
-      {
-        "id": "REQ-7",
-        "summary": "Verify that the website includes a Contact & Next Steps section displaying: Official Website: pmsuryaghar.gov.in. If this section is missing, add it. Ensure the official portal URL pmsuryaghar.gov.in is clearly visible and clickable.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
+          "frontend/src/components/Footer.tsx"
         ]
       }
     ]
@@ -106,7 +52,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/bhagyalaxmi-logo.dim_400x400.png",
+    "frontend/index.html",
+    "frontend/src/components/Footer.tsx",
     "frontend/src/components/Header.tsx",
     "frontend/src/components/SchemeInfo.tsx",
     "frontend/src/i18n/translations.ts",
