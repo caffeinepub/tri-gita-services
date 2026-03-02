@@ -24,8 +24,8 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
 
-const COMPANY_NAME = 'TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)';
-const VENDOR_SEARCH_NAME = 'BHAGYALAXMI CONSTRUCTION';
+const COMPANY_NAME = 'TRI-GITA SERVICE';
+const VENDOR_NAME = 'Bhagyalaxmi Construction';
 
 export default function SchemeInfo() {
   const t = useTranslation();
@@ -279,8 +279,8 @@ export default function SchemeInfo() {
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-navy-900 font-bold text-lg">2</div>
             <h3 className="font-playfair text-2xl font-bold text-white">
               Phase 2 – Selecting{' '}
-              <span className="text-gold-400">TRI-GITA SERVICES</span>
-              <span className="text-white/70 text-lg font-normal"> (A UNIT OF BHAGYALAXMI CONSTRUCTION)</span>
+              <span className="text-gold-400">{COMPANY_NAME}</span>
+              <span className="text-white/70 text-lg font-normal"> ({VENDOR_NAME})</span>
             </h3>
           </div>
           <p className="text-white/60 text-sm mb-6">
@@ -303,7 +303,7 @@ export default function SchemeInfo() {
           <div className="mt-5 bg-gold-500/10 border border-gold-500/40 rounded-xl px-5 py-4 flex items-start gap-3">
             <BadgeCheck className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" />
             <p className="text-white/80 text-sm">
-              <span className="text-gold-400 font-bold">TRI-GITA SERVICES (A UNIT OF BHAGYALAXMI CONSTRUCTION)</span> is officially registered and empaneled on the PM Surya Ghar portal for Odisha. Search by <span className="text-gold-400 font-semibold">{VENDOR_SEARCH_NAME}</span> to find and select us quickly.
+              <span className="text-gold-400 font-bold">{COMPANY_NAME}</span> is officially registered and empaneled on the PM Surya Ghar portal for Odisha. Search by <span className="text-gold-400 font-semibold">{VENDOR_NAME}</span> to find and select us quickly.
             </p>
           </div>
         </div>
@@ -364,75 +364,56 @@ export default function SchemeInfo() {
               <div className="text-gold-400 font-playfair font-bold text-3xl">₹1,38,000</div>
               <div className="text-white/60 text-xs mt-1">Maximum Subsidy Amount</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-white/20" />
-            <div className="text-center sm:text-left">
-              <div className="text-teal-400 font-playfair font-bold text-3xl">30 Days</div>
-              <div className="text-white/60 text-xs mt-1">Working Days for Credit</div>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-white/20" />
-            <p className="text-white/70 text-sm flex-1">
-              Subsidy is credited <span className="text-gold-400 font-semibold">directly to your bank account</span> after the commissioning certificate is issued and bank details are submitted.
+            <div className="hidden sm:block w-px h-12 bg-white/10" />
+            <p className="text-white/70 text-sm text-center sm:text-left">
+              Central subsidy (₹78,000) + Odisha State subsidy (₹60,000) credited directly to your bank account after commissioning.
             </p>
           </div>
         </div>
 
-        {/* ── WHY CHOOSE TRI-GITA SERVICES ── */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <div className="inline-block bg-gold-500/20 text-gold-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-              Your Trusted Vendor
-            </div>
-            <h3 className="font-playfair text-2xl sm:text-3xl font-bold text-white">
-              {t.schemeInfo.whyChooseTitle}
-            </h3>
-          </div>
+        {/* ── WHY CHOOSE ── */}
+        <div className="bg-navy-800 rounded-3xl p-8 border border-navy-700">
+          <h3 className="font-playfair text-2xl font-bold text-white text-center mb-8">
+            {t.schemeInfo.whyChooseTitle}
+          </h3>
           <div className="grid sm:grid-cols-3 gap-6">
             {whyChoosePoints.map((point, i) => (
-              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 text-center">
-                <div className={`w-14 h-14 ${point.bg} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <point.icon className={`w-7 h-7 ${point.color}`} />
+              <div key={i} className="text-center">
+                <div className={`w-12 h-12 ${point.bg} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <point.icon className={`w-6 h-6 ${point.color}`} />
                 </div>
-                <h4 className={`font-playfair font-bold text-lg mb-3 ${point.color}`}>{point.title}</h4>
-                <p className="text-white/70 text-sm leading-relaxed">{point.desc}</p>
+                <h4 className="text-white font-semibold mb-2">{point.title}</h4>
+                <p className="text-white/60 text-sm">{point.desc}</p>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* ── CONTACT & NEXT STEPS ── */}
-        <div className="bg-gradient-to-br from-navy-800 to-navy-900 border border-gold-500/30 rounded-3xl p-8 sm:p-10 text-center">
-          <div className="inline-block bg-gold-500/20 text-gold-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-            Contact &amp; Next Steps
-          </div>
-          <h3 className="font-playfair text-2xl sm:text-3xl font-bold text-white mb-3">
-            Ready to Go Solar?
-          </h3>
-          <p className="text-white/60 text-base max-w-xl mx-auto mb-6">
-            Visit the official PM Surya Ghar portal to begin your registration, then select{' '}
-            <span className="text-gold-400 font-semibold">{COMPANY_NAME}</span> as your vendor for a seamless, hassle-free experience.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://pmsuryaghar.gov.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-6 py-3 rounded-full transition-colors text-sm"
-            >
-              <Globe className="w-4 h-4" />
-              pmsuryaghar.gov.in
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-            <a
-              href="#inquiry"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#inquiry')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm"
-            >
-              Get Free Quote
-              <ArrowRight className="w-4 h-4" />
-            </a>
+          {/* CTA */}
+          <div className="mt-8 text-center">
+            <p className="text-white/60 text-sm mb-4">{t.schemeInfo.contactNextStepsTitle}</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="https://pmsuryaghar.gov.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-navy-700 hover:bg-navy-600 border border-navy-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors"
+              >
+                <Globe className="w-4 h-4" />
+                {t.schemeInfo.officialWebsiteLabel}: {t.schemeInfo.portalUrl}
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href="#inquiry"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#inquiry')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold text-sm px-6 py-3 rounded-full transition-colors"
+              >
+                Get Free Consultation
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

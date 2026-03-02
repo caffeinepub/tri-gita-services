@@ -27,14 +27,15 @@ export default {
           900: 'oklch(0.15 0.05 240)',
           950: 'oklch(0.10 0.04 240)',
         },
+        // Warm solar amber/orange palette — evokes Odisha sunshine & solar energy
         gold: {
-          50:  'oklch(0.98 0.02 85)',
-          100: 'oklch(0.95 0.05 85)',
-          200: 'oklch(0.90 0.09 85)',
-          300: 'oklch(0.84 0.13 85)',
-          400: 'oklch(0.78 0.16 80)',
-          500: 'oklch(0.72 0.17 75)',
-          600: 'oklch(0.62 0.15 70)',
+          50:  'oklch(0.98 0.02 75)',
+          100: 'oklch(0.95 0.06 72)',
+          200: 'oklch(0.90 0.10 70)',
+          300: 'oklch(0.84 0.14 68)',
+          400: 'oklch(0.78 0.17 66)',
+          500: 'oklch(0.72 0.18 68)',
+          600: 'oklch(0.60 0.17 65)',
         },
         teal: {
           50:  'oklch(0.97 0.02 185)',
@@ -44,6 +45,10 @@ export default {
           400: 'oklch(0.65 0.15 185)',
           500: 'oklch(0.55 0.14 185)',
           600: 'oklch(0.45 0.12 185)',
+        },
+        // Warm amber alias for hero overlay utility
+        amber: {
+          900: 'oklch(0.28 0.10 55)',
         },
         border: 'oklch(var(--border) / <alpha-value>)',
         input: 'oklch(var(--input) / <alpha-value>)',
@@ -86,7 +91,7 @@ export default {
       },
       boxShadow: {
         'navy': '0 4px 24px oklch(0.15 0.05 240 / 0.3)',
-        'gold': '0 4px 24px oklch(0.72 0.17 75 / 0.3)',
+        'gold': '0 4px 24px oklch(0.72 0.18 68 / 0.35)',
         'teal': '0 4px 24px oklch(0.55 0.14 185 / 0.3)',
         'card': '0 2px 16px oklch(0.15 0.05 240 / 0.12)',
       },

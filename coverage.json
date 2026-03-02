@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T02:11:34.821Z",
+  "generatedAt": "2026-03-02T18:57:28.938Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,29 +12,24 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application — including the page title in index.html, the Footer's unit designation line, the Header, Hero section, and any other component or translation key that currently displays this sub-branding phrase. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
+        "summary": "Generate a new AI illustration hero image depicting the state map of Odisha overlaid with solar power elements (solar panels, sun rays, energy grid lines, warm amber/orange glow), suitable for use as a full-screen hero background. Save as 'hero-odisha-solar-map.dim_1920x1080.png' in frontend/public/assets/generated.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/index.html",
-          "frontend/src/components/Footer.tsx",
-          "frontend/src/i18n/translations.ts"
+          "frontend/public/assets/generated/hero-odisha-solar-map.dim_1920x1080.png"
         ],
         "matchedFiles": [
-          "frontend/index.html",
-          "frontend/src/components/Footer.tsx",
-          "frontend/src/i18n/translations.ts"
+          "frontend/public/assets/generated/hero-odisha-solar-map.dim_1920x1080.png"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. No other vendor names should be mentioned in this step.",
+        "summary": "Update the Hero component (frontend/src/components/Hero.tsx) to replace the existing hero background illustration with the newly generated Odisha solar map image ('hero-odisha-solar-map.dim_1920x1080.png'). Ensure the image is displayed as a full-screen background with appropriate overlay to keep headline and CTA text readable.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/i18n/translations.ts",
-          "frontend/src/components/SchemeInfo.tsx"
+          "frontend/src/components/Hero.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/i18n/translations.ts"
+          "frontend/src/components/Hero.tsx"
         ]
       }
     ]
@@ -44,10 +39,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.html",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/Header.tsx",
-    "frontend/src/i18n/translations.ts",
+    "frontend/public/assets/generated/hero-odisha-solar-map.dim_1920x1080.png",
+    "frontend/src/components/Hero.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

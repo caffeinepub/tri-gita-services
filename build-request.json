@@ -1,59 +1,62 @@
 {
   "kind": "build_request",
-  "title": "Remove 'A Unit of Bhagyalaxmi Construction' branding; mention only 'BHAGYALAXMI CONSTRUCTION' in vendor selection steps",
-  "projectName": "PM Surya Ghar Portal",
+  "title": "Update hero image to AI illustration of Odisha state map with solar elements",
+  "projectName": "TRI-GITA Solar",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application — including the page title in index.html, the Footer's unit designation line, the Header, Hero section, and any other component or translation key that currently displays this sub-branding phrase. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
+      "text": "Generate a new AI illustration hero image depicting the state map of Odisha overlaid with solar power elements (solar panels, sun rays, energy grid lines, warm amber/orange glow), suitable for use as a full-screen hero background. Save as 'hero-odisha-solar-map.dim_1920x1080.png' in frontend/public/assets/generated.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Remove A unit of Bhagyalaxmi Construction."
+          "Modify the hero image to ai illustration image of state odisha map with solar"
         ]
       },
       "acceptanceCriteria": [
-        "The string 'A unit of' / 'A UNIT OF' no longer appears anywhere in the rendered UI in any language (en/hi/od).",
-        "The page title in index.html no longer contains 'A UNIT OF BHAGYALAXMI CONSTRUCTION'.",
-        "The Footer component does not render a unit designation line containing 'a unit of'.",
-        "All translation keys (en/hi/od) in translations.ts that contained 'a unit of bhagyalaxmi construction' are updated to remove that sub-phrase.",
-        "The business name 'Bhagyalaxmi Construction' continues to appear where it should."
+        "The image clearly depicts the recognizable outline/map of Odisha state",
+        "Solar power elements (panels, sun rays, energy lines) are visually prominent in the illustration",
+        "The image uses warm amber/orange/gold tones consistent with the app's solar theme",
+        "Image dimensions are 1920x1080 pixels",
+        "Image is saved to frontend/public/assets/generated/"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. No other vendor names should be mentioned in this step.",
+      "text": "Update the Hero component (frontend/src/components/Hero.tsx) to replace the existing hero background illustration with the newly generated Odisha solar map image ('hero-odisha-solar-map.dim_1920x1080.png'). Ensure the image is displayed as a full-screen background with appropriate overlay to keep headline and CTA text readable.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "only in vendor selection mention to select BHAGYALAXMI CONSTRUCTION"
+          "Modify the hero image to ai illustration image of state odisha map with solar"
         ]
       },
       "acceptanceCriteria": [
-        "Phase 2 vendor selection step in SchemeInfo displays 'BHAGYALAXMI CONSTRUCTION' (or localised equivalent) as the vendor to select.",
-        "No other vendor names appear in the Phase 2 vendor selection step in any language.",
-        "The instruction is present and correctly rendered in English, Hindi, and Odia."
+        "Hero section displays the new Odisha solar map illustration as its background",
+        "A semi-transparent overlay is applied so headline, tagline, and CTA buttons remain clearly legible",
+        "The image covers the full viewport width and height (object-cover or equivalent)",
+        "All existing hero content (headline, tagline, WhatsApp CTA, trust-stat cards) remains intact and visible"
       ]
     }
   ],
   "constraints": [
-    "Do not alter any file under frontend/src/hooks/ or frontend/src/components/ui (immutable paths).",
-    "Backend logic and data schema must not be changed."
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Preserve all existing hero section content and functionality (text, CTA buttons, trust-stat cards)"
   ],
   "nonGoals": [
-    "Adding or removing any features beyond the branding text changes described above.",
-    "Changing colours, layout, or typography.",
-    "Modifying any backend Motoko code."
+    "Changing hero section text or translations",
+    "Modifying any backend logic",
+    "Redesigning layout or structure of the Hero component beyond the background image swap"
   ],
   "imageRequirements": {
     "required": [],
-    "edits": []
+    "edits": [
+      "Replace the hero background with an AI illustration of the Odisha state map silhouette filled with solar panel patterns, glowing sun rays radiating outward, and energy grid lines overlaid on the map, using warm amber, orange, and gold tones against a deep navy sky background (hero-odisha-solar.dim_1920x1080.png > hero-odisha-solar-map.dim_1920x1080.png)"
+    ]
   }
 }

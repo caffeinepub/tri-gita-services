@@ -52,12 +52,12 @@ export default function Header() {
           <div className="flex items-center gap-2.5">
             <img
               src="/assets/generated/bhagyalaxmi-logo.dim_400x400.png"
-              alt="TRI-GITA SERVICES Logo"
+              alt="TRI-GITA SERVICE Logo"
               className="h-11 w-11 object-contain rounded-full"
             />
             <div>
               <div className="font-playfair font-bold text-white text-sm leading-tight">
-                TRI-GITA SERVICES
+                TRI-GITA SERVICE
               </div>
               <div className="text-gold-400 text-xs font-outfit tracking-wider">
                 BHAGYALAXMI CONSTRUCTION

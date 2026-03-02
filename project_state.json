@@ -1,22 +1,23 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Project featuring a hero section with an AI illustration of Odisha's state map with solar power theme.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Edit Images\n- Replace the hero background with an AI illustration of the Odisha state map silhouette filled with solar panel patterns, glowing sun rays radiating outward, and energy grid lines overlaid on the map, using warm amber, orange, and gold tones against a deep navy sky background (hero-odisha-solar.dim_1920x1080.png > hero-odisha-solar-map.dim_1920x1080.png)",
   "existing_features": [
     {
-      "id": "feature-remove-all-occurrences-of-a-unit-of-bhagyalaxmi-construction-and-its-hindi-odia-equivalents-from-every-user-facing-surface-across-the-application-including-the-page-title-in-index-html-the-footer-s-unit-designation-line-the-header-hero-section-and-any-other-component-or-translation-key-that-currently-displays-this-sub-branding-phrase-the-standalone-name-bhagyalaxmi-construction-or-bhagyalaxmi-construction-must-still-appear-wherever-the-business-name-is-shown",
-      "title": "Remove all occurrences of 'A UNIT OF BHAGYALAXMI CONSTRUCTION' (and its Hindi/Odia equivalents) from every user-facing surface across the application — including the page title in index.html, the Footer's unit designation line, the Header, Hero section, and any other component or translation key that currently displays this sub-branding phrase. The standalone name 'BHAGYALAXMI CONSTRUCTION' (or 'Bhagyalaxmi Construction') must still appear wherever the business name is shown.",
+      "id": "feature-generate-a-new-ai-illustration-hero-image-depicting-the-state-map-of-odisha-overlaid-with-solar-power-elements-solar-panels-sun-rays-energy-grid-lines-warm-amber-orange-glow-suitable-for-use-as-a-full-screen-hero-background-save-as-hero-odisha-solar-map-dim-1920x1080-png-in-frontend-public-assets-generated",
+      "title": "Generate a new AI illustration hero image depicting the state map of Odisha overlaid with solar power elements (solar panels, sun rays, energy grid lines, warm amber/orange glow), suitable for use as a full-screen hero background. Save as 'hero-odisha-solar-map.dim_1920x1080.png' in frontend/public/assets/generated.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-in-the-schemeinfo-component-s-vendor-installer-selection-step-phase-2-of-the-application-process-update-the-text-in-all-three-languages-english-hindi-odia-so-that-it-explicitly-instructs-the-user-to-select-bhagyalaxmi-construction-as-the-vendor-empanelled-installer-no-other-vendor-names-should-be-mentioned-in-this-step",
-      "title": "In the SchemeInfo component's vendor/installer selection step (Phase 2 of the application process), update the text in all three languages (English, Hindi, Odia) so that it explicitly instructs the user to select 'BHAGYALAXMI CONSTRUCTION' as the vendor/empanelled installer. No other vendor names should be mentioned in this step.",
+      "id": "feature-update-the-hero-component-frontend-src-components-hero-tsx-to-replace-the-existing-hero-background-illustration-with-the-newly-generated-odisha-solar-map-image-hero-odisha-solar-map-dim-1920x1080-png-ensure-the-image-is-displayed-as-a-full-screen-background-with-appropriate-overlay-to-keep-headline-and-cta-text-readable",
+      "title": "Update the Hero component (frontend/src/components/Hero.tsx) to replace the existing hero background illustration with the newly generated Odisha solar map image ('hero-odisha-solar-map.dim_1920x1080.png'). Ensure the image is displayed as a full-screen background with appropriate overlay to keep headline and CTA text readable.",
       "reqIds": [
         "REQ-2"
       ],
@@ -24,7 +25,8 @@
     }
   ],
   "new_feature_requests": [],
-  "projectName": "PM Surya Ghar Portal",
+  "gameProjectType": "none",
+  "projectName": "TRI-GITA Solar",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

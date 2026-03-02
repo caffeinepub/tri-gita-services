@@ -23,33 +23,36 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image - TRI-GITA SERVICES Building */}
+      {/* Background Image - Odisha State Map with Solar AI Illustration */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/assets/generated/hero-bg.dim_1920x1080.png')`,
+          backgroundImage: `url('/assets/generated/hero-odisha-solar-map.dim_1920x1080.png')`,
         }}
       />
 
-      {/* Dark Overlay for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/80 via-navy-900/70 to-navy-800/65" />
+      {/* Warm gradient overlay for text legibility over the solar illustration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/75 via-navy-900/60 to-amber-900/50" />
+
+      {/* Subtle warm sun-glow at top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-500/10 via-transparent to-navy-950/40" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/40 text-gold-400 text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div className="inline-flex items-center gap-2 bg-gold-500/25 border border-gold-400/50 text-gold-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
           <span className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
           {t.hero.badge}
         </div>
 
         {/* Headline */}
-        <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+        <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
           {t.hero.headline}{' '}
           <span className="text-gold-400">{t.hero.headlineAccent}</span>
         </h1>
 
         {/* Tagline */}
-        <p className="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-white/85 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
           {t.hero.tagline}
         </p>
 
@@ -78,11 +81,11 @@ export default function Hero() {
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center"
+              className="bg-white/10 backdrop-blur-sm border border-gold-400/25 rounded-2xl p-4 text-center"
             >
               <stat.icon className="w-6 h-6 text-gold-400 mx-auto mb-2" />
               <div className="text-white font-bold text-xl font-playfair">{stat.value}</div>
-              <div className="text-white/60 text-xs mt-1">{stat.label}</div>
+              <div className="text-white/65 text-xs mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
