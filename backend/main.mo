@@ -2,7 +2,7 @@ import Map "mo:core/Map";
 import Text "mo:core/Text";
 import Runtime "mo:core/Runtime";
 import Array "mo:core/Array";
-import Migration "migration";
+
 import Order "mo:core/Order";
 import Principal "mo:core/Principal";
 import Iter "mo:core/Iter";
@@ -10,7 +10,7 @@ import AccessControl "authorization/access-control";
 import MixinStorage "blob-storage/Mixin";
 import MixinAuthorization "authorization/MixinAuthorization";
 
-(with migration = Migration.run)
+
 actor {
   let accessControlState = AccessControl.initState();
   include MixinStorage();

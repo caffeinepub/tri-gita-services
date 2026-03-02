@@ -1,342 +1,62 @@
 {
   "kind": "build_request",
-  "title": "Recreate TRI-GITA SERVICES solar website",
+  "title": "Fix finance section stats and add Samaleswari Temple hero background",
   "projectName": "TRI-GITA SERVICES",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Recreate the backend Motoko actor that manages solar service leads stored in a stable map keyed by email, with methods to submit a lead (name, phone, email, city, systemSize, message), delete a lead by email, retrieve a lead by email, and list all leads sorted by name.",
-      "target": "backend",
+      "text": "Update the BankFinanceBanner component to clearly display the correct financing terms: 90% loan approved by bank and 10% paid by the customer. Update all related translation strings in English, Hindi, and Odia (translations.ts) to reflect '90% Bank Loan' and '10% Customer Payment' accurately. Ensure stat cards and any descriptive text in the banner reflect these exact figures.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "Recreate"
+          "make correction the finance part -easy bank finance available 90% loan approved and 10% customer paid"
         ]
       },
       "acceptanceCriteria": [
-        "submitLead method accepts and stores a lead record keyed by email",
-        "deleteLead method removes a lead by email key",
-        "getLead method returns a lead by email",
-        "listLeads method returns all leads sorted alphabetically by name"
+        "BankFinanceBanner displays '90%' as the bank loan/approval figure",
+        "BankFinanceBanner displays '10%' as the customer payment figure",
+        "Section heading or subheading reads 'Easy Bank Finance Available' (or translated equivalent)",
+        "Translation strings in all three languages (EN/HI/OD) are updated with the correct percentages",
+        "No other financing figures appear that contradict 90/10 split"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Recreate the React/TypeScript frontend for the TRI-GITA SERVICES solar energy website with the following sections in order: Header, Hero, SchemeInfo, OdishaGuide, Services, WhyChooseUs, BankFinanceBanner, WarrantyGuarantee, InquiryForm, WhatsAppSection, Footer, and a FloatingWhatsAppButton. Wrap everything in a LanguageProvider context.",
+      "text": "Replace the current hero background in the Hero component with the newly generated Samaleswari Temple Sambalpur image (samaleswari-temple-hero.dim_1920x1080.png) stored in frontend/public/assets/generated/. Ensure the image is set as the full-screen background with an appropriate dark overlay so that headline text and CTA buttons remain clearly legible.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "Recreate"
+          "Add samleswari temple sambalpur as hero background"
         ]
       },
       "acceptanceCriteria": [
-        "All sections render in the correct order on the page",
-        "LanguageProvider wraps the full component tree",
-        "FloatingWhatsAppButton appears fixed at bottom-right"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Recreate the fixed navigation Header with scroll-aware background transition, desktop and mobile navigation links, a language switcher supporting English (EN), Hindi (HI), and Odia (OD), and a WhatsApp CTA button. Use LanguageContext and i18n translations.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Header background changes on scroll",
-        "Language switcher toggles between EN, HI, and OD",
-        "Mobile nav menu is functional",
-        "WhatsApp CTA button is present and links correctly"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Recreate the full-screen Hero section with a background image (frontend/public/assets/generated/hero-bg.jpg), a deep navy gradient overlay, translated headline and tagline, WhatsApp CTA and scheme CTA buttons, and three trust-indicator stat tiles.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hero takes full viewport height",
-        "Background image is displayed with a navy gradient overlay",
-        "Headline, tagline, and stat tiles use translated strings",
-        "Both CTA buttons are present and functional"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Recreate the SchemeInfo section explaining the PM Surya Ghar government scheme, including benefits list, eligibility criteria, and a four-step process (application, survey, installation, subsidy credit). All text must use i18n translations.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Benefits, eligibility, and four-step process are all displayed",
-        "Content renders correctly in all three languages"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Recreate the OdishaGuide section with subsidy tier cards for 1kW, 2kW, and 3kW+ systems, rollout phase coverage info, and intersection-observer-driven fade-in animations.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Three subsidy tier cards are displayed",
-        "Cards animate in on scroll via IntersectionObserver",
-        "Rollout phase info is visible"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Recreate the Services section with two image cards for residential and commercial solar offerings, each including a feature checklist and a CTA button linking to the inquiry form.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Two service cards are displayed",
-        "Each card has a feature list and a CTA linking to #inquiry or the form section"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Recreate the WhyChooseUs section with three feature cards using navy, gold, and teal accent themes, icons, and translated titles and descriptions.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Three cards render with correct accent colors",
-        "Icons and translated text are displayed"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Recreate the BankFinanceBanner as an animated dark navy banner with shimmer effects, gold stat cards highlighting bank financing statistics, and a WhatsApp CTA button.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Banner has a dark navy background with shimmer animation",
-        "Gold stat cards are visible",
-        "WhatsApp CTA button is present"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Recreate the WarrantyGuarantee section with three styled cards showing 25-year, 10-year, and 5-year guarantee durations using navy, gold, and teal accent themes with translated content.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Three warranty cards are displayed with correct year values",
-        "Accent colors match navy, gold, teal respectively",
-        "Content is translated"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Recreate the InquiryForm with fields for name, phone, email, city, system size, and message. On submission, validate inputs and open a pre-filled WhatsApp link with the form data. Submit button also calls the backend submitLead mutation via useSubmitLead hook.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All six fields are present with validation",
-        "Successful submission opens a WhatsApp deep link with form data",
-        "submitLead backend mutation is called on valid submission"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Recreate the WhatsAppSection with a branded card, translated title, description, and a direct WhatsApp contact button linking to the business WhatsApp number.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Section renders with translated text",
-        "WhatsApp button links to the correct number"
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "text": "Recreate the Footer with two columns: brand identity on the left and contact details (phone, email, address, service area) on the right, with a WhatsApp link, on a navy-900 background with gold accents.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Footer has two-column layout",
-        "Phone, email, address, and service area are displayed",
-        "WhatsApp link is present",
-        "Background is deep navy with gold accent elements"
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "text": "Recreate the LanguageContext providing 'en', 'hi', and 'od' language options with localStorage persistence, and the useTranslation hook that returns the translation object for the active language.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Active language persists across page reloads via localStorage",
-        "useTranslation returns correct strings for all three languages"
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "text": "Recreate the full i18n translations file with all English, Hindi, and Odia strings for all UI sections including hero, header, scheme info, Odisha guide, services, why choose us, bank finance banner, warranty, inquiry form, WhatsApp section, and footer.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All UI sections have translation keys for en, hi, and od",
-        "No missing translation keys when switching languages"
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "text": "Recreate the global CSS (frontend/src/index.css) importing Google Fonts (Outfit, Playfair Display), Tailwind directives, deep navy/emerald gold theme with CSS custom properties, custom navy/gold/teal color palettes, and keyframe animations for banner shimmer effects.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Outfit and Playfair Display fonts load correctly",
-        "Custom navy, gold, and teal color tokens are available",
-        "Shimmer keyframe animation is defined"
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "text": "Recreate the Tailwind configuration extending the default theme with custom fonts (Outfit, Playfair Display), OKLCH-based color palettes for navy, gold, and teal, custom border radii, box shadows, and accordion keyframe animations.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Custom font families are available as Tailwind utilities",
-        "Navy, gold, and teal palette shades are available as Tailwind color utilities"
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "text": "Recreate the useSubmitLead mutation hook in frontend/src/hooks/useQueries.ts that calls the backend actor's submitLead method and invalidates the 'leads' query on success.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Recreate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hook calls actor.submitLead with the lead data",
-        "On success, the 'leads' query cache is invalidated"
+        "Hero section background shows the Samaleswari Temple Sambalpur image",
+        "Image covers the full viewport width and height (object-cover or equivalent)",
+        "Dark overlay ensures all hero text and buttons are readable",
+        "No broken image or fallback color visible on load"
       ]
     }
   ],
   "constraints": [
-    "Do not modify frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or any files under frontend/src/components/ui",
-    "All Motoko logic must remain in a single actor in backend/main.mo"
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Preserve all existing i18n translation keys; only update values related to the finance section",
+    "Keep the WhatsApp CTA button and all other hero section content intact"
   ],
   "nonGoals": [
-    "Adding new features beyond what existed in the original project",
-    "Changing the WhatsApp number or business contact details",
-    "Adding new languages beyond English, Hindi, and Odia"
+    "Changing the backend schema or lead submission logic",
+    "Adding new form fields or sections beyond the finance correction",
+    "Redesigning the overall color theme or layout"
   ],
   "imageRequirements": {
     "required": [
-      "Photorealistic aerial view of solar panels installed on rooftops under bright Indian sunlight with a clear sky, warm golden-hour lighting (hero-bg.dim_1920x1080.jpg)"
+      "Photorealistic wide-angle daytime view of Samaleswari Temple, Sambalpur, Odisha – ornate Hindu temple architecture with bright sky and lush surroundings (samaleswari-temple-hero.dim_1920x1080.png)"
     ],
     "edits": []
   }

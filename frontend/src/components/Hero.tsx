@@ -23,11 +23,11 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
+      {/* Background Image - Samaleswari Temple Sambalpur */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/assets/generated/hero-bg.dim_1920x1080.png')`,
+          backgroundImage: `url('/assets/generated/samaleswari-temple-hero.dim_1920x1080.png')`,
         }}
       />
 

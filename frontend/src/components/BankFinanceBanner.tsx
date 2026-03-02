@@ -22,7 +22,7 @@ export default function BankFinanceBanner() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-gold-500/20 text-gold-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             <Landmark className="w-4 h-4" />
-            Bank Finance
+            Easy Bank Finance
           </div>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-white mb-3">
             {t.bankFinance.title}
