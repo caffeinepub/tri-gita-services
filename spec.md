@@ -1,12 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Add multilingual support (English, Hindi, and Odia) to the TRI-GITA SERVICES frontend so visitors can view the entire page in their preferred language.
+**Goal:** Correct the Odisha subsidy structure values displayed in the OdishaGuide component across all three language translations.
 
 **Planned changes:**
-- Create a language context provider managing the selected language (English, Hindi, Odia), defaulting to English and persisting the choice in localStorage.
-- Add a language switcher UI in the Header component (desktop nav and mobile hamburger menu) displaying "English", "हिन्दी", and "ଓଡ଼ିଆ", with the active language visually highlighted.
-- Create a centralized translations file (`frontend/src/i18n/translations.ts`) containing all UI strings in all three languages for every section (Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer).
-- Update all page-section components to consume translated strings from the language context instead of hard-coded text, including form placeholders, labels, and validation messages.
+- Update 1 kW subsidy tier to: Central ₹30,000 + State ₹25,000 = Total ₹55,000
+- Update 2 kW subsidy tier to: Central ₹60,000 + State ₹50,000 = Total ₹1,10,000
+- Update 3 kW+ subsidy tier to: Central ₹78,000 + State ₹60,000 = Total ₹1,38,000 (Maximum cap)
+- Apply these corrections consistently across English, Hindi, and Odia entries in the translations file
 
-**User-visible outcome:** Visitors can switch the entire page between English, Hindi, and Odia instantly using the language switcher in the header, with all text content — including forms and section descriptions — updating without a page reload.
+**User-visible outcome:** The OdishaGuide section displays the correct subsidy breakdown values for all three capacity tiers in all supported languages.

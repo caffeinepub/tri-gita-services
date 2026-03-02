@@ -1,98 +1,41 @@
 {
   "kind": "build_request",
-  "title": "Add multilingual support: English, Hindi, and Odia",
+  "title": "Correct Odisha Subsidy Structure Values",
   "projectName": "TRI-GITA SERVICES",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a language context provider that manages the currently selected language (English, Hindi, Odia) with default set to English, and persists the selection to localStorage so the choice survives page reloads.",
+      "text": "Update the Odisha subsidy structure displayed in the OdishaGuide component to reflect the correct values: 1 kW = Central ₹30,000 + State ₹25,000 = Total ₹55,000; 2 kW = Central ₹60,000 + State ₹50,000 = Total ₹1,10,000; 3 kW+ = Central ₹78,000 + State ₹60,000 = Total ₹1,38,000 (Maximum cap). Ensure all three language variants (English, Hindi, Odia) in the translations file are updated consistently.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-7"
+          "msg-latest"
         ],
         "quotes": [
-          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
+          "1 kW: Total Central +State Subsidy ₹30,000+25000=55000",
+          "2 kW: Total Central+State Subsidy ₹60,000+50000=110000",
+          "3 kW+: Total Central+State Subsidy ₹78,000+60000=1,38,000(Maximum cap)"
         ]
       },
       "acceptanceCriteria": [
-        "A React context exposes the active language and a setter function.",
-        "Default language is English on first visit.",
-        "Selected language is saved to localStorage and restored on reload.",
-        "All three languages (English, Hindi, Odia) are supported as valid values."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Add a language switcher UI element in the Header component, displaying three options: 'English', 'हिन्दी' (Hindi), and 'ଓଡ଼ିଆ' (Odia). The switcher should be visible on both desktop and mobile (hamburger menu) layouts and highlight the currently active language.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-7"
-        ],
-        "quotes": [
-          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Language switcher appears in the sticky Header on desktop and inside the mobile hamburger menu.",
-        "Clicking a language option immediately switches all page content to that language.",
-        "The active language option is visually distinguished (e.g., underline, bold, or highlighted color).",
-        "Switcher is accessible and keyboard-navigable."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Create a centralized translations file (e.g., frontend/src/i18n/translations.ts) containing all user-facing strings for every component in all three languages: English, Hindi, and Odia. Cover all text content in Header, Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, and Footer.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-7"
-        ],
-        "quotes": [
-          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A single translations object maps language codes (en, hi, od) to all UI strings.",
-        "No hard-coded English strings remain in any page component (all text is sourced from the translations object).",
-        "Hindi translations use Devanagari script.",
-        "Odia translations use Odia script.",
-        "Translations cover headings, body text, button labels, form placeholders and labels, footer details, and section descriptions."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Update all page-section components (Hero, SchemeInfo, OdishaGuide, WhyChooseUs, WarrantyGuarantee, Services, InquiryForm, BankFinanceBanner, WhatsAppSection, Footer, Header) to consume translated strings from the language context instead of rendering hard-coded text, so the entire page re-renders in the selected language when the user switches.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-7"
-        ],
-        "quotes": [
-          "Add 3 languages english ,hindi and odia so that viewers can see the page in the required language"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Switching to Hindi renders all visible text in Hindi across every section.",
-        "Switching to Odia renders all visible text in Odia across every section.",
-        "Switching back to English renders all visible text in English.",
-        "The language switch is instant (no page reload required).",
-        "Form validation messages and placeholder text also update with the selected language."
+        "OdishaGuide subsidy tier card for 1 kW shows Central ₹30,000 + State ₹25,000 = ₹55,000 total",
+        "OdishaGuide subsidy tier card for 2 kW shows Central ₹60,000 + State ₹50,000 = ₹1,10,000 total",
+        "OdishaGuide subsidy tier card for 3 kW+ shows Central ₹78,000 + State ₹60,000 = ₹1,38,000 total with 'Maximum cap' label",
+        "All subsidy values are consistent across English, Hindi, and Odia translations in translations.ts",
+        "No other subsidy figures or layout changes are made"
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
-    "Backend (backend/main.mo) must not be changed — language switching is purely a frontend concern.",
-    "The existing visual design, animations, and layout must remain intact."
+    "Do not change any other subsidy-related content outside the three specified tiers",
+    "Do not alter the visual layout, card styling, or animations of OdishaGuide",
+    "Do not modify any backend logic or data models"
   ],
   "nonGoals": [
-    "Server-side rendering or URL-based locale routing.",
-    "Adding any language other than English, Hindi, and Odia.",
-    "Translating dynamically fetched backend data (lead submissions, etc.).",
-    "Right-to-left (RTL) layout changes."
+    "Adding new subsidy tiers or categories",
+    "Changing the design or theme of the OdishaGuide section",
+    "Updating any other state's subsidy information"
   ],
   "imageRequirements": {
     "required": [],

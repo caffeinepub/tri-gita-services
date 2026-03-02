@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MessageCircle, Send } from 'lucide-react';
+import { Send, User, Phone, Mail, MapPin, Zap, MessageSquare } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
 
 interface FormData {
@@ -11,32 +11,28 @@ interface FormData {
   message: string;
 }
 
-interface FormErrors {
-  name?: string;
-  phone?: string;
-}
+const initialForm: FormData = {
+  name: '',
+  phone: '',
+  email: '',
+  city: '',
+  systemSize: '',
+  message: '',
+};
 
 export default function InquiryForm() {
   const t = useTranslation();
   const f = t.inquiryForm;
 
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: '',
-    email: '',
-    city: '',
-    systemSize: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState<FormData>(initialForm);
+  const [errors, setErrors] = useState<Partial<FormData>>({});
 
   const validate = (): boolean => {
-    const newErrors: FormErrors = {};
-    if (!formData.name.trim()) newErrors.name = f.validation.nameRequired;
-    if (!formData.phone.trim()) {
+    const newErrors: Partial<FormData> = {};
+    if (!form.name.trim()) newErrors.name = f.validation.nameRequired;
+    if (!form.phone.trim()) {
       newErrors.phone = f.validation.phoneRequired;
-    } else if (!/^\d{10}$/.test(formData.phone.trim())) {
+    } else if (!/^\d{10}$/.test(form.phone.trim())) {
       newErrors.phone = f.validation.phoneInvalid;
     }
     setErrors(newErrors);
@@ -47,92 +43,124 @@ export default function InquiryForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    setSubmitting(true);
-    const msg = `Hello TRI-GITA SERVICES,\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'N/A'}\nCity: ${formData.city || 'N/A'}\nSystem Size: ${formData.systemSize || 'N/A'}\nMessage: ${formData.message || 'N/A'}`;
-    const url = `https://wa.me/917838867880?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    setSubmitting(false);
-    setFormData({ name: '', phone: '', email: '', city: '', systemSize: '', message: '' });
+    const msg = [
+      `*New Solar Inquiry*`,
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      form.email ? `Email: ${form.email}` : null,
+      form.city ? `City: ${form.city}` : null,
+      form.systemSize ? `System Size: ${form.systemSize}` : null,
+      form.message ? `Message: ${form.message}` : null,
+    ]
+      .filter(Boolean)
+      .join('%0A');
+
+    window.open(`https://wa.me/917838867880?text=${msg}`, '_blank');
+    setForm(initialForm);
     setErrors({});
   };
 
+  const handleChange = (field: keyof FormData, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+  };
+
+  const inputClass = (field: keyof FormData) =>
+    `w-full bg-white border rounded-xl px-4 py-3 text-navy-800 placeholder-navy-400 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-gold-400 ${
+      errors[field] ? 'border-red-400 bg-red-50' : 'border-navy-200 hover:border-navy-300'
+    }`;
+
   return (
-    <section id="inquiry" className="py-20 bg-muted/30">
+    <section id="inquiry" className="py-20 lg:py-28 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{f.title}</h2>
-          <p className="text-lg text-muted-foreground">{f.subtitle}</p>
+          <span className="inline-block bg-gold-100 text-gold-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
+            Free Consultation
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-4">
+            {f.title}
+          </h2>
+          <p className="text-navy-500 text-lg">
+            {f.subtitle}
+          </p>
         </div>
 
-        <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+        {/* Form card */}
+        <div className="bg-navy-50 border border-navy-100 rounded-3xl p-8 lg:p-10 shadow-navy-sm">
           <form onSubmit={handleSubmit} noValidate className="space-y-5">
-            {/* Name & Phone */}
+            {/* Name + Phone */}
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  {f.fields.name} <span className="text-destructive">*</span>
+                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
+                  <User className="w-4 h-4 text-gold-500" />
+                  {f.fields.name} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder={f.fields.namePlaceholder}
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  value={form.name}
+                  onChange={(e) => handleChange('name', e.target.value)}
+                  className={inputClass('name')}
                 />
-                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  {f.fields.phone} <span className="text-destructive">*</span>
+                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
+                  <Phone className="w-4 h-4 text-gold-500" />
+                  {f.fields.phone} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder={f.fields.phonePlaceholder}
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  value={form.phone}
+                  onChange={(e) => handleChange('phone', e.target.value)}
+                  className={inputClass('phone')}
                 />
-                {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
+                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
             </div>
 
-            {/* Email & City */}
+            {/* Email + City */}
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
+                  <Mail className="w-4 h-4 text-teal-500" />
                   {f.fields.email}
                 </label>
                 <input
                   type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder={f.fields.emailPlaceholder}
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  value={form.email}
+                  onChange={(e) => handleChange('email', e.target.value)}
+                  className={inputClass('email')}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
+                  <MapPin className="w-4 h-4 text-teal-500" />
                   {f.fields.city}
                 </label>
                 <input
                   type="text"
-                  value={formData.city}
-                  onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                   placeholder={f.fields.cityPlaceholder}
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  value={form.city}
+                  onChange={(e) => handleChange('city', e.target.value)}
+                  className={inputClass('city')}
                 />
               </div>
             </div>
 
-            {/* System Size */}
+            {/* System size */}
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
+                <Zap className="w-4 h-4 text-gold-500" />
                 {f.fields.systemSize}
               </label>
               <select
-                value={formData.systemSize}
-                onChange={(e) => setFormData({ ...formData, systemSize: e.target.value })}
-                className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                value={form.systemSize}
+                onChange={(e) => handleChange('systemSize', e.target.value)}
+                className={`${inputClass('systemSize')} cursor-pointer`}
               >
                 <option value="">{f.fields.systemSizePlaceholder}</option>
                 {f.systemSizes.map((size) => (
@@ -145,35 +173,31 @@ export default function InquiryForm() {
 
             {/* Message */}
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label className="flex items-center gap-2 text-sm font-semibold text-navy-700 mb-2">
+                <MessageSquare className="w-4 h-4 text-navy-400" />
                 {f.fields.message}
               </label>
               <textarea
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder={f.fields.messagePlaceholder}
                 rows={4}
-                className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"
+                placeholder={f.fields.messagePlaceholder}
+                value={form.message}
+                onChange={(e) => handleChange('message', e.target.value)}
+                className={`${inputClass('message')} resize-none`}
               />
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
-              disabled={submitting}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-green-500 hover:bg-green-600 disabled:opacity-60 text-white font-semibold rounded-lg transition-colors shadow-md"
+              className="w-full flex items-center justify-center gap-3 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold py-4 rounded-xl text-base transition-all duration-200 shadow-gold-sm hover:shadow-gold-md hover:-translate-y-0.5"
             >
-              {submitting ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  {f.submitting}
-                </>
-              ) : (
-                <>
-                  <MessageCircle className="w-5 h-5" />
-                  {f.submit}
-                </>
-              )}
+              <Send className="w-5 h-5" />
+              {f.submit}
             </button>
+
+            <p className="text-center text-xs text-navy-400">
+              Your details will be sent securely via WhatsApp. We respond within 2 hours.
+            </p>
           </form>
         </div>
       </div>

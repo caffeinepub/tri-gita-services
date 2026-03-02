@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Landmark, MessageCircle } from 'lucide-react';
+import { Landmark, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 import { useTranslation } from '../i18n/useTranslation';
 
 export default function BankFinanceBanner() {
@@ -7,78 +8,97 @@ export default function BankFinanceBanner() {
   const b = t.bankFinanceBanner;
 
   const bannerRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
-      setVisible(true);
-      return;
-    }
+    if (prefersReduced) { setIsVisible(true); return; }
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
       { threshold: 0.2 }
     );
     if (bannerRef.current) observer.observe(bannerRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const statIcons = [TrendingUp, CheckCircle, Clock];
+
   return (
-    <section ref={bannerRef} className="py-20 bg-charcoal-900 relative overflow-hidden">
+    <section
+      ref={bannerRef}
+      className="relative py-20 lg:py-28 overflow-hidden bg-navy-800"
+    >
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-teal-900/50" />
+
       {/* Shimmer overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 animate-[banner-shimmer_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-banner-shimmer" />
       </div>
+
+      {/* Decorative circles */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/5 rounded-full translate-y-1/2 -translate-x-1/2" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center transition-all duration-700 ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-500/20 rounded-full mb-6">
-            <Landmark className="w-8 h-8 text-amber-400" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{b.title}</h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-12">{b.subtitle}</p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-12">
-          {b.stats.map((stat, i) => (
-            <div
-              key={i}
-              className={`text-center bg-white/10 rounded-xl p-6 border border-white/10 transition-all duration-700 ${
-                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              } ${i === 1 ? 'animate-[stat-pulse-glow_3s_ease-in-out_infinite]' : ''}`}
-              style={{ transitionDelay: visible ? `${200 + i * 150}ms` : '0ms' }}
-            >
-              <div className="text-4xl font-black text-amber-400 mb-2">{stat.value}</div>
-              <div className="text-sm text-white/70">{stat.label}</div>
+          {/* Icon + heading */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gold-500/20 border border-gold-500/30 rounded-2xl mb-6">
+              <Landmark className="w-8 h-8 text-gold-400" />
             </div>
-          ))}
-        </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              {b.title}
+            </h2>
+            <p className="text-navy-300 text-lg max-w-2xl mx-auto">
+              {b.subtitle}
+            </p>
+          </div>
 
-        {/* CTA */}
-        <div
-          className={`text-center transition-all duration-700 delay-700 ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <a
-            href="https://wa.me/917838867880"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+          {/* Stats */}
+          <div
+            className={`grid sm:grid-cols-3 gap-6 mb-12 transition-all duration-700 delay-200 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
           >
-            <MessageCircle className="w-5 h-5" />
-            {b.cta}
-          </a>
+            {b.stats.map((stat, i) => {
+              const StatIcon = statIcons[i];
+              return (
+                <div
+                  key={i}
+                  className={`bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center ${
+                    i === 0 ? 'animate-stat-pulse-glow' : ''
+                  }`}
+                  style={{ transitionDelay: `${200 + i * 150}ms` }}
+                >
+                  <div className="inline-flex items-center justify-center w-10 h-10 bg-gold-500/20 rounded-xl mb-4">
+                    <StatIcon className="w-5 h-5 text-gold-400" />
+                  </div>
+                  <div className="font-display text-3xl font-bold text-gold-400 mb-1">{stat.value}</div>
+                  <div className="text-navy-300 text-sm">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <div
+            className={`text-center transition-all duration-700 delay-500 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <a
+              href="https://wa.me/917838867880"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 shadow-teal-md hover:-translate-y-0.5 hover:scale-105"
+            >
+              <SiWhatsapp className="w-6 h-6" />
+              {b.cta}
+            </a>
+          </div>
         </div>
       </div>
     </section>

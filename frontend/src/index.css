@@ -1,225 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --radius: 0.75rem;
+  :root {
+    /* Deep Navy + Emerald Gold Theme */
+    --background: oklch(0.98 0.005 240);
+    --foreground: oklch(0.15 0.03 240);
 
-        /* Warm Amber / Golden — Primary */
-        --primary: 0.74 0.17 68;
-        --primary-foreground: 0.12 0.03 55;
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.15 0.03 240);
 
-        /* Deep Charcoal — Secondary */
-        --secondary: 0.28 0.03 250;
-        --secondary-foreground: 0.95 0.02 80;
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.15 0.03 240);
 
-        /* Off-white warm background */
-        --background: 0.97 0.01 80;
-        --foreground: 0.16 0.03 55;
+    /* Deep Navy Blue as primary */
+    --primary: oklch(0.28 0.09 245);
+    --primary-foreground: oklch(0.98 0.005 240);
 
-        /* Card */
-        --card: 1 0 0;
-        --card-foreground: 0.16 0.03 55;
+    /* Teal-green secondary */
+    --secondary: oklch(0.94 0.02 180);
+    --secondary-foreground: oklch(0.28 0.09 245);
 
-        /* Popover */
-        --popover: 1 0 0;
-        --popover-foreground: 0.16 0.03 55;
+    /* Warm Gold accent */
+    --accent: oklch(0.72 0.16 75);
+    --accent-foreground: oklch(0.15 0.03 240);
 
-        /* Muted */
-        --muted: 0.93 0.02 75;
-        --muted-foreground: 0.50 0.04 65;
+    --muted: oklch(0.94 0.01 240);
+    --muted-foreground: oklch(0.50 0.03 240);
 
-        /* Accent — Bright Orange-Amber */
-        --accent: 0.68 0.20 48;
-        --accent-foreground: 0.98 0.01 80;
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(0.98 0.005 240);
 
-        /* Destructive */
-        --destructive: 0.577 0.245 27.325;
-        --destructive-foreground: 0.985 0 0;
+    --border: oklch(0.88 0.02 240);
+    --input: oklch(0.88 0.02 240);
+    --ring: oklch(0.72 0.16 75);
 
-        /* Border & Input */
-        --border: 0.86 0.04 75;
-        --input: 0.86 0.04 75;
-        --ring: 0.74 0.17 68;
+    --success: oklch(0.60 0.15 155);
+    --warning: oklch(0.72 0.16 75);
 
-        /* Charts */
-        --chart-1: 0.74 0.17 68;
-        --chart-2: 0.28 0.03 250;
-        --chart-3: 0.68 0.20 48;
-        --chart-4: 0.60 0.15 200;
-        --chart-5: 0.65 0.20 30;
+    --radius: 0.5rem;
 
-        /* Sidebar */
-        --sidebar: 0.16 0.03 55;
-        --sidebar-foreground: 0.95 0.02 80;
-        --sidebar-primary: 0.74 0.17 68;
-        --sidebar-primary-foreground: 0.12 0.03 55;
-        --sidebar-accent: 0.26 0.05 55;
-        --sidebar-accent-foreground: 0.95 0.02 80;
-        --sidebar-border: 0.26 0.04 55;
-        --sidebar-ring: 0.74 0.17 68;
-    }
+    /* Custom solar palette */
+    --navy-50: oklch(0.97 0.01 245);
+    --navy-100: oklch(0.93 0.03 245);
+    --navy-200: oklch(0.85 0.05 245);
+    --navy-300: oklch(0.72 0.08 245);
+    --navy-400: oklch(0.55 0.10 245);
+    --navy-500: oklch(0.42 0.10 245);
+    --navy-600: oklch(0.35 0.10 245);
+    --navy-700: oklch(0.28 0.09 245);
+    --navy-800: oklch(0.22 0.07 245);
+    --navy-900: oklch(0.16 0.05 245);
 
-    .dark {
-        /* Deep charcoal dark background */
-        --background: 0.13 0.02 255;
-        --foreground: 0.94 0.02 80;
-        --card: 0.18 0.03 255;
-        --card-foreground: 0.94 0.02 80;
-        --popover: 0.20 0.03 255;
-        --popover-foreground: 0.94 0.02 80;
-        --primary: 0.74 0.17 68;
-        --primary-foreground: 0.12 0.03 55;
-        --secondary: 0.30 0.04 255;
-        --secondary-foreground: 0.94 0.02 80;
-        --muted: 0.22 0.03 255;
-        --muted-foreground: 0.62 0.04 70;
-        --accent: 0.68 0.20 48;
-        --accent-foreground: 0.98 0.01 80;
-        --destructive: 0.704 0.191 22.216;
-        --destructive-foreground: 0.205 0 0;
-        --border: 1 0 0 / 12%;
-        --input: 1 0 0 / 15%;
-        --ring: 0.74 0.17 68;
-        --sidebar: 0.16 0.03 255;
-        --sidebar-foreground: 0.94 0.02 80;
-        --sidebar-primary: 0.74 0.17 68;
-        --sidebar-primary-foreground: 0.12 0.03 55;
-        --sidebar-accent: 0.26 0.05 255;
-        --sidebar-accent-foreground: 0.94 0.02 80;
-        --sidebar-border: 1 0 0 / 10%;
-        --sidebar-ring: 0.74 0.17 68;
-    }
+    --gold-50: oklch(0.98 0.03 80);
+    --gold-100: oklch(0.95 0.06 78);
+    --gold-200: oklch(0.90 0.10 76);
+    --gold-300: oklch(0.84 0.14 75);
+    --gold-400: oklch(0.78 0.16 74);
+    --gold-500: oklch(0.72 0.16 75);
+    --gold-600: oklch(0.64 0.15 72);
+    --gold-700: oklch(0.55 0.13 70);
+    --gold-800: oklch(0.44 0.10 68);
+    --gold-900: oklch(0.34 0.08 65);
 
-    * {
-        @apply border-border;
-    }
+    --teal-50: oklch(0.97 0.02 185);
+    --teal-100: oklch(0.93 0.05 183);
+    --teal-200: oklch(0.86 0.08 182);
+    --teal-300: oklch(0.76 0.11 180);
+    --teal-400: oklch(0.64 0.13 178);
+    --teal-500: oklch(0.54 0.13 177);
+    --teal-600: oklch(0.46 0.12 176);
+    --teal-700: oklch(0.38 0.10 175);
+    --teal-800: oklch(0.30 0.08 174);
+    --teal-900: oklch(0.22 0.06 173);
+  }
 
-    body {
-        @apply bg-background text-foreground;
-        font-family: 'Inter', sans-serif;
-    }
+  .dark {
+    --background: oklch(0.12 0.03 245);
+    --foreground: oklch(0.95 0.01 240);
 
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Montserrat', sans-serif;
-    }
+    --card: oklch(0.17 0.04 245);
+    --card-foreground: oklch(0.95 0.01 240);
+
+    --popover: oklch(0.17 0.04 245);
+    --popover-foreground: oklch(0.95 0.01 240);
+
+    --primary: oklch(0.72 0.16 75);
+    --primary-foreground: oklch(0.12 0.03 245);
+
+    --secondary: oklch(0.22 0.05 245);
+    --secondary-foreground: oklch(0.95 0.01 240);
+
+    --accent: oklch(0.54 0.13 177);
+    --accent-foreground: oklch(0.95 0.01 240);
+
+    --muted: oklch(0.22 0.04 245);
+    --muted-foreground: oklch(0.65 0.03 240);
+
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(0.98 0.005 240);
+
+    --border: oklch(0.28 0.05 245);
+    --input: oklch(0.28 0.05 245);
+    --ring: oklch(0.72 0.16 75);
+  }
 }
 
-@layer utilities {
-    .solar-gradient {
-        background: linear-gradient(135deg, oklch(0.74 0.17 68) 0%, oklch(0.68 0.20 48) 100%);
-    }
-
-    .green-gradient {
-        background: linear-gradient(135deg, oklch(0.28 0.03 250) 0%, oklch(0.22 0.04 255) 100%);
-    }
-
-    .hero-overlay {
-        background: linear-gradient(
-            to right,
-            oklch(0.10 0.03 255 / 0.88) 0%,
-            oklch(0.10 0.03 255 / 0.58) 60%,
-            oklch(0.10 0.03 255 / 0.15) 100%
-        );
-    }
-
-    .card-solar {
-        @apply bg-card rounded-xl shadow-card border border-border;
-    }
-
-    .section-padding {
-        @apply py-16 px-4 md:px-8;
-    }
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
-/* ─── BankFinanceBanner Animations ─────────────────────────────────────────── */
-
-/* Shimmer sweep across the banner background */
+/* ── BankFinanceBanner animations ── */
 @keyframes banner-shimmer {
-    0% {
-        transform: translateX(-100%) skewX(-15deg);
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(200%) skewX(-15deg);
-        opacity: 0;
-    }
+  0% { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(300%) skewX(-15deg); opacity: 0; }
 }
 
-.banner-shimmer::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.18) 50%,
-        transparent 70%
-    );
-    animation: banner-shimmer 3.5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* Pulse glow on the 90% stat card */
 @keyframes stat-pulse-glow {
-    0%, 100% {
-        box-shadow: 0 0 0 0 oklch(0.16 0.05 145 / 0.35),
-                    0 0 12px 2px oklch(0.74 0.17 68 / 0.20);
-    }
-    50% {
-        box-shadow: 0 0 0 8px oklch(0.16 0.05 145 / 0),
-                    0 0 24px 6px oklch(0.74 0.17 68 / 0.35);
-    }
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.72 0.16 75 / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px oklch(0.72 0.16 75 / 0);
+  }
 }
 
-.stat-glow {
-    animation: stat-pulse-glow 2.2s ease-in-out infinite;
-}
-
-/* ─── Subsidy Structure Animations ─────────────────────────────────────────── */
-
-/* Animated shimmer bar under the subsidy heading */
-@keyframes subsidy-bar-shimmer {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
+/* ── Subsidy shimmer bar ── */
+@keyframes subsidy-shimmer-bar {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
 .subsidy-shimmer-bar {
-    background: linear-gradient(
-        90deg,
-        oklch(0.74 0.17 68) 0%,
-        oklch(0.90 0.20 68) 40%,
-        oklch(0.68 0.20 48) 60%,
-        oklch(0.74 0.17 68) 100%
-    );
-    background-size: 200% auto;
-    animation: subsidy-bar-shimmer 2.5s linear infinite;
+  background: linear-gradient(
+    90deg,
+    oklch(0.72 0.16 75) 0%,
+    oklch(0.84 0.14 75) 40%,
+    oklch(0.72 0.16 75) 60%,
+    oklch(0.55 0.13 70) 100%
+  );
+  background-size: 200% auto;
+  animation: subsidy-shimmer-bar 3s linear infinite;
 }
 
-/* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-    .banner-shimmer::after {
-        animation: none;
-    }
-
-    .stat-glow {
-        animation: none;
-    }
-
-    .subsidy-shimmer-bar {
-        animation: none;
-    }
+  .subsidy-shimmer-bar {
+    animation: none;
+    background: oklch(0.72 0.16 75);
+  }
+  .animate-banner-shimmer,
+  .animate-stat-pulse-glow {
+    animation: none !important;
+  }
 }
