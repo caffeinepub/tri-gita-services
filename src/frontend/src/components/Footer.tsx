@@ -1,4 +1,4 @@
-import { Heart, Mail, MapPin, Phone, Sun } from "lucide-react";
+import { Heart, Mail, MapPin, Phone } from "lucide-react";
 import React from "react";
 import { SiWhatsapp } from "react-icons/si";
 import { useTranslation } from "../i18n/useTranslation";
@@ -21,9 +21,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center">
-                <Sun className="w-6 h-6 text-navy-900" />
-              </div>
+              <img
+                src="/assets/uploads/Screenshot_20260228_060558_Chrome-2-3-1.jpg"
+                alt="TRI-GITA SERVICES Logo"
+                className="w-10 h-10 rounded-full object-cover shadow-md"
+              />
               <div>
                 <div className="text-white font-bold text-base">
                   TRI-GITA SERVICES

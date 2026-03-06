@@ -50,6 +50,7 @@ export default {
         amber: {
           900: 'oklch(0.28 0.10 55)',
         },
+        success: 'oklch(var(--success))',
         border: 'oklch(var(--border))',
         input: 'oklch(var(--input))',
         ring: 'oklch(var(--ring))',

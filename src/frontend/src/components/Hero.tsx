@@ -25,23 +25,38 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/assets/generated/sambalpur-solar-hero.dim_1400x700.jpg')",
+            "url('/assets/generated/sambalpur-solar-hero.dim_1600x900.jpg')",
+          backgroundPosition: "center center",
+          imageRendering: "auto",
+          filter: "contrast(1.05) saturate(1.1) brightness(1.0)",
         }}
       />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-800/75 to-amber-900/50" />
+      {/* Gradient Overlay - deep blue and teal tone */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 via-teal-900/30 to-blue-950/60" />
+
+      {/* Left-to-right teal tint layer for full immersive deep blue/teal effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-teal-800/20" />
 
       {/* Decorative solar rays */}
-      <div className="absolute top-0 right-0 w-96 h-96 opacity-10">
-        <div className="w-full h-full rounded-full bg-gold-400 blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 opacity-20">
+        <div className="w-full h-full rounded-full bg-blue-600 blur-3xl" />
       </div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-10">
-        <div className="w-full h-full rounded-full bg-teal-400 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20">
+        <div className="w-full h-full rounded-full bg-teal-500 blur-3xl" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        {/* Logo */}
+        <div className="flex justify-center mb-4">
+          <img
+            src="/assets/uploads/Screenshot_20260228_060558_Chrome-2-3-1.jpg"
+            alt="TRI-GITA SERVICES Logo"
+            className="w-20 h-20 rounded-full object-cover shadow-2xl border-2 border-gold-400/60"
+          />
+        </div>
+
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/40 text-gold-300 px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
           <Sun className="w-4 h-4 text-gold-400" />

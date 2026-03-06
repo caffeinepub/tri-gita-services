@@ -348,6 +348,27 @@ export const translations = {
       builtWith: "Built with",
       builtWithSuffix: "using caffeine.ai",
     },
+    pricing: {
+      sectionBadge: "Solar System Pricing",
+      title: "Solar System Prices",
+      subtitle:
+        "Transparent, competitive pricing for quality solar installations across Odisha",
+      systemLabel: "Solar System",
+      mostPopular: "Most Popular",
+      popular1: "Ideal for small homes & 1–2 BHK",
+      popular2: "Best for medium homes & 2–3 BHK",
+      popular3: "Perfect for large homes & commercial",
+      feature1: "MNRE-approved DCR panels",
+      feature2: "Subsidy eligible under PM Surya Ghar",
+      feature3: "Installation & commissioning included",
+      discountTitle: "Discount Available",
+      discountDesc:
+        "Special discount available after Government portal registration",
+      regFeeTitle: "Registration Fee: ZERO",
+      regFeeDesc:
+        "No charges to register — completely free government registration",
+      inquireWhatsApp: "Inquire on WhatsApp",
+    },
     floating: {
       tooltip: "Chat on WhatsApp",
     },
@@ -355,6 +376,73 @@ export const translations = {
       en: "EN",
       hi: "HI",
       od: "OD",
+    },
+    customerReview: {
+      title: "Share Your Experience",
+      subtitle: "Tell us about your solar installation journey",
+      namePlaceholder: "Your Full Name",
+      locationPlaceholder: "Your City / District",
+      ratingLabel: "Your Rating",
+      reviewPlaceholder: "Write your review here...",
+      submitBtn: "Submit Review",
+      submitting: "Submitting...",
+      successMsg: "Thank you! Your review has been submitted.",
+      nameRequired: "Name is required",
+      locationRequired: "Location is required",
+      reviewRequired: "Please write a review",
+      ratingRequired: "Please select a rating",
+      recentReviews: "Recent Reviews",
+      noReviews: "Be the first to leave a review!",
+      sectionBadge: "Customer Reviews",
+    },
+    testimonials: {
+      title: "What Our Customers Say",
+      subtitle:
+        "Real stories from real families across Odisha powering their homes with solar energy",
+      customers: [
+        {
+          name: "Ramesh Kumar Patel",
+          location: "Sambalpur, Odisha",
+          system: "3 kW System",
+          quote:
+            "We received the full ₹1,38,000 subsidy directly in our bank account within 30 days. The TRI-GITA SERVICES team handled all paperwork — we didn't have to worry about anything. Excellent service!",
+        },
+        {
+          name: "Sunita Devi",
+          location: "Bhubaneswar, Odisha",
+          system: "2 kW System",
+          quote:
+            "My electricity bill has reduced by ₹1,500 every month. I am very happy with the installation. The panels are of very good quality and the team was professional and on time.",
+        },
+        {
+          name: "Bijay Nayak",
+          location: "Cuttack, Odisha",
+          system: "1 kW System",
+          quote:
+            "The registration process on the PM Surya Ghar portal was very easy because the team guided us every step of the way. Very helpful and cooperative staff. Highly recommended!",
+        },
+        {
+          name: "Priya Sahoo",
+          location: "Berhampur, Odisha",
+          system: "3 kW System",
+          quote:
+            "The solar panel quality is excellent and I feel very secure knowing there is 25-year warranty and 5 years of free service from the vendor. Best investment I've made for my home!",
+        },
+        {
+          name: "Manoj Jena",
+          location: "Balasore, Odisha",
+          system: "2 kW System",
+          quote:
+            "Getting 90% bank loan made it very easy for us to install solar without any financial burden. The entire process from application to installation was smooth and hassle-free.",
+        },
+        {
+          name: "Santosh Behera",
+          location: "Rourkela, Odisha",
+          system: "3 kW System",
+          quote:
+            "I was amazed — the government subsidy of ₹1,38,000 was credited directly to my bank account within just 30 days of commissioning. TRI-GITA SERVICES made the whole process effortless.",
+        },
+      ],
     },
   },
   hi: {
@@ -678,6 +766,24 @@ export const translations = {
       builtWith: "के साथ बनाया",
       builtWithSuffix: "caffeine.ai का उपयोग करके",
     },
+    pricing: {
+      sectionBadge: "सौर सिस्टम मूल्य सूची",
+      title: "सौर सिस्टम की कीमतें",
+      subtitle: "ओडिशा में गुणवत्तापूर्ण सौर स्थापना के लिए पारदर्शी और प्रतिस्पर्धी मूल्य",
+      systemLabel: "सौर सिस्टम",
+      mostPopular: "सबसे लोकप्रिय",
+      popular1: "छोटे घरों और 1–2 BHK के लिए उपयुक्त",
+      popular2: "मध्यम घरों और 2–3 BHK के लिए सर्वश्रेष्ठ",
+      popular3: "बड़े घरों और व्यावसायिक उपयोग के लिए",
+      feature1: "MNRE-अनुमोदित DCR पैनल",
+      feature2: "पीएम सूर्य घर सब्सिडी पात्र",
+      feature3: "स्थापना और कमीशनिंग शामिल",
+      discountTitle: "छूट उपलब्ध",
+      discountDesc: "सरकारी पोर्टल पंजीकरण के बाद विशेष छूट उपलब्ध",
+      regFeeTitle: "पंजीकरण शुल्क: शून्य",
+      regFeeDesc: "पंजीकरण के लिए कोई शुल्क नहीं — पूरी तरह मुफ्त सरकारी पंजीकरण",
+      inquireWhatsApp: "व्हाट्सएप पर पूछें",
+    },
     floating: {
       tooltip: "व्हाट्सएप पर चैट करें",
     },
@@ -685,6 +791,73 @@ export const translations = {
       en: "EN",
       hi: "HI",
       od: "OD",
+    },
+    customerReview: {
+      title: "अपना अनुभव साझा करें",
+      subtitle: "अपनी सौर स्थापना यात्रा के बारे में बताएं",
+      namePlaceholder: "आपका पूरा नाम",
+      locationPlaceholder: "आपका शहर / जिला",
+      ratingLabel: "आपकी रेटिंग",
+      reviewPlaceholder: "यहाँ अपनी समीक्षा लिखें...",
+      submitBtn: "समीक्षा सबमिट करें",
+      submitting: "सबमिट हो रहा है...",
+      successMsg: "धन्यवाद! आपकी समीक्षा सबमिट हो गई।",
+      nameRequired: "नाम आवश्यक है",
+      locationRequired: "स्थान आवश्यक है",
+      reviewRequired: "कृपया समीक्षा लिखें",
+      ratingRequired: "कृपया रेटिंग चुनें",
+      recentReviews: "हाल की समीक्षाएं",
+      noReviews: "पहली समीक्षा लिखने वाले बनें!",
+      sectionBadge: "ग्राहक समीक्षा",
+    },
+    testimonials: {
+      title: "हमारे ग्राहक क्या कहते हैं",
+      subtitle:
+        "ओडिशा के असली परिवारों की सच्ची कहानियां जो सौर ऊर्जा से अपने घर रोशन कर रहे हैं",
+      customers: [
+        {
+          name: "रमेश कुमार पटेल",
+          location: "संबलपुर, ओडिशा",
+          system: "3 kW सिस्टम",
+          quote:
+            "हमें 30 दिनों के भीतर सीधे बैंक खाते में पूरी ₹1,38,000 सब्सिडी मिली। TRI-GITA SERVICES टीम ने सारी कागजी कार्रवाई संभाली — हमें कुछ भी चिंता नहीं करनी पड़ी। बहुत बढ़िया सेवा!",
+        },
+        {
+          name: "सुनीता देवी",
+          location: "भुवनेश्वर, ओडिशा",
+          system: "2 kW सिस्टम",
+          quote:
+            "मेरा बिजली बिल हर महीने ₹1,500 कम हो गया है। मैं स्थापना से बहुत खुश हूं। पैनल बहुत अच्छी गुणवत्ता के हैं और टीम पेशेवर और समय पर थी।",
+        },
+        {
+          name: "बिजय नायक",
+          location: "कटक, ओडिशा",
+          system: "1 kW सिस्टम",
+          quote:
+            "पीएम सूर्य घर पोर्टल पर पंजीकरण प्रक्रिया बहुत आसान थी क्योंकि टीम ने हर कदम पर मार्गदर्शन किया। बहुत सहायक और सहयोगी कर्मचारी। अत्यधिक अनुशंसित!",
+        },
+        {
+          name: "प्रिया साहू",
+          location: "बेरहामपुर, ओडिशा",
+          system: "3 kW सिस्टम",
+          quote:
+            "सौर पैनल की गुणवत्ता उत्कृष्ट है और 25 साल की वारंटी और विक्रेता से 5 साल की मुफ्त सेवा जानकर बहुत सुरक्षित महसूस करती हूं। अपने घर के लिए किया गया सबसे अच्छा निवेश!",
+        },
+        {
+          name: "मनोज जेना",
+          location: "बालासोर, ओडिशा",
+          system: "2 kW सिस्टम",
+          quote:
+            "90% बैंक लोन मिलने से बिना किसी वित्तीय बोझ के सौर ऊर्जा लगाना बहुत आसान हो गया। आवेदन से लेकर स्थापना तक पूरी प्रक्रिया आसान और परेशानी मुक्त थी।",
+        },
+        {
+          name: "संतोष बेहेरा",
+          location: "राउरकेला, ओडिशा",
+          system: "3 kW सिस्टम",
+          quote:
+            "मैं चकित था — कमीशनिंग के महज 30 दिनों के भीतर ₹1,38,000 की सरकारी सब्सिडी सीधे मेरे बैंक खाते में आ गई। TRI-GITA SERVICES ने पूरी प्रक्रिया को सहज बना दिया।",
+        },
+      ],
     },
   },
   od: {
@@ -1001,6 +1174,24 @@ export const translations = {
       builtWith: "ସହ ନିର୍ମିତ",
       builtWithSuffix: "caffeine.ai ବ୍ୟବହାର କରି",
     },
+    pricing: {
+      sectionBadge: "ସୌର ସିଷ୍ଟମ ମୂଲ୍ୟ",
+      title: "ସୌର ସିଷ୍ଟମ ମୂଲ୍ୟ ତାଲିକା",
+      subtitle: "ଓଡ଼ିଶାରେ ଗୁଣବତ୍ତାସମ୍ପନ୍ନ ସୌର ସ୍ଥାପନ ପାଇଁ ସ୍ୱଚ୍ଛ ଓ ପ୍ରତିଯୋଗିତାମୂଳକ ମୂଲ୍ୟ",
+      systemLabel: "ସୌର ସିଷ୍ଟମ",
+      mostPopular: "ସର୍ବାଧିକ ଲୋକପ୍ରିୟ",
+      popular1: "ଛୋଟ ଘର ଓ 1–2 BHK ପାଇଁ ଉଚିତ",
+      popular2: "ମଧ୍ୟମ ଘର ଓ 2–3 BHK ପାଇଁ ସର୍ବୋତ୍ତମ",
+      popular3: "ବଡ ଘର ଓ ବ୍ୟବସାୟ ପାଇଁ ଉପଯୁକ୍ତ",
+      feature1: "MNRE-ଅନୁମୋଦିତ DCR ପ୍ୟାନେଲ",
+      feature2: "ପିଏମ ସୂର୍ଯ୍ୟ ଘର ସବ୍ସିଡି ଯୋଗ୍ୟ",
+      feature3: "ସ୍ଥାପନ ଓ କମିଶନିଂ ଅନ୍ତର୍ଭୁକ୍ତ",
+      discountTitle: "ଛାଡ ଉପଲବ୍ଧ",
+      discountDesc: "ସରକାରୀ ପୋର୍ଟାଲ ପଞ୍ଜୀକରଣ ପରେ ବିଶେଷ ଛାଡ ଉପଲବ୍ଧ",
+      regFeeTitle: "ପଞ୍ଜୀକରଣ ଶୁଳ୍କ: ଶୂନ",
+      regFeeDesc: "ପଞ୍ଜୀକରଣ ପାଇଁ କୌଣସି ଶୁଳ୍କ ନାହିଁ — ସମ୍ପୂର୍ଣ ମାଗଣା ସରକାରୀ ପଞ୍ଜୀକରଣ",
+      inquireWhatsApp: "WhatsApp ରେ ପଚାରନ୍ତୁ",
+    },
     floating: {
       tooltip: "ହ୍ୱାଟ୍ସଆପରେ ଚ୍ୟାଟ",
     },
@@ -1008,6 +1199,72 @@ export const translations = {
       en: "EN",
       hi: "HI",
       od: "OD",
+    },
+    customerReview: {
+      title: "ଆପଣଙ୍କ ଅଭିଜ୍ଞତା ଅଂଶୀଦାର କରନ୍ତୁ",
+      subtitle: "ଆପଣଙ୍କ ସୌର ସ୍ଥାପନ ଯାତ୍ରା ବିଷୟରେ ଜଣାନ୍ତୁ",
+      namePlaceholder: "ଆପଣଙ୍କ ପୂରା ନାମ",
+      locationPlaceholder: "ଆପଣଙ୍କ ସହର / ଜିଲ୍ଲା",
+      ratingLabel: "ଆପଣଙ୍କ ରେଟିଂ",
+      reviewPlaceholder: "ଏଠାରେ ଆପଣଙ୍କ ସମୀକ୍ଷା ଲିଖନ୍ତୁ...",
+      submitBtn: "ସମୀକ୍ଷା ଦାଖଲ କରନ୍ତୁ",
+      submitting: "ଦାଖଲ ହେଉଛି...",
+      successMsg: "ଧନ୍ୟବାଦ! ଆପଣଙ୍କ ସମୀକ୍ଷା ଦାଖଲ ହୋଇଗଲା।",
+      nameRequired: "ନାମ ଆବଶ୍ୟକ",
+      locationRequired: "ସ୍ଥାନ ଆବଶ୍ୟକ",
+      reviewRequired: "ଦୟାକରି ସମୀକ୍ଷା ଲିଖନ୍ତୁ",
+      ratingRequired: "ଦୟାକରି ରେଟିଂ ବାଛନ୍ତୁ",
+      recentReviews: "ସାମ୍ପ୍ରତିକ ସମୀକ୍ଷା",
+      noReviews: "ପ୍ରଥମ ସମୀକ୍ଷା ଦିଅନ୍ତୁ!",
+      sectionBadge: "ଗ୍ରାହକ ସମୀକ୍ଷା",
+    },
+    testimonials: {
+      title: "ଆମ ଗ୍ରାହକମାନେ କ'ଣ କହୁଛନ୍ତି",
+      subtitle: "ଓଡ଼ିଶାର ଅସଲ ପରିବାରଙ୍କ ସତ୍ୟ କାହାଣୀ ଯେଉଁମାନେ ସୌର ଶକ୍ତିରେ ଘର ଆଲୋକିତ କରୁଛନ୍ତି",
+      customers: [
+        {
+          name: "ରମେଶ କୁମାର ପଟ୍ଟନାୟକ",
+          location: "ସମ୍ବଲପୁର, ଓଡ଼ିଶା",
+          system: "3 kW ସିଷ୍ଟମ",
+          quote:
+            "ଆମ ବ୍ୟାଙ୍କ ଖାତାରେ 30 ଦିନ ମଧ୍ୟରେ ସିଧାସଳଖ ₹1,38,000 ସବ୍ସିଡି ମିଳିଲା। TRI-GITA SERVICES ଦଳ ସମସ୍ତ କାଗଜ ସମ୍ଭାଳିଲେ — ଆମକୁ କୌଣସି ଚିନ୍ତା କରିବାକୁ ପଡ଼ିଲା ନାହିଁ। ଅସାଧାରଣ ସେବା!",
+        },
+        {
+          name: "ସୁନୀତା ଦେଵୀ",
+          location: "ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶା",
+          system: "2 kW ସିଷ୍ଟମ",
+          quote:
+            "ମୋ ବିଜଲି ବିଲ ପ୍ରତି ମାସ ₹1,500 କମ ହୋଇଛି। ମୁଁ ସ୍ଥାପନରେ ଅତ୍ୟନ୍ତ ଖୁଶି। ପ୍ୟାନେଲ ଅତ୍ୟନ୍ତ ଭଲ ଗୁଣବତ୍ତାର ଏବଂ ଦଳ ବୃତ୍ତିଗତ ଓ ସମୟ ପ୍ରତି ସଚେତନ ଥିଲା।",
+        },
+        {
+          name: "ବିଜୟ ନାୟକ",
+          location: "କଟକ, ଓଡ଼ିଶା",
+          system: "1 kW ସିଷ୍ଟମ",
+          quote:
+            "ପୋର୍ଟାଲ ପଞ୍ଜୀକରଣ ଅତ୍ୟନ୍ତ ସହଜ ଥିଲା କାରଣ ଦଳ ପ୍ରତ୍ୟେକ ପଦକ୍ଷେପରେ ଗାଇଡ କଲେ। ଅତ୍ୟନ୍ତ ସହାୟକ ଓ ସହଯୋଗୀ କର୍ମଚାରୀ। ଦୃଢ ଭାବେ ଅନୁଶଂସା କରୁଛୁ!",
+        },
+        {
+          name: "ପ୍ରିୟା ସାହୁ",
+          location: "ବ୍ରହ୍ମପୁର, ଓଡ଼ିଶା",
+          system: "3 kW ସିଷ୍ଟମ",
+          quote:
+            "ସୌର ପ୍ୟାନେଲ ଗୁଣବତ୍ତା ଉତ୍କୃଷ୍ଟ ଏବଂ 25 ବର୍ଷ ୱାରେଣ୍ଟି ଓ 5 ବର୍ଷ ମାଗଣା ସେବା ଜାଣି ବହୁ ନିରାପଦ ଅନୁଭବ ହେଉଛି। ଘର ପାଇଁ ସର୍ବୋତ୍ତମ ବିନିଯୋଗ!",
+        },
+        {
+          name: "ମନୋଜ ଜେନା",
+          location: "ବାଲେଶ୍ୱର, ଓଡ଼ିଶା",
+          system: "2 kW ସିଷ୍ଟମ",
+          quote:
+            "90% ବ୍ୟାଙ୍କ ଋଣ ମିଳିଲା ଯାହା ଆମ ପାଇଁ ବିନା ଆର୍ଥିକ ଭାର ବିନା ସ୍ଥାପନ ଅତ୍ୟନ୍ତ ସହଜ ହୋଇଗଲା। ଆବେଦନଠାରୁ ସ୍ଥାପନ ପର୍ଯ୍ୟନ୍ତ ସମ୍ପୂର୍ଣ ପ୍ରକ୍ରିୟା ସୁଗମ ଓ ଝଞ୍ଜଟ ମୁକ୍ତ ଥିଲା।",
+        },
+        {
+          name: "ସନ୍ତୋଷ ବେହେରା",
+          location: "ରାଉରକେଲା, ଓଡ଼ିଶା",
+          system: "3 kW ସିଷ୍ଟମ",
+          quote:
+            "ମୁଁ ଆଶ୍ଚର୍ଯ୍ୟ ହୋଇଗଲି — କମିଶନିଂ ପରେ ମାତ୍ର 30 ଦିନ ମଧ୍ୟରେ ₹1,38,000 ସରକାରୀ ସବ୍ସିଡି ସିଧାସଳଖ ବ୍ୟାଙ୍କ ଖାତାରେ ଆସିଗଲା। TRI-GITA SERVICES ସମ୍ପୂର୍ଣ ପ୍ରକ୍ରିୟା ଅନାୟାସ କରିଦଲେ।",
+        },
+      ],
     },
   },
 };

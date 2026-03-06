@@ -2,6 +2,7 @@ import React from "react";
 import BankFinanceBanner from "./components/BankFinanceBanner";
 import BranchesSection from "./components/BranchesSection";
 import Contact from "./components/Contact";
+import CustomerReview from "./components/CustomerReview";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -12,6 +13,9 @@ import OfferBanner from "./components/OfferBanner";
 import PMSuryaGharGuide from "./components/PMSuryaGharGuide";
 import SchemeInfo from "./components/SchemeInfo";
 import Services from "./components/Services";
+import SolarCalculator from "./components/SolarCalculator";
+import SolarPricing from "./components/SolarPricing";
+import Testimonials from "./components/Testimonials";
 import VisitorPopup from "./components/VisitorPopup";
 import WarrantyGuarantee from "./components/WarrantyGuarantee";
 import WhatsAppSection from "./components/WhatsAppSection";
@@ -29,6 +33,10 @@ function App() {
           <SchemeInfo />
           <PMSuryaGharGuide />
           <Services />
+          <SolarPricing />
+          <SolarCalculator />
+          <Testimonials />
+          <CustomerReview />
           <BranchesSection />
           <OdishaGuide />
           <BankFinanceBanner />

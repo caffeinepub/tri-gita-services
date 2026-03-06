@@ -1,4 +1,4 @@
-import { Menu, Phone, Sun, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import React, { useState } from "react";
 import { SiWhatsapp } from "react-icons/si";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -25,9 +25,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center shadow-gold">
-              <Sun className="w-6 h-6 text-navy-900" />
-            </div>
+            <img
+              src="/assets/uploads/Screenshot_20260228_060558_Chrome-2-3-1.jpg"
+              alt="TRI-GITA SERVICES Logo"
+              className="w-12 h-12 rounded-full object-cover shadow-md"
+            />
             <div className="leading-tight">
               <div className="text-slate-800 font-bold text-base tracking-wide">
                 TRI-GITA SERVICES
