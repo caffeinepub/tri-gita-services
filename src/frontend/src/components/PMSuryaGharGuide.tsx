@@ -41,18 +41,18 @@ export default function PMSuryaGharGuide() {
   ];
 
   return (
-    <section id="pm-guide" className="py-16 bg-navy-950">
+    <section id="pm-guide" className="py-16 bg-[oklch(0.97_0.02_80)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/40 text-gold-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-400/30 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="w-4 h-4" />
             PM Surya Ghar Muft Bijli Yojana
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 mb-3">
             {t.pmGuide.title}
           </h2>
-          <p className="text-navy-300 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             {t.pmGuide.subtitle}
           </p>
         </div>
@@ -79,12 +79,12 @@ export default function PMSuryaGharGuide() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xl">{PHASE_ICONS[idx]}</span>
-                    <span className="text-white font-bold text-lg">
+                    <span className="text-slate-800 font-bold text-lg">
                       {phase.title}
                     </span>
                   </div>
                 </div>
-                <div className="text-navy-400 flex-shrink-0">
+                <div className="text-slate-400 flex-shrink-0">
                   {expandedPhase === idx ? (
                     <ChevronUp className="w-5 h-5" />
                   ) : (
@@ -99,7 +99,7 @@ export default function PMSuryaGharGuide() {
                     {phase.steps.map((step: string) => (
                       <li key={step} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-navy-200 text-sm leading-relaxed">
+                        <span className="text-slate-600 text-sm leading-relaxed">
                           {step}
                         </span>
                       </li>
@@ -112,21 +112,21 @@ export default function PMSuryaGharGuide() {
         </div>
 
         {/* Why Choose Bhagyalaxmi */}
-        <div className="bg-navy-900 border border-gold-500/30 rounded-3xl p-8 mb-10">
-          <h3 className="text-2xl font-bold text-white text-center mb-6">
+        <div className="bg-white border border-amber-200 rounded-3xl p-8 mb-10 shadow-sm">
+          <h3 className="text-2xl font-bold text-slate-800 text-center mb-6">
             {t.pmGuide.whyTitle}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {whyCards.map((card) => (
               <div
                 key={card.title}
-                className="bg-navy-800 rounded-2xl p-5 text-center border border-navy-700 hover:border-gold-500/50 transition-colors"
+                className="bg-slate-50 rounded-2xl p-5 text-center border border-slate-200 hover:border-amber-300 transition-colors"
               >
                 <div className="text-4xl mb-3">{card.icon}</div>
-                <h4 className="text-gold-400 font-bold text-base mb-2">
+                <h4 className="text-amber-600 font-bold text-base mb-2">
                   {card.title}
                 </h4>
-                <p className="text-navy-300 text-sm leading-relaxed">
+                <p className="text-slate-500 text-sm leading-relaxed">
                   {card.desc}
                 </p>
               </div>
@@ -135,33 +135,33 @@ export default function PMSuryaGharGuide() {
         </div>
 
         {/* Portal & Helpline */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center bg-navy-900 border border-teal-500/30 rounded-2xl p-6">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center bg-white border border-teal-200 rounded-2xl p-6 shadow-sm">
           <div className="flex items-center gap-3">
-            <ExternalLink className="w-5 h-5 text-teal-400" />
+            <ExternalLink className="w-5 h-5 text-teal-500" />
             <div>
-              <div className="text-navy-400 text-xs font-medium uppercase tracking-wider">
+              <div className="text-slate-400 text-xs font-medium uppercase tracking-wider">
                 {t.pmGuide.portalLabel}
               </div>
               <a
                 href="https://pmsuryaghar.gov.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-teal-400 font-bold hover:text-teal-300 transition-colors"
+                className="text-teal-600 font-bold hover:text-teal-500 transition-colors"
               >
                 {t.pmGuide.portalLink}
               </a>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-10 bg-navy-700" />
+          <div className="hidden sm:block w-px h-10 bg-slate-200" />
           <div className="flex items-center gap-3">
-            <Phone className="w-5 h-5 text-gold-400" />
+            <Phone className="w-5 h-5 text-amber-600" />
             <div>
-              <div className="text-navy-400 text-xs font-medium uppercase tracking-wider">
+              <div className="text-slate-400 text-xs font-medium uppercase tracking-wider">
                 {t.pmGuide.helplineLabel}
               </div>
               <a
                 href="tel:15555"
-                className="text-gold-400 font-bold text-xl hover:text-gold-300 transition-colors"
+                className="text-amber-600 font-bold text-xl hover:text-amber-700 transition-colors"
               >
                 {t.pmGuide.helplineNumber}
               </a>

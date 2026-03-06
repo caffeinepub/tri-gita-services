@@ -20,7 +20,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-navy-900 shadow-lg border-b border-navy-700">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
@@ -29,10 +29,10 @@ export default function Header() {
               <Sun className="w-6 h-6 text-navy-900" />
             </div>
             <div className="leading-tight">
-              <div className="text-white font-bold text-base tracking-wide">
+              <div className="text-slate-800 font-bold text-base tracking-wide">
                 TRI-GITA SERVICES
               </div>
-              <div className="text-gold-400 text-xs font-medium tracking-wider">
+              <div className="text-amber-600 text-xs font-medium tracking-wider">
                 BHAGYALAXMI CONSTRUCTION
               </div>
             </div>
@@ -44,7 +44,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-navy-200 hover:text-gold-400 text-sm font-medium transition-colors"
+                className="text-slate-600 hover:text-amber-600 text-sm font-medium transition-colors"
               >
                 {link.label}
               </a>
@@ -54,7 +54,7 @@ export default function Header() {
           {/* Right Actions */}
           <div className="flex items-center gap-3">
             {/* Language Switcher */}
-            <div className="hidden sm:flex items-center gap-1 bg-navy-800 rounded-full px-2 py-1">
+            <div className="hidden sm:flex items-center gap-1 bg-slate-100 rounded-full px-2 py-1">
               {(["en", "hi", "od"] as const).map((lang) => (
                 <button
                   key={lang}
@@ -62,8 +62,8 @@ export default function Header() {
                   onClick={() => setLanguage(lang)}
                   className={`px-2 py-0.5 rounded-full text-xs font-medium transition-colors ${
                     language === lang
-                      ? "bg-gold-500 text-navy-900"
-                      : "text-navy-300 hover:text-white"
+                      ? "bg-amber-500 text-white"
+                      : "text-slate-500 hover:text-slate-800"
                   }`}
                 >
                   {t.language[lang]}
@@ -85,7 +85,7 @@ export default function Header() {
             {/* Phone */}
             <a
               href="tel:+917838867880"
-              className="hidden lg:flex items-center gap-1 text-gold-400 hover:text-gold-300 text-sm font-medium"
+              className="hidden lg:flex items-center gap-1 text-amber-600 hover:text-amber-700 text-sm font-medium"
             >
               <Phone className="w-4 h-4" />
               <span>+91 78388 67880</span>
@@ -95,7 +95,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-white p-1"
+              className="md:hidden text-slate-700 p-1"
               aria-label="Toggle menu"
             >
               {menuOpen ? (
@@ -109,13 +109,13 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden border-t border-navy-700 py-4 space-y-3">
+          <div className="md:hidden border-t border-slate-200 py-4 space-y-3 bg-white">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block text-navy-200 hover:text-gold-400 text-sm font-medium py-1 transition-colors"
+                className="block text-slate-600 hover:text-amber-600 text-sm font-medium py-1 transition-colors"
               >
                 {link.label}
               </a>
@@ -128,8 +128,8 @@ export default function Header() {
                   onClick={() => setLanguage(lang)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                     language === lang
-                      ? "bg-gold-500 text-navy-900"
-                      : "bg-navy-800 text-navy-300 hover:text-white"
+                      ? "bg-amber-500 text-white"
+                      : "bg-slate-100 text-slate-500 hover:text-slate-800"
                   }`}
                 >
                   {t.language[lang]}

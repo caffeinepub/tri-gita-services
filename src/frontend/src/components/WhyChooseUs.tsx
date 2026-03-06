@@ -9,16 +9,16 @@ const accentMap: Record<
   { bg: string; icon: string; border: string; title: string }
 > = {
   navy: {
-    bg: "bg-navy-900",
-    icon: "text-gold-400",
-    border: "border-navy-700",
-    title: "text-gold-400",
+    bg: "bg-slate-700",
+    icon: "text-amber-400",
+    border: "border-slate-600",
+    title: "text-amber-400",
   },
   gold: {
-    bg: "bg-gold-500",
-    icon: "text-navy-900",
-    border: "border-gold-400",
-    title: "text-navy-900",
+    bg: "bg-amber-500",
+    icon: "text-white",
+    border: "border-amber-400",
+    title: "text-white",
   },
   teal: {
     bg: "bg-teal-500",
@@ -56,13 +56,13 @@ export default function WhyChooseUs() {
     <section id="why-us" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <div className="inline-block bg-navy-100 text-navy-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-slate-100 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Our Advantage
           </div>
-          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
             {t.whyChooseUs.title}
           </h2>
-          <p className="text-navy-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             {t.whyChooseUs.subtitle}
           </p>
         </div>
@@ -86,9 +86,9 @@ export default function WhyChooseUs() {
                 <p
                   className={`text-sm leading-relaxed ${
                     card.accent === "navy"
-                      ? "text-white/70"
+                      ? "text-white/80"
                       : card.accent === "gold"
-                        ? "text-navy-800"
+                        ? "text-white/90"
                         : "text-white/80"
                   }`}
                 >

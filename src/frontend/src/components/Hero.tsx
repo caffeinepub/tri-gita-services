@@ -25,12 +25,12 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/assets/generated/hero-odisha-solar.dim_1920x1080.png')",
+            "url('/assets/generated/sambalpur-solar-hero.dim_1400x700.jpg')",
         }}
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/90 via-navy-900/80 to-amber-900/60" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-800/75 to-amber-900/50" />
 
       {/* Decorative solar rays */}
       <div className="absolute top-0 right-0 w-96 h-96 opacity-10">
@@ -59,7 +59,7 @@ export default function Hero() {
         </div>
 
         {/* Subheadline */}
-        <p className="text-navy-200 text-lg sm:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
+        <p className="text-slate-200 text-lg sm:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
           {t.hero.subheadline}
         </p>
 
@@ -94,7 +94,7 @@ export default function Hero() {
               <div className="text-2xl font-extrabold text-white">
                 {stat.value}
               </div>
-              <div className="text-navy-300 text-xs font-medium">
+              <div className="text-slate-300 text-xs font-medium">
                 {stat.label}
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function Hero() {
         </div>
 
         {/* Parent Company Badge */}
-        <div className="mt-8 text-navy-400 text-sm">
+        <div className="mt-8 text-slate-400 text-sm">
           A unit of{" "}
           <span className="text-gold-400 font-semibold">
             BHAGYALAXMI CONSTRUCTION

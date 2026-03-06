@@ -4,7 +4,7 @@ import { SiWhatsapp } from "react-icons/si";
 import { useTranslation } from "../i18n/useTranslation";
 
 const WHATSAPP_PRIMARY = "917838867880";
-const WHATSAPP_BALASORE = "917788951091";
+const WHATSAPP_BALASORE = "918249286318";
 
 export default function BranchesSection() {
   const t = useTranslation();
@@ -25,7 +25,7 @@ export default function BranchesSection() {
       name: t.branches.branch2Name,
       location: t.branches.branch2Location,
       phone: t.branches.branch2Phone,
-      rawPhone: "917788951091",
+      rawPhone: "918249286318",
       whatsapp: WHATSAPP_BALASORE,
       label: t.branches.branch2Label,
       accent: "border-teal-500",
@@ -35,18 +35,18 @@ export default function BranchesSection() {
   ];
 
   return (
-    <section id="branches" className="py-16 bg-navy-900">
+    <section id="branches" className="py-16 bg-[oklch(0.97_0.02_80)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-500/40 text-teal-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-teal-500/15 border border-teal-500/30 text-teal-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Building2 className="w-4 h-4" />
             {t.branches.parentCompany}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 mb-3">
             {t.branches.title}
           </h2>
-          <p className="text-navy-300 text-lg">{t.branches.subtitle}</p>
+          <p className="text-slate-500 text-lg">{t.branches.subtitle}</p>
         </div>
 
         {/* Branch Cards */}
@@ -54,7 +54,7 @@ export default function BranchesSection() {
           {branches.map((branch) => (
             <div
               key={branch.name}
-              className={`bg-navy-800 border-2 ${branch.accent} rounded-3xl p-8 flex flex-col gap-5 hover:shadow-lg transition-shadow`}
+              className={`bg-white border-2 ${branch.accent} rounded-3xl p-8 flex flex-col gap-5 hover:shadow-md transition-shadow`}
             >
               {/* Label Badge */}
               <div className="flex items-start justify-between">
@@ -67,7 +67,7 @@ export default function BranchesSection() {
 
               {/* Branch Name */}
               <div>
-                <h3 className="text-white font-extrabold text-xl tracking-wide mb-1">
+                <h3 className="text-slate-800 font-extrabold text-xl tracking-wide mb-1">
                   {branch.name}
                 </h3>
               </div>
@@ -77,7 +77,7 @@ export default function BranchesSection() {
                 <MapPin
                   className={`w-5 h-5 flex-shrink-0 mt-0.5 ${branch.iconColor}`}
                 />
-                <span className="text-navy-200 text-sm leading-relaxed">
+                <span className="text-slate-600 text-sm leading-relaxed">
                   {branch.location}
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function BranchesSection() {
                 />
                 <a
                   href={`tel:+${branch.rawPhone}`}
-                  className="text-white font-semibold text-base hover:text-gold-400 transition-colors"
+                  className="text-slate-700 font-semibold text-base hover:text-amber-600 transition-colors"
                 >
                   {branch.phone}
                 </a>
@@ -99,7 +99,7 @@ export default function BranchesSection() {
               <div className="flex gap-3 mt-auto pt-2">
                 <a
                   href={`tel:+${branch.rawPhone}`}
-                  className="flex-1 flex items-center justify-center gap-2 bg-navy-700 hover:bg-navy-600 text-white px-4 py-2.5 rounded-full text-sm font-semibold transition-colors border border-navy-600"
+                  className="flex-1 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors border border-slate-300"
                 >
                   <Phone className="w-4 h-4" />
                   {t.branches.callNow}

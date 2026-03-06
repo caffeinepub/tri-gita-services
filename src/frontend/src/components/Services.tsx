@@ -38,16 +38,16 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="bg-navy-50 py-20">
+    <section id="services" className="bg-[oklch(0.97_0.02_80)] py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <div className="inline-block bg-navy-100 text-navy-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-slate-100 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             What We Offer
           </div>
-          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
             {t.services.title}
           </h2>
-          <p className="text-navy-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             {t.services.subtitle}
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-2xl overflow-hidden shadow-card border border-navy-100 hover:shadow-navy transition-shadow"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
@@ -86,7 +86,7 @@ export default function Services() {
                             : "text-gold-500"
                         }`}
                       />
-                      <span className="text-navy-700 text-sm">{feature}</span>
+                      <span className="text-slate-600 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -96,7 +96,7 @@ export default function Services() {
                   className={`w-full flex items-center justify-center gap-2 font-semibold text-sm py-3 rounded-xl transition-colors ${
                     service.accent === "teal"
                       ? "bg-teal-500 hover:bg-teal-600 text-white"
-                      : "bg-gold-500 hover:bg-gold-600 text-navy-900"
+                      : "bg-amber-500 hover:bg-amber-600 text-white"
                   }`}
                 >
                   {t.services.cta}

@@ -105,19 +105,19 @@ export default function InquiryForm() {
   ];
 
   const inputClass = (error?: string) =>
-    `w-full bg-navy-800 border ${error ? "border-red-400" : "border-navy-700"} text-white placeholder-white/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold-400 transition-colors`;
+    `w-full bg-white border ${error ? "border-red-400" : "border-slate-300"} text-slate-800 placeholder-slate-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-400 transition-colors`;
 
   return (
-    <section id="inquiry" className="bg-navy-900 py-20">
+    <section id="inquiry" className="bg-[oklch(0.97_0.02_80)] py-20">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-block bg-gold-500/20 text-gold-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-amber-500/15 text-amber-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Free Quote
           </div>
-          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
             {t.inquiryForm.title}
           </h2>
-          <p className="text-white/60 text-lg">{t.inquiryForm.subtitle}</p>
+          <p className="text-slate-500 text-lg">{t.inquiryForm.subtitle}</p>
         </div>
 
         {submitted && (
@@ -199,7 +199,7 @@ export default function InquiryForm() {
                 {t.inquiryForm.systemSizeDefault}
               </option>
               {systemSizes.map((s) => (
-                <option key={s.value} value={s.value} className="bg-navy-800">
+                <option key={s.value} value={s.value} className="bg-white">
                   {s.label}
                 </option>
               ))}
@@ -222,7 +222,7 @@ export default function InquiryForm() {
           <button
             type="submit"
             disabled={submitLead.isPending}
-            className="w-full flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 disabled:opacity-60 text-navy-900 font-bold text-base py-4 rounded-xl transition-colors shadow-gold"
+            className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-white font-bold text-base py-4 rounded-xl transition-colors shadow-sm"
           >
             {submitLead.isPending ? (
               <>
