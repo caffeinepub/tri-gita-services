@@ -9,15 +9,15 @@ const accentMap: Record<
   { bg: string; icon: string; border: string; title: string }
 > = {
   navy: {
-    bg: "bg-slate-700",
-    icon: "text-amber-400",
-    border: "border-slate-600",
-    title: "text-amber-400",
+    bg: "bg-teal-800",
+    icon: "text-teal-300",
+    border: "border-teal-700",
+    title: "text-teal-300",
   },
   gold: {
-    bg: "bg-amber-500",
+    bg: "bg-teal-600",
     icon: "text-white",
-    border: "border-amber-400",
+    border: "border-teal-500",
     title: "text-white",
   },
   teal: {
@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
     <section id="why-us" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <div className="inline-block bg-slate-100 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-gray-100 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Our Advantage
           </div>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">

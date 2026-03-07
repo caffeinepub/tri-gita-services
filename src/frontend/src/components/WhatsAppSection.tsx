@@ -9,9 +9,9 @@ export default function WhatsAppSection() {
   const t = useTranslation();
 
   return (
-    <section id="whatsapp" className="py-16 bg-[oklch(0.95_0.03_220)]">
+    <section id="whatsapp" className="py-16 bg-gray-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white border border-green-200 rounded-3xl p-10 shadow-sm">
+        <div className="bg-white border border-teal-200 rounded-3xl p-10 shadow-sm">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <SiWhatsapp className="w-8 h-8 text-green-600" />
           </div>
@@ -21,7 +21,7 @@ export default function WhatsAppSection() {
           <p className="text-slate-500 text-lg mb-4">
             {t.whatsappSection.subtitle}
           </p>
-          <div className="text-amber-600 font-bold text-2xl mb-6">
+          <div className="text-teal-700 font-bold text-2xl mb-6">
             {t.whatsappSection.phone}
           </div>
           <a

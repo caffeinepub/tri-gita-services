@@ -52,15 +52,11 @@ export default function OdishaGuide() {
   }, []);
 
   return (
-    <section
-      id="subsidy"
-      className="py-16 bg-[oklch(0.95_0.03_220)]"
-      ref={sectionRef}
-    >
+    <section id="subsidy" className="py-16 bg-gray-50" ref={sectionRef}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-400/30 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-teal-100 border border-teal-300 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <IndianRupee className="w-4 h-4" />
             Odisha PM Surya Ghar
           </div>
@@ -79,44 +75,44 @@ export default function OdishaGuide() {
                 visible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
-              } ${tier.maxCap ? "border-amber-500 shadow-md" : "border-slate-200"}`}
+              } ${tier.maxCap ? "border-teal-600 shadow-md" : "border-gray-200"}`}
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
               {tier.maxCap && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
                   {t.odishaGuide.maxCap}
                 </div>
               )}
 
               {/* kW Label */}
               <div className="text-center">
-                <div className="inline-flex items-center gap-1 bg-slate-100 border border-slate-300 text-slate-700 font-bold text-xl px-4 py-2 rounded-full">
-                  <Zap className="w-5 h-5 text-gold-400" />
+                <div className="inline-flex items-center gap-1 bg-gray-100 border border-gray-300 text-slate-700 font-bold text-xl px-4 py-2 rounded-full">
+                  <Zap className="w-5 h-5 text-teal-500" />
                   {tier.kw}
                 </div>
               </div>
 
               {/* Subsidy Breakdown */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between bg-blue-500/10 border border-blue-500/30 rounded-xl px-4 py-2.5">
+                <div className="flex items-center justify-between bg-blue-50 border border-blue-200 rounded-xl px-4 py-2.5">
                   <span className="text-slate-600 text-sm font-medium">
                     {t.odishaGuide.centralSubsidy}
                   </span>
-                  <span className="text-blue-300 font-bold">
+                  <span className="text-blue-700 font-bold">
                     {tier.central}
                   </span>
                 </div>
-                <div className="flex items-center justify-between bg-teal-500/10 border border-teal-500/30 rounded-xl px-4 py-2.5">
+                <div className="flex items-center justify-between bg-teal-50 border border-teal-200 rounded-xl px-4 py-2.5">
                   <span className="text-slate-600 text-sm font-medium">
                     {t.odishaGuide.stateSubsidy}
                   </span>
-                  <span className="text-teal-300 font-bold">{tier.state}</span>
+                  <span className="text-teal-700 font-bold">{tier.state}</span>
                 </div>
-                <div className="flex items-center justify-between bg-gold-500/15 border border-gold-500/40 rounded-xl px-4 py-3">
+                <div className="flex items-center justify-between bg-teal-100 border border-teal-300 rounded-xl px-4 py-3">
                   <span className="text-slate-800 font-bold text-sm">
                     {t.odishaGuide.totalSubsidy}
                   </span>
-                  <span className="text-amber-600 font-extrabold text-lg">
+                  <span className="text-teal-800 font-extrabold text-lg">
                     {tier.total}
                   </span>
                 </div>
@@ -136,7 +132,7 @@ export default function OdishaGuide() {
               Subsidy is credited directly to your bank account within 30
               working days after the commissioning certificate is issued by
               DISCOM. Maximum subsidy cap is{" "}
-              <span className="text-amber-600 font-bold">₹1,38,000</span> for 3
+              <span className="text-teal-700 font-bold">₹1,38,000</span> for 3
               kW and above systems.
             </p>
           </div>

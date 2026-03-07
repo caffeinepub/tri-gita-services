@@ -113,15 +113,15 @@ export default function Testimonials() {
     <section
       className="relative py-20 overflow-hidden"
       style={{
-        background: "oklch(0.97 0.02 80)",
+        background: "oklch(0.97 0.01 195)",
       }}
     >
       {/* Subtle dot pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage:
-            "radial-gradient(circle, oklch(0.75 0.05 220 / 0.3) 1px, transparent 1px)",
+            "radial-gradient(circle, oklch(0.42 0.13 185 / 0.3) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
         aria-hidden="true"
@@ -148,7 +148,7 @@ export default function Testimonials() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             <Sun className="w-3.5 h-3.5" aria-hidden="true" />
             Customer Stories
           </div>

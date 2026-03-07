@@ -38,10 +38,10 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="bg-[oklch(0.97_0.02_80)] py-20">
+    <section id="services" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <div className="inline-block bg-slate-100 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-gray-100 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             What We Offer
           </div>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
@@ -93,11 +93,7 @@ export default function Services() {
                 <button
                   type="button"
                   onClick={handleInquiry}
-                  className={`w-full flex items-center justify-center gap-2 font-semibold text-sm py-3 rounded-xl transition-colors ${
-                    service.accent === "teal"
-                      ? "bg-teal-500 hover:bg-teal-600 text-white"
-                      : "bg-amber-500 hover:bg-amber-600 text-white"
-                  }`}
+                  className="w-full flex items-center justify-center gap-2 font-semibold text-sm py-3 rounded-xl transition-colors bg-teal-600 hover:bg-teal-700 text-white"
                 >
                   {t.services.cta}
                   <ArrowRight className="w-4 h-4" />

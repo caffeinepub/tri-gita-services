@@ -19,28 +19,28 @@
 @layer base {
   :root {
     /* Light Grey + Dark Teal palette */
-    --background: 0.96 0.005 200;
-    --foreground: 0.15 0.02 200;
-    --card: 0.99 0.002 200;
-    --card-foreground: 0.15 0.02 200;
-    --popover: 0.99 0.002 200;
-    --popover-foreground: 0.15 0.02 200;
-    --primary: 0.38 0.12 185;
-    --primary-foreground: 0.99 0.002 200;
-    --secondary: 0.72 0.18 68;
-    --secondary-foreground: 0.12 0.02 200;
-    --muted: 0.92 0.008 200;
-    --muted-foreground: 0.45 0.02 200;
-    --accent: 0.75 0.12 185;
-    --accent-foreground: 0.15 0.02 200;
+    --background: 0.97 0.003 195;
+    --foreground: 0.15 0.02 195;
+    --card: 0.99 0.001 195;
+    --card-foreground: 0.15 0.02 195;
+    --popover: 0.99 0.001 195;
+    --popover-foreground: 0.15 0.02 195;
+    --primary: 0.42 0.13 185;
+    --primary-foreground: 0.99 0.001 195;
+    --secondary: 0.93 0.01 195;
+    --secondary-foreground: 0.2 0.02 195;
+    --muted: 0.94 0.006 195;
+    --muted-foreground: 0.48 0.02 195;
+    --accent: 0.62 0.14 185;
+    --accent-foreground: 0.99 0.001 195;
     --destructive: 0.55 0.22 25;
-    --destructive-foreground: 0.99 0.002 200;
-    --border: 0.88 0.01 200;
-    --input: 0.92 0.008 200;
-    --ring: 0.38 0.12 185;
+    --destructive-foreground: 0.99 0.001 195;
+    --border: 0.9 0.008 195;
+    --input: 0.93 0.006 195;
+    --ring: 0.42 0.13 185;
     --radius: 0.5rem;
     --success: 0.6 0.18 160;
-    --warning: 0.72 0.18 68;
+    --warning: 0.72 0.15 68;
   }
 }
 

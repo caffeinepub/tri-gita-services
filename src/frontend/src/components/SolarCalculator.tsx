@@ -129,7 +129,7 @@ export default function SolarCalculator() {
     : "";
 
   return (
-    <section id="calculator" className="py-20 bg-white">
+    <section id="calculator" className="py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-10">
@@ -195,12 +195,12 @@ export default function SolarCalculator() {
                 </div>
                 <div className="text-xs text-green-700 mt-1">{t.subsidy}</div>
               </div>
-              <div className="bg-amber-50 rounded-2xl p-5 text-center border border-amber-300 shadow-sm ring-2 ring-amber-400/30">
-                <IndianRupee className="w-6 h-6 text-amber-600 mx-auto mb-1" />
-                <div className="text-2xl font-extrabold text-amber-600">
+              <div className="bg-teal-50 rounded-2xl p-5 text-center border border-teal-300 shadow-sm ring-2 ring-teal-400/30">
+                <IndianRupee className="w-6 h-6 text-teal-700 mx-auto mb-1" />
+                <div className="text-2xl font-extrabold text-teal-700">
                   {fmt(data.netCost)}
                 </div>
-                <div className="text-xs text-amber-700 mt-1 font-semibold">
+                <div className="text-xs text-teal-700 mt-1 font-semibold">
                   {t.netCost}
                 </div>
               </div>

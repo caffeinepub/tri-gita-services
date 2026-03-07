@@ -17,9 +17,9 @@ export default function BranchesSection() {
       rawPhone: "917838867880",
       whatsapp: WHATSAPP_PRIMARY,
       label: t.branches.branch1Label,
-      accent: "border-gold-500",
-      labelColor: "bg-gold-500 text-navy-900",
-      iconColor: "text-gold-400",
+      accent: "border-teal-600",
+      labelColor: "bg-teal-700 text-white",
+      iconColor: "text-teal-600",
     },
     {
       name: t.branches.branch2Name,
@@ -35,7 +35,7 @@ export default function BranchesSection() {
   ];
 
   return (
-    <section id="branches" className="py-16 bg-[oklch(0.97_0.02_80)]">
+    <section id="branches" className="py-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
@@ -89,7 +89,7 @@ export default function BranchesSection() {
                 />
                 <a
                   href={`tel:+${branch.rawPhone}`}
-                  className="text-slate-700 font-semibold text-base hover:text-amber-600 transition-colors"
+                  className="text-slate-700 font-semibold text-base hover:text-teal-600 transition-colors"
                 >
                   {branch.phone}
                 </a>

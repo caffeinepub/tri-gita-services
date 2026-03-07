@@ -27,7 +27,7 @@ export default function OfferBanner() {
     <section
       id="offer"
       data-ocid="offer_banner.section"
-      className="py-16 bg-gradient-to-br from-slate-100 via-[oklch(0.97_0.02_80)] to-slate-100 overflow-hidden"
+      className="py-16 bg-gradient-to-br from-gray-100 via-gray-50 to-white overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -38,13 +38,13 @@ export default function OfferBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/40 text-amber-700 px-5 py-2 rounded-full text-sm font-bold mb-4 uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-teal-100 border border-teal-300 text-teal-700 px-5 py-2 rounded-full text-sm font-bold mb-4 uppercase tracking-widest">
             <Sparkles className="w-4 h-4" />
             Limited Time Offer
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-800 mb-3">
             Special Offer –{" "}
-            <span className="text-amber-600">PM Surya Ghar Yojana</span>
+            <span className="text-teal-700">PM Surya Ghar Yojana</span>
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             Install a 3KW solar system and save massively with government
@@ -55,7 +55,7 @@ export default function OfferBanner() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Main 3KW Offer Card */}
-          <div className="bg-white border border-amber-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+          <div className="bg-white border border-teal-200 rounded-3xl p-6 sm:p-8 shadow-sm">
             <div className="flex flex-col gap-6">
               {/* Offer Image */}
               <motion.div
@@ -74,11 +74,11 @@ export default function OfferBanner() {
                 }}
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-amber-400/10 blur-2xl rounded-3xl scale-90" />
+                  <div className="absolute inset-0 bg-teal-400/10 blur-2xl rounded-3xl scale-90" />
                   <img
                     src="/assets/uploads/1772454579179-1.png"
                     alt="PM Surya Ghar Solar Offer"
-                    className="relative z-10 w-full max-w-xs rounded-2xl shadow-md border border-amber-200 object-cover"
+                    className="relative z-10 w-full max-w-xs rounded-2xl shadow-md border border-teal-200 object-cover"
                   />
                   <div className="absolute -top-3 -right-3 z-20 bg-green-500 text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-lg rotate-6">
                     HOT DEAL 🔥
@@ -135,17 +135,17 @@ export default function OfferBanner() {
                 {/* Provider Info */}
                 <motion.div
                   {...fadeUpProps(0.24)}
-                  className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-5 text-sm text-slate-600"
+                  className="bg-teal-50 border border-teal-200 rounded-2xl p-4 mb-5 text-sm text-slate-600"
                 >
-                  <span className="text-amber-700 font-bold">
+                  <span className="text-teal-700 font-bold">
                     Service Provider:
                   </span>{" "}
                   TRI-GITA SERVICES{" "}
                   <span className="text-slate-300 mx-1">|</span>
-                  <span className="text-amber-700 font-bold">Contact:</span>{" "}
+                  <span className="text-teal-700 font-bold">Contact:</span>{" "}
                   <a
                     href="tel:+917838867880"
-                    className="text-slate-700 hover:text-amber-700 transition-colors font-medium"
+                    className="text-slate-700 hover:text-teal-700 transition-colors font-medium"
                   >
                     7838867880
                   </a>

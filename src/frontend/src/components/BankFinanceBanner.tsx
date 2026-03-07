@@ -39,8 +39,8 @@ export default function BankFinanceBanner() {
       value: t.bankFinance.stat2Value,
       label: t.bankFinance.stat2Label,
       icon: CheckCircle,
-      color: "text-gold-400",
-      bg: "bg-gold-500/10 border-gold-500/30",
+      color: "text-teal-600",
+      bg: "bg-teal-50 border-teal-200",
     },
     {
       value: t.bankFinance.stat3Value,
@@ -63,8 +63,8 @@ export default function BankFinanceBanner() {
       icon: Percent,
       title: t.bankFinance.interestRate,
       desc: t.bankFinance.interestRateLabel,
-      color: "text-gold-400",
-      bg: "bg-gold-500/10 border-gold-500/20",
+      color: "text-teal-700",
+      bg: "bg-teal-50 border-teal-200",
     },
     {
       icon: University,
@@ -76,12 +76,12 @@ export default function BankFinanceBanner() {
   ];
 
   return (
-    <section id="finance" className="py-16 bg-[oklch(0.95_0.03_220)]">
+    <section id="finance" className="py-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-amber-200 rounded-3xl p-8 sm:p-12 shadow-sm">
+        <div className="bg-white border border-teal-200 rounded-3xl p-8 sm:p-12 shadow-sm">
           {/* Header */}
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-400/40 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 bg-teal-100 border border-teal-300 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
               <Banknote className="w-4 h-4" />
               Easy Finance
             </div>
@@ -127,7 +127,7 @@ export default function BankFinanceBanner() {
             </div>
             <div className="text-slate-400 text-2xl font-bold">+</div>
             <div className="text-center">
-              <div className="text-3xl font-extrabold text-amber-600">10%</div>
+              <div className="text-3xl font-extrabold text-teal-700">10%</div>
               <div className="text-slate-500 text-sm">You Pay</div>
             </div>
             <div className="text-slate-400 text-2xl font-bold">=</div>

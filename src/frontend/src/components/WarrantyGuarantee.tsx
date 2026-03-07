@@ -15,15 +15,15 @@ const accentMap: Record<
   }
 > = {
   navy: {
-    bg: "bg-slate-700",
-    border: "border-slate-600",
-    yearColor: "text-amber-400",
-    iconBg: "bg-amber-400/20",
-    iconColor: "text-amber-400",
+    bg: "bg-teal-800",
+    border: "border-teal-700",
+    yearColor: "text-teal-300",
+    iconBg: "bg-teal-300/20",
+    iconColor: "text-teal-300",
   },
   gold: {
-    bg: "bg-amber-500",
-    border: "border-amber-400",
+    bg: "bg-teal-600",
+    border: "border-teal-500",
     yearColor: "text-white",
     iconBg: "bg-white/20",
     iconColor: "text-white",
@@ -65,10 +65,10 @@ export default function WarrantyGuarantee() {
   ];
 
   return (
-    <section className="bg-[oklch(0.95_0.03_220)] py-20">
+    <section className="bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <div className="inline-block bg-slate-200 text-slate-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Peace of Mind
           </div>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">

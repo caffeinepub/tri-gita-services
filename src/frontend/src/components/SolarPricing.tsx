@@ -40,7 +40,7 @@ export default function SolarPricing() {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-[oklch(0.96_0.025_220)]">
+    <section id="pricing" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -64,12 +64,12 @@ export default function SolarPricing() {
               data-ocid={`pricing.${plan.kw.replace(" ", "").toLowerCase()}.card`}
               className={`relative rounded-2xl overflow-hidden border transition-all hover:-translate-y-1 hover:shadow-lg ${
                 plan.highlighted
-                  ? "border-amber-400 shadow-md bg-gradient-to-br from-amber-50 to-orange-50"
-                  : "border-slate-200 bg-white shadow-sm"
+                  ? "border-teal-500 shadow-md bg-gradient-to-br from-teal-50 to-gray-50"
+                  : "border-gray-200 bg-white shadow-sm"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute top-0 inset-x-0 bg-amber-500 text-white text-xs font-bold text-center py-1.5 tracking-wider uppercase">
+                <div className="absolute top-0 inset-x-0 bg-teal-600 text-white text-xs font-bold text-center py-1.5 tracking-wider uppercase">
                   {t.pricing.mostPopular}
                 </div>
               )}
@@ -81,8 +81,8 @@ export default function SolarPricing() {
                       plan.accent === "teal"
                         ? "text-teal-500"
                         : plan.accent === "gold"
-                          ? "text-amber-500"
-                          : "text-slate-600"
+                          ? "text-teal-600"
+                          : "text-teal-700"
                     }`}
                   />
                   <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
@@ -94,12 +94,12 @@ export default function SolarPricing() {
                 <div className="flex items-end gap-1 mb-2">
                   <BadgeIndianRupee
                     className={`w-6 h-6 mb-1 ${
-                      plan.highlighted ? "text-amber-500" : "text-teal-600"
+                      plan.highlighted ? "text-teal-600" : "text-teal-600"
                     }`}
                   />
                   <span
                     className={`text-4xl font-extrabold ${
-                      plan.highlighted ? "text-amber-600" : "text-slate-800"
+                      plan.highlighted ? "text-teal-700" : "text-slate-800"
                     }`}
                   >
                     {plan.price}
@@ -112,11 +112,7 @@ export default function SolarPricing() {
                 <ul className="space-y-2.5 mb-6">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle
-                        className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                          plan.highlighted ? "text-amber-500" : "text-teal-500"
-                        }`}
-                      />
+                      <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-teal-500" />
                       <span className="text-slate-600 text-sm">{f}</span>
                     </li>
                   ))}
@@ -128,11 +124,7 @@ export default function SolarPricing() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-ocid={`pricing.${plan.kw.replace(" ", "").toLowerCase()}.button`}
-                  className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${
-                    plan.highlighted
-                      ? "bg-green-500 hover:bg-green-400 text-white"
-                      : "bg-green-50 hover:bg-green-100 text-green-700 border border-green-300"
-                  }`}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm transition-all hover:-translate-y-0.5 hover:shadow-md bg-green-600 hover:bg-green-500 text-white"
                 >
                   <SiWhatsapp className="w-4 h-4" />
                   {t.pricing.inquireWhatsApp}

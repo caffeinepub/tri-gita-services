@@ -50,8 +50,8 @@ export default function Hero() {
         </div>
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/40 text-gold-300 px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
-          <Sun className="w-4 h-4 text-gold-400" />
+        <div className="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-400/40 text-teal-200 px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+          <Sun className="w-4 h-4 text-teal-300" />
           {t.hero.badge}
         </div>
 
@@ -61,7 +61,7 @@ export default function Hero() {
         </h1>
 
         {/* Company Name */}
-        <div className="text-gold-400 text-xl sm:text-2xl font-bold mb-4 tracking-wide">
+        <div className="text-teal-300 text-xl sm:text-2xl font-bold mb-4 tracking-wide">
           TRI-GITA SERVICES
         </div>
 
@@ -74,7 +74,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <a
             href="#inquiry"
-            className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-8 py-4 rounded-full text-lg transition-all shadow-gold hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-bold px-8 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:-translate-y-0.5"
           >
             {t.hero.ctaPrimary}
             <ArrowRight className="w-5 h-5" />
@@ -97,7 +97,7 @@ export default function Hero() {
               key={stat.label}
               className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center"
             >
-              <stat.icon className="w-6 h-6 text-gold-400 mx-auto mb-1" />
+              <stat.icon className="w-6 h-6 text-teal-300 mx-auto mb-1" />
               <div className="text-2xl font-extrabold text-white">
                 {stat.value}
               </div>
@@ -111,7 +111,7 @@ export default function Hero() {
         {/* Parent Company Badge */}
         <div className="mt-8 text-slate-400 text-sm">
           A unit of{" "}
-          <span className="text-gold-400 font-semibold">
+          <span className="text-teal-300 font-semibold">
             BHAGYALAXMI CONSTRUCTION
           </span>
         </div>

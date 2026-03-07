@@ -168,31 +168,31 @@ export default function SchemeInfo() {
       icon: BadgeCheck,
       title: t.schemeInfo.whyChoose1Title,
       desc: t.schemeInfo.whyChoose1Desc,
-      color: "text-gold-400",
-      bg: "bg-gold-500/20",
+      color: "text-teal-700",
+      bg: "bg-teal-100",
     },
     {
       icon: Zap,
       title: t.schemeInfo.whyChoose2Title,
       desc: t.schemeInfo.whyChoose2Desc,
-      color: "text-teal-400",
-      bg: "bg-teal-400/20",
+      color: "text-teal-500",
+      bg: "bg-teal-50",
     },
     {
       icon: HeartHandshake,
       title: t.schemeInfo.whyChoose3Title,
       desc: t.schemeInfo.whyChoose3Desc,
-      color: "text-gold-400",
-      bg: "bg-gold-500/20",
+      color: "text-teal-700",
+      bg: "bg-teal-100",
     },
   ];
 
   return (
-    <section id="scheme" className="bg-[oklch(0.97_0.02_80)] py-20">
+    <section id="scheme" className="bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-block bg-amber-500/15 text-amber-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Government Scheme
           </div>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
@@ -206,8 +206,8 @@ export default function SchemeInfo() {
         {/* Benefits & Eligibility */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Benefits */}
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-            <h3 className="font-playfair text-xl font-bold text-amber-600 mb-6">
+          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <h3 className="font-playfair text-xl font-bold text-teal-700 mb-6">
               {t.schemeInfo.benefitsTitle}
             </h3>
             <ul className="space-y-3">
@@ -221,14 +221,14 @@ export default function SchemeInfo() {
           </div>
 
           {/* Eligibility */}
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-            <h3 className="font-playfair text-xl font-bold text-amber-600 mb-6">
+          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <h3 className="font-playfair text-xl font-bold text-teal-700 mb-6">
               {t.schemeInfo.eligibilityTitle}
             </h3>
             <ul className="space-y-3">
               {eligibility.map((e) => (
                 <li key={e} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-600 text-sm">{e}</span>
                 </li>
               ))}
@@ -245,14 +245,14 @@ export default function SchemeInfo() {
             {steps.map((step, i) => (
               <div key={step.num} className="relative">
                 {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-amber-300 z-0" />
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-teal-200 z-0" />
                 )}
-                <div className="bg-white border border-slate-200 rounded-2xl p-6 text-center relative z-10 shadow-sm">
-                  <div className="text-amber-300 font-playfair font-bold text-4xl mb-3">
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center relative z-10 shadow-sm">
+                  <div className="text-teal-300 font-playfair font-bold text-4xl mb-3">
                     {step.num}
                   </div>
-                  <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-6 h-6 text-amber-600" />
+                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-6 h-6 text-teal-600" />
                   </div>
                   <h4 className="text-slate-800 font-semibold mb-2">
                     {step.title}
@@ -267,7 +267,7 @@ export default function SchemeInfo() {
         {/* ── PHASE 1 ── */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-lg">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-700 flex items-center justify-center text-white font-bold text-lg">
               1
             </div>
             <h3 className="font-playfair text-2xl font-bold text-slate-800">
@@ -278,10 +278,10 @@ export default function SchemeInfo() {
             {phase1Steps.map((step) => (
               <div
                 key={step.title}
-                className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm"
+                className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm"
               >
-                <div className="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center mb-4">
-                  <step.icon className="w-5 h-5 text-amber-600" />
+                <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center mb-4">
+                  <step.icon className="w-5 h-5 text-teal-600" />
                 </div>
                 <h4 className="text-slate-800 font-semibold text-sm mb-2">
                   {step.title}
@@ -292,14 +292,14 @@ export default function SchemeInfo() {
               </div>
             ))}
           </div>
-          <div className="mt-4 flex items-center gap-2 bg-white border border-amber-200 rounded-xl px-5 py-3 shadow-sm">
-            <Globe className="w-4 h-4 text-amber-600 flex-shrink-0" />
+          <div className="mt-4 flex items-center gap-2 bg-white border border-teal-200 rounded-xl px-5 py-3 shadow-sm">
+            <Globe className="w-4 h-4 text-teal-600 flex-shrink-0" />
             <span className="text-slate-600 text-sm">Official Portal:</span>
             <a
               href="https://pmsuryaghar.gov.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-600 font-semibold text-sm hover:text-amber-700 flex items-center gap-1 transition-colors"
+              className="text-teal-600 font-semibold text-sm hover:text-teal-700 flex items-center gap-1 transition-colors"
             >
               pmsuryaghar.gov.in
               <ExternalLink className="w-3 h-3" />
@@ -315,7 +315,7 @@ export default function SchemeInfo() {
             </div>
             <h3 className="font-playfair text-2xl font-bold text-slate-800">
               Phase 2 – Selecting{" "}
-              <span className="text-amber-600">{VENDOR_NAME}</span>
+              <span className="text-teal-700">{VENDOR_NAME}</span>
             </h3>
           </div>
           <p className="text-slate-500 text-sm mb-6">
@@ -326,9 +326,9 @@ export default function SchemeInfo() {
             {phase2Steps.map((step, i) => (
               <div
                 key={step.title}
-                className="bg-white border border-slate-200 rounded-2xl p-5 relative shadow-sm"
+                className="bg-white border border-gray-200 rounded-2xl p-5 relative shadow-sm"
               >
-                <div className="absolute top-4 right-4 text-teal-300 font-playfair font-bold text-3xl">
+                <div className="absolute top-4 right-4 text-teal-200 font-playfair font-bold text-3xl">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center mb-4">
@@ -343,15 +343,13 @@ export default function SchemeInfo() {
               </div>
             ))}
           </div>
-          <div className="mt-5 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 flex items-start gap-3">
-            <BadgeCheck className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+          <div className="mt-5 bg-teal-50 border border-teal-200 rounded-xl px-5 py-4 flex items-start gap-3">
+            <BadgeCheck className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
             <p className="text-slate-700 text-sm">
-              <span className="text-amber-700 font-bold">{VENDOR_NAME}</span> is
+              <span className="text-teal-700 font-bold">{VENDOR_NAME}</span> is
               officially registered on the PM Surya Ghar portal for Odisha.
               Search for{" "}
-              <span className="text-amber-700 font-semibold">
-                {VENDOR_NAME}
-              </span>{" "}
+              <span className="text-teal-700 font-semibold">{VENDOR_NAME}</span>{" "}
               to find and select us quickly.
             </p>
           </div>
@@ -360,7 +358,7 @@ export default function SchemeInfo() {
         {/* ── PHASE 3 ── */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-lg">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-700 flex items-center justify-center text-white font-bold text-lg">
               3
             </div>
             <h3 className="font-playfair text-2xl font-bold text-slate-800">
@@ -371,10 +369,10 @@ export default function SchemeInfo() {
             {phase3Steps.map((step) => (
               <div
                 key={step.title}
-                className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm"
+                className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm"
               >
-                <div className="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center mb-4">
-                  <step.icon className="w-5 h-5 text-amber-600" />
+                <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center mb-4">
+                  <step.icon className="w-5 h-5 text-teal-600" />
                 </div>
                 <h4 className="text-slate-800 font-semibold text-sm mb-2">
                   {step.title}
@@ -423,7 +421,7 @@ export default function SchemeInfo() {
             {phase4Steps.map((step) => (
               <div
                 key={step.title}
-                className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm"
+                className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm"
               >
                 <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center mb-4">
                   <step.icon className="w-5 h-5 text-teal-500" />
@@ -438,16 +436,16 @@ export default function SchemeInfo() {
             ))}
           </div>
           {/* Subsidy highlight */}
-          <div className="bg-gradient-to-r from-amber-50 to-teal-50 border border-amber-200 rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center gap-4">
+          <div className="bg-gradient-to-r from-teal-50 to-gray-50 border border-teal-200 rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center gap-4">
             <div className="text-center sm:text-left">
-              <div className="text-amber-600 font-playfair font-bold text-3xl">
+              <div className="text-teal-700 font-playfair font-bold text-3xl">
                 ₹1,38,000
               </div>
               <div className="text-slate-500 text-xs mt-1">
                 Maximum Subsidy Amount
               </div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-slate-200" />
+            <div className="hidden sm:block w-px h-12 bg-gray-200" />
             <p className="text-slate-600 text-sm text-center sm:text-left">
               Central subsidy (₹78,000) + Odisha State subsidy (₹60,000)
               credited directly to your bank account after commissioning.
@@ -456,7 +454,7 @@ export default function SchemeInfo() {
         </div>
 
         {/* ── WHY CHOOSE ── */}
-        <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+        <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
           <h3 className="font-playfair text-2xl font-bold text-slate-800 text-center mb-8">
             {t.schemeInfo.whyChooseTitle}
           </h3>
@@ -486,7 +484,7 @@ export default function SchemeInfo() {
                 href="https://pmsuryaghar.gov.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 font-semibold text-sm px-6 py-3 rounded-full transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 text-slate-700 font-semibold text-sm px-6 py-3 rounded-full transition-colors"
               >
                 <Globe className="w-4 h-4" />
                 {t.schemeInfo.officialWebsiteLabel}: {t.schemeInfo.portalUrl}
@@ -499,7 +497,7 @@ export default function SchemeInfo() {
                     .querySelector("#inquiry")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-bold text-sm px-6 py-3 rounded-full transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-bold text-sm px-6 py-3 rounded-full transition-colors"
               >
                 Get Free Consultation
                 <ArrowRight className="w-4 h-4" />

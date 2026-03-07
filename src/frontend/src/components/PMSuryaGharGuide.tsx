@@ -11,16 +11,16 @@ import { useTranslation } from "../i18n/useTranslation";
 
 const PHASE_ICONS = ["📋", "🏢", "🔧", "💰"];
 const PHASE_COLORS = [
-  "border-blue-500 bg-blue-500/10",
-  "border-gold-500 bg-gold-500/10",
-  "border-teal-500 bg-teal-500/10",
-  "border-green-500 bg-green-500/10",
+  "border-blue-400 bg-blue-50",
+  "border-teal-500 bg-teal-50",
+  "border-teal-600 bg-teal-50",
+  "border-green-500 bg-green-50",
 ];
 const PHASE_NUMBER_COLORS = [
   "bg-blue-500 text-white",
-  "bg-gold-500 text-navy-900",
-  "bg-teal-500 text-white",
-  "bg-green-500 text-white",
+  "bg-teal-600 text-white",
+  "bg-teal-700 text-white",
+  "bg-green-600 text-white",
 ];
 
 export default function PMSuryaGharGuide() {
@@ -41,11 +41,11 @@ export default function PMSuryaGharGuide() {
   ];
 
   return (
-    <section id="pm-guide" className="py-16 bg-[oklch(0.97_0.02_80)]">
+    <section id="pm-guide" className="py-16 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-400/30 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-teal-100 border border-teal-300 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="w-4 h-4" />
             PM Surya Ghar Muft Bijli Yojana
           </div>
@@ -112,7 +112,7 @@ export default function PMSuryaGharGuide() {
         </div>
 
         {/* Why Choose Bhagyalaxmi */}
-        <div className="bg-white border border-amber-200 rounded-3xl p-8 mb-10 shadow-sm">
+        <div className="bg-white border border-teal-200 rounded-3xl p-8 mb-10 shadow-sm">
           <h3 className="text-2xl font-bold text-slate-800 text-center mb-6">
             {t.pmGuide.whyTitle}
           </h3>
@@ -120,10 +120,10 @@ export default function PMSuryaGharGuide() {
             {whyCards.map((card) => (
               <div
                 key={card.title}
-                className="bg-slate-50 rounded-2xl p-5 text-center border border-slate-200 hover:border-amber-300 transition-colors"
+                className="bg-gray-50 rounded-2xl p-5 text-center border border-gray-200 hover:border-teal-300 transition-colors"
               >
                 <div className="text-4xl mb-3">{card.icon}</div>
-                <h4 className="text-amber-600 font-bold text-base mb-2">
+                <h4 className="text-teal-700 font-bold text-base mb-2">
                   {card.title}
                 </h4>
                 <p className="text-slate-500 text-sm leading-relaxed">
@@ -152,16 +152,16 @@ export default function PMSuryaGharGuide() {
               </a>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-10 bg-slate-200" />
+          <div className="hidden sm:block w-px h-10 bg-gray-200" />
           <div className="flex items-center gap-3">
-            <Phone className="w-5 h-5 text-amber-600" />
+            <Phone className="w-5 h-5 text-teal-600" />
             <div>
               <div className="text-slate-400 text-xs font-medium uppercase tracking-wider">
                 {t.pmGuide.helplineLabel}
               </div>
               <a
                 href="tel:15555"
-                className="text-amber-600 font-bold text-xl hover:text-amber-700 transition-colors"
+                className="text-teal-700 font-bold text-xl hover:text-teal-800 transition-colors"
               >
                 {t.pmGuide.helplineNumber}
               </a>

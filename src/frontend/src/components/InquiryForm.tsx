@@ -105,13 +105,13 @@ export default function InquiryForm() {
   ];
 
   const inputClass = (error?: string) =>
-    `w-full bg-white border ${error ? "border-red-400" : "border-slate-300"} text-slate-800 placeholder-slate-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-400 transition-colors`;
+    `w-full bg-white border ${error ? "border-red-400" : "border-gray-300"} text-slate-800 placeholder-slate-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 transition-colors`;
 
   return (
-    <section id="inquiry" className="bg-[oklch(0.97_0.02_80)] py-20">
+    <section id="inquiry" className="bg-gray-50 py-20">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-block bg-amber-500/15 text-amber-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+          <div className="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Free Quote
           </div>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
@@ -121,7 +121,7 @@ export default function InquiryForm() {
         </div>
 
         {submitted && (
-          <div className="flex items-center gap-3 bg-teal-500/20 border border-teal-400/40 text-teal-300 rounded-xl px-4 py-3 mb-6">
+          <div className="flex items-center gap-3 bg-teal-50 border border-teal-300 text-teal-700 rounded-xl px-4 py-3 mb-6">
             <CheckCircle className="w-5 h-5 flex-shrink-0" />
             <span className="text-sm">{t.inquiryForm.successMsg}</span>
           </div>
@@ -222,7 +222,7 @@ export default function InquiryForm() {
           <button
             type="submit"
             disabled={submitLead.isPending}
-            className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-white font-bold text-base py-4 rounded-xl transition-colors shadow-sm"
+            className="w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white font-bold text-base py-4 rounded-xl transition-colors shadow-sm"
           >
             {submitLead.isPending ? (
               <>

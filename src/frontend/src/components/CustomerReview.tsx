@@ -199,7 +199,7 @@ export default function CustomerReview() {
       id="customer-review"
       data-ocid="customer_review.section"
       className="relative py-20 overflow-hidden"
-      style={{ background: "oklch(0.94 0.01 185)" }}
+      style={{ background: "oklch(0.97 0.01 195)" }}
     >
       {/* Background pattern */}
       <div
@@ -217,7 +217,7 @@ export default function CustomerReview() {
         className="absolute -top-20 -right-20 w-96 h-96 rounded-full pointer-events-none opacity-15"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.72 0.18 68 / 0.5) 0%, transparent 70%)",
+            "radial-gradient(circle, oklch(0.42 0.13 185 / 0.4) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
