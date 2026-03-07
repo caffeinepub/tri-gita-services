@@ -38,14 +38,6 @@ export default function Hero() {
       {/* Dark navy blue tint layer */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-transparent to-[#0d1f3c]/40" />
 
-      {/* Decorative solar rays */}
-      <div className="absolute top-0 right-0 w-96 h-96 opacity-20">
-        <div className="w-full h-full rounded-full bg-[#1a3a6b] blur-3xl" />
-      </div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20">
-        <div className="w-full h-full rounded-full bg-[#0d2550] blur-3xl" />
-      </div>
-
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         {/* Logo */}
