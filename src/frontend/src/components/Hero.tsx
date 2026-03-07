@@ -25,25 +25,25 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/assets/generated/sambalpur-solar-hero.dim_1600x900.jpg')",
+            "url('/assets/generated/odisha-solar-map-hero.dim_1920x1080.jpg')",
           backgroundPosition: "center center",
           imageRendering: "auto",
           filter: "contrast(1.05) saturate(1.1) brightness(1.0)",
         }}
       />
 
-      {/* Gradient Overlay - deep blue and teal tone */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 via-teal-900/30 to-blue-950/60" />
+      {/* Gradient Overlay - dark navy blue tone */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/70 via-[#0d1f3c]/50 to-[#071020]/75" />
 
-      {/* Left-to-right teal tint layer for full immersive deep blue/teal effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-teal-800/20" />
+      {/* Dark navy blue tint layer */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-transparent to-[#0d1f3c]/40" />
 
       {/* Decorative solar rays */}
       <div className="absolute top-0 right-0 w-96 h-96 opacity-20">
-        <div className="w-full h-full rounded-full bg-blue-600 blur-3xl" />
+        <div className="w-full h-full rounded-full bg-[#1a3a6b] blur-3xl" />
       </div>
       <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20">
-        <div className="w-full h-full rounded-full bg-teal-500 blur-3xl" />
+        <div className="w-full h-full rounded-full bg-[#0d2550] blur-3xl" />
       </div>
 
       {/* Content */}

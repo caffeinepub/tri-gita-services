@@ -128,7 +128,15 @@ export default function CustomerReview() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [reviews, setReviews] = useState<Review[]>([]);
+  const [reviews, setReviews] = useState<Review[]>([
+    {
+      name: "Arman Bhardwaj",
+      location: "Sambalpur",
+      rating: 5,
+      text: "It was really a great experience. They were very friendly and helpful. Within a single day installed 3KW solar system at our home. I am very happy with their service, recommend everyone to avail the service.",
+      date: "6 Mar 2026",
+    },
+  ]);
 
   function validate() {
     const newErrors: Record<string, string> = {};
