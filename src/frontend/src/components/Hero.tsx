@@ -24,8 +24,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('/assets/generated/odisha-solar-map-hero.dim_1920x1080.jpg')",
+          backgroundImage: "url('/assets/uploads/20260312_211514-1.jpg')",
           backgroundPosition: "center center",
           imageRendering: "auto",
           filter: "contrast(1.05) saturate(1.1) brightness(1.0)",
@@ -33,10 +32,10 @@ export default function Hero() {
       />
 
       {/* Gradient Overlay - dark navy blue tone */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/70 via-[#0d1f3c]/50 to-[#071020]/75" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/60 via-[#0d1f3c]/40 to-[#071020]/70" />
 
       {/* Dark navy blue tint layer */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-transparent to-[#0d1f3c]/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/30 via-transparent to-[#0d1f3c]/30" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
